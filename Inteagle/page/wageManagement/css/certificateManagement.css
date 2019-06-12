@@ -1,0 +1,39 @@
+.pageBox {
+	width: 1.875rem;
+	height: 1.875rem;
+	line-height: 1.875rem;
+	text-align: center;
+	border: 0.0625rem solid rgba(242, 242, 242, 1);
+}
+
+.pageControll ul li {
+	float: left;
+}
+
+.pageControll ul li:not(:first-child) {
+	margin-left: 0.75rem;
+}
+
+.checkedBox {
+	background: rgba(44, 115, 196, 1);
+	color: #FFFFFF;
+	border: none;
+}
+
+.projectList{
+	margin-bottom: 1.25rem;
+}
+.layui-form-label{
+	padding: 0;
+	padding-top: 0.5625rem;
+    padding-right: 0.625rem;
+	width: auto;
+}
+.middleSelect{
+	width: 6.25rem!important;
+}
+
+.pageControll ul li:hover{
+	cursor: pointer;
+	border-color:lightblue ;
+}

@@ -1,0 +1,98 @@
+.mainBody {
+	height: 100%;
+	margin-top: 1.875rem;
+	margin-left: 5rem;
+}
+
+.required {
+	background: url(../../../common/img/bitian.png) no-repeat 0.375rem 0.375rem;
+	/*这个是按从左往右，从上往下的百分比位置进行调整*/
+	background-position: 10% 47%;
+	text-indent: 1em;
+}
+
+.layui-form-pane .layui-form-label {
+	background-color: rgba(249, 249, 249, 1);
+}
+
+.layui-form-pane .layui-input {
+	background: rgba(249, 249, 249, 1);
+	border-radius: 2px;
+	border: 1px solid rgba(221, 221, 221, 1);
+}
+
+.layui-form-item .layui-input-inline {
+	width: 14.375rem;
+}
+
+.addTable {
+	font-size: 0.8125rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(150, 150, 150, 1);
+}
+
+.addressText {
+	width: 37.5625rem;
+}
+
+.investmentArea {
+	width: 11.3125rem !important;
+	margin-right: 0rem !important;
+}
+
+.investmentText {
+	width: 3rem !important;
+	margin: 0rem !important;
+	padding: 0rem !important;
+	line-height: 2.375rem !important;
+}
+
+.registerBtn {
+	width: 15.3125rem;
+	height: 2.625rem;
+	line-height: 2.625rem;
+	font-size: 1.125rem;
+	margin-left: 3rem;
+	text-align: center;
+	background: rgba(44, 115, 196, 1);
+	font-family: MicrosoftYaHei;
+	color: rgba(255, 255, 255, 1);
+}
+
+.resetBtn {
+	width: 15.3125rem;
+	height: 2.625rem;
+	line-height: 2.625rem;
+	font-size: 1.125rem;
+	margin-left: 7.875rem;
+	text-align: center;
+	background: rgba(213, 213, 213, 1);
+	font-family: MicrosoftYaHei;
+	color: rgba(100, 100, 100, 1);
+}
+
+.btnArea {
+	margin-bottom: 3.125rem;
+	margin-top: 1.125rem;
+}
+
+
+.btnCursor:hover {
+	cursor: pointer;
+}
+
+.secondColumn {
+	margin-left: 0.75rem;
+}
+
+.secondTip {
+	margin-left: 1.4375rem;
+}
+
+.beginDate {
+	margin-left: 1.4375rem;
+}
+
+.selectOption {
+	width: 12.1875rem !important;
+}

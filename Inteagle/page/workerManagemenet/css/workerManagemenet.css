@@ -1,0 +1,86 @@
+.mainBody {
+	width: 80%;
+	margin: 0px auto;
+	margin-top: 1.875rem;
+}
+
+.topHead {
+	width: 100%;
+	justify-content: space-between;
+	font-size: 1rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(0, 0, 0, 1);
+}
+
+.projectListText {
+	border-bottom: 0.1875rem solid rgba(2, 75, 127, 1);
+}
+
+.editorIcon {
+	width: 1.5625rem;
+	height: 1.5625rem;
+}
+
+.departLine {
+	opacity: 0.2;
+	border-bottom: 1px rgba(2, 75, 127, 1) solid;
+}
+
+.searchBtnArea {}
+
+.searchBtn {
+	width: 2.6875rem;
+	height: 1.625rem;
+	line-height: 1.625rem;
+	border-radius: 0.8125rem;
+	text-align: center;
+	background: rgba(2, 75, 127, 1);
+	color: #FFFFFF;
+}
+
+.bottomTable {
+	width: 100%;
+	margin-top: 0.625rem;
+	margin-bottom: 1.25rem;
+}
+
+.projectTable {
+	width: 100%;
+	text-align: center;
+	border-collapse: collapse;
+	padding: 0.125rem;
+}
+
+.firstTr {
+	background-color: rgba(240, 247, 252, 1);
+}
+
+.projectTable tr td {
+	height: 2.375rem;
+	border: 0.0625rem solid rgba(231, 240, 247, 1);
+}
+
+.showDetail {
+	font-family: MicrosoftYaHei;
+	color: rgba(226, 0, 0, 1);
+}
+
+.showDetail:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.searchArea{
+	margin-top: 1.875rem;
+}
+
+.layui-form-label{
+	width: auto!important;
+	padding: 0.5625rem 0.625rem;
+}
+.nameArea{
+	width: 6.25rem!important;
+}
+.layui-form-item .layui-inline{
+	margin-right: 0rem!important;
+}

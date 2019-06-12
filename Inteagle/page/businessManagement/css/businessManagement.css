@@ -1,0 +1,51 @@
+.projectListText {
+	border-bottom: 0.1875rem solid rgba(2, 75, 127, 1);
+}
+
+
+.businessNameArea {
+	margin-bottom: 2.1875rem;
+}
+
+.businessName {
+	font-size: 1.375rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(44, 115, 196, 1);
+}
+
+.projectBaseInfo ul li {
+	list-style: none;
+	width: 100%;
+	height: 3.75rem;
+	line-height: 3.75rem;
+	border-bottom: 1px solid #F2F2F2;
+}
+
+.leftText {
+	width: 20%;
+}
+
+.leftText span {
+	font-size: 1rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(53, 78, 101, 1);
+}
+
+.projectName {
+	font-size: 0.875rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(150, 150, 150, 1);
+}
+
+.bottomHead {
+	margin-top: 1.875rem;
+	width: 100%;
+	justify-content: space-between;
+	font-size: 1rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(0, 0, 0, 1);
+}
+
+.businessList{
+	margin-bottom: 6.875rem;
+}

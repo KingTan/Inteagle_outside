@@ -1,0 +1,192 @@
+/**
+ *  修改google浏览器，默认的聚焦黄色背景为白色
+ */
+input:-webkit-autofill,
+select:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+
+input {
+	outline-color: invert;
+	outline-style: none;
+	outline-width: 0px;
+	border: none;
+	border-style: none;
+	text-shadow: none;
+	-webkit-appearance: none;
+	-webkit-user-select: text;
+	outline-color: transparent;
+	box-shadow: none;
+}
+
+input::-webkit-input-placeholder {
+	/* placeholder颜色  */
+	color: rgba(150, 150, 150, 1);
+	/* placeholder字体大小  */
+	font-size: 14px;
+	font-family: MicrosoftYaHei;
+}
+
+.mainBody {
+	height: 100vh;
+}
+
+.searchArea {
+	margin-top: 2.0625rem;
+	margin-left: 1.3125rem;
+}
+
+.inputArea {
+	width: 10.3125rem;
+	height: 1.625rem;
+	border: 1px solid rgba(230, 231, 232, 1);
+	background: rgba(255, 255, 255, 1);
+	border-radius: 0.5rem;
+}
+
+.icon_search {
+	width: 0.875rem;
+	height: 0.875rem;
+	position: absolute;
+	margin-left: 1.875rem;
+	margin-top: 0.375rem;
+}
+
+.inputProjectName {
+	width: 95%;
+	text-align: center;
+	margin-left: 5px;
+}
+
+.searchBtn {
+    width: 2.6875rem;
+    height: 1.625rem;
+    line-height: 1.625rem;
+    margin-left: 0.625rem;
+    margin-right: 0.625rem;
+    text-align: center;
+    background: rgba(2, 75, 127, 1);
+    border-radius: 0.8125rem;
+    font-size: 0.75rem;
+    font-family: MicrosoftYaHei;
+    color: rgba(255, 255, 255, 1);
+}
+
+.searchBtn:hover{
+	cursor: pointer;
+}
+
+
+.leftSearchArea {
+	width: 23%;
+	height: 100%;
+	border-right: 0.0625rem rgba(216, 216, 216, 1) solid;
+}
+
+.projectList {
+	margin-left: 2.75rem;
+	margin-top: 1.9375rem;
+}
+
+.projectList ul li {
+	margin-top: 0.625rem;
+	font-size: 0.9375rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(0, 0, 0, 1);
+}
+
+.topHead {
+	width: 100%;
+	justify-content: space-between;
+	font-size: 1rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(0, 0, 0, 1);
+}
+
+.projectListText {
+	border-bottom: 0.1875rem solid rgba(2, 75, 127, 1);
+}
+
+.editorIcon {
+	width: 1.5625rem;
+	height: 1.5625rem;
+}
+
+.departLine {
+	opacity: 0.2;
+	border-bottom: 1px rgba(2, 75, 127, 1) solid;
+}
+
+.infoTable {
+	width: 70%;
+	margin: 0px auto;
+	margin-top: 1.875rem;
+}
+
+
+
+.bottomTable {
+	width: 100%;
+	margin-bottom: 1.25rem;
+}
+
+.projectTable {
+	width: 100%;
+	text-align: center;
+	border-collapse: collapse;
+	padding: 0.125rem;
+}
+
+.firstTr {
+	background-color: rgba(240, 247, 252, 1);
+}
+
+.projectTable tr td {
+	height: 2.375rem;
+	border: 0.0625rem solid rgba(231, 240, 247, 1);
+}
+
+.showDetail {
+	font-family: MicrosoftYaHei;
+	color: rgba(226, 0, 0, 1);
+}
+
+.checkedBox {
+	background: rgba(44, 115, 196, 1);
+	color: #FFFFFF;
+	border: none;
+}
+
+.pageBox {
+	width: 1.875rem;
+	height: 1.875rem;
+	line-height: 1.875rem;
+	text-align: center;
+	border: 0.0625rem solid rgba(242, 242, 242, 1);
+}
+
+.pageControll ul li {
+	float: left;
+}
+
+.pageControll ul li:not(:first-child) {
+	margin-left: 0.75rem;
+}
+
+.layui-form-label {
+	width: auto;
+	padding: 0;
+	padding-top: 4px;
+	padding-right: 10px;
+}
+
+.layui-input {
+	width: 8.75rem;
+	height: 1.625rem;
+}
+
+.middleSearchArea {
+	height: 3.75rem;
+	line-height: 3.75rem;
+}
