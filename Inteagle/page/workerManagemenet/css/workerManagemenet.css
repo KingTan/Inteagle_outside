@@ -26,7 +26,9 @@
 	border-bottom: 1px rgba(2, 75, 127, 1) solid;
 }
 
-.searchBtnArea {}
+.searchBtnArea {
+	margin-left: 1.625rem;
+}
 
 .searchBtn {
 	width: 2.6875rem;
@@ -36,6 +38,10 @@
 	text-align: center;
 	background: rgba(2, 75, 127, 1);
 	color: #FFFFFF;
+}
+
+.searchBtn:hover{
+	cursor: pointer;
 }
 
 .bottomTable {
@@ -76,11 +82,15 @@
 
 .layui-form-label{
 	width: auto!important;
-	padding: 0.5625rem 0.625rem;
+	padding: 0.25rem 0.9375rem;
 }
 .nameArea{
 	width: 6.25rem!important;
 }
 .layui-form-item .layui-inline{
 	margin-right: 0rem!important;
+}
+
+.layui-input, .layui-select, .layui-textarea{
+	height: 1.625rem!important;
 }

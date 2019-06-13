@@ -16,6 +16,7 @@ function addProject() {
 		area: ['888px', '75%'],
 		fixed: false, //不固定
 		maxmin: false, //不允许放大缩小
+		scrollbar: false,
 		content: '../projectManagement/createProject.html'
 	});
 }
@@ -35,19 +36,17 @@ function addCert(e) {
  * 新增考勤
  */
 function addAttendance(e) {
-	
-	var html=document.getElementById("demo").innerHTML;
-	
+	var html=document.getElementById("addAttendaceModel").innerHTML;
 	//页面层-自定义
 	layer.open({
 		type: 1,
 		title: false,
 		closeBtn: 0,
+		area: ['730px', '364px'],
 		shadeClose: true,
-		skin: 'yourclass',
+		scrollbar: false,
 		content: html
 	});
-
 }
 
 

@@ -252,7 +252,7 @@ body {
 	background-color: rgba(225, 226, 227, 1);
 }
 
-.checkMiddle{
+.checkMiddle {
 	display: block;
 }
 
@@ -262,19 +262,152 @@ body {
 }
 
 
-.menuList ul li:hover{
+.menuList ul li:hover {
 	cursor: pointer;
 	/* padding-bottom: 0.0625rem;
 	color: black!important;
 	background-color: #F5F6F7; */
 }
 
-.checkedMenu{
+.checkedMenu {
 	padding-bottom: 0.0625rem;
-	color: black!important;
+	color: black !important;
 	background-color: #F5F6F7;
 }
 
-.peopleMiddleMenu{
-	width: 65%!important;
+.peopleMiddleMenu {
+	width: 65% !important;
+}
+
+.modal_div {
+	width: 100%;
+	height: 100%;
+	background-color: #000000;
+	position: fixed;
+	opacity: 0.2;
+	top: 0;
+	left: 0;
+	z-index: 9;
+}
+
+.addAttendanceBox {
+	width: 45.625rem;
+	height: 22.75rem;
+	background: rgba(255, 255, 255, 1);
+	box-shadow: 0px 0.125rem 3.75rem 0px rgba(0, 0, 0, 0.09);
+	border-radius: 0.25rem;
+}
+
+
+.headTitle {
+	width: 100%;
+	height: 3.1875rem;
+	line-height: 3.1875rem;
+	text-align: center;
+	background: rgba(44, 115, 196, 1);
+	border-radius: 0.25rem 0.25rem 0px 0px;
+	color: #FFFFFF;
+	font-size: 1.125rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(255, 255, 255, 1);
+}
+
+.pickArea {
+	margin-left: 4.6875rem;
+	margin-top: 2.25rem;
+}
+
+.attendanceNameText span {
+	font-size: 1rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(53, 78, 101, 1);
+}
+
+.attendanceNameinputArea {
+	width: 29.9375rem;
+	height: 2.25rem;
+	margin-left: 2.25rem;
+
+	border-radius: 0.125rem;
+	border: 1px solid rgba(231, 231, 231, 1);
+}
+
+.attendanceNameinputArea input {
+	width: 100%;
+	height: 100%;
+	font-size: 0.9375rem;
+	background: rgba(245, 246, 247, 1) !important;
+}
+
+/**
+ *  修改google浏览器，默认的聚焦黄色背景为白色
+ */
+.attendanceNameinputArea input:-webkit-autofill,
+.attendanceNameinputArea select:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+.attendanceNameinputArea input {
+	outline-color: invert;
+	outline-style: none;
+	outline-width: 0px;
+	border: none;
+	border-style: none;
+}
+
+.attendanceNameinputArea input::-webkit-input-placeholder {
+	/* placeholder颜色  */
+	color: rgba(150, 150, 150, 1);
+	/* placeholder字体大小  */
+	font-size: 14px;
+	font-family: MicrosoftYaHei;
+}
+
+
+.attendanceTimePeriodArea {
+	width: 11.8125rem;
+	height: 2.25rem;
+	background: rgba(245, 246, 247, 1);
+	border-radius: 0.125rem;
+	margin-left: 4.3125rem;
+}
+
+#attendanceTimePeriod {
+	background-color: rgba(245, 246, 247, 1) !important;
+}
+
+.timeperiod {
+	margin-top: 1.9375rem;
+}
+
+.attendanceNameArea {
+	align-items: center;
+}
+
+.finishedBtn {
+	width: 5.875rem;
+	height: 2.4375rem;
+	line-height: 2.4375rem;
+	text-align: center;
+	background: rgba(44, 115, 196, 1);
+	font-size: 0.875rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(255, 255, 255, 1);
+}
+
+.cancelBtn {
+	width: 5.875rem;
+	height: 2.4375rem;
+	line-height: 2.4375rem;
+	text-align: center;
+	background: rgba(213, 213, 213, 1);
+	font-size: 0.875rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(50, 50, 50, 1);
+	margin-left: 2.8125rem;
+}
+
+.addAttendaceBtnArea {
+	margin-left: 11rem;
+	margin-top: 3.625rem;
 }

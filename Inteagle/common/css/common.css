@@ -7,5 +7,6 @@
 	display: flex;
 	flex-direction: column;
 }
-
-
+.btn:hover{
+	cursor: pointer;
+}
