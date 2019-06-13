@@ -1,0 +1,62 @@
+.inputArea {
+	border: none !important;
+	width: auto;
+}
+.mainBody {
+	width: 90%!important;
+}
+
+.layui-form-label {
+	width: auto !important;
+	padding: 0.5625rem 0.0625rem !important;
+	padding-right: 0.3125rem !important;
+}
+
+.layui-input,
+.layui-select,
+.layui-textarea {
+	width: 12.8125rem;
+	height: 1.625rem !important;
+}
+
+
+.layui-input-inline {
+	margin-top: 0.375rem;
+}
+
+.leftMove {
+	margin-left: 8%;
+}
+
+.pageControll {
+	margin-top: 1.25rem;
+}
+
+.pageControll ul li {
+	float: left;
+}
+
+.pageControll ul li:not(:first-child) {
+	margin-left: 0.75rem;
+}
+
+.pageBox {
+	width: 1.875rem;
+	height: 1.875rem;
+	line-height: 1.875rem;
+	text-align: center;
+	border: 0.0625rem solid rgba(242, 242, 242, 1);
+}
+
+.checkedBox {
+	background: rgba(44, 115, 196, 1);
+	color: #FFFFFF;
+	border: none;
+}
+.searchBtn {
+	margin-left: 1.125rem;
+	margin-top: 0.3125rem;
+}
+.searchBtn:hover{
+	cursor: pointer;
+}
