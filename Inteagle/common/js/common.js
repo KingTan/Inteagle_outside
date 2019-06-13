@@ -33,4 +33,8 @@ layui.use('laydate', function() {
 		elem:"#certificateManagementYear",
 		type:"year"
 	});
+	laydate.render({
+		elem:"#addCertificateManagementYear",
+		type:"year"
+	});
 })

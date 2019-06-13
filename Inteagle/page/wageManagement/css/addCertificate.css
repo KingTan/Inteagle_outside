@@ -1,0 +1,67 @@
+.middleSelect {
+	width: 8.125rem !important;
+}
+
+.projectNameText {
+	width: 29.9375rem;
+	height: 2.25rem;
+	background: rgba(255, 255, 255, 1);
+	border-radius: 0.125rem;
+	border: 0.0625rem solid rgba(231, 231, 231, 1);
+	text-indent: 0.625rem;
+}
+
+.uploadIcon {
+	width: 1rem;
+	height: 1rem;
+}
+
+.uploadText {
+	margin-top: 5px;
+	margin-left: 5px;
+}
+
+.uploadText span {
+	font-size: 0.875rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(2, 75, 127, 1);
+}
+
+.alignRow:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.alignRow {
+	align-items: center;
+}
+
+.createBtn {
+	width: 5.875rem;
+	height: 2.4375rem;
+	line-height: 2.4375rem;
+	text-align: center;
+	background: rgba(44, 115, 196, 1);
+	font-size: 0.875rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(255, 255, 255, 1);
+}
+
+.resetBtn {
+	width: 5.875rem;
+	height: 2.4375rem;
+	line-height: 2.4375rem;
+	font-size: 0.875rem;
+	margin-left: 2.8125rem;
+	text-align: center;
+	background: rgba(239, 243, 245, 1);
+	font-family: MicrosoftYaHei;
+	color: rgba(50, 50, 50, 1);
+}
+.btn:hover{
+	cursor: pointer;
+}
+
+.bottomBtn{
+	margin-top: 3.6875rem;
+}
