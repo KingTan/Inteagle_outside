@@ -27,7 +27,7 @@ layui.use('laydate', function() {
 	});
 	laydate.render({
 		elem:"#wageTime",
-		type:"month"
+		type:"date"
 	});
 	laydate.render({
 		elem:"#certificateManagementYear",
@@ -36,5 +36,9 @@ layui.use('laydate', function() {
 	laydate.render({
 		elem:"#addCertificateManagementYear",
 		type:"year"
+	});
+	laydate.render({
+		elem:"#attendanceTime",
+		type:"datetime"
 	});
 })

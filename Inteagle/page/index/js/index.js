@@ -30,6 +30,25 @@ function addCert(e) {
 	$("#mainFrame").attr("src", "../wageManagement/addCertificate.html");
 }
 
+/**
+ * @param {Object} e
+ * 新增考勤
+ */
+function addAttendance(e) {
+	
+	var html=document.getElementById("demo").innerHTML;
+	
+	//页面层-自定义
+	layer.open({
+		type: 1,
+		title: false,
+		closeBtn: 0,
+		shadeClose: true,
+		skin: 'yourclass',
+		content: html
+	});
+
+}
 
 
 /**
@@ -100,6 +119,18 @@ function middleMenuMove(e) {
 			//凭证管理
 			iframePath = "../wageManagement/certificateManagement.html";
 			break;
+		case "5-1":
+			//修改样式
+			$(".attendanceMiddle ul li").removeClass("checkedMiddleMenu");
+			//工资管理
+			iframePath = "../attendanceManagement/attendanceManagement.html";
+			break;
+		case "5-2":
+			//修改样式
+			$(".attendanceMiddle ul li").removeClass("checkedMiddleMenu");
+			//凭证管理
+			iframePath = "../attendanceManagement/attendanceRecord.html";
+			break;
 	}
 
 	$(e).addClass("checkedMiddleMenu");
@@ -136,6 +167,7 @@ function checkLeftMenu(e) {
 			$(".businessMiddle").hide();
 			$(".peopleMiddle").hide();
 			$(".wageMiddle").hide();
+			$(".attendanceMiddle").hide();
 			//对应中间菜单栏选中第一个
 			//修改样式
 			$(".projectMiddle ul li").removeClass("checkedMiddleMenu");
@@ -147,7 +179,8 @@ function checkLeftMenu(e) {
 			$(".businessMiddle").show();
 			$(".projectMiddle").hide();
 			$(".peopleMiddle").hide();
-			$(".wageMiddle").hide(); 
+			$(".wageMiddle").hide();
+			$(".attendanceMiddle").hide();
 			//对应中间菜单栏选中第一个
 			//修改样式
 			$(".businessMiddle ul li").removeClass("checkedMiddleMenu");
@@ -159,7 +192,8 @@ function checkLeftMenu(e) {
 			$(".peopleMiddle").show();
 			$(".projectMiddle").hide();
 			$(".businessMiddle").hide();
-			$(".wageMiddle").hide(); 
+			$(".wageMiddle").hide();
+			$(".attendanceMiddle").hide();
 			//对应中间菜单栏选中第一个
 			//修改样式
 			$(".peopleMiddle ul li").removeClass("checkedMiddleMenu");
@@ -171,7 +205,8 @@ function checkLeftMenu(e) {
 			$(".wageMiddle").show();
 			$(".peopleMiddle").hide();
 			$(".projectMiddle").hide();
-			$(".businessMiddle").hide(); 
+			$(".businessMiddle").hide();
+			$(".attendanceMiddle").hide();
 			//对应中间菜单栏选中第一个
 			//修改样式
 			$(".wageMiddle ul li").removeClass("checkedMiddleMenu");
@@ -179,6 +214,17 @@ function checkLeftMenu(e) {
 			iframePath = "../wageManagement/wageManagement.html";
 			break;
 		case "4":
+			//控制中间菜单栏显示 隐藏
+			$(".attendanceMiddle").show();
+			$(".peopleMiddle").hide();
+			$(".projectMiddle").hide();
+			$(".businessMiddle").hide();
+			$(".wageMiddle").hide();
+			//对应中间菜单栏选中第一个
+			//修改样式
+			$(".attendanceMiddle ul li").removeClass("checkedMiddleMenu");
+			$(".attendanceMiddle ul li:first").addClass("checkedMiddleMenu");
+			iframePath = "../attendanceManagement/attendanceManagement.html";
 			break;
 		case "5":
 			break;

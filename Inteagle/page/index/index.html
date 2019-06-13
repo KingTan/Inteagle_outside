@@ -282,6 +282,41 @@
 					</div>
 				</div>
 				
+				<!-- 考勤管理 -->
+				<div class="middleMenuList attendanceMiddle">
+					<!--初始菜单栏  -->
+					<ul>
+						<li class="checkedMiddleMenu middleMenuOption" data-index="5-1" onclick="middleMenuMove(this)">
+							<div class="row middleMenuInfo ">
+								<div class="menuListIcon">
+									<img src="img/list.png" class="listIcon" />
+								</div>
+								<div class="middleMenuName">
+									<span>考勤规则</span>
+								</div>
+							</div>
+						</li>
+						<li class="middleMenuOption" data-index="5-2"  onclick="middleMenuMove(this)">
+							<div class="row middleMenuInfo ">
+								<div class="menuListIcon">
+									<img src="img/list.png" class="listIcon" />
+								</div>
+								<div class="middleMenuName">
+									<span>考勤记录</span>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<!-- 添加菜单 -->
+					<div class="row addMiddleMenu addCertMenu" data-index="5-3" onclick="addAttendance(this)">
+						<div class="addIconArea">
+							<img src="img/add.png" class="addIcon" />
+						</div>
+						<div class="addText">
+							<span>新增</span>
+						</div>
+					</div>
+				</div>
 				
 			</div>
 
@@ -300,5 +335,12 @@
 		<script src="../../common/layui/layui.js" type="text/javascript"></script>
 		<script src="../../common/js/common.js" type="text/javascript"></script>
 		<script src="js/index.js" type="text/javascript"></script>
+		
+		<script type="text/template" id="demo">
+			<h1>
+				Hello Wolrd!
+			</h1>
+		</script>
+		
 	</body>
 </html>
