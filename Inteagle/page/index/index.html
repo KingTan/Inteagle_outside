@@ -372,10 +372,143 @@
 					</div>
 				</div>
 
+				<!-- 访客管理 -->
+				<div class="middleMenuList visitorMiddle">
+					<!--初始菜单栏  -->
+					<ul>
+						<li class="checkedMiddleMenu middleMenuOption" data-index="6-1" onclick="middleMenuMove(this)">
+							<div class="row middleMenuInfo ">
+								<div class="menuListIcon">
+									<img src="img/list.png" class="listIcon" />
+								</div>
+								<div class="middleMenuName">
+									<span>访客管理</span>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<!-- 添加菜单 -->
+					<div class="row addMiddleMenu addCertMenu" data-index="6-2" onclick="addAttendance(this)">
+						<div class="addIconArea">
+							<img src="img/add.png" class="addIcon" />
+						</div>
+						<div class="addText">
+							<span>添加访客</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- 安全管理 -->
+				<div class="middleMenuList safetyMiddle">
+					<!--初始菜单栏  -->
+					<ul>
+						<li class="checkedMiddleMenu middleMenuOption" data-index="7-1" onclick="middleMenuMove(this)">
+							<div class="row middleMenuInfo peopleMiddleMenu">
+								<div class="menuListIcon">
+									<img src="img/list.png" class="listIcon" />
+								</div>
+								<div class="middleMenuName">
+									<span>规划安全事项</span>
+								</div>
+							</div>
+						</li>
+						<li class="middleMenuOption" data-index="7-2" onclick="middleMenuMove(this)">
+							<div class="row middleMenuInfo peopleMiddleMenu">
+								<div class="menuListIcon">
+									<img src="img/list.png" class="listIcon" />
+								</div>
+								<div class="middleMenuName">
+									<span>审核检查情况</span>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<!-- 添加菜单 -->
+					<div class="row addMiddleMenu addCertMenu" data-index="7-3" onclick="addAttendance(this)">
+						<div class="addIconArea">
+							<img src="img/add.png" class="addIcon" />
+						</div>
+						<div class="addText">
+							<span>新增</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- 设备管理 -->
+				<div class="middleMenuList deviceMiddle">
+					<!--初始菜单栏  -->
+					<ul>
+						<li class="checkedMiddleMenu middleMenuOption" data-index="8-1" onclick="middleMenuMove(this)">
+							<div class="row middleMenuInfo ">
+								<div class="menuListIcon">
+									<img src="img/list.png" class="listIcon" />
+								</div>
+								<div class="middleMenuName">
+									<span>路由器</span>
+								</div>
+							</div>
+						</li>
+						<li class=" middleMenuOption" data-index="8-2" onclick="middleMenuMove(this)">
+							<div class="row middleMenuInfo ">
+								<div class="menuListIcon">
+									<img src="img/list.png" class="listIcon" />
+								</div>
+								<div class="middleMenuName">
+									<span>摄像头</span>
+								</div>
+							</div>
+						</li>
+						<li class=" middleMenuOption" data-index="8-3" onclick="middleMenuMove(this)">
+							<div class="row middleMenuInfo ">
+								<div class="menuListIcon">
+									<img src="img/list.png" class="listIcon" />
+								</div>
+								<div class="middleMenuName">
+									<span>安全帽</span>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<!-- 添加菜单 -->
+					<div class="row addMiddleMenu addCertMenu" data-index="8-4" onclick="addDevice(this)">
+						<div class="addIconArea">
+							<img src="img/add.png" class="addIcon" />
+						</div>
+						<div class="addText">
+							<span>新增设备</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- 系统管理 -->
+				<div class="middleMenuList systemMiddle">
+					<!--初始菜单栏  -->
+					<ul>
+						<li class="checkedMiddleMenu middleMenuOption" data-index="9-1" onclick="middleMenuMove(this)">
+							<div class="row middleMenuInfo ">
+								<div class="menuListIcon">
+									<img src="img/list.png" class="listIcon" />
+								</div>
+								<div class="middleMenuName">
+									<span>基本信息</span>
+								</div>
+							</div>
+						</li>
+						<li class=" middleMenuOption" data-index="9-2" onclick="middleMenuMove(this)">
+							<div class="row middleMenuInfo ">
+								<div class="menuListIcon">
+									<img src="img/list.png" class="listIcon" />
+								</div>
+								<div class="middleMenuName">
+									<span>账号安全</span>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
 			</div>
 			<!-- 右边iframe内联框架 -->
 			<iframe src="../projectManagement/projectManagement.html" id="mainFrame" class="mainFrame" name='iframe' frameborder="0"></iframe>
-
 		</div>
 
 		<!--底部备案信息区域  -->
@@ -410,6 +543,37 @@
 					<div class="row addAttendaceBtnArea">
 						<div class="finishedBtn btn"><span>完成</span></div>
 						<div class="cancelBtn btn"><span>取消</span></div>
+					</div>
+				</div>
+			</div>
+		</script>
+
+		<!-- 添加设备弹窗 -->
+		<script type="text/template" id="addDeviceModel">
+			<div class="addAttendanceBox addDevice">
+				<div class="headTitle"><span>添加设备</span></div>
+				<div class="column pickArea">
+					<div class="row attendanceNameArea">
+						<div class="attendanceNameText"><span>设备序列号</span></div>
+						<div class="attendanceNameinputArea deviceIdArea">
+							<input type="text" class="attendanceName" />
+						</div>
+					</div>
+					<div class="row attendanceNameArea timeperiod">
+						<div class="attendanceNameText"><span>设备类型</span></div>
+						<div class="addDeviceRaido">
+							<form class="layui-form" action="">
+								<div class="layui-input-block radioArray">
+									<input type="radio" name="deivce" value="router" title="路由器" checked="">
+									<input type="radio" name="deivce" value="camera" title="摄像头">
+									<input type="radio" name="deivce" value="helmet" title="安全帽">
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="row addDeviceBtnArea">
+						<div class="finishedBtn addBtn btn"><span>添加</span></div>
+						<div class="cancelBtn cancelDeviceBtn btn"><span>取消</span></div>
 					</div>
 				</div>
 			</div>

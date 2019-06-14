@@ -1,8 +1,9 @@
+var layform;
+
 /**
  * 页面加载事件
  */
 $(function() {
-
 
 })
 
@@ -45,10 +46,43 @@ function addAttendance(e) {
 		area: ['730px', '364px'],
 		shadeClose: true,
 		scrollbar: false,
-		content: html
+		content: html,
+		success:function(){
+			laydate.render({
+				elem:"#attendanceTimePeriod",
+				type:"time",
+				range:"~",
+			});
+		}
 	});
 }
 
+/**
+ * @param {Object} e
+ * 添加设备
+ */
+function addDevice(e) {
+	var html = document.getElementById("addDeviceModel").innerHTML;
+	layer.ready(function() {
+		//页面层-自定义
+		layer.open({
+			type: 1,
+			title: false,
+			closeBtn: 0,
+			area: ['730px', '315px'],
+			shadeClose: true,
+			scrollbar: false,
+			content: html,
+			success:function(){
+				//初始化 from 对象
+				layui.use('form', function() {
+					layform = layui.form;
+					layform.render();
+				})
+			}
+		});
+	})
+}
 
 /**
  * 中间菜单点击事件
@@ -130,6 +164,54 @@ function middleMenuMove(e) {
 			//凭证管理
 			iframePath = "../attendanceManagement/attendanceRecord.html";
 			break;
+		case "6-1":
+			//修改样式
+			$(".visitorMiddle ul li").removeClass("checkedMiddleMenu");
+			//访客管理
+			iframePath = "../visitorManagement/visitorManagement.html";
+			break;
+		case "7-1":
+			//修改样式
+			$(".safetyMiddle ul li").removeClass("checkedMiddleMenu");
+			//规划安全事项
+			iframePath = "../safetyManagement/safetyManagement.html";
+			break;
+		case "7-2":
+			//修改样式
+			$(".safetyMiddle ul li").removeClass("checkedMiddleMenu");
+			//审核检查情况
+			iframePath = "../safetyManagement/inspectionDetail.html";
+			break;
+		case "8-1":
+			//修改样式
+			$(".deviceMiddle ul li").removeClass("checkedMiddleMenu");
+			//路由器
+			iframePath = "../deviceManagement/router.html";
+			break;
+		case "8-2":
+			//修改样式
+			$(".deviceMiddle ul li").removeClass("checkedMiddleMenu");
+			//摄像头
+			iframePath = "../deviceManagement/camera.html";
+			break;
+		case "8-3":
+			//修改样式
+			$(".deviceMiddle ul li").removeClass("checkedMiddleMenu");
+			//安全帽
+			iframePath = "../deviceManagement/helmet.html";
+			break;
+		case "9-1":
+			//修改样式
+			$(".systemMiddle ul li").removeClass("checkedMiddleMenu");
+			//基本信息
+			iframePath = "../attendanceManagement/attendanceRecord.html";
+			break;
+		case "9-2":
+			//修改样式
+			$(".systemMiddle ul li").removeClass("checkedMiddleMenu");
+			//账号安全
+			iframePath = "../attendanceManagement/attendanceRecord.html";
+			break;
 	}
 
 	$(e).addClass("checkedMiddleMenu");
@@ -184,7 +266,8 @@ $(".menuArea").bind("mouseleave", function(e) {
 	}
 
 	if (isChecked != "true") {
-		$(e.currentTarget).children(".singleMenu").children(".eighteenWidth").children(".menuIconArea").children(".menuIcon").attr(
+		$(e.currentTarget).children(".singleMenu").children(".eighteenWidth").children(".menuIconArea").children(
+			".menuIcon").attr(
 			"src", imgPath);
 	}
 
@@ -234,7 +317,8 @@ function leftMenuMove(e) {
 			break;
 	}
 	//修改当前选中节点菜单的icon
-	$(e).children(".singleMenu").children(".eighteenWidth").children(".menuIconArea").children(".menuIcon").attr("src", imgPath);
+	$(e).children(".singleMenu").children(".eighteenWidth").children(".menuIconArea").children(".menuIcon").attr("src",
+		imgPath);
 }
 /**
  * @param {Object} e
@@ -262,11 +346,8 @@ function checkLeftMenu(e) {
 	switch (index) {
 		case "0":
 			//控制中间菜单栏显示 隐藏
+			controlMiddleMenu();
 			$(".projectMiddle").show();
-			$(".businessMiddle").hide();
-			$(".peopleMiddle").hide();
-			$(".wageMiddle").hide();
-			$(".attendanceMiddle").hide();
 			//对应中间菜单栏选中第一个
 			//修改样式
 			$(".projectMiddle ul li").removeClass("checkedMiddleMenu");
@@ -276,11 +357,8 @@ function checkLeftMenu(e) {
 			break;
 		case "1":
 			//控制中间菜单栏显示 隐藏
+			controlMiddleMenu();
 			$(".businessMiddle").show();
-			$(".projectMiddle").hide();
-			$(".peopleMiddle").hide();
-			$(".wageMiddle").hide();
-			$(".attendanceMiddle").hide();
 			//对应中间菜单栏选中第一个
 			//修改样式
 			$(".businessMiddle ul li").removeClass("checkedMiddleMenu");
@@ -290,11 +368,8 @@ function checkLeftMenu(e) {
 			break;
 		case "2":
 			//控制中间菜单栏显示 隐藏
+			controlMiddleMenu();
 			$(".peopleMiddle").show();
-			$(".projectMiddle").hide();
-			$(".businessMiddle").hide();
-			$(".wageMiddle").hide();
-			$(".attendanceMiddle").hide();
 			//对应中间菜单栏选中第一个
 			//修改样式
 			$(".peopleMiddle ul li").removeClass("checkedMiddleMenu");
@@ -304,11 +379,8 @@ function checkLeftMenu(e) {
 			break;
 		case "3":
 			//控制中间菜单栏显示 隐藏
+			controlMiddleMenu();
 			$(".wageMiddle").show();
-			$(".peopleMiddle").hide();
-			$(".projectMiddle").hide();
-			$(".businessMiddle").hide();
-			$(".attendanceMiddle").hide();
 			//对应中间菜单栏选中第一个
 			//修改样式
 			$(".wageMiddle ul li").removeClass("checkedMiddleMenu");
@@ -318,11 +390,8 @@ function checkLeftMenu(e) {
 			break;
 		case "4":
 			//控制中间菜单栏显示 隐藏
+			controlMiddleMenu();
 			$(".attendanceMiddle").show();
-			$(".peopleMiddle").hide();
-			$(".projectMiddle").hide();
-			$(".businessMiddle").hide();
-			$(".wageMiddle").hide();
 			//对应中间菜单栏选中第一个
 			//修改样式
 			$(".attendanceMiddle ul li").removeClass("checkedMiddleMenu");
@@ -331,23 +400,59 @@ function checkLeftMenu(e) {
 			imgPath = "img/kaoqin(1).png";
 			break;
 		case "5":
+			controlMiddleMenu();
+			$(".visitorMiddle").show();
+			iframePath = "../visitorManagement/visitorManagement.html";
 			imgPath = "img/chakanfangke.png";
 			break;
 		case "6":
+			controlMiddleMenu();
+			$(".safetyMiddle").show();
+			//对应中间菜单栏选中第一个
+			//修改样式
+			$(".safetyMiddle ul li").removeClass("checkedMiddleMenu");
+			$(".safetyMiddle ul li:first").addClass("checkedMiddleMenu");
+			iframePath = "../safetyManagement/safetyManagement.html";
 			imgPath = "img/anquan.png";
 			break;
 		case "7":
+			controlMiddleMenu();
+			$(".deviceMiddle").show();
+			//对应中间菜单栏选中第一个
+			//修改样式
+			$(".deviceMiddle ul li").removeClass("checkedMiddleMenu");
+			$(".deviceMiddle ul li:first").addClass("checkedMiddleMenu");
+			iframePath = "../deviceManagement/router.html";
 			imgPath = "img/shebei.png";
 			break;
 		case "8":
+			controlMiddleMenu();
+			$(".systemMiddle").show();
 			imgPath = "img/xitong.png";
 			break;
 	}
 	//修改当前选中节点菜单的icon
-	$(e).children(".singleMenu").children(".eighteenWidth").children(".menuIconArea").children(".menuIcon").attr("src", imgPath);
+	$(e).children(".singleMenu").children(".eighteenWidth").children(".menuIconArea").children(".menuIcon").attr("src",
+		imgPath);
 	//控制右边iframe路径
 	$("#mainFrame").attr("src", iframePath);
 }
+
+/**
+ * 控制中间菜单显示隐藏
+ */
+function controlMiddleMenu() {
+	$(".projectMiddle").hide();
+	$(".businessMiddle").hide();
+	$(".peopleMiddle").hide();
+	$(".wageMiddle").hide();
+	$(".attendanceMiddle").hide();
+	$(".visitorMiddle").hide();
+	$(".safetyMiddle").hide();
+	$(".deviceMiddle").hide();
+	$(".systemMiddle").hide();
+}
+
 
 /**
  * 改变左侧菜单点击选中之后 其他菜单的icon路径

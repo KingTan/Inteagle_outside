@@ -41,9 +41,4 @@ layui.use('laydate', function() {
 		elem:"#attendanceTime",
 		type:"datetime"
 	});
-	laydate.render({
-		elem:"#attendanceTimePeriod",
-		type:"time",
-		range:"~",
-	});
 })

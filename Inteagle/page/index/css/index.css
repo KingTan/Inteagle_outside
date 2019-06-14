@@ -446,3 +446,22 @@ body {
 	opacity: 0.08;
 	margin-left: 1.3125rem;
 }
+
+.radioArray{
+	margin-left: 2.25rem!important;
+}
+.deviceIdArea{
+	margin-left: 1.25rem!important;
+}
+.addDeviceBtnArea{
+	margin-top:2.5rem ;
+}
+.addBtn{
+	margin-left: 100px!important;
+}
+.cancelDeviceBtn{
+	margin-left: 2.8125rem!important;
+}
+.addDevice{
+	height: 19.6875rem!important;
+}

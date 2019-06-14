@@ -1,0 +1,27 @@
+.nameTextArea {
+	margin-left: 0.75rem !important;
+}
+
+.nameArea {
+	width: 15rem !important;
+}
+
+.dateArea {
+	width: 10.5rem !important;
+}
+
+.searchBtn {
+	width: 2.6875rem;
+	height: 1.625rem;
+	line-height: 1.625rem;
+	text-align: center;
+	background: rgba(2, 75, 127, 1);
+	border-radius: 0.8125rem;
+	font-size: 0.75rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(255, 255, 255, 1);
+}
+.middelArea{
+	width: 100%;
+	justify-content: space-between;
+}
