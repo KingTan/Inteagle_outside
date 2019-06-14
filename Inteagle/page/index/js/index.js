@@ -204,7 +204,7 @@ function middleMenuMove(e) {
 			//修改样式
 			$(".systemMiddle ul li").removeClass("checkedMiddleMenu");
 			//基本信息
-			iframePath = "../attendanceManagement/attendanceRecord.html";
+			iframePath = "../systemManagement/basicInformation.html";
 			break;
 		case "9-2":
 			//修改样式
@@ -428,6 +428,11 @@ function checkLeftMenu(e) {
 		case "8":
 			controlMiddleMenu();
 			$(".systemMiddle").show();
+			//对应中间菜单栏选中第一个
+			//修改样式
+			$(".deviceMiddle ul li").removeClass("checkedMiddleMenu");
+			$(".deviceMiddle ul li:first").addClass("checkedMiddleMenu");
+			iframePath = "../systemManagement/basicInformation.html";
 			imgPath = "img/xitong.png";
 			break;
 	}

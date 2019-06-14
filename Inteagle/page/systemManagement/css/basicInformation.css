@@ -1,0 +1,18 @@
+.headshot {
+	width: 6.9375rem;
+	height: 6.9375rem;
+	border-radius: 50%;
+}
+
+.projectBaseInfo ul li {
+	height: auto !important;
+}
+
+.layui-input-block {
+	margin-left: 0rem !important;
+}
+
+.headshotArea {
+	margin-top: 1.125rem!important;
+	padding-bottom: 0.9375rem!important;
+}

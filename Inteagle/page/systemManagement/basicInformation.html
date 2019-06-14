@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>基本信息</title>
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<link href="../../common/layui/css/layui.css" rel="stylesheet" />
+		<link href="../../common/css/common.css" rel="stylesheet" />
+		<link href="../projectManagement/css/projectManagement.css" rel="stylesheet" />
+		<link href="../businessManagement/css/businessManagement.css" rel="stylesheet" />
+		<link href="../businessManagement/css/departmentDetail.css" rel="stylesheet" />
+		<link href="css/basicInformation.css" rel="stylesheet" />
+	</head>
+	<body>
+		<div class="column mainBody">
+			<!-- 顶部信息 -->
+			<div class="row topHead">
+				<div class="projectListText">
+					<span>基本信息</span>
+				</div>
+				<div class="row editorArea">
+					<div class="editorIconArea">
+						<img src="../projectManagement/img/editor.png" class="editorIcon" />
+					</div>
+					<div class="editorText"><span>编辑</span></div>
+				</div>
+			</div>
+			<!--分割线  -->
+			<div class="departLine"></div>
+		
+			<!-- 企业基础信息 -->
+			<div class="projectBaseInfo">
+				<ul>
+					<li class="headshotArea">
+						<div class="row rowInfo">
+							<div class="leftText"><span>头像</span></div>
+							<div class="projectName">
+								<img src="img/headshot.jpg" class="headshot"/>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="row rowInfo">
+							<div class="leftText"><span>用户名</span></div>
+							<div class="projectName">吴大方</div>
+						</div>
+					</li>
+					<li>
+						<div class="row rowInfo">
+							<div class="leftText"><span>所属单位</span></div>
+							<div class="projectName">企业001</div>
+						</div>
+					</li>
+					<li>
+						<div class="row rowInfo">
+							<div class="leftText"><span>所属部门</span></div>
+							<div class="projectName">部门0010</div>
+						</div>
+					</li>
+					<li>
+						<div class="row rowInfo">
+							<div class="leftText"><span>身份证号码</span></div>
+							<div class="projectName">441900199501235978</div>
+						</div>
+					</li>
+					<li>
+						<div class="row rowInfo">
+							<div class="leftText"><span>手机号</span></div>
+							<div class="projectName">18025615978</div>
+						</div>
+					</li>
+					<li>
+						<div class="row rowInfo">
+							<div class="leftText"><span>性别</span></div>
+							<div class="projectName">
+								<form class="layui-form" action="">
+									<div class="layui-input-block radioArray">
+										<input type="radio" name="sex" value="man" title="男" checked="">
+										<input type="radio" name="sex" value="woman" title="女">
+									</div>
+								</form>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="row rowInfo">
+							<div class="leftText"><span>邮箱</span></div>
+							<div class="projectName">952845355@qq.com</div>
+						</div>
+					</li>
+					<li style="display: none;">
+						<div class="row rowInfo btnArea">
+							<div class="changeBtn"><span>修改</span></div>
+							<div class="resetBtn"><span>重置</span></div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<script src="../../common/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+		<script src="../../common/layui/layui.js" type="text/javascript"></script>
+		<script src="../../common/js/common.js" type="text/javascript"></script>
+		<script src="js/basicInformation.js" type="text/javascript"></script>
+	</body>
+</html>
