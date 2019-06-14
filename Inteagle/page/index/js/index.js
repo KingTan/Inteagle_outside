@@ -36,7 +36,7 @@ function addCert(e) {
  * 新增考勤
  */
 function addAttendance(e) {
-	var html=document.getElementById("addAttendaceModel").innerHTML;
+	var html = document.getElementById("addAttendaceModel").innerHTML;
 	//页面层-自定义
 	layer.open({
 		type: 1,
@@ -139,26 +139,39 @@ function middleMenuMove(e) {
 
 }
 
+
+/**
+ * 左边菜单移出事件
+ */
+$(".menuArea").bind("mouseleave", function() {
+	console.log("out");
+	//清楚移动选中样式
+	$(".menuArea").removeClass("checkedMenu");
+})
+
 /**
  * @param {Object} e
- * 左边菜单移动事件
+ * 左边菜单移入事件
  */
 function leftMenuMove(e) {
-	// $(".menuList ul li").removeClass("checkedMenu");
-	// $(e).addClass("checkedMenu");
+	$(".menuArea").removeClass("checkedMenu");
+	$(e).addClass("checkedMenu");
 }
-
 /**
  * @param {Object} e
  * 左边菜单点击事件
  */
 function checkLeftMenu(e) {
-	$(".menuList ul li").removeClass("checkedMenu");
-	$(e).addClass("checkedMenu");
+	//移除移动选中样式和点击选中样式
+	$(".menuArea").removeClass("checkedMenu");
+	$(".menuArea").removeClass("clickCheckedMenu");
+
+	$(e).addClass("clickCheckedMenu");
+
+	//当前点击菜单index
 	var index = $(e).attr("data-index");
-
+	//iframe跳转路径
 	var iframePath = "";
-
 	switch (index) {
 		case "0":
 			//控制中间菜单栏显示 隐藏

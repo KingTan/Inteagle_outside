@@ -23,6 +23,7 @@ body {
 
 .helpText {
 	margin-left: 0.9375rem;
+	margin-top: 0.25rem;
 }
 
 .helpText span {
@@ -50,7 +51,6 @@ body {
 }
 
 .rightOption {
-	width: 20%;
 	justify-content: space-around;
 	position: absolute;
 	right: 5.1875rem;
@@ -136,7 +136,6 @@ body {
 }
 
 .menuArea {
-	width: 80%;
 	height: 100%;
 	border-bottom: 1px lightgray solid;
 	margin: 0px auto;
@@ -148,7 +147,7 @@ body {
 }
 
 .menuIconArea {
-	margin-left: 0.625rem;
+	margin-left: 2.3125rem;
 }
 
 .middleMenu {
@@ -274,6 +273,13 @@ body {
 	color: black !important;
 	background-color: #F5F6F7;
 }
+
+.clickCheckedMenu{
+	padding-bottom: 0.0625rem;
+	color: black !important;
+	background-color: #F5F6F7;
+}
+
 
 .peopleMiddleMenu {
 	width: 65% !important;
@@ -410,4 +416,16 @@ body {
 .addAttendaceBtnArea {
 	margin-left: 11rem;
 	margin-top: 3.625rem;
+}
+
+.messageArea{
+	margin-right: 2.125rem;
+}
+
+.rightArea{
+	align-items: center;
+}
+
+.helpArea {
+	margin-right: 2.125rem;
 }
