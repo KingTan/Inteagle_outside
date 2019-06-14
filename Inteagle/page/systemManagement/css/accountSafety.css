@@ -1,0 +1,26 @@
+.updateBtn {
+	width: 6.5625rem;
+	height: 1.8125rem;
+	line-height: 1.8125rem;
+	text-align: center;
+	background: rgba(44, 115, 196, 1);
+	font-size: 0.875rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(255, 255, 255, 1);
+}
+
+.rowInfo{
+	align-items: center;
+}
+
+.projectName {
+	width: 50%;
+}
+
+.loginPwdText{
+	line-height: 1.25rem!important;
+}
+
+.userNameArea{
+	padding-top: 3.125rem;
+}

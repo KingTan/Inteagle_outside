@@ -210,7 +210,7 @@ function middleMenuMove(e) {
 			//修改样式
 			$(".systemMiddle ul li").removeClass("checkedMiddleMenu");
 			//账号安全
-			iframePath = "../attendanceManagement/attendanceRecord.html";
+			iframePath = "../systemManagement/accountSafety.html";
 			break;
 	}
 
