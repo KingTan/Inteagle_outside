@@ -143,10 +143,53 @@ function middleMenuMove(e) {
 /**
  * 左边菜单移出事件
  */
-$(".menuArea").bind("mouseleave", function() {
-	console.log("out");
-	//清楚移动选中样式
+$(".menuArea").bind("mouseleave", function(e) {
+	var isChecked = e.currentTarget.dataset.checked;
+
+	//清除移动选中样式
 	$(".menuArea").removeClass("checkedMenu");
+	//当前移出菜单下标
+	var index = e.currentTarget.dataset.index;
+	//图片路径
+	var imgPath = "";
+
+	switch (index) {
+		case "0":
+			imgPath = "img/xiangmu(1).png";
+			break;
+		case "1":
+			imgPath = "img/qiye.png";
+			break;
+		case "2":
+			imgPath = "img/renyuan.png";
+			break;
+		case "3":
+			imgPath = "img/gongzi.png";
+			break;
+		case "4":
+			imgPath = "img/kaoqin.png";
+			break;
+		case "5":
+			imgPath = "img/chakanfangke(1).png";
+			break;
+		case "6":
+			imgPath = "img/anquan(1).png";
+			break;
+		case "7":
+			imgPath = "img/shebei(1).png";
+			break;
+		case "8":
+			imgPath = "img/xitong(1).png";
+			break;
+	}
+
+	if (isChecked != "true") {
+		$(e.currentTarget).children(".singleMenu").children(".eighteenWidth").children(".menuIconArea").children(".menuIcon").attr(
+			"src", imgPath);
+	}
+
+
+
 })
 
 /**
@@ -154,8 +197,44 @@ $(".menuArea").bind("mouseleave", function() {
  * 左边菜单移入事件
  */
 function leftMenuMove(e) {
+	//移除列表移动选中样式
 	$(".menuArea").removeClass("checkedMenu");
+	//当前节点添加选中样式
 	$(e).addClass("checkedMenu");
+	var index = $(e).attr("data-index");
+	//移入图片路径
+	var imgPath = "";
+	switch (index) {
+		case "0":
+			imgPath = "img/xiangmu.png";
+			break;
+		case "1":
+			imgPath = "img/qiye(1).png";
+			break;
+		case "2":
+			imgPath = "img/renyuan(1).png";
+			break;
+		case "3":
+			imgPath = "img/gongzi(1).png";
+			break;
+		case "4":
+			imgPath = "img/kaoqin(1).png";
+			break;
+		case "5":
+			imgPath = "img/chakanfangke.png";
+			break;
+		case "6":
+			imgPath = "img/anquan.png";
+			break;
+		case "7":
+			imgPath = "img/shebei.png";
+			break;
+		case "8":
+			imgPath = "img/xitong.png";
+			break;
+	}
+	//修改当前选中节点菜单的icon
+	$(e).children(".singleMenu").children(".eighteenWidth").children(".menuIconArea").children(".menuIcon").attr("src", imgPath);
 }
 /**
  * @param {Object} e
@@ -165,13 +244,21 @@ function checkLeftMenu(e) {
 	//移除移动选中样式和点击选中样式
 	$(".menuArea").removeClass("checkedMenu");
 	$(".menuArea").removeClass("clickCheckedMenu");
+	$(".menuArea").attr("data-checked", "false");
 
+	//修改当前节点选中样式
 	$(e).addClass("clickCheckedMenu");
+	//修改当前节点属性为选中
+	$(e).attr("data-checked", "true");
+	//修改当前列表其他菜单的icon
+	changeClickIconPath();
 
 	//当前点击菜单index
 	var index = $(e).attr("data-index");
 	//iframe跳转路径
 	var iframePath = "";
+	//图片路径
+	var imgPath = "";
 	switch (index) {
 		case "0":
 			//控制中间菜单栏显示 隐藏
@@ -185,6 +272,7 @@ function checkLeftMenu(e) {
 			$(".projectMiddle ul li").removeClass("checkedMiddleMenu");
 			$(".projectMiddle ul li:first").addClass("checkedMiddleMenu");
 			iframePath = "../projectManagement/projectManagement.html";
+			imgPath = "img/xiangmu.png";
 			break;
 		case "1":
 			//控制中间菜单栏显示 隐藏
@@ -198,6 +286,7 @@ function checkLeftMenu(e) {
 			$(".businessMiddle ul li").removeClass("checkedMiddleMenu");
 			$(".businessMiddle ul li:first").addClass("checkedMiddleMenu");
 			iframePath = "../businessManagement/businessManagement.html";
+			imgPath = "img/qiye(1).png";
 			break;
 		case "2":
 			//控制中间菜单栏显示 隐藏
@@ -211,6 +300,7 @@ function checkLeftMenu(e) {
 			$(".peopleMiddle ul li").removeClass("checkedMiddleMenu");
 			$(".peopleMiddle ul li:first").addClass("checkedMiddleMenu");
 			iframePath = "../workerManagemenet/workerManagemenet.html";
+			imgPath = "img/renyuan(1).png";
 			break;
 		case "3":
 			//控制中间菜单栏显示 隐藏
@@ -224,6 +314,7 @@ function checkLeftMenu(e) {
 			$(".wageMiddle ul li").removeClass("checkedMiddleMenu");
 			$(".wageMiddle ul li:first").addClass("checkedMiddleMenu");
 			iframePath = "../wageManagement/wageManagement.html";
+			imgPath = "img/gongzi(1).png";
 			break;
 		case "4":
 			//控制中间菜单栏显示 隐藏
@@ -237,20 +328,38 @@ function checkLeftMenu(e) {
 			$(".attendanceMiddle ul li").removeClass("checkedMiddleMenu");
 			$(".attendanceMiddle ul li:first").addClass("checkedMiddleMenu");
 			iframePath = "../attendanceManagement/attendanceManagement.html";
+			imgPath = "img/kaoqin(1).png";
 			break;
 		case "5":
+			imgPath = "img/chakanfangke.png";
 			break;
 		case "6":
+			imgPath = "img/anquan.png";
 			break;
 		case "7":
+			imgPath = "img/shebei.png";
 			break;
 		case "8":
-			break;
-		default:
+			imgPath = "img/xitong.png";
 			break;
 	}
-
+	//修改当前选中节点菜单的icon
+	$(e).children(".singleMenu").children(".eighteenWidth").children(".menuIconArea").children(".menuIcon").attr("src", imgPath);
 	//控制右边iframe路径
 	$("#mainFrame").attr("src", iframePath);
+}
 
+/**
+ * 改变左侧菜单点击选中之后 其他菜单的icon路径
+ */
+function changeClickIconPath() {
+	$(".icon_1").attr("src", "img/xiangmu(1).png");
+	$(".icon_2").attr("src", "img/qiye.png");
+	$(".icon_3").attr("src", "img/renyuan.png");
+	$(".icon_4").attr("src", "img/gongzi.png");
+	$(".icon_5").attr("src", "img/kaoqin.png");
+	$(".icon_6").attr("src", "img/chakanfangke(1).png");
+	$(".icon_7").attr("src", "img/anquan(1).png");
+	$(".icon_8").attr("src", "img/shebei(1).png");
+	$(".icon_9").attr("src", "img/xitong(1).png");
 }

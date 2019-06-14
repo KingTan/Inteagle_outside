@@ -4,6 +4,7 @@ body {
 	width: 100%;
 	min-width: 81.25rem;
 	min-height: 100vh;
+	font-family: MicrosoftYaHei !important;
 }
 
 .topContainer {
@@ -73,7 +74,6 @@ body {
 .leftMenu {
 	width: 12.5rem;
 	height: 100%;
-	background-color: #024B7F;
 }
 
 .userInfo {
@@ -117,6 +117,7 @@ body {
 .menuList {
 	width: 100%;
 	height: 100%;
+	background-color: #024B7F;
 }
 
 .menuList ul {
@@ -127,22 +128,20 @@ body {
 .menuList ul li {
 	list-style: none;
 	width: 100%;
-	height: 3.75rem;
-	line-height: 3.75rem;
+	height: 3.4375rem;
+	line-height: 3.4375rem;
 	color: #FFFFFF;
-	font-size: 1rem;
-	font-family: "microsoft yahei";
-
+	font-size: 0.9375rem;
+	font-family: MicrosoftYaHei;
 }
 
 .menuArea {
+	width: 100%;
 	height: 100%;
-	border-bottom: 1px lightgray solid;
-	margin: 0px auto;
 }
 
 .optionName {
-	margin-left: 0.625rem;
+	margin-left: 0.875rem;
 	margin-top: 0.125rem;
 }
 
@@ -269,15 +268,15 @@ body {
 }
 
 .checkedMenu {
-	padding-bottom: 0.0625rem;
 	color: black !important;
 	background-color: #F5F6F7;
+	border-bottom: 0.125rem #DC4545 solid;
 }
 
-.clickCheckedMenu{
-	padding-bottom: 0.0625rem;
+.clickCheckedMenu {
 	color: black !important;
 	background-color: #F5F6F7;
+	border-bottom: 0.125rem #DC4545 solid;
 }
 
 
@@ -418,14 +417,32 @@ body {
 	margin-top: 3.625rem;
 }
 
-.messageArea{
+.messageArea {
 	margin-right: 2.125rem;
 }
 
-.rightArea{
+.rightArea {
 	align-items: center;
 }
 
 .helpArea {
 	margin-right: 2.125rem;
+}
+
+.singleMenu {
+	height: 100%;
+	width: 100%;
+}
+
+.eighteenWidth{
+	height: 98%;
+}
+
+
+.bottomLine {
+	width: 9.875rem;
+	height: 0.0625rem;
+	background: rgba(255, 255, 255, 1);
+	opacity: 0.08;
+	margin-left: 1.3125rem;
 }
