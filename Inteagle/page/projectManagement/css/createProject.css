@@ -47,7 +47,7 @@
 	line-height: 2.375rem !important;
 }
 
-.registerBtn {
+#registerBtn {
 	width: 15.3125rem;
 	height: 2.625rem;
 	line-height: 2.625rem;
@@ -59,7 +59,7 @@
 	color: rgba(255, 255, 255, 1);
 }
 
-.resetBtn {
+#resetBtn {
 	width: 15.3125rem;
 	height: 2.625rem;
 	line-height: 2.625rem;
@@ -95,4 +95,15 @@
 
 .selectOption {
 	width: 12.1875rem !important;
+}
+
+.mustInput {
+	color: #FF0000;
+	position: absolute;
+	z-index: 1;
+	margin-left: 15px;
+	margin-top: 12px;
+}
+.scanRequire{
+	margin-left: 0.4375rem;
 }

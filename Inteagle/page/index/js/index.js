@@ -20,7 +20,7 @@ function addBussniess(e){
 		closeBtn: 0,
 		area: ['861px', '768px'],
 		shadeClose: true,
-		scrollbar: false,
+		scrollbar: true,
 		resize:false,
 		content: html,
 		success:function(){
