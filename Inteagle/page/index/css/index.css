@@ -466,3 +466,6 @@ body {
 .addDevice{
 	height: 19.6875rem!important;
 }
+.helpText:hover{
+	cursor: pointer;
+}

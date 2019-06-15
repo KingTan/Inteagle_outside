@@ -34,7 +34,7 @@
 		</div>
 
 		<!-- 中间显示区域 -->
-		<div class="row mainBody">
+		<div class="row mainBody" style="display: none;">
 
 			<!-- 左侧菜单选择栏 -->
 			<div class="column leftMenu">
@@ -388,7 +388,7 @@
 						</li>
 					</ul>
 					<!-- 添加菜单 -->
-					<div class="row addMiddleMenu addCertMenu" data-index="6-2" onclick="addAttendance(this)">
+					<div class="row addMiddleMenu addCertMenu" data-index="6-2" onclick="addVistor(this)">
 						<div class="addIconArea">
 							<img src="img/add.png" class="addIcon" />
 						</div>
@@ -510,7 +510,38 @@
 			<!-- 右边iframe内联框架 -->
 			<iframe src="../projectManagement/projectManagement.html" id="mainFrame" class="mainFrame" name='iframe' frameborder="0"></iframe>
 		</div>
-
+		
+		
+		<div class="addAttendanceBox addDevice" style="margin-top: 1.875rem; margin-left: 1.875rem;">
+			<div class="headTitle"><span>添加设备</span></div>
+			<div class="column pickArea">
+				<div class="row attendanceNameArea">
+					<div class="attendanceNameText"><span>设备序列号</span></div>
+					<div class="attendanceNameinputArea deviceIdArea">
+						<input type="text" class="attendanceName" />
+					</div>
+				</div>
+				<div class="row attendanceNameArea timeperiod">
+					<div class="attendanceNameText"><span>设备类型</span></div>
+					<div class="addDeviceRaido">
+						<form class="layui-form" action="">
+							<div class="layui-input-block radioArray">
+								<input type="radio" name="deivce" value="router" title="路由器" checked="">
+								<input type="radio" name="deivce" value="camera" title="摄像头">
+								<input type="radio" name="deivce" value="helmet" title="安全帽">
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="row addDeviceBtnArea">
+					<div class="finishedBtn addBtn btn"><span>添加</span></div>
+					<div class="cancelBtn cancelDeviceBtn btn"><span>取消</span></div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
 		<!--底部备案信息区域  -->
 		<div class="bottomArea">
 			<div class="recordText">

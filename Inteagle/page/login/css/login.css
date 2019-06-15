@@ -60,19 +60,25 @@ input::-webkit-input-placeholder {
 }
 
 .logoImage {
-	margin-top: 1.5%;
+	margin-top: 6.25rem
 }
 
 .logoIcon {
-	width: 12%;
+	width: 4.6875rem;
+	height: 4.75rem;
 }
+
+.fontIcon {
+	width: 19.375rem;
+}
+
 
 .loginArea {
 	width: 482px;
 	height: 410px;
 	background-color: #FFFFFF;
 	margin: 0px auto;
-	margin-top: 3.8125rem;
+	margin-top: 1.25rem;
 	background: rgba(255, 255, 255, 1);
 	box-shadow: 1px 2px 11px 2px rgba(0, 0, 0, 0.1);
 	border-radius: 18px;
@@ -93,20 +99,34 @@ input::-webkit-input-placeholder {
 }
 
 .pwdLoginText {
+	position: relative;
 	margin-top: 2.625rem;
-	border-bottom: 0.0625rem grey solid;
 }
 
 .pwdLoginText span {
-	width: 3.8125rem;
-	margin-left: 1.375rem;
 	font-size: 0.9375rem;
 	font-family: MicrosoftYaHei;
 	color: rgba(44, 115, 196, 1);
 }
 
+.textLine {
+	position: absolute;
+	width: 4.0625rem;
+	margin-left: -1.375rem;
+}
 
-.loginBtnArea {
+.leftBox {
+	width: 2.8125rem;
+	border-bottom: 0.0625rem #2C73C4 solid;
+}
+
+.rightBox {
+	width: 2.8125rem;
+	margin-left: 0.75rem;
+	border-bottom: 0.0625rem #2C73C4 solid;
+}
+
+#loginBtn{
 	width: 20.125rem;
 	height: 2.5rem;
 	line-height: 2.5rem;
@@ -118,6 +138,7 @@ input::-webkit-input-placeholder {
 	text-align: center;
 }
 
+
 .insideArea {
 	margin-left: 5rem;
 	margin-right: 5rem;
@@ -126,7 +147,7 @@ input::-webkit-input-placeholder {
 .sameText {
 	height: 4rem;
 	line-height: 4rem;
-	border-bottom: 0.0625rem solid gray;
+	border-bottom: 0.0625rem solid #DFDFDF;
 }
 
 .loginBtnArea {
@@ -146,11 +167,37 @@ input::-webkit-input-placeholder {
 	width: 85%;
 	margin-left: 0.9375rem;
 }
-.inputArea input{
+
+.inputArea input {
 	height: 1.25rem;
 	width: 100%;
 	font-size: 1.125rem;
+	margin-top: 1.875rem;
 }
-.textLine{
-	margin-bottom: 1.625rem;
+
+.next:after {
+	content: "";
+	width: 10px;
+	height: 10px;
+	border-right: 1px solid #2C73C4;
+	border-bottom: 1px solid #2C73C4;
+	transform: rotate(225deg);
+	-webkit-transform: rotate(225deg);
+	position: absolute;
+	top: 42px;
+}
+
+.pwdBox {
+	position: relative;
+	width: 100%;
+	height: 5.625rem;
+}
+
+.leftRightBox {
+	width: 220px;
+	border-bottom: 0.0625rem #DFDFDF solid;
+}
+
+.loginBtnArea:hover{
+	cursor: pointer;
 }

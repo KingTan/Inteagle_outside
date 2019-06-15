@@ -7,6 +7,16 @@ $(function() {
 
 })
 
+
+/**
+ * 添加访客
+ */
+function addVistor(){
+	
+	
+}
+
+
 /**
  * 添加项目
  */
