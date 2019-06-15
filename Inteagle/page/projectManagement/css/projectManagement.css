@@ -79,13 +79,17 @@ input::-webkit-input-placeholder {
 	height: 1.625rem;
 	line-height: 1.625rem;
 	margin-left: 3.125rem;
-	text-align: center;
 	background: rgba(2, 75, 127, 1);
 	border-radius: 0.8125rem;
 	font-size: 0.75rem;
 	font-family: MicrosoftYaHei;
 	color: rgba(255, 255, 255, 1);
 }
+
+.layui-btn{
+	padding: 0;
+}
+
 
 .searchArea {
 	margin-top: 2.0625rem;
@@ -116,7 +120,21 @@ input::-webkit-input-placeholder {
 	font-family: MicrosoftYaHei;
 	color: rgba(226, 0, 0, 1);
 }
-.showDetail:hover{
+
+.showDetail:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.projectListText {
+	border-bottom: 0.1875rem solid rgba(2, 75, 127, 1);
+}
+
+.editorText {
+	margin-top: 0.125rem;
+}
+
+.editorText:hover {
 	cursor: pointer;
 	text-decoration: underline;
 }
