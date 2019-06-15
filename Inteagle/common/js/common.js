@@ -14,31 +14,32 @@ layui.use('form', function() {
 layui.use('laydate', function() {
 	laydate = layui.laydate;
 	laydate.render({
-		elem:"#establishTime"
+		elem: "#establishTime"
 	});
 	laydate.render({
-		elem:"#commenceTime"
+		elem: "#commenceTime"
 	});
 	laydate.render({
-		elem:"#trackTime",
-		type:"datetime",
-		range:"到",
-		format:"yyyy年M月d日H时m分s秒"
+		elem: "#trackTime",
+		type: "datetime",
+		range: "到",
+		format: "yyyy年M月d日H时m分s秒"
 	});
 	laydate.render({
-		elem:"#wageTime",
-		type:"date"
+		elem: "#wageTime",
+		type: "date"
 	});
 	laydate.render({
-		elem:"#certificateManagementYear",
-		type:"year"
+		elem: "#certificateManagementYear",
+		type: "year"
 	});
 	laydate.render({
-		elem:"#addCertificateManagementYear",
-		type:"year"
+		elem: "#addCertificateManagementYear",
+		type: "year"
 	});
 	laydate.render({
-		elem:"#attendanceTime",
-		type:"datetime"
+		elem: "#attendanceTime",
+		type: "datetime"
 	});
+	
 })

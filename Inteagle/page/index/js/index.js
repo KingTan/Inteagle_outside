@@ -7,13 +7,69 @@ $(function() {
 
 })
 
+/**
+ * @param {Object} e
+ * 添加企业
+ */
+function addBussniess(e){
+	var html = document.getElementById("addBussinessModel").innerHTML;
+	//页面层-自定义
+	layer.open({
+		type: 1,
+		title: false,
+		closeBtn: 0,
+		area: ['861px', '768px'],
+		shadeClose: true,
+		scrollbar: false,
+		resize:false,
+		content: html,
+		success:function(){
+			//初始化 from 对象
+			layui.use('form', function() {
+				layform = layui.form;
+				layform.render();
+			})
+		}
+	});
+}
+
+
 
 /**
  * 添加访客
  */
-function addVistor(){
-	
-	
+function addVistor(e){
+	var html = document.getElementById("addVistorModel").innerHTML;
+	//页面层-自定义
+	layer.open({
+		type: 1,
+		title: false,
+		closeBtn: 0,
+		area: ['861px', '536px'],
+		shadeClose: true,
+		scrollbar: false,
+		resize:false,
+		content: html,
+		success:function(){
+			//初始化 from 对象
+			layui.use('form', function() {
+				layform = layui.form;
+				layform.render();
+			})
+			laydate.render({
+				elem: "#visteDate"
+			});
+			laydate.render({
+				elem: "#approachTime",
+				type: "time"
+			});
+			laydate.render({
+				elem: "#departureTime",
+				type: "time"
+			});
+			
+		}
+	});
 }
 
 
@@ -56,6 +112,7 @@ function addAttendance(e) {
 		area: ['730px', '364px'],
 		shadeClose: true,
 		scrollbar: false,
+		resize:false,
 		content: html,
 		success:function(){
 			laydate.render({
@@ -82,6 +139,7 @@ function addDevice(e) {
 			area: ['730px', '315px'],
 			shadeClose: true,
 			scrollbar: false,
+			resize:false,
 			content: html,
 			success:function(){
 				//初始化 from 对象

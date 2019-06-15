@@ -10,6 +10,13 @@ body {
 	background-color: #CCCCCC;
 }
 
+@media screen and (max-device-width:960px){
+    body{
+        width: 31.25rem;
+    }
+}
+
+
 /**
  *  修改google浏览器，默认的聚焦黄色背景为白色
  */

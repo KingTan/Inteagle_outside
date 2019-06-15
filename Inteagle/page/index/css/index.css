@@ -333,7 +333,6 @@ body {
 	width: 29.9375rem;
 	height: 2.25rem;
 	margin-left: 2.25rem;
-
 	border-radius: 0.125rem;
 	border: 1px solid rgba(231, 231, 231, 1);
 }
@@ -435,10 +434,9 @@ body {
 	width: 100%;
 }
 
-.eighteenWidth{
+.eighteenWidth {
 	height: 98%;
 }
-
 
 .bottomLine {
 	width: 9.875rem;
@@ -448,24 +446,191 @@ body {
 	margin-left: 1.3125rem;
 }
 
-.radioArray{
-	margin-left: 2.25rem!important;
+.radioArray {
+	margin-left: 2.25rem !important;
 }
-.deviceIdArea{
-	margin-left: 1.25rem!important;
+
+.deviceIdArea {
+	margin-left: 1.25rem !important;
 }
-.addDeviceBtnArea{
-	margin-top:2.5rem ;
+
+.addDeviceBtnArea {
+	margin-top: 2.5rem;
 }
-.addBtn{
-	margin-left: 100px!important;
+
+.addBtn {
+	margin-left: 100px !important;
 }
-.cancelDeviceBtn{
-	margin-left: 2.8125rem!important;
+
+.cancelDeviceBtn {
+	margin-left: 2.8125rem !important;
 }
-.addDevice{
-	height: 19.6875rem!important;
+
+.addDevice {
+	height: 19.6875rem !important;
 }
-.helpText:hover{
+
+.helpText:hover {
 	cursor: pointer;
+}
+
+.addVistorBox {
+	width: 53.8125rem;
+	height: 33.5rem;
+	background: rgba(255, 255, 255, 1);
+	box-shadow: 0px 0.125rem 3.75rem 0.0625rem rgba(0, 0, 0, 0.19);
+	border-radius: 1.25rem;
+}
+
+.singleInput {
+	width: 21.3125rem;
+	height: 2.5rem;
+	line-height: 2.5rem;
+	background: rgba(249, 249, 249, 1);
+	border-radius: 0.125rem;
+	border: 1px solid rgba(221, 221, 221, 1);
+}
+
+.mustInput {
+	color: #FF0000;
+}
+
+.lefttextArea {
+	margin-left: 1.375rem;
+}
+
+.leftText {
+	font-size: 0.8125rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(150, 150, 150, 1);
+}
+
+.middleLine {
+	margin-right: 1.25rem;
+	margin-left: 2.6875rem;
+	color: rgba(150, 150, 150, 1);
+}
+
+.inputArea {
+	height: 100%;
+}
+
+.inputArea input {
+	width: 100%;
+	height: 100%;
+	font-size: 0.9375rem;
+	background: rgba(249, 249, 249, 1) !important;
+}
+
+/**
+ *  修改google浏览器，默认的聚焦黄色背景为白色
+ */
+.inputArea input:-webkit-autofill,
+.inputArea select:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+.inputArea input {
+	outline-color: invert;
+	outline-style: none;
+	outline-width: 0px;
+	border: none;
+	border-style: none;
+}
+
+.inputArea input::-webkit-input-placeholder {
+	/* placeholder颜色  */
+	color: rgba(150, 150, 150, 1);
+	/* placeholder字体大小  */
+	font-size: 14px;
+	font-family: MicrosoftYaHei;
+}
+
+.rightInput {
+	margin-left: 1.875rem !important;
+}
+
+.nextBox {
+	margin-top: 1.125rem;
+}
+
+.longInput {
+	width: 44.625rem !important;
+}
+
+.clearLine {
+	margin-left: 0.3125rem;
+}
+
+.visitDateLine {
+	margin-left: 1.1875rem;
+}
+
+.wearHelmetLine {
+	margin-left: 1.1875rem;
+}
+
+#addBtn {
+	width: 15.3125rem;
+	height: 2.5625rem;
+	background: rgba(44, 115, 196, 1) !important;
+}
+
+#resetBtn {
+	width: 15.3125rem;
+	height: 2.5625rem;
+	background: rgba(213, 213, 213, 1);
+	margin-left: 6.625rem;
+}
+
+.bottomBtnArea {
+	margin-top: 2.125rem;
+	margin-left: 3rem;
+}
+
+.addBussiness {
+	width: 53.8125rem !important;
+	height: 48rem !important;
+	background: rgba(255, 255, 255, 1);
+	box-shadow: 0px 0.125rem 3.75rem 0.0625rem rgba(0, 0, 0, 0.19);
+	border-radius: 1.25rem;
+}
+
+.regisetMoneyLine {
+	margin-left: 8rem;
+}
+
+.regisetMoneyLineRight {
+	margin-left: 0px;
+	margin-right: 2.5rem;
+}
+
+.moneyUnit {
+	position: absolute;
+	right: 0px;
+	margin-right: 0.3125rem;
+	font-size: 0.75rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(0, 0, 0, 1);
+}
+
+.registerMoneyArea {
+	position: relative;
+}
+
+.registerMoneyLeft {
+	position: absolute;
+}
+
+.longInputText{
+	width: 30.625rem!important;
+}
+.corporateLine{
+	margin-left: 1.5625rem;
+}
+.fitLine{
+	margin-left: 1.875rem;
+}
+.linefit{
+	margin-left: 0.9375rem;
 }

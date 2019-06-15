@@ -22,8 +22,7 @@ $("#loginBtn").bind("click", function() {
 			layer.msg("请输入您的账号", {
 				icon: 2,
 				time: 1000
-			}, function() {
-			});
+			}, function() {});
 		})
 		return;
 	}
@@ -33,8 +32,7 @@ $("#loginBtn").bind("click", function() {
 			layer.msg("请输入您的密码", {
 				icon: 2,
 				time: 1000
-			}, function() {
-			});
+			}, function() {});
 		})
 		return;
 	}
@@ -45,7 +43,7 @@ $("#loginBtn").bind("click", function() {
 			icon: 1,
 			time: 1000
 		}, function() {
-			/* window.location.href = "../index/index.html"; */
+			window.location.href = "../index/index.html";
 		});
 	})
 })
