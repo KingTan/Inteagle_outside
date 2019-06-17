@@ -20,20 +20,33 @@
 	border: none;
 }
 
-.projectList{
-	margin-bottom: 1.25rem;
-}
-.layui-form-label{
-	padding: 0;
-	padding-top: 0.5625rem;
-    padding-right: 0.625rem;
-	width: auto;
-}
-.middleSelect{
-	width: 6.25rem!important;
+
+@media only screen and (max-width: 1400px) {
+	.projectList {
+		margin-top: 0rem;
+		margin-bottom: 1.25rem;
+	}
 }
 
-.pageControll ul li:hover{
+@media only screen and (min-width: 1400px) {
+	.projectList {
+		margin-bottom: 1.25rem;
+	}
+}
+
+
+.layui-form-label {
+	padding: 0;
+	padding-top: 0.5625rem;
+	padding-right: 0.625rem;
+	width: auto;
+}
+
+.middleSelect {
+	width: 6.25rem !important;
+}
+
+.pageControll ul li:hover {
 	cursor: pointer;
-	border-color:lightblue ;
+	border-color: lightblue;
 }

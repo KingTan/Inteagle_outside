@@ -1,0 +1,18 @@
+.headTitle {
+	display: none;
+}
+
+.addBussiness {
+	height: auto!important;
+	background: none;
+	box-shadow: none;
+	border-radius: none;
+}
+
+.bottomBtnArea {
+	margin-bottom: 1.875rem;
+}
+
+body {
+	min-width: 7rem!important;
+}

@@ -2,7 +2,12 @@
  * 页面加载事件
  */
 $(function() {
-
+	
+	var deviceWidth=$(window).width();
+	var deviceHeight=$(window).height();
+	
+	console.log("deviceWidth----",deviceWidth);
+	console.log("deviceHeight----",deviceHeight);
 })
 
 

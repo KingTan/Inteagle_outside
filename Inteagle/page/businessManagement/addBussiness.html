@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>添加企业</title>
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<link href="../../common/layui/css/layui.css" rel="stylesheet" />
+		<link href="../../common/css/common.css" rel="stylesheet" />
+		<link href="../index/css/index.css" rel="stylesheet" />
+		<link href="css/addBussiness.css" rel="stylesheet" />
+	</head>
+	<body>
+		<div class="addAttendanceBox addBussiness">
+			<div class="headTitle"><span>添加企业</span></div>
+			<div class="column pickArea">
+				<div class="row singleRow">
+					<div class="row singleInput">
+						<div class="lefttextArea">
+							<span class="mustInput">*</span>
+							<span class="leftText">企业名称</span>
+						</div>
+						<div class="middleLine">|</div>
+						<div class="inputArea">
+							<input class="name" type="text" placeholder="请填写企业名称" />
+						</div>
+					</div>
+					<div class="row singleInput rightInput">
+						<div class="lefttextArea">
+							<span class="mustInput">*</span>
+							<span class="leftText">简称</span>
+						</div>
+						<div class="middleLine">|</div>
+						<div class="inputArea">
+							<form class="layui-form" action="">
+								<div class="layui-input-inline">
+									<select name="modules" lay-verify="required" lay-search="">
+										<option value="">直接选择或搜索选择</option>
+										<option value="1">layer</option>
+										<option value="2">form</option>
+										<option value="3">layim</option>
+									</select>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="row singleRow nextBox">
+					<div class="row singleInput longInput">
+						<div class="lefttextArea">
+							<span class="mustInput">*</span>
+							<span class="leftText">公司地址</span>
+						</div>
+						<div class="middleLine">|</div>
+						<div class="inputArea">
+							<input class="name longInputText" type="text" placeholder="请填写公司地址" />
+						</div>
+					</div>
+				</div>
+				<div class="row singleRow nextBox">
+					<div class="row singleInput longInput">
+						<div class="lefttextArea">
+							<span class="mustInput">*</span>
+							<span class="leftText">参建项目</span>
+						</div>
+						<div class="middleLine">|</div>
+						<div class="inputArea">
+							<input class="name longInputText" type="text" placeholder="请填写参建项目" />
+						</div>
+					</div>
+				</div>
+		
+				<div class="row singleRow nextBox">
+					<div class="row singleInput registerMoneyArea">
+						<div class="lefttextArea registerMoneyLeft">
+							<span class="mustInput">*</span>
+							<span class="leftText">注册资金</span>
+						</div>
+						<div class="middleLine regisetMoneyLine">|</div>
+						<div class="inputArea">
+							<input class="name" type="text" placeholder="0" />
+						</div>
+						<div class="middleLine regisetMoneyLineRight">|</div>
+						<span class="moneyUnit">万元</span>
+					</div>
+				</div>
+				
+				<div class="row singleRow nextBox">
+					<div class="row singleInput longInput">
+						<div class="lefttextArea">
+							<span class="mustInput">*</span>
+							<span class="leftText">社会统一信用代码</span>
+						</div>
+						<div class="middleLine longLine">|</div>
+						<div class="inputArea">
+							<input class="name longInputText" type="text" placeholder="" />
+						</div>
+					</div>
+				</div>
+				
+				<div class="row singleRow nextBox">
+					<div class="row singleInput longInput">
+						<div class="lefttextArea">
+							<span class="mustInput">*</span>
+							<span class="leftText">基本账户开户银行</span>
+						</div>
+						<div class="middleLine longLine">|</div>
+						<div class="inputArea">
+							<input class="name longInputText" type="text" placeholder="" />
+						</div>
+					</div>
+				</div>
+				
+				<div class="row singleRow nextBox">
+					<div class="row singleInput longInput">
+						<div class="lefttextArea">
+							<span class="mustInput">*</span>
+							<span class="leftText">基本账户银行账号</span>
+						</div>
+						<div class="middleLine longLine">|</div>
+						<div class="inputArea">
+							<input class="name longInputText" type="text" placeholder="" />
+						</div>
+					</div>
+				</div>
+		
+				<div class="row singleRow nextBox">
+					<div class="row singleInput">
+						<div class="lefttextArea">
+							<span class="mustInput">*</span>
+							<span class="leftText">单位类型</span>
+						</div>
+						<div class="middleLine ">|</div>
+						<div class="inputArea">
+							<input class="name" type="text" />
+						</div>
+					</div>
+					<div class="row singleInput rightInput">
+						<div class="lefttextArea">
+							<span class="mustInput">*</span>
+							<span class="leftText">法人代表</span>
+						</div>
+						<div class="middleLine corporateLine">|</div>
+						<div class="inputArea">
+							<input class="name" type="text" />
+						</div>
+					</div>
+				</div>
+				
+				<div class="row singleRow nextBox">
+					<div class="row singleInput">
+						<div class="lefttextArea">
+							<span class="mustInput">*</span>
+							<span class="leftText">联系人姓名</span>
+						</div>
+						<div class="middleLine fitLine">|</div>
+						<div class="inputArea">
+							<input class="name" type="text" />
+						</div>
+					</div>
+				</div>
+				
+				<div class="row singleRow nextBox">
+					<div class="row singleInput">
+						<div class="lefttextArea">
+							<span class="mustInput">*</span>
+							<span class="leftText">联系人手机</span>
+						</div>
+						<div class="middleLine fitLine">|</div>
+						<div class="inputArea">
+							<input class="name" type="text" />
+						</div>
+					</div>
+					<div class="row singleInput rightInput">
+						<div class="lefttextArea">
+							<span class="mustInput">*</span>
+							<span class="leftText">联系人邮箱</span>
+						</div>
+						<div class="middleLine linefit">|</div>
+						<div class="inputArea">
+							<input class="name" type="text" />
+						</div>
+					</div>
+				</div>
+				<div class="bottomBtnArea">
+					<button type="button" id="addBtn" class="layui-btn">添加</button>
+					<button type="button" id="resetBtn" class="layui-btn">重置</button>
+				</div>
+			</div>
+		</div>
+		
+		<script src="../../common/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+		<script src="../../common/layui/layui.js" type="text/javascript"></script>
+		<script src="../../common/js/common.js" type="text/javascript"></script>
+		<script src="js/addBussiness.js" type="text/javascript"></script>
+	</body>
+</html>

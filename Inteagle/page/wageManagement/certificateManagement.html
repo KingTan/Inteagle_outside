@@ -32,7 +32,9 @@
 
 			<!--搜索区域  -->
 			<div class="row searchArea">
-				<form class="layui-form" action="">
+
+				<!--正常屏幕 -->
+				<form class="layui-form normalScreen" action="">
 					<div class="layui-form-item">
 						<div class="layui-inline">
 							<label class="layui-form-label">项目</label>
@@ -73,11 +75,64 @@
 								</select>
 							</div>
 						</div>
-						<div class="layui-inline searchBtn">
-							<span>查询</span>
+						<div class="layui-inline">
+							<button type="button" class="layui-btn layui-btn-normal searchBtn">查询</button>
 						</div>
 					</div>
 				</form>
+
+				<!--小屏幕 -->
+				<form class="layui-form smallScreen" action="">
+					<div class="layui-form-item">
+						<div class="layui-inline">
+							<label class="layui-form-label">项目</label>
+							<div class="layui-input-inline nameArea">
+								<select name="modules" lay-verify="required" lay-search="">
+									<option value="">直接选择或搜索选择</option>
+									<option value="1">layer</option>
+									<option value="2">form</option>
+									<option value="3">layim</option>
+								</select>
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">年份</label>
+							<div class="layui-input-inline middleSelect">
+								<input type="text" class="layui-input" id="smallCertificateManagementYear" placeholder="请选择年份">
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">月份</label>
+							<div class="layui-input-inline middleSelect">
+								<select name="modules" lay-verify="required" lay-search="">
+									<option value="">请选择</option>
+									<option value="1">1月</option>
+									<option value="2">2月</option>
+									<option value="3">3月</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<div class="layui-form-item">
+						<div class="layui-inline">
+							<label class="layui-form-label">状态</label>
+							<div class="layui-input-inline middleSelect">
+								<select name="modules" lay-verify="required" lay-search="">
+									<option value="">请选择</option>
+									<option value="1">layer</option>
+									<option value="2">form</option>
+									<option value="3">layim</option>
+								</select>
+							</div>
+						</div>
+						<div class="layui-inline">
+							<button type="button" class="layui-btn layui-btn-normal searchBtn">查询</button>
+						</div>
+					</div>
+				</form>
+
+
 			</div>
 
 			<!--列表展示  -->
@@ -145,7 +200,7 @@
 					</tr>
 				</table>
 			</div>
-		
+
 			<!-- 分页控制区域 -->
 			<div class="row pageControll">
 				<ul>
@@ -160,8 +215,8 @@
 					</li>
 				</ul>
 			</div>
-			
-			
+
+
 		</div>
 
 		<script src="../../common/js/jquery-3.2.1.min.js" type="text/javascript"></script>

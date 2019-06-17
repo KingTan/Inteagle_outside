@@ -1,16 +1,10 @@
+//layui form组件
 var layform;
 
 /**
  * 页面加载事件
  */
 $(function() {
-
-	var clientWidth = $(window).width(); //浏览器当前窗口可视区域高度 
-	var clientHeight = $(window).height(); //浏览器当前文档的的高度
-	
-	console.log("clientWidth----",clientWidth);
-	console.log("clientHeight----",clientHeight);
-	
 
 })
 
@@ -19,25 +13,39 @@ $(function() {
  * 添加企业
  */
 function addBussniess(e) {
-	var html = document.getElementById("addBussinessModel").innerHTML;
-	//页面层-自定义
-	layer.open({
-		type: 1,
-		title: false,
-		closeBtn: 0,
-		area: ['861px', '768px'],
-		shadeClose: true,
-		scrollbar: true,
-		resize: false,
-		content: html,
-		success: function() {
-			//初始化 from 对象
-			layui.use('form', function() {
-				layform = layui.form;
-				layform.render();
-			})
-		}
-	});
+	if (isBigScreen) {
+		console.log("大屏幕");
+		var html = document.getElementById("addBussinessModel").innerHTML;
+		//页面层-自定义
+		layer.open({
+			type: 1,
+			title: false,
+			closeBtn: 0,
+			area: ['861px', '768px'],
+			shadeClose: true,
+			scrollbar: true,
+			resize: false,
+			content: html,
+			success: function() {
+				//初始化 from 对象
+				layui.use('form', function() {
+					layform = layui.form;
+					layform.render();
+				})
+			}
+		});
+	} else {
+		console.log("小屏幕");
+		layer.open({
+			type: 2,
+			title: "添加企业",
+			area: ['888px', '75%'],
+			fixed: false, //不固定
+			maxmin: false, //不允许放大缩小
+			scrollbar: false,
+			content: '../businessManagement/addBussiness.html'
+		});
+	}
 }
 
 

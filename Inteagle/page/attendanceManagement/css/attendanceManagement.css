@@ -26,7 +26,7 @@
 }
 
 .leftMove {
-	margin-left: 8%;
+	margin-left: 2.25rem;
 }
 
 .pageControll {
@@ -66,4 +66,8 @@
 
 .layui-btn {
 	padding: 0;
+}
+
+.projectList {
+	margin-top: 2.0625rem;
 }

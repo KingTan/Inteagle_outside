@@ -1,0 +1,210 @@
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	min-width: 81.25rem;
+	min-height: 100vh;
+	background: url(../img/background.jpg) no-repeat center center;
+	background-size: cover;
+	background-attachment: fixed;
+	background-color: #CCCCCC;
+}
+
+@media screen and (max-device-width:960px) {
+	body {
+		width: 31.25rem;
+	}
+}
+
+
+/**
+ *  修改google浏览器，默认的聚焦黄色背景为白色
+ */
+input:-webkit-autofill,
+select:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+
+input {
+	outline-color: invert;
+	outline-style: none;
+	outline-width: 0px;
+	border: none;
+	border-style: none;
+	text-shadow: none;
+	-webkit-appearance: none;
+	-webkit-user-select: text;
+	outline-color: transparent;
+	box-shadow: none;
+}
+
+input::-webkit-input-placeholder {
+	/* placeholder颜色  */
+	color: rgba(150, 150, 150, 1);
+	/* placeholder字体大小  */
+	font-size: 14px;
+	font-family: MicrosoftYaHei;
+}
+
+.mainBody {
+	width: 100%;
+	height: 100vh;
+}
+
+.recordsInfo {
+	display: none;
+	width: 100%;
+	background-color: #FFFFFF;
+	position: fixed;
+	bottom: 0rem;
+	text-align: center;
+	color: #0000FF;
+}
+
+.topArea {
+	text-align: center;
+}
+
+.logoImage {
+	margin-top: 2.25rem
+}
+
+.logoIcon {
+	width: 2.8125rem;
+	height: 2.8125rem;
+}
+
+.fontIcon {
+	width: 12.375rem;
+}
+
+
+.loginArea {
+	width: 25.625rem;
+	height: 23.75rem;
+	background-color: #FFFFFF;
+	margin: 0px auto;
+	margin-top: 1.25rem;
+	background: rgba(255, 255, 255, 1);
+	box-shadow: 1px 2px 11px 2px rgba(0, 0, 0, 0.1);
+	border-radius: 18px;
+}
+
+.welcomeText {
+	margin-top: 1.5625rem;
+}
+
+.welcomeText span {
+	width: 5.625rem;
+	height: 1.8125rem;
+	line-height: 1.8125rem;
+	font-size: 1.375rem;
+	font-family: MicrosoftYaHei-Bold;
+	font-weight: bold;
+	color: rgba(44, 115, 196, 1);
+}
+
+.pwdLoginText {
+	position: relative;
+	margin-top: 2.625rem;
+}
+
+.pwdLoginText span {
+	font-size: 0.9375rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(44, 115, 196, 1);
+}
+
+.textLine {
+	position: absolute;
+	width: 4.0625rem;
+	margin-left: -1.375rem;
+}
+
+.leftBox {
+	width: 2.8125rem;
+	border-bottom: 0.0625rem #2C73C4 solid;
+}
+
+.rightBox {
+	width: 2.8125rem;
+	margin-left: 0.75rem;
+	border-bottom: 0.0625rem #2C73C4 solid;
+}
+
+#loginBtn {
+	width: 20.125rem;
+	height: 2.5rem;
+	line-height: 2.5rem;
+	background: rgba(44, 115, 196, 1);
+	border-radius: 0.6875rem;
+	font-size: 1rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(255, 255, 255, 1);
+	text-align: center;
+}
+
+
+.insideArea {
+	margin-left: 2.5rem;
+	margin-right: 2.5rem;
+}
+
+.sameText {
+	height: 4rem;
+	line-height: 4rem;
+	border-bottom: 0.0625rem solid #DFDFDF;
+}
+
+.loginBtnArea {
+	margin-top: 2.0625rem;
+}
+
+.loginNameImage {
+	margin-left: 0.4375rem;
+	margin-top: 0.3125rem;
+}
+
+.pwdArea {
+	margin-top: 0.1875rem;
+}
+
+.inputArea {
+	width: 85%;
+	margin-left: 0.9375rem;
+}
+
+.inputArea input {
+	height: 1.25rem;
+	width: 100%;
+	font-size: 1.125rem;
+	margin-top: 1.875rem;
+}
+
+.next:after {
+	content: "";
+	width: 10px;
+	height: 10px;
+	border-right: 1px solid #2C73C4;
+	border-bottom: 1px solid #2C73C4;
+	transform: rotate(225deg);
+	-webkit-transform: rotate(225deg);
+	position: absolute;
+	top: 42px;
+}
+
+.pwdBox {
+	position: relative;
+	width: 100%;
+	height: 5.625rem;
+}
+
+.leftRightBox {
+	width: 220px;
+	border-bottom: 0.0625rem #DFDFDF solid;
+}
+
+.loginBtnArea:hover {
+	cursor: pointer;
+}

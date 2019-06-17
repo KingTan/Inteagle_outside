@@ -52,7 +52,7 @@
 	height: 2.4375rem;
 	line-height: 2.4375rem;
 	font-size: 0.875rem;
-	margin-left: 2.8125rem;
+	margin-left: 2.8125rem!important;
 	text-align: center;
 	background: rgba(239, 243, 245, 1);
 	font-family: MicrosoftYaHei;

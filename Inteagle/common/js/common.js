@@ -1,6 +1,23 @@
 var layer;
 var form;
 var laydate;
+
+//是否大屏幕显示
+var isBigScreen;
+
+$(function() {
+	
+	//屏幕分辨率的宽高
+	var clientWidth = window.screen.width; 
+	var clientHeight = window.screen.width; 
+	if (clientWidth > 1400) {
+		isBigScreen = true;
+	} else {
+		isBigScreen = false;
+	}
+})
+
+
 //初始化 layer 对象
 layui.use('layer', function() {
 	layer = layui.layer;
@@ -38,7 +55,15 @@ layui.use('laydate', function() {
 		type: "year"
 	});
 	laydate.render({
+		elem: "#smallCertificateManagementYear",
+		type: "year"
+	});
+		laydate.render({
 		elem: "#attendanceTime",
+		type: "datetime"
+	});
+	laydate.render({
+		elem: "#smallAttendanceTime",
 		type: "datetime"
 	});
 	

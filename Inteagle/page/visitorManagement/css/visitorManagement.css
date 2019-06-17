@@ -1,6 +1,7 @@
 .layui-form-label {
 	padding: 0;
 }
+
 .nameTextArea {
 	margin-left: 2.1875rem;
 }
@@ -20,13 +21,34 @@
 	margin-left: 0.8125rem;
 }
 
-.idcardTextAra {
-	margin-left: 3.25rem;
+@media only screen and (max-width: 1200px) {
+	.idcardTextAra {
+		margin-left: 1.25rem;
+	}
+
+	.jobTextArea {
+		margin-left: 2.25rem;
+	}
+
+	.dateTextArea {
+		margin-left: 0.35rem;
+	}
 }
 
-.jobTextArea {
-	margin-left: 4.75rem;
+@media only screen and (min-width: 1200px) {
+	.idcardTextAra {
+		margin-left: 3.25rem;
+	}
+
+	.jobTextArea {
+		margin-left: 4.75rem;
+	}
+
+	.dateTextArea {
+		margin-left: 4.75rem;
+	}
 }
+
 
 .nameArea {
 	width: 5.625rem !important;
@@ -48,9 +70,7 @@
 	margin-right: 0rem;
 }
 
-.dateTextArea {
-	margin-left: 4.75rem;
-}
+
 
 .dateArea {
 	width: 10.5rem !important;
@@ -81,7 +101,8 @@
 	color: #FFFFFF;
 	border: none;
 }
-.middelArea{
+
+.middelArea {
 	width: 100%;
 	justify-content: space-between;
 }
