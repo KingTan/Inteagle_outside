@@ -11,15 +11,16 @@
 		<link href="../../common/css/common.css" rel="stylesheet" />
 		<link href="../projectManagement/css/projectManagement.css" rel="stylesheet" />
 		<link href="css/businessManagement.css" rel="stylesheet" />
+		<link href="css/businessDetail.css" rel="stylesheet" />
 	</head>
 	<body>
 		<div class="column mainBody">
-			
+
 			<!-- 企业名称 -->
 			<div class="businessNameArea">
 				<span class="businessName">测试企业a001</span>
 			</div>
-			
+
 			<!-- 顶部信息 -->
 			<div class="row topHead">
 				<div class="projectListText">
@@ -29,96 +30,135 @@
 					<div class="editorIconArea">
 						<img src="../projectManagement/img/editor.png" class="editorIcon" />
 					</div>
-					<div class="editorText"><span>编辑</span></div>
+					<div class="editorText" onclick="clickEditor()"><span>编辑</span></div>
 				</div>
 			</div>
 			<!--分割线  -->
 			<div class="departLine"></div>
-			
+
 			<!-- 企业基础信息 -->
 			<div class="projectBaseInfo">
 				<ul>
 					<li>
 						<div class="row rowInfo">
 							<div class="leftText"><span>企业名称</span></div>
-							<div class="projectName">测试企业a001</div>
+							<div class="projectName">
+								<span class="projectNameText">测试企业a001</span>
+								<input type="text" class="singleInput projectNameText" value="测试企业a001"/>
+							</div>
 						</div>
 					</li>
 					<li>
 						<div class="row rowInfo">
 							<div class="leftText"><span>简称</span></div>
-							<div class="projectName"></div>
+							<div class="projectName ">
+								<span class="abbreviation"></span>
+								<input type="text" class="singleInput abbreviation" />
+							</div>
 						</div>
 					</li>
 					<li>
 						<div class="row rowInfo">
 							<div class="leftText"><span>注册资金</span></div>
-							<div class="projectName">50W</div>
+							<div class="projectName ">
+								<span class="registeredCapital">50W</span>
+								<input type="text" class="singleInput registeredCapital" value="50W"/>
+							</div>
 						</div>
 					</li>
 					<li>
 						<div class="row rowInfo">
 							<div class="leftText"><span>法人代表</span></div>
-							<div class="projectName">袁毛毛</div>
+							<div class="projectName ">
+								<span class="registeredCapital">袁毛毛</span>
+								<input type="text" class="singleInput registeredCapital" value="袁毛毛"/>
+							</div>
 						</div>
 					</li>
 					<li>
 						<div class="row rowInfo">
 							<div class="leftText"><span>联系人</span></div>
-							<div class="projectName">宋毛毛</div>
+							<div class="projectName ">
+								<span class="contacts">袁毛毛</span>
+								<input type="text" class="singleInput contacts" value="袁毛毛"/>
+							</div>
 						</div>
 					</li>
 					<li>
 						<div class="row rowInfo">
 							<div class="leftText"><span>联系电话</span></div>
-							<div class="projectName">18027042923</div>
+							<div class="projectName">
+								<span class="phoneNumber">18027042923</span>
+								<input type="text" class="singleInput phoneNumber" value="18027042923"/>
+							</div>
 						</div>
 					</li>
 					<li>
 						<div class="row rowInfo">
 							<div class="leftText"><span>邮箱</span></div>
-							<div class="projectName">18027042@qq.com</div>
+							<div class="projectName">
+								<span class="email">18027042@qq.com</span>
+								<input type="text" class="singleInput email" value="18027042@qq.com"/>
+							</div>
 						</div>
 					</li>
 					<li>
 						<div class="row rowInfo">
 							<div class="leftText"><span>社会统一信用代码</span></div>
-							<div class="projectName">201965487515315</div>
+							<div class="projectName">
+								<span class="creditCode">201965487515315</span>
+								<input type="text" class="singleInput creditCode" value="201965487515315"/>
+							</div>
 						</div>
 					</li>
 					<li>
 						<div class="row rowInfo">
 							<div class="leftText"><span>基本账户开户银行</span></div>
-							<div class="projectName">62222545612377851</div>
+							<div class="projectName">
+								<span class="bankName">建设银行</span>
+								<input type="text" class="singleInput bankName" value="建设银行"/>
+							</div>
 						</div>
 					</li>
 					<li>
 						<div class="row rowInfo">
 							<div class="leftText"><span>基本账户银行账号</span></div>
-							<div class="projectName">62222545612377851</div>
+							<div class="projectName">
+								<span class="bandCard">62222545612377851</span>
+								<input type="text" class="singleInput bandCard" value="62222545612377851"/>
+							</div>
 						</div>
 					</li>
 					<li>
 						<div class="row rowInfo">
 							<div class="leftText"><span>公司地址</span></div>
-							<div class="projectName">东莞市松山湖高新技术开发区科汇路一号中科院云计算中心</div>
+							<div class="projectName">
+								<span class="companyAddress">东莞市松山湖高新技术开发区科汇路一号中科院云计算中心</span>
+								<input type="text" class="singleInput companyAddress" value="东莞市松山湖高新技术开发区科汇路一号中科院云计算中心"/>
+							</div>
 						</div>
 					</li>
 					<li>
 						<div class="row rowInfo">
 							<div class="leftText"><span>单位类型</span></div>
-							<div class="projectName"></div>
+							<div class="projectName">
+								<span class="companyType"></span>
+								<input type="text" class="singleInput companyType" value=""/>
+							</div>
 						</div>
 					</li>
 					<li>
 						<div class="row rowInfo">
 							<div class="leftText"><span>参建项目</span></div>
-							<div class="projectName">测试项目123456</div>
+							<div class="projectName">
+								<span class="builingProject">测试项目123456</span>
+								<input type="text" class="singleInput builingProject" value="测试项目123456"/>
+							</div>
 						</div>
 					</li>
 				</ul>
 			</div>
-		
+
 			<!-- 底部信息 -->
 			<div class="row bottomHead">
 				<div class="projectListText">
@@ -133,10 +173,10 @@
 			</div>
 			<!--分割线  -->
 			<div class="departLine"></div>
-			
+
 			<!--列表展示  -->
 			<div class="projectList businessList">
-				<table class="projectTable" >
+				<table class="projectTable">
 					<tr class="firstTr">
 						<td>序号</td>
 						<td>企业</td>
@@ -193,11 +233,11 @@
 					</tr>
 				</table>
 			</div>
-		
+
 		</div>
 		<script src="../../common/js/jquery-3.2.1.min.js" type="text/javascript"></script>
 		<script src="../../common/layui/layui.js" type="text/javascript"></script>
 		<script src="../../common/js/common.js" type="text/javascript"></script>
-		<script src="js/businessManagement.js" type="text/javascript"></script>
+		<script src="js/businessDetail.js" type="text/javascript"></script>
 	</body>
 </html>

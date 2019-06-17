@@ -2,8 +2,9 @@
 	border: none !important;
 	width: auto;
 }
+
 .mainBody {
-	width: 90%!important;
+	width: 90% !important;
 }
 
 .layui-form-label {
@@ -53,10 +54,16 @@
 	color: #FFFFFF;
 	border: none;
 }
+
 .searchBtn {
 	margin-left: 1.125rem;
 	margin-top: 0.3125rem;
 }
-.searchBtn:hover{
+
+.searchBtn:hover {
 	cursor: pointer;
+}
+
+.layui-btn {
+	padding: 0;
 }

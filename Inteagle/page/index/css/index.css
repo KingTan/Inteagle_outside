@@ -470,10 +470,6 @@ body {
 	height: 19.6875rem !important;
 }
 
-.helpText:hover {
-	cursor: pointer;
-}
-
 .addVistorBox {
 	width: 53.8125rem;
 	height: 33.5rem;

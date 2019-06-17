@@ -14,10 +14,3 @@ $(".showDetail").bind("click", function() {
 	window.location.href = "projectDetail.html";
 })
 
-
-/**
- * 输入框聚焦事件
- */
-function changeInputForFocus() {
-	//$(".icon_search").hide();
-}

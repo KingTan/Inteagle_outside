@@ -1,10 +1,16 @@
-.layui-form{
-	width: 90%!important;
+.layui-form {
+	width: 90% !important;
 }
+
 .searchBtn {
 	margin-left: 1.125rem;
 	margin-top: 0.3125rem;
 }
-.smTitle{
+
+.smTitle {
 	width: 6%;
+}
+
+.layui-btn {
+	padding: 0;
 }

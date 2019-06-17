@@ -134,7 +134,7 @@ input::-webkit-input-placeholder {
 	margin-top: 0.125rem;
 }
 
-.editorText:hover {
+.editorText span:hover {
 	cursor: pointer;
 	text-decoration: underline;
 }

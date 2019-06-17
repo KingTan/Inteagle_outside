@@ -39,8 +39,11 @@
 	background: rgba(2, 75, 127, 1);
 	color: #FFFFFF;
 }
+.layui-btn{
+	padding: 0;
+}
 
-.searchBtn:hover{
+.searchBtn:hover {
 	cursor: pointer;
 }
 
@@ -76,21 +79,34 @@
 	text-decoration: underline;
 }
 
-.searchArea{
+.searchArea {
 	margin-top: 1.875rem;
 }
 
-.layui-form-label{
-	width: auto!important;
+.layui-form-label {
+	width: auto !important;
 	padding: 0.25rem 0.9375rem;
 }
-.nameArea{
-	width: 6.25rem!important;
-}
-.layui-form-item .layui-inline{
-	margin-right: 0rem!important;
+
+.nameArea {
+	width: 6.25rem !important;
 }
 
-.layui-input, .layui-select, .layui-textarea{
-	height: 1.625rem!important;
+.layui-form-item .layui-inline {
+	margin-right: 0rem !important;
+}
+
+.layui-inline{
+}
+
+
+.layui-input,
+.layui-select,
+.layui-textarea {
+	height: 1.625rem !important;
+}
+
+.editorText span:hover {
+	cursor: pointer;
+	text-decoration: underline;
 }

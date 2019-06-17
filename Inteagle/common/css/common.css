@@ -2,10 +2,21 @@
 	display: flex;
 	flex-direction: row;
 }
+
 .column {
 	display: flex;
 	flex-direction: column;
 }
-.btn:hover{
+
+.btn:hover {
 	cursor: pointer;
+}
+
+.textUnderLine span:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+span:hover {
+	cursor: default;
 }

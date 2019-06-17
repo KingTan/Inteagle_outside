@@ -5,13 +5,20 @@ var layform;
  */
 $(function() {
 
+	var clientWidth = $(window).width(); //浏览器当前窗口可视区域高度 
+	var clientHeight = $(window).height(); //浏览器当前文档的的高度
+	
+	console.log("clientWidth----",clientWidth);
+	console.log("clientHeight----",clientHeight);
+	
+
 })
 
 /**
  * @param {Object} e
  * 添加企业
  */
-function addBussniess(e){
+function addBussniess(e) {
 	var html = document.getElementById("addBussinessModel").innerHTML;
 	//页面层-自定义
 	layer.open({
@@ -21,9 +28,9 @@ function addBussniess(e){
 		area: ['861px', '768px'],
 		shadeClose: true,
 		scrollbar: true,
-		resize:false,
+		resize: false,
 		content: html,
-		success:function(){
+		success: function() {
 			//初始化 from 对象
 			layui.use('form', function() {
 				layform = layui.form;
@@ -38,7 +45,7 @@ function addBussniess(e){
 /**
  * 添加访客
  */
-function addVistor(e){
+function addVistor(e) {
 	var html = document.getElementById("addVistorModel").innerHTML;
 	//页面层-自定义
 	layer.open({
@@ -48,9 +55,9 @@ function addVistor(e){
 		area: ['861px', '536px'],
 		shadeClose: true,
 		scrollbar: false,
-		resize:false,
+		resize: false,
 		content: html,
-		success:function(){
+		success: function() {
 			//初始化 from 对象
 			layui.use('form', function() {
 				layform = layui.form;
@@ -67,7 +74,7 @@ function addVistor(e){
 				elem: "#departureTime",
 				type: "time"
 			});
-			
+
 		}
 	});
 }
@@ -112,13 +119,13 @@ function addAttendance(e) {
 		area: ['730px', '364px'],
 		shadeClose: true,
 		scrollbar: false,
-		resize:false,
+		resize: false,
 		content: html,
-		success:function(){
+		success: function() {
 			laydate.render({
-				elem:"#attendanceTimePeriod",
-				type:"time",
-				range:"~",
+				elem: "#attendanceTimePeriod",
+				type: "time",
+				range: "~",
 			});
 		}
 	});
@@ -139,9 +146,9 @@ function addDevice(e) {
 			area: ['730px', '315px'],
 			shadeClose: true,
 			scrollbar: false,
-			resize:false,
+			resize: false,
 			content: html,
-			success:function(){
+			success: function() {
 				//初始化 from 对象
 				layui.use('form', function() {
 					layform = layui.form;
