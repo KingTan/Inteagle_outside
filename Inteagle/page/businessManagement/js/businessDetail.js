@@ -1,4 +1,4 @@
-var count = 1;
+var count = 0;
 
 /**
  * 页面加载事件
@@ -15,7 +15,10 @@ $(function() {
 function clickEditor() {
 
 	count++;
-
+	
+	console.log("count----",count);
+	
+	
 	if (count % 2 == 0) {
 		$(".projectName span").show();
 		$(".projectName input").hide();

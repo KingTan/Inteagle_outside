@@ -53,7 +53,6 @@ input::-webkit-input-placeholder {
 }
 
 .recordsInfo {
-	display: none;
 	width: 100%;
 	background-color: #FFFFFF;
 	position: fixed;

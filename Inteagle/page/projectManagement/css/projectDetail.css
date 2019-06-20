@@ -55,6 +55,10 @@
 	border-bottom: 1px solid #F2F2F2;
 }
 
+.leftText{
+	width: 50%;
+}
+
 .leftText span {
 	font-size: 1rem;
 	font-family: MicrosoftYaHei;
@@ -62,7 +66,6 @@
 }
 
 .projectName {
-	margin-left: 13.5rem;
 	font-size: 0.875rem;
 	font-family: MicrosoftYaHei;
 	color: rgba(150, 150, 150, 1);
@@ -70,7 +73,7 @@
 
 .mapIcon {
 	width: 100%;
-	height: 18rem;
+	height: 24rem;
 }
 
 .checkedMenu {
@@ -126,4 +129,7 @@
 
 ul{
 	padding: 0;
+}
+.rowInfo{
+	width: 50%;
 }

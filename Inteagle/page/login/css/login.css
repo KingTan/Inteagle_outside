@@ -10,10 +10,10 @@ body {
 	background-color: #CCCCCC;
 }
 
-@media screen and (max-device-width:960px){
-    body{
-        width: 31.25rem;
-    }
+@media screen and (max-device-width:960px) {
+	body {
+		width: 31.25rem;
+	}
 }
 
 
@@ -133,7 +133,7 @@ input::-webkit-input-placeholder {
 	border-bottom: 0.0625rem #2C73C4 solid;
 }
 
-#loginBtn{
+#loginBtn {
 	width: 20.125rem;
 	height: 2.5rem;
 	line-height: 2.5rem;
@@ -205,6 +205,25 @@ input::-webkit-input-placeholder {
 	border-bottom: 0.0625rem #DFDFDF solid;
 }
 
-.loginBtnArea:hover{
+.loginBtnArea:hover {
 	cursor: pointer;
+}
+
+.bottomArea {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 1.875rem;
+	line-height: 1.875rem;
+	text-align: center;
+	background-color: #000000;
+	color: #FFFFFF;
+}
+
+.recordText a {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+.recordText a:hover{
+	text-decoration: underline;
 }

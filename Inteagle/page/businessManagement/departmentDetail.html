@@ -11,6 +11,7 @@
 		<link href="../../common/css/common.css" rel="stylesheet" />
 		<link href="../projectManagement/css/projectManagement.css" rel="stylesheet" />
 		<link href="css/businessManagement.css" rel="stylesheet" />
+		<link href="css/businessDetail.css" rel="stylesheet" />
 		<link href="css/departmentDetail.css" rel="stylesheet" />
 	</head>
 	<body>
@@ -24,7 +25,7 @@
 					<div class="editorIconArea">
 						<img src="../projectManagement/img/editor.png" class="editorIcon" />
 					</div>
-					<div class="editorText"><span>编辑</span></div>
+					<div class="editorText" onclick="clickEditor()"><span>编辑</span></div>
 				</div>
 			</div>
 			<!--分割线  -->
@@ -36,67 +37,100 @@
 					<li>
 						<div class="row rowInfo">
 							<div class="leftText"><span>所属单位</span></div>
-							<div class="projectName">测试企业a001</div>
+							<div class="projectName">
+								<span class="projectNameText">测试企业a001</span>
+								<input type="text" class="singleInput projectNameText" value="测试企业a001"/>
+							</div>
 						</div>
 					</li>
 					<li>
 						<div class="row rowInfo">
 							<div class="leftText"><span>所属项目</span></div>
-							<div class="projectName">测试项目a0001</div>
+							<div class="projectName">
+								<span class="projectNameText">测试项目a0001</span>
+								<input type="text" class="singleInput projectNameText" value="测试项目a0001"/>
+							</div>
 						</div>
 					</li>
 					<li>
 						<div class="row rowInfo">
 							<div class="leftText"><span>部门名称</span></div>
-							<div class="projectName">测试部门a0001</div>
+							<div class="projectName ">
+								<span class="registeredCapital">测试部门a0001</span>
+								<input type="text" class="singleInput registeredCapital" value="测试部门a0001"/>
+							</div>
 						</div>
 					</li>
 					<li>
 						<div class="row rowInfo">
 							<div class="leftText"><span>部门简称</span></div>
-							<div class="projectName"></div>
+							<div class="projectName ">
+								<span class="abbreviation"></span>
+								<input type="text" class="singleInput abbreviation" />
+							</div>
 						</div>
 					</li>
 					<li>
 						<div class="row rowInfo">
 							<div class="leftText"><span>部门编码</span></div>
-							<div class="projectName">CSBN-001</div>
+							<div class="projectName ">
+								<span class="registeredCapital">CSBN-001</span>
+								<input type="text" class="singleInput registeredCapital" value="CSBN-001"/>
+							</div>
 						</div>
 					</li>
 					<li>
 						<div class="row rowInfo">
 							<div class="leftText"><span>部门状态</span></div>
-							<div class="projectName">正常</div>
+							<div class="projectName ">
+								<span class="registeredCapital">正常</span>
+								<input type="text" class="singleInput registeredCapital" value="正常"/>
+							</div>
 						</div>
 					</li>
 					<li>
 						<div class="row rowInfo">
 							<div class="leftText"><span>部门负责人</span></div>
-							<div class="projectName">宋毛毛</div>
+							<div class="projectName ">
+								<span class="registeredCapital">宋毛毛</span>
+								<input type="text" class="singleInput registeredCapital" value="宋毛毛"/>
+							</div>
 						</div>
 					</li>
 					<li>
 						<div class="row rowInfo">
 							<div class="leftText"><span>是否有下级部门</span></div>
-							<div class="projectName">否</div>
+							<div class="projectName ">
+								<span class="registeredCapital">否</span>
+								<input type="text" class="singleInput registeredCapital" value="否"/>
+							</div>
 						</div>
 					</li>
 					<li>
 						<div class="row rowInfo">
 							<div class="leftText"><span>是否独立法人</span></div>
-							<div class="projectName">否</div>
+							<div class="projectName ">
+								<span class="registeredCapital">否</span>
+								<input type="text" class="singleInput registeredCapital" value="否"/>
+							</div>
 						</div>
 					</li>
 					<li>
 						<div class="row rowInfo">
 							<div class="leftText"><span>上级部门</span></div>
-							<div class="projectName">测试企业001</div>
+							<div class="projectName ">
+								<span class="registeredCapital">测试企业001</span>
+								<input type="text" class="singleInput registeredCapital" value="测试企业001"/>
+							</div>
 						</div>
 					</li>
 					<li>
 						<div class="row rowInfo">
 							<div class="leftText"><span>地址</span></div>
-							<div class="projectName">东莞市松山湖高新技术开发区科汇路一号中科院云计算中心</div>
+							<div class="projectName ">
+								<span class="registeredCapital">东莞市松山湖高新技术开发区科汇路一号中科院云计算中心</span>
+								<input type="text" class="singleInput registeredCapital" value="东莞市松山湖高新技术开发区科汇路一号中科院云计算中心"/>
+							</div>
 						</div>
 					</li>
 					<li>

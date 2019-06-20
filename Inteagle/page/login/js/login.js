@@ -2,12 +2,7 @@
  * 页面加载事件
  */
 $(function() {
-	
-	var deviceWidth=$(window).width();
-	var deviceHeight=$(window).height();
-	
-	console.log("deviceWidth----",deviceWidth);
-	console.log("deviceHeight----",deviceHeight);
+
 })
 
 
@@ -42,15 +37,36 @@ $("#loginBtn").bind("click", function() {
 		return;
 	}
 
-	//跳转到index界面
-	layer.ready(function() {
-		layer.msg("登录成功", {
-			icon: 1,
-			time: 1000
-		}, function() {
-			window.location.href = "../index/index.html";
-		});
-	})
+
+	if (loginName === "inteagle") {
+		if (passWord === "123456") {
+			//跳转到index界面
+			layer.ready(function() {
+				layer.msg("登录成功", {
+					icon: 1,
+					time: 1000
+				}, function() {
+					window.location.href = "../index/index.html";
+				});
+			})
+		}else{
+			layer.ready(function() {
+				layer.msg("密码错误", {
+					icon: 2,
+					time: 1000
+				}, function() {
+				});
+			})
+		}
+	}else{
+		layer.ready(function() {
+			layer.msg("账号错误", {
+				icon: 2,
+				time: 1000
+			}, function() {
+			});
+		})
+	}
 })
 
 /**

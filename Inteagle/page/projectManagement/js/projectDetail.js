@@ -43,6 +43,20 @@ function clickMenuOption(e) {
 /**
  * 点击跳转企业详情页面
  */
-$(".toBusinessDetail").bind("click",function(){
-	$('#mainFrame', window.parent.document).attr("src","../businessManagement/businessDetail.html");
+$(".toBusinessDetail").bind("click", function() {
+	$('#mainFrame', window.parent.document).attr("src", "../businessManagement/businessDetail.html");
+})
+
+/**
+ * 点击跳转到部门详情页面
+ */
+$(".toDepartmentDetail").bind("click", function() {
+	$('#mainFrame', window.parent.document).attr("src", "../businessManagement/departmentDetail.html");
+})
+
+/**
+ * 点击跳转到工人详情页面
+ */
+$(".toWorkerDetail").bind("click", function() {
+	$('#mainFrame', window.parent.document).attr("src", "../workerManagemenet/workerDetail.html");
 })

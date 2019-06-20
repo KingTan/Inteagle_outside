@@ -9,12 +9,20 @@ $(function() {
 })
 
 /**
+ * 点击取消按钮 关闭layer弹窗
+ */
+function closeLayer() {
+	layer.closeAll();
+}
+
+
+
+/**
  * @param {Object} e
  * 添加企业
  */
 function addBussniess(e) {
 	if (isBigScreen) {
-		console.log("大屏幕");
 		var html = document.getElementById("addBussinessModel").innerHTML;
 		//页面层-自定义
 		layer.open({
@@ -35,7 +43,6 @@ function addBussniess(e) {
 			}
 		});
 	} else {
-		console.log("小屏幕");
 		layer.open({
 			type: 2,
 			title: "添加企业",
@@ -43,6 +50,7 @@ function addBussniess(e) {
 			fixed: false, //不固定
 			maxmin: false, //不允许放大缩小
 			scrollbar: false,
+			shadeClose: true,
 			content: '../businessManagement/addBussiness.html'
 		});
 	}
@@ -99,6 +107,8 @@ function addProject() {
 		fixed: false, //不固定
 		maxmin: false, //不允许放大缩小
 		scrollbar: false,
+		shadeClose: true,
+		move:false,
 		content: '../projectManagement/createProject.html'
 	});
 }
