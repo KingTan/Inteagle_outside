@@ -43,7 +43,7 @@ input::-webkit-input-placeholder {
 	/* placeholder颜色  */
 	color: rgba(150, 150, 150, 1);
 	/* placeholder字体大小  */
-	font-size: 14px;
+	font-size: 0.875rem;
 	font-family: MicrosoftYaHei;
 }
 
@@ -177,7 +177,7 @@ input::-webkit-input-placeholder {
 .inputArea input {
 	height: 1.25rem;
 	width: 100%;
-	font-size: 1.125rem;
+	font-size: 0.875rem;
 	margin-top: 1.875rem;
 }
 
@@ -206,4 +206,24 @@ input::-webkit-input-placeholder {
 
 .loginBtnArea:hover {
 	cursor: pointer;
+}
+
+.bottomArea {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 1.875rem;
+	line-height: 1.875rem;
+	text-align: center;
+	background-color: #000000;
+	color: #FFFFFF;
+}
+
+.recordText a {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+.recordText a:hover {
+	text-decoration: underline;
 }
