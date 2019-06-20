@@ -21,6 +21,11 @@
 	border: 1px solid rgba(221, 221, 221, 1);
 }
 
+.layui-form-item {
+	position: relative;
+}
+
+
 .layui-form-item .layui-input-inline {
 	width: 14.375rem;
 }
@@ -101,6 +106,7 @@
 	color: #FF0000;
 	position: absolute;
 	z-index: 1;
+	left: 0;
 	margin-left: 15px;
 	margin-top: 12px;
 }
