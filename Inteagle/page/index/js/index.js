@@ -90,7 +90,6 @@ function addVistor(e) {
 				elem: "#departureTime",
 				type: "time"
 			});
-
 		}
 	});
 }
@@ -103,13 +102,14 @@ function addProject() {
 	layer.open({
 		type: 2,
 		title: "创建项目",
-		area: ['888px', '75%'],
+		area: ['888px', '90%'],
 		fixed: false, //不固定
 		maxmin: false, //不允许放大缩小
 		scrollbar: false,
 		shadeClose: true,
 		move:false,
 		content: '../projectManagement/createProject.html'
+		
 	});
 }
 /**

@@ -6,7 +6,6 @@ var laydate;
 var isBigScreen;
 
 $(function() {
-	
 	//屏幕分辨率的宽高
 	var clientWidth = window.screen.width; 
 	var clientHeight = window.screen.width; 
@@ -30,12 +29,6 @@ layui.use('form', function() {
 //初始化 laydate 对象
 layui.use('laydate', function() {
 	laydate = layui.laydate;
-	laydate.render({
-		elem: "#establishTime"
-	});
-	laydate.render({
-		elem: "#commenceTime"
-	});
 	laydate.render({
 		elem: "#trackTime",
 		type: "datetime",
