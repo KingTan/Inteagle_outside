@@ -22,16 +22,34 @@
 	border-bottom: 1px rgba(2, 75, 127, 1) solid;
 }
 
-.projectListText ul li {
-	list-style: none;
-	float: left;
-	width: 9.375rem;
-	height: 2.625rem;
-	line-height: 2.625rem;
-	text-align: center;
-	background: rgba(255, 255, 255, 1);
-	border: 1px solid rgba(204, 219, 229, 1);
+
+@media only screen and (max-width: 1400px) {
+	.projectListText ul li {
+		list-style: none;
+		float: left;
+		width: 8.375rem;
+		height: 2.625rem;
+		line-height: 2.625rem;
+		text-align: center;
+		background: rgba(255, 255, 255, 1);
+		border: 1px solid rgba(204, 219, 229, 1);
+	}
+
 }
+
+@media only screen and (min-width: 1400px) {
+	.projectListText ul li {
+		list-style: none;
+		float: left;
+		width: 9.375rem;
+		height: 2.625rem;
+		line-height: 2.625rem;
+		text-align: center;
+		background: rgba(255, 255, 255, 1);
+		border: 1px solid rgba(204, 219, 229, 1);
+	}
+}
+
 
 .projectListText ul li:hover {
 	cursor: pointer;
@@ -132,4 +150,12 @@ ul{
 }
 .rowInfo{
 	width: 50%;
+}
+.mapArea{
+	width: 100%;
+	height: 24rem;
+}
+#bContainer{
+	width: 100%;
+	height: 100%;
 }

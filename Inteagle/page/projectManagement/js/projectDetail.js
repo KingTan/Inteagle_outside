@@ -3,6 +3,13 @@
  */
 $(function() {
 
+	//渲染百度地图
+	var BaiMap = new BMap.Map("bContainer");
+	var point = new BMap.Point(113.880594, 22.95487);
+	BaiMap.centerAndZoom(point, 16);
+
+
+
 })
 
 /**
