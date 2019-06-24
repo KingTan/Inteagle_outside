@@ -16,7 +16,6 @@ $(function() {
 	}
 })
 
-
 //初始化 layer 对象
 layui.use('layer', function() {
 	layer = layui.layer;

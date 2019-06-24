@@ -16,7 +16,6 @@
 			<!--创建项目表格区域  -->
 			<div class="column addTable">
 				<form class="layui-form layui-form-pane" action="">
-
 					<div class="row">
 						<!-- 项目名称 -->
 						<div class="layui-form-item">
@@ -118,33 +117,22 @@
 					
 					<!-- 工程地址 -->
 					<div class="row">
-						<div class="layui-form-item">
+						<div class="layui-form-item" id="area-picker">
 							<span class="mustInput">*</span>
 							<label class="layui-form-label ">工程地址</label>
 							<div class="layui-input-inline selectOption">
-								<select name="quiz1">
+								<select name="province" class="province-selector" data-value="广东省" lay-filter="province-1">
 									<option value="">请选择省</option>
-									<option value="浙江" >浙江省</option>
-									<option value="你的工号">江西省</option>
-									<option value="你最喜欢的老师">福建省</option>
 								</select>
 							</div>
 							<div class="layui-input-inline selectOption">
-								<select name="quiz2">
+								<select name="city" class="city-selector" data-value="深圳市" lay-filter="city-1">
 									<option value="">请选择市</option>
-									<option value="杭州">杭州</option>
-									<option value="宁波" >宁波</option>
-									<option value="温州">温州</option>
-									<option value="温州">台州</option>
-									<option value="温州">绍兴</option>
 								</select>
 							</div>
 							<div class="layui-input-inline selectOption">
-								<select name="quiz3">
+								<select name="county" class="county-selector" data-value="龙岗区" lay-filter="county-1">
 									<option value="">请选择县/区</option>
-									<option value="西湖区">西湖区</option>
-									<option value="余杭区">余杭区</option>
-									<option value="拱墅区">临安市</option>
 								</select>
 							</div>
 						</div>
