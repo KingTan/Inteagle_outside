@@ -1,0 +1,15 @@
+.projectBaseInfo ul li {
+	height: auto;
+}
+
+.safetyContent p {
+	line-height: 1.5625rem;
+}
+.safetyContent {
+	font-size: 0.875rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(150, 150, 150, 1);
+}
+.safetyContentArea{
+	align-items: center;
+}

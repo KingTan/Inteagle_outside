@@ -2,14 +2,6 @@
 	padding: 0;
 }
 
-.nameTextArea {
-	margin-left: 2.1875rem;
-}
-
-.visitorProjectText {
-	margin-left: 0.875rem;
-}
-
 .searchArea .layui-form-label {
 	font-size: 0.75rem;
 	font-family: MicrosoftYaHei;
@@ -27,17 +19,27 @@
 	}
 
 	.jobTextArea {
-		margin-left: 2.25rem;
+		width: 2.9rem;
+	}
+
+	.affiliatedArea {
+		width: 24.625rem !important;
 	}
 
 	.dateTextArea {
-		margin-left: 0.35rem;
+		width: 2.75rem;
+	}
+
+	.mainBody {
+		width: 90%;
+		margin: 0px auto;
+		margin-top: 1.875rem;
 	}
 }
 
 @media only screen and (min-width: 1200px) {
 	.idcardTextAra {
-		margin-left: 3.25rem;
+		margin-left: 2.25rem;
 	}
 
 	.jobTextArea {
@@ -45,7 +47,16 @@
 	}
 
 	.dateTextArea {
-		margin-left: 4.75rem;
+		margin-left: 4.625rem;
+	}
+
+	.affiliatedArea {
+		width: 25.625rem !important;
+	}
+	.mainBody {
+		width: 85%;
+		margin: 0px auto;
+		margin-top: 1.875rem;
 	}
 }
 
@@ -62,9 +73,7 @@
 	width: 10.5rem !important;
 }
 
-.affiliatedArea {
-	width: 25.625rem !important;
-}
+
 
 .layui-form-item .layui-input-inline {
 	margin-right: 0rem;

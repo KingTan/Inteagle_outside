@@ -1091,26 +1091,58 @@
 				<div class="column pickArea">
 					<div class="row singleRow">
 						<div class="row singleInput">
-							<div class="lefttextArea">
+							<div class="addWorkerLeft">
 								<span class="mustInput">*</span>
 								<span class="leftText">姓名</span>
 							</div>
-							<div class="middleLineDep">|</div>
+							<div class="workNextLine">|</div>
 							<div class="inputArea">
 								<input class="name" type="text" placeholder="" />
 							</div>
 						</div>
 						<div class="row singleInput rightInput">
-							<div class="lefttextArea">
+							<div class="addWorkerLeft">
 								<span class="mustInput">*</span>
 								<span class="leftText">工号</span>
 							</div>
-							<div class="middleLineDep">|</div>
+							<div class="workNextLine">|</div>
 							<div class="inputArea">
 								<input class="name" type="text" placeholder="" />
 							</div>
 						</div>
 					</div>
+					<div class="row singleRow nextBox">
+						<div class="row singleInput">
+							<div class="addWorkerLeft">
+								<span class="mustInput">*</span>
+								<span class="leftText">负责人</span>
+							</div>
+							<div class="workNextLine">|</div>
+							<div class="inputArea">
+								<input class="name" type="text" placeholder="" />
+							</div>
+						</div>
+						<div class="row singleInput rightInput">
+							<div class="addWorkerLeft">
+								<span class="mustInput">*</span>
+								<span class="leftText">人员类别</span>
+							</div>
+							<div class="workNextLine">|</div>
+							<div class="inputArea">
+								<form class="layui-form" action="">
+									<div class="layui-input-inline">
+										<select name="modules" lay-verify="required" lay-search="">
+											<option value="">建筑工人</option>
+											<option value="1">layer</option>
+											<option value="2">form</option>
+											<option value="3">layim</option>
+										</select>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					
 					<div class="row singleRow nextBox">
 						<div class="row singleInput longInput">
 							<div class="lefttextArea">
@@ -1147,39 +1179,6 @@
 							</div>
 						</div>
 					</div>
-					
-					<div class="row singleRow nextBox">
-						<div class="row singleInput">
-							<div class="lefttextArea">
-								<span class="mustInput">*</span>
-								<span class="leftText">负责人</span>
-							</div>
-							<div class="middleLineDep">|</div>
-							<div class="inputArea">
-								<input class="name" type="text" placeholder="请填写企业名称" />
-							</div>
-						</div>
-						<div class="row singleInput rightInput">
-							<div class="lefttextArea">
-								<span class="mustInput">*</span>
-								<span class="leftText">人员类别</span>
-							</div>
-							<div class="middleLineDep">|</div>
-							<div class="inputArea">
-								<form class="layui-form" action="">
-									<div class="layui-input-inline">
-										<select name="modules" lay-verify="required" lay-search="">
-											<option value="">建筑工人</option>
-											<option value="1">layer</option>
-											<option value="2">form</option>
-											<option value="3">layim</option>
-										</select>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-					
 					<div class="bottomBtnArea">
 						<button type="button" id="addBtn" class="layui-btn">添加</button>
 						<button type="button" id="resetBtn" class="layui-btn">重置</button>

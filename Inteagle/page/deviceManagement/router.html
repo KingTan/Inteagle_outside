@@ -29,6 +29,63 @@
 			</div>
 			<!--分割线  -->
 			<div class="departLine"></div>
+			
+			<!-- 搜索条件区域 -->
+			<div class="column searchArea">
+				<form class="layui-form" action="">
+					<div class="row middelArea">
+						<div class="layui-form-item">
+							
+							<div class="layui-inline">
+								<label class="layui-form-label nameTextArea">序列号</label>
+								<div class="layui-input-inline nameArea">
+									<input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							
+							<div class="layui-inline">
+								<label class="layui-form-label">所在区域</label>
+								<div class="layui-input-inline nameArea">
+									<select name="modules" lay-verify="required" lay-search="">
+										<option value="">直接选择或搜索选择</option>
+										<option value="1">layer</option>
+										<option value="2">form</option>
+										<option value="3">layim</option>
+									</select>
+								</div>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label dateTextArea">设备状态</label>
+								<div class="layui-input-inline nameArea">
+									<select name="modules" lay-verify="required" lay-search="">
+										<option value=""></option>
+										<option value="1">定期</option>
+										<option value="2">一次性</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="layui-inline searchBtnArea">
+							<div >
+								<button type="button" class="layui-btn layui-btn-normal searchBtn">查询</button>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-inline">
+							<label class="layui-form-label visitorProjectText">负责人</label>
+							<div class="layui-input-inline nameArea">
+								<select name="modules" lay-verify="required" lay-search="">
+									<option value="">直接选择或搜索选择</option>
+									<option value="1">layer</option>
+									<option value="2">form</option>
+									<option value="3">layim</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
 
 			<!--底部表格  -->
 			<div class="bottomTable">

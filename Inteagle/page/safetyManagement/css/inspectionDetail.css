@@ -1,11 +1,8 @@
-.nameTextArea{
-	margin-left: 2.3125rem!important;
-}
 .principalArea{
 	width: 5.625rem!important;
 }
 .inspectResultArea{
-	margin-left: 4.6875rem!important;
+	margin-left: 2.6875rem!important;
 }
 .inspectResult{
 	width: 10.5rem!important;
@@ -18,4 +15,7 @@
 }
 .searchBtnArea {
 	margin-left: 0rem;
+}
+.layui-form-label{
+	width: 5rem;
 }

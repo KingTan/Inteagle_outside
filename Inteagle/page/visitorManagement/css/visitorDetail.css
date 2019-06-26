@@ -1,0 +1,21 @@
+.trackRoutine {
+	width: 25rem !important;
+	font-size: 0.875rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(150, 150, 150, 1);
+}
+
+#visitorTrackTime {
+	display: block;
+	background: rgba(249, 249, 249, 1);
+	border-radius: 0.125rem;
+	border: 0.0625rem solid rgba(221, 221, 221, 1);
+}
+
+.layui-form-item .layui-input-inline {
+	width: 23.75rem;
+}
+
+.behavior {
+	align-items: stretch;
+}

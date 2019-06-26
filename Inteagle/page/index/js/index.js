@@ -191,7 +191,7 @@ function addAttendance(e) {
 		type: 1,
 		title: false,
 		closeBtn: 0,
-		area: ['730px', '364px'],
+		area: ['730px', 'auto'],
 		shadeClose: true,
 		scrollbar: false,
 		resize: false,

@@ -35,6 +35,12 @@ layui.use('laydate', function() {
 		format: "yyyy年M月d日H时m分s秒"
 	});
 	laydate.render({
+		elem: "#visitorTrackTime",
+		type: "datetime",
+		range: "到",
+		format: "yyyy年M月d日H时m分s秒"
+	});
+	laydate.render({
 		elem: "#wageTime",
 		type: "date"
 	});
@@ -58,5 +64,16 @@ layui.use('laydate', function() {
 		elem: "#smallAttendanceTime",
 		type: "datetime"
 	});
-	
+	laydate.render({
+		elem: "#visitorTime",
+		type: "date"
+	});
+	laydate.render({
+		elem: "#safetyTime",
+		type: "date"
+	});
+	laydate.render({
+		elem: "#inspectionTime",
+		type: "date"
+	});
 })

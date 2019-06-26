@@ -37,8 +37,8 @@
 
 .layui-form-label {
 	padding: 0;
-	padding-top: 0.5625rem;
-	padding-right: 0.625rem;
+	padding-top: 0.3125rem;
+	padding-right: 0.5rem;
 	width: auto;
 }
 
@@ -49,4 +49,7 @@
 .pageControll ul li:hover {
 	cursor: pointer;
 	border-color: lightblue;
+}
+.layui-input, .layui-select, .layui-textarea{
+	height: 1.625rem!important;
 }
