@@ -9,520 +9,539 @@
 		<meta http-equiv="Cache-Control" content="no-siteapp" />
 		<link href="../../common/layui/css/layui.css" rel="stylesheet" media="all" />
 		<link href="../../common/css/common.css" rel="stylesheet" />
-		<link href="css/index.css" rel="stylesheet" media="screen"/>
+		<link href="css/index.css" rel="stylesheet" media="screen" />
 		<link rel="shortcut icon" href="../../common/img/inteagle_logo.ico">
 	</head>
 	<body>
-		
+
 		<div class="container">
-		<!--顶部导航条  -->
-		<div class="row topContainer">
-			<!-- 左侧logo -->
-			<div class="logoText"><span>INTEAGLE</span></div>
-			<!-- 右侧选项栏 -->
-			<div class="row rightOption">
-				<div class="row helpArea rightArea">
-					<img src="img/bangzhu.png" class="headIcon" />
-					<div class="helpText textUnderLine"><span>帮助</span></div>
-				</div>
-				<div class="row messageArea rightArea">
-					<img src="img/tongzhi.png" class="headIcon" />
-					<div class="helpText textUnderLine"><span>消息</span></div>
-				</div>
-				<div class="row userInofArea rightArea">
-					<img src="img/man.png" class="userIcon" />
-					<div class="helpText userName normalHover"><span>吴大方</span></div>
-				</div>
-			</div>
-		</div>
-
-		<!-- 中间显示区域 -->
-		<div class="row mainBody">
-
-			<!-- 左侧菜单选择栏 -->
-			<div class="column leftMenu">
-				<!--用户信息  -->
-				<div class="row userInfo">
-					<div class="row leftTopArea">
-						<div class="userBigIcon">
-							<img src="img/man.png" class="headshot" />
-						</div>
-						<div class="column infoText">
-							<div class="userNameText"><span>吴大方</span></div>
-							<div class="row position">
-								<div class="positionIconArea">
-									<img src="img/shenfenyuquanxian.png" class="positionIcon">
-								</div>
-								<div class="positionText"><span>项目经理</span></div>
-							</div>
-						</div>
+			<!--顶部导航条  -->
+			<div class="row topContainer">
+				<!-- 左侧logo -->
+				<div class="logoText"><span>INTEAGLE</span></div>
+				<!-- 右侧选项栏 -->
+				<div class="row rightOption">
+					<div class="row helpArea rightArea">
+						<img src="img/bangzhu.png" class="headIcon" />
+						<div class="helpText textUnderLine"><span>帮助</span></div>
 					</div>
-				</div>
-				<!-- 菜单选择栏 -->
-				<div class="menuList">
-					<ul>
-						<li>
-							<div class="row menuArea clickCheckedMenu" data-checked="true" data-index="0" onmouseenter="leftMenuMove(this)"
-							 onclick="checkLeftMenu(this)">
-								<div class="column singleMenu">
-									<div class="row eighteenWidth">
-										<div class="menuIconArea">
-											<img src="img/xiangmu.png" class="menuIcon icon_1" />
-										</div>
-										<div class="optionName"><span>项目管理</span></div>
-									</div>
-									<div class="bottomLine"></div>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="row menuArea" data-checked="false" onmouseenter="leftMenuMove(this)" onclick="checkLeftMenu(this)"
-							 data-index="1">
-								<div class="column singleMenu">
-									<div class="row eighteenWidth">
-										<div class="menuIconArea">
-											<img src="img/qiye.png" class="menuIcon icon_2" />
-										</div>
-										<div class="optionName"><span>企业管理</span></div>
-									</div>
-									<div class="bottomLine"></div>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="row menuArea" data-checked="false" onmouseenter="leftMenuMove(this)" onclick="checkLeftMenu(this)"
-							 data-index="2">
-								<div class="column singleMenu">
-									<div class="row eighteenWidth">
-										<div class="menuIconArea">
-											<img src="img/renyuan.png" class="menuIcon icon_3" />
-										</div>
-										<div class="optionName"><span>人员管理</span></div>
-									</div>
-									<div class="bottomLine"></div>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="row menuArea" data-checked="false" onmouseenter="leftMenuMove(this)" onclick="checkLeftMenu(this)"
-							 data-index="3">
-								<div class="column singleMenu">
-									<div class="row eighteenWidth">
-										<div class="menuIconArea">
-											<img src="img/gongzi.png" class="menuIcon icon_4" />
-										</div>
-										<div class="optionName"><span>工资管理</span></div>
-									</div>
-									<div class="bottomLine"></div>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="row menuArea" data-checked="false" onmouseenter="leftMenuMove(this)" onclick="checkLeftMenu(this)"
-							 data-index="4">
-								<div class="column singleMenu">
-									<div class="row eighteenWidth">
-										<div class="menuIconArea">
-											<img src="img/kaoqin.png" class="menuIcon icon_5" />
-										</div>
-										<div class="optionName"><span>考勤管理</span></div>
-									</div>
-									<div class="bottomLine"></div>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="row menuArea" data-checked="false" onmouseenter="leftMenuMove(this)" onclick="checkLeftMenu(this)"
-							 data-index="5">
-								<div class="column singleMenu">
-									<div class="row eighteenWidth">
-										<div class="menuIconArea">
-											<img src="img/chakanfangke(1).png" class="menuIcon icon_6" />
-										</div>
-										<div class="optionName"><span>访客管理</span></div>
-									</div>
-									<div class="bottomLine"></div>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="row menuArea" data-checked="false" onmouseenter="leftMenuMove(this)" onclick="checkLeftMenu(this)"
-							 data-index="6">
-								<div class="column singleMenu">
-									<div class="row eighteenWidth">
-										<div class="menuIconArea">
-											<img src="img/anquan(1).png" class="menuIcon icon_7" />
-										</div>
-										<div class="optionName"><span>安全管理</span></div>
-									</div>
-									<div class="bottomLine"></div>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="row menuArea" data-checked="false" onmouseenter="leftMenuMove(this)" onclick="checkLeftMenu(this)"
-							 data-index="7">
-								<div class="column singleMenu">
-									<div class="row eighteenWidth">
-										<div class="menuIconArea">
-											<img src="img/shebei(1).png" class="menuIcon icon_8" />
-										</div>
-										<div class="optionName"><span>设备管理</span></div>
-									</div>
-									<div class="bottomLine"></div>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="row menuArea" data-checked="false" onmouseenter="leftMenuMove(this)" onclick="checkLeftMenu(this)"
-							 data-index="8">
-								<div class="column singleMenu">
-									<div class="row eighteenWidth">
-										<div class="menuIconArea">
-											<img src="img/xitong(1).png" class="menuIcon icon_9" />
-										</div>
-										<div class="optionName"><span>系统管理</span></div>
-									</div>
-									<div class="bottomLine"></div>
-								</div>
-							</div>
-						</li>
-					</ul>
+					<div class="row messageArea rightArea">
+						<img src="img/tongzhi.png" class="headIcon" />
+						<div class="helpText textUnderLine"><span>消息</span></div>
+					</div>
+					<div class="row userInofArea rightArea">
+						<img src="img/man.png" class="userIcon" />
+						<div class="helpText userName normalHover"><span>吴大方</span></div>
+					</div>
 				</div>
 			</div>
 
-			<!-- 中间选择栏 -->
-			<div class="middleMenu">
+			<!-- 中间显示区域 -->
+			<div class="row mainBody">
 
-				<!-- 项目管理 -->
-				<div class="middleMenuList projectMiddle checkMiddle">
-					<!--初始菜单栏  -->
-					<ul>
-						<li class="checkedMiddleMenu middleMenuOption" data-index="1-0" onclick="middleMenuMove(this)">
-							<div class="row middleMenuInfo">
-								<div class="menuListIcon">
-									<img src="img/list.png" class="listIcon" />
-								</div>
-								<div class="middleMenuName">
-									<span>项目资料</span>
+				<!-- 左侧菜单选择栏 -->
+				<div class="column leftMenu">
+					<!--用户信息  -->
+					<div class="row userInfo">
+						<div class="row leftTopArea">
+							<div class="userBigIcon">
+								<img src="img/man.png" class="headshot" />
+							</div>
+							<div class="column infoText">
+								<div class="userNameText"><span>吴大方</span></div>
+								<div class="row position">
+									<div class="positionIconArea">
+										<img src="img/shenfenyuquanxian.png" class="positionIcon">
+									</div>
+									<div class="positionText"><span>项目经理</span></div>
 								</div>
 							</div>
-						</li>
-						<li class="middleMenuOption" data-index="1-1" onclick="middleMenuMove(this)">
-							<div class="row middleMenuInfo">
-								<div class="menuListIcon">
-									<img src="img/list.png" class="listIcon" />
-								</div>
-								<div class="middleMenuName">
-									<span>项目单位</span>
-								</div>
-							</div>
-						</li>
-					</ul>
-					<!-- 添加菜单 -->
-					<div class="row addMiddleMenu" data-index="1-2" onclick="addProject()">
-						<div class="addIconArea">
-							<img src="img/add.png" class="addIcon" />
 						</div>
-						<div class="addText">
-							<span>添加项目</span>
-						</div>
+					</div>
+					<!-- 菜单选择栏 -->
+					<div class="menuList">
+						<ul>
+							<li>
+								<div class="row menuArea clickCheckedMenu" data-checked="true" data-index="0" onmouseenter="leftMenuMove(this)"
+								 onclick="checkLeftMenu(this)">
+									<div class="column singleMenu">
+										<div class="row eighteenWidth">
+											<div class="menuIconArea">
+												<img src="img/xiangmu.png" class="menuIcon icon_1" />
+											</div>
+											<div class="optionName"><span>项目管理</span></div>
+										</div>
+										<div class="bottomLine"></div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="row menuArea" data-checked="false" onmouseenter="leftMenuMove(this)" onclick="checkLeftMenu(this)"
+								 data-index="1">
+									<div class="column singleMenu">
+										<div class="row eighteenWidth">
+											<div class="menuIconArea">
+												<img src="img/qiye.png" class="menuIcon icon_2" />
+											</div>
+											<div class="optionName"><span>企业管理</span></div>
+										</div>
+										<div class="bottomLine"></div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="row menuArea" data-checked="false" onmouseenter="leftMenuMove(this)" onclick="checkLeftMenu(this)"
+								 data-index="2">
+									<div class="column singleMenu">
+										<div class="row eighteenWidth">
+											<div class="menuIconArea">
+												<img src="img/renyuan.png" class="menuIcon icon_3" />
+											</div>
+											<div class="optionName"><span>人员管理</span></div>
+										</div>
+										<div class="bottomLine"></div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="row menuArea" data-checked="false" onmouseenter="leftMenuMove(this)" onclick="checkLeftMenu(this)"
+								 data-index="3">
+									<div class="column singleMenu">
+										<div class="row eighteenWidth">
+											<div class="menuIconArea">
+												<img src="img/gongzi.png" class="menuIcon icon_4" />
+											</div>
+											<div class="optionName"><span>工资管理</span></div>
+										</div>
+										<div class="bottomLine"></div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="row menuArea" data-checked="false" onmouseenter="leftMenuMove(this)" onclick="checkLeftMenu(this)"
+								 data-index="4">
+									<div class="column singleMenu">
+										<div class="row eighteenWidth">
+											<div class="menuIconArea">
+												<img src="img/kaoqin.png" class="menuIcon icon_5" />
+											</div>
+											<div class="optionName"><span>考勤管理</span></div>
+										</div>
+										<div class="bottomLine"></div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="row menuArea" data-checked="false" onmouseenter="leftMenuMove(this)" onclick="checkLeftMenu(this)"
+								 data-index="5">
+									<div class="column singleMenu">
+										<div class="row eighteenWidth">
+											<div class="menuIconArea">
+												<img src="img/chakanfangke(1).png" class="menuIcon icon_6" />
+											</div>
+											<div class="optionName"><span>访客管理</span></div>
+										</div>
+										<div class="bottomLine"></div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="row menuArea" data-checked="false" onmouseenter="leftMenuMove(this)" onclick="checkLeftMenu(this)"
+								 data-index="6">
+									<div class="column singleMenu">
+										<div class="row eighteenWidth">
+											<div class="menuIconArea">
+												<img src="img/anquan(1).png" class="menuIcon icon_7" />
+											</div>
+											<div class="optionName"><span>安全管理</span></div>
+										</div>
+										<div class="bottomLine"></div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="row menuArea" data-checked="false" onmouseenter="leftMenuMove(this)" onclick="checkLeftMenu(this)"
+								 data-index="7">
+									<div class="column singleMenu">
+										<div class="row eighteenWidth">
+											<div class="menuIconArea">
+												<img src="img/shebei(1).png" class="menuIcon icon_8" />
+											</div>
+											<div class="optionName"><span>设备管理</span></div>
+										</div>
+										<div class="bottomLine"></div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="row menuArea" data-checked="false" onmouseenter="leftMenuMove(this)" onclick="checkLeftMenu(this)"
+								 data-index="8">
+									<div class="column singleMenu">
+										<div class="row eighteenWidth">
+											<div class="menuIconArea">
+												<img src="img/xitong(1).png" class="menuIcon icon_9" />
+											</div>
+											<div class="optionName"><span>系统管理</span></div>
+										</div>
+										<div class="bottomLine"></div>
+									</div>
+								</div>
+							</li>
+						</ul>
 					</div>
 				</div>
 
-				<!-- 企业管理 -->
-				<div class="middleMenuList businessMiddle">
-					<!--初始菜单栏  -->
-					<ul>
-						<li class="checkedMiddleMenu middleMenuOption" data-index="2-1" onclick="middleMenuMove(this)">
-							<div class="row middleMenuInfo">
-								<div class="menuListIcon">
-									<img src="img/list.png" class="listIcon" />
+				<!-- 中间选择栏 -->
+				<div class="middleMenu">
+
+					<!-- 项目管理 -->
+					<div class="middleMenuList projectMiddle checkMiddle">
+						<!--初始菜单栏  -->
+						<ul>
+							<li class="checkedMiddleMenu middleMenuOption" data-index="1-0" onclick="middleMenuMove(this)">
+								<div class="row middleMenuInfo">
+									<div class="menuListIcon">
+										<img src="img/list.png" class="listIcon" />
+									</div>
+									<div class="middleMenuName">
+										<span>项目资料</span>
+									</div>
 								</div>
-								<div class="middleMenuName">
-									<span>企业管理</span>
+							</li>
+							<li class="middleMenuOption" data-index="1-1" onclick="middleMenuMove(this)">
+								<div class="row middleMenuInfo">
+									<div class="menuListIcon">
+										<img src="img/list.png" class="listIcon" />
+									</div>
+									<div class="middleMenuName">
+										<span>项目单位</span>
+									</div>
 								</div>
+							</li>
+						</ul>
+						<!-- 添加菜单 -->
+						<div class="row addMiddleMenu" data-index="1-2" onclick="addProject()">
+							<div class="addIconArea">
+								<img src="img/add.png" class="addIcon" />
 							</div>
-						</li>
-						<li class="middleMenuOption" data-index="2-2" onclick="middleMenuMove(this)">
-							<div class="row middleMenuInfo">
-								<div class="menuListIcon">
-									<img src="img/list.png" class="listIcon" />
-								</div>
-								<div class="middleMenuName">
-									<span>班组管理</span>
-								</div>
+							<div class="addText">
+								<span>添加项目</span>
 							</div>
-						</li>
-					</ul>
-					<!-- 添加菜单 -->
-					<div class="row addMiddleMenu" data-index="2-3" onclick="addBussniess(this)">
-						<div class="addIconArea">
-							<img src="img/add.png" class="addIcon" />
-						</div>
-						<div class="addText">
-							<span>添加企业</span>
 						</div>
 					</div>
-				</div>
 
-				<!-- 人员管理 -->
-				<div class="middleMenuList peopleMiddle">
-					<!--初始菜单栏  -->
-					<ul>
-						<li class="checkedMiddleMenu middleMenuOption" data-index="3-1" onclick="middleMenuMove(this)">
-							<div class="row middleMenuInfo peopleMiddleMenu">
-								<div class="menuListIcon">
-									<img src="img/list.png" class="listIcon" />
+					<!-- 企业管理 -->
+					<div class="middleMenuList businessMiddle">
+						<!--初始菜单栏  -->
+						<ul>
+							<li class="checkedMiddleMenu middleMenuOption" data-index="2-1" onclick="middleMenuMove(this)">
+								<div class="row middleMenuInfo">
+									<div class="menuListIcon">
+										<img src="img/list.png" class="listIcon" />
+									</div>
+									<div class="middleMenuName">
+										<span>企业管理</span>
+									</div>
 								</div>
-								<div class="middleMenuName">
-									<span>建筑工人管理</span>
+							</li>
+							<li class="middleMenuOption" data-index="2-2" onclick="middleMenuMove(this)">
+								<div class="row middleMenuInfo">
+									<div class="menuListIcon">
+										<img src="img/list.png" class="listIcon" />
+									</div>
+									<div class="middleMenuName">
+										<span>部门管理</span>
+									</div>
 								</div>
+							</li>
+						</ul>
+						<!-- 添加菜单 -->
+						<div class="row addMiddleMenu" data-index="2-3" onclick="addBussniess(this)">
+							<div class="addIconArea">
+								<img src="img/add.png" class="addIcon" />
 							</div>
-						</li>
-						<li class="middleMenuOption" data-index="3-2" onclick="middleMenuMove(this)">
-							<div class="row middleMenuInfo peopleMiddleMenu">
-								<div class="menuListIcon">
-									<img src="img/list.png" class="listIcon" />
-								</div>
-								<div class="middleMenuName">
-									<span>管理工人管理</span>
-								</div>
+							<div class="addText">
+								<span>添加企业</span>
 							</div>
-						</li>
-						<li class="middleMenuOption" data-index="3-3" onclick="middleMenuMove(this)">
-							<div class="row middleMenuInfo peopleMiddleMenu">
-								<div class="menuListIcon">
-									<img src="img/list.png" class="listIcon" />
-								</div>
-								<div class="middleMenuName">
-									<span>合同管理</span>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-
-				<!-- 工资管理 -->
-				<div class="middleMenuList wageMiddle">
-					<!--初始菜单栏  -->
-					<ul>
-						<li class="checkedMiddleMenu middleMenuOption" data-index="4-1" onclick="middleMenuMove(this)">
-							<div class="row middleMenuInfo ">
-								<div class="menuListIcon">
-									<img src="img/list.png" class="listIcon" />
-								</div>
-								<div class="middleMenuName">
-									<span>工资管理</span>
-								</div>
-							</div>
-						</li>
-						<li class="middleMenuOption" data-index="4-2" onclick="middleMenuMove(this)">
-							<div class="row middleMenuInfo ">
-								<div class="menuListIcon">
-									<img src="img/list.png" class="listIcon" />
-								</div>
-								<div class="middleMenuName">
-									<span>凭证管理</span>
-								</div>
-							</div>
-						</li>
-					</ul>
-					<!-- 添加菜单 -->
-					<div class="row addMiddleMenu addCertMenu" data-index="4-3" onclick="addCert(this)">
-						<div class="addIconArea">
-							<img src="img/add.png" class="addIcon" />
 						</div>
-						<div class="addText">
-							<span>新增凭证</span>
+						<!-- 添加菜单 -->
+						<div class="row addMiddleMenu" data-index="2-4" onclick="addDepartment(this)">
+							<div class="addIconArea">
+								<img src="img/add.png" class="addIcon" />
+							</div>
+							<div class="addText">
+								<span>添加部门</span>
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<!-- 考勤管理 -->
-				<div class="middleMenuList attendanceMiddle">
-					<!--初始菜单栏  -->
-					<ul>
-						<li class="checkedMiddleMenu middleMenuOption" data-index="5-1" onclick="middleMenuMove(this)">
-							<div class="row middleMenuInfo ">
-								<div class="menuListIcon">
-									<img src="img/list.png" class="listIcon" />
+					<!-- 人员管理 -->
+					<div class="middleMenuList peopleMiddle">
+						<!--初始菜单栏  -->
+						<ul>
+							<li class="checkedMiddleMenu middleMenuOption" data-index="3-1" onclick="middleMenuMove(this)">
+								<div class="row middleMenuInfo peopleMiddleMenu">
+									<div class="menuListIcon">
+										<img src="img/list.png" class="listIcon" />
+									</div>
+									<div class="middleMenuName">
+										<span>建筑工人管理</span>
+									</div>
 								</div>
-								<div class="middleMenuName">
-									<span>考勤规则</span>
+							</li>
+							<li class="middleMenuOption" data-index="3-2" onclick="middleMenuMove(this)">
+								<div class="row middleMenuInfo peopleMiddleMenu">
+									<div class="menuListIcon">
+										<img src="img/list.png" class="listIcon" />
+									</div>
+									<div class="middleMenuName">
+										<span>管理工人管理</span>
+									</div>
 								</div>
+							</li>
+							<li class="middleMenuOption" data-index="3-3" onclick="middleMenuMove(this)">
+								<div class="row middleMenuInfo peopleMiddleMenu">
+									<div class="menuListIcon">
+										<img src="img/list.png" class="listIcon" />
+									</div>
+									<div class="middleMenuName">
+										<span>合同管理</span>
+									</div>
+								</div>
+							</li>
+						</ul>
+						<!-- 添加菜单 -->
+						<div class="row addMiddleMenu" data-index="3-4" onclick="addWorker(this)">
+							<div class="addIconArea">
+								<img src="img/add.png" class="addIcon" />
 							</div>
-						</li>
-						<li class="middleMenuOption" data-index="5-2" onclick="middleMenuMove(this)">
-							<div class="row middleMenuInfo ">
-								<div class="menuListIcon">
-									<img src="img/list.png" class="listIcon" />
-								</div>
-								<div class="middleMenuName">
-									<span>考勤记录</span>
-								</div>
+							<div class="addText">
+								<span>添加人员</span>
 							</div>
-						</li>
-					</ul>
-					<!-- 添加菜单 -->
-					<div class="row addMiddleMenu addCertMenu" data-index="5-3" onclick="addAttendance(this)">
-						<div class="addIconArea">
-							<img src="img/add.png" class="addIcon" />
-						</div>
-						<div class="addText">
-							<span>新增</span>
 						</div>
 					</div>
-				</div>
 
-				<!-- 访客管理 -->
-				<div class="middleMenuList visitorMiddle">
-					<!--初始菜单栏  -->
-					<ul>
-						<li class="checkedMiddleMenu middleMenuOption" data-index="6-1" onclick="middleMenuMove(this)">
-							<div class="row middleMenuInfo ">
-								<div class="menuListIcon">
-									<img src="img/list.png" class="listIcon" />
+					<!-- 工资管理 -->
+					<div class="middleMenuList wageMiddle">
+						<!--初始菜单栏  -->
+						<ul>
+							<li class="checkedMiddleMenu middleMenuOption" data-index="4-1" onclick="middleMenuMove(this)">
+								<div class="row middleMenuInfo ">
+									<div class="menuListIcon">
+										<img src="img/list.png" class="listIcon" />
+									</div>
+									<div class="middleMenuName">
+										<span>工资管理</span>
+									</div>
 								</div>
-								<div class="middleMenuName">
-									<span>访客管理</span>
+							</li>
+							<li class="middleMenuOption" data-index="4-2" onclick="middleMenuMove(this)">
+								<div class="row middleMenuInfo ">
+									<div class="menuListIcon">
+										<img src="img/list.png" class="listIcon" />
+									</div>
+									<div class="middleMenuName">
+										<span>凭证管理</span>
+									</div>
 								</div>
+							</li>
+						</ul>
+						<!-- 添加菜单 -->
+						<div class="row addMiddleMenu addCertMenu" data-index="4-3" onclick="addCert(this)">
+							<div class="addIconArea">
+								<img src="img/add.png" class="addIcon" />
 							</div>
-						</li>
-					</ul>
-					<!-- 添加菜单 -->
-					<div class="row addMiddleMenu addCertMenu" data-index="6-2" onclick="addVistor(this)">
-						<div class="addIconArea">
-							<img src="img/add.png" class="addIcon" />
-						</div>
-						<div class="addText">
-							<span>添加访客</span>
+							<div class="addText">
+								<span>新增凭证</span>
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<!-- 安全管理 -->
-				<div class="middleMenuList safetyMiddle">
-					<!--初始菜单栏  -->
-					<ul>
-						<li class="checkedMiddleMenu middleMenuOption" data-index="7-1" onclick="middleMenuMove(this)">
-							<div class="row middleMenuInfo peopleMiddleMenu">
-								<div class="menuListIcon">
-									<img src="img/list.png" class="listIcon" />
+					<!-- 考勤管理 -->
+					<div class="middleMenuList attendanceMiddle">
+						<!--初始菜单栏  -->
+						<ul>
+							<li class="checkedMiddleMenu middleMenuOption" data-index="5-1" onclick="middleMenuMove(this)">
+								<div class="row middleMenuInfo ">
+									<div class="menuListIcon">
+										<img src="img/list.png" class="listIcon" />
+									</div>
+									<div class="middleMenuName">
+										<span>考勤规则</span>
+									</div>
 								</div>
-								<div class="middleMenuName">
-									<span>规划安全事项</span>
+							</li>
+							<li class="middleMenuOption" data-index="5-2" onclick="middleMenuMove(this)">
+								<div class="row middleMenuInfo ">
+									<div class="menuListIcon">
+										<img src="img/list.png" class="listIcon" />
+									</div>
+									<div class="middleMenuName">
+										<span>考勤记录</span>
+									</div>
 								</div>
+							</li>
+						</ul>
+						<!-- 添加菜单 -->
+						<div class="row addMiddleMenu addCertMenu" data-index="5-3" onclick="addAttendance(this)">
+							<div class="addIconArea">
+								<img src="img/add.png" class="addIcon" />
 							</div>
-						</li>
-						<li class="middleMenuOption" data-index="7-2" onclick="middleMenuMove(this)">
-							<div class="row middleMenuInfo peopleMiddleMenu">
-								<div class="menuListIcon">
-									<img src="img/list.png" class="listIcon" />
-								</div>
-								<div class="middleMenuName">
-									<span>审核检查情况</span>
-								</div>
+							<div class="addText">
+								<span>新增</span>
 							</div>
-						</li>
-					</ul>
-					<!-- 添加菜单 -->
-					<div class="row addMiddleMenu addCertMenu" data-index="7-3" onclick="addAttendance(this)">
-						<div class="addIconArea">
-							<img src="img/add.png" class="addIcon" />
-						</div>
-						<div class="addText">
-							<span>新增</span>
 						</div>
 					</div>
-				</div>
 
-				<!-- 设备管理 -->
-				<div class="middleMenuList deviceMiddle">
-					<!--初始菜单栏  -->
-					<ul>
-						<li class="checkedMiddleMenu middleMenuOption" data-index="8-1" onclick="middleMenuMove(this)">
-							<div class="row middleMenuInfo ">
-								<div class="menuListIcon">
-									<img src="img/list.png" class="listIcon" />
+					<!-- 访客管理 -->
+					<div class="middleMenuList visitorMiddle">
+						<!--初始菜单栏  -->
+						<ul>
+							<li class="checkedMiddleMenu middleMenuOption" data-index="6-1" onclick="middleMenuMove(this)">
+								<div class="row middleMenuInfo ">
+									<div class="menuListIcon">
+										<img src="img/list.png" class="listIcon" />
+									</div>
+									<div class="middleMenuName">
+										<span>访客管理</span>
+									</div>
 								</div>
-								<div class="middleMenuName">
-									<span>路由器</span>
-								</div>
+							</li>
+						</ul>
+						<!-- 添加菜单 -->
+						<div class="row addMiddleMenu addCertMenu" data-index="6-2" onclick="addVistor(this)">
+							<div class="addIconArea">
+								<img src="img/add.png" class="addIcon" />
 							</div>
-						</li>
-						<li class=" middleMenuOption" data-index="8-2" onclick="middleMenuMove(this)">
-							<div class="row middleMenuInfo ">
-								<div class="menuListIcon">
-									<img src="img/list.png" class="listIcon" />
-								</div>
-								<div class="middleMenuName">
-									<span>摄像头</span>
-								</div>
+							<div class="addText">
+								<span>添加访客</span>
 							</div>
-						</li>
-						<li class=" middleMenuOption" data-index="8-3" onclick="middleMenuMove(this)">
-							<div class="row middleMenuInfo ">
-								<div class="menuListIcon">
-									<img src="img/list.png" class="listIcon" />
-								</div>
-								<div class="middleMenuName">
-									<span>安全帽</span>
-								</div>
-							</div>
-						</li>
-					</ul>
-					<!-- 添加菜单 -->
-					<div class="row addMiddleMenu addCertMenu" data-index="8-4" onclick="addDevice(this)">
-						<div class="addIconArea">
-							<img src="img/add.png" class="addIcon" />
-						</div>
-						<div class="addText">
-							<span>新增设备</span>
 						</div>
 					</div>
-				</div>
 
-				<!-- 系统管理 -->
-				<div class="middleMenuList systemMiddle">
-					<!--初始菜单栏  -->
-					<ul>
-						<li class="checkedMiddleMenu middleMenuOption" data-index="9-1" onclick="middleMenuMove(this)">
-							<div class="row middleMenuInfo ">
-								<div class="menuListIcon">
-									<img src="img/list.png" class="listIcon" />
+					<!-- 安全管理 -->
+					<div class="middleMenuList safetyMiddle">
+						<!--初始菜单栏  -->
+						<ul>
+							<li class="checkedMiddleMenu middleMenuOption" data-index="7-1" onclick="middleMenuMove(this)">
+								<div class="row middleMenuInfo peopleMiddleMenu">
+									<div class="menuListIcon">
+										<img src="img/list.png" class="listIcon" />
+									</div>
+									<div class="middleMenuName">
+										<span>规划安全事项</span>
+									</div>
 								</div>
-								<div class="middleMenuName">
-									<span>基本信息</span>
+							</li>
+							<li class="middleMenuOption" data-index="7-2" onclick="middleMenuMove(this)">
+								<div class="row middleMenuInfo peopleMiddleMenu">
+									<div class="menuListIcon">
+										<img src="img/list.png" class="listIcon" />
+									</div>
+									<div class="middleMenuName">
+										<span>审核检查情况</span>
+									</div>
 								</div>
+							</li>
+						</ul>
+						<!-- 添加菜单 -->
+						<div class="row addMiddleMenu addCertMenu" data-index="7-3" onclick="addAttendance(this)">
+							<div class="addIconArea">
+								<img src="img/add.png" class="addIcon" />
 							</div>
-						</li>
-						<li class=" middleMenuOption" data-index="9-2" onclick="middleMenuMove(this)">
-							<div class="row middleMenuInfo ">
-								<div class="menuListIcon">
-									<img src="img/list.png" class="listIcon" />
-								</div>
-								<div class="middleMenuName">
-									<span>账号安全</span>
-								</div>
+							<div class="addText">
+								<span>新增</span>
 							</div>
-						</li>
-					</ul>
+						</div>
+					</div>
+
+					<!-- 设备管理 -->
+					<div class="middleMenuList deviceMiddle">
+						<!--初始菜单栏  -->
+						<ul>
+							<li class="checkedMiddleMenu middleMenuOption" data-index="8-1" onclick="middleMenuMove(this)">
+								<div class="row middleMenuInfo ">
+									<div class="menuListIcon">
+										<img src="img/list.png" class="listIcon" />
+									</div>
+									<div class="middleMenuName">
+										<span>路由器</span>
+									</div>
+								</div>
+							</li>
+							<li class=" middleMenuOption" data-index="8-2" onclick="middleMenuMove(this)">
+								<div class="row middleMenuInfo ">
+									<div class="menuListIcon">
+										<img src="img/list.png" class="listIcon" />
+									</div>
+									<div class="middleMenuName">
+										<span>摄像头</span>
+									</div>
+								</div>
+							</li>
+							<li class=" middleMenuOption" data-index="8-3" onclick="middleMenuMove(this)">
+								<div class="row middleMenuInfo ">
+									<div class="menuListIcon">
+										<img src="img/list.png" class="listIcon" />
+									</div>
+									<div class="middleMenuName">
+										<span>安全帽</span>
+									</div>
+								</div>
+							</li>
+						</ul>
+						<!-- 添加菜单 -->
+						<div class="row addMiddleMenu addCertMenu" data-index="8-4" onclick="addDevice(this)">
+							<div class="addIconArea">
+								<img src="img/add.png" class="addIcon" />
+							</div>
+							<div class="addText">
+								<span>新增设备</span>
+							</div>
+						</div>
+					</div>
+
+					<!-- 系统管理 -->
+					<div class="middleMenuList systemMiddle">
+						<!--初始菜单栏  -->
+						<ul>
+							<li class="checkedMiddleMenu middleMenuOption" data-index="9-1" onclick="middleMenuMove(this)">
+								<div class="row middleMenuInfo ">
+									<div class="menuListIcon">
+										<img src="img/list.png" class="listIcon" />
+									</div>
+									<div class="middleMenuName">
+										<span>基本信息</span>
+									</div>
+								</div>
+							</li>
+							<li class=" middleMenuOption" data-index="9-2" onclick="middleMenuMove(this)">
+								<div class="row middleMenuInfo ">
+									<div class="menuListIcon">
+										<img src="img/list.png" class="listIcon" />
+									</div>
+									<div class="middleMenuName">
+										<span>账号安全</span>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- 右边iframe内联框架 -->
+				<iframe src="../projectManagement/projectManagement.html" id="mainFrame" class="mainFrame" name='iframe'
+				 frameborder="0"></iframe>
+			</div>
+
+			<!--底部备案信息区域  -->
+			<div class="bottomArea">
+				<div class="recordText">
+					<span>©2019版权所有 inteagle.<a href="http://beian.miit.gov.cn" target="_blank">粤ICP备19045418号-1</a></span>
 				</div>
 			</div>
-			<!-- 右边iframe内联框架 -->
-			<iframe src="../projectManagement/projectManagement.html" id="mainFrame" class="mainFrame" name='iframe' frameborder="0"></iframe>
+
 		</div>
 
-		<!--底部备案信息区域  -->
-		<div class="bottomArea">
-			<div class="recordText">
-				<span>©2019版权所有 inteagle.<a href="http://beian.miit.gov.cn" target="_blank">粤ICP备19045418号-1</a></span>
-			</div>
-		</div>
-		
-		</div>
-		
 		<script src="../../common/js/jquery-3.2.1.min.js" type="text/javascript"></script>
 		<script src="../../common/layui/layui.js" type="text/javascript"></script>
 		<script src="../../common/js/common.js" type="text/javascript"></script>
@@ -897,6 +916,270 @@
 							</div>
 						</div>
 					</div>
+					<div class="bottomBtnArea">
+						<button type="button" id="addBtn" class="layui-btn">添加</button>
+						<button type="button" id="resetBtn" class="layui-btn">重置</button>
+					</div>
+				</div>
+			</div>
+		</script>
+
+		<!-- 添加部门弹窗 -->
+		<script type="text/template" id="addDepartmentModel">
+			<div class="addAttendanceBox addDepartment">
+				<div class="headTitle"><span>添加部门</span></div>
+				<div class="column pickArea">
+					<div class="row singleRow">
+						<div class="row singleInput">
+							<div class="lefttextArea">
+								<span class="mustInput">*</span>
+								<span class="leftText">部门名称</span>
+							</div>
+							<div class="middleLineDep">|</div>
+							<div class="inputArea">
+								<input class="name" type="text" placeholder="请填写企业名称" />
+							</div>
+						</div>
+						<div class="row singleInput rightInput">
+							<div class="lefttextArea">
+								<span class="mustInput">*</span>
+								<span class="leftText">所属企业</span>
+							</div>
+							<div class="middleLineDep">|</div>
+							<div class="inputArea">
+								<form class="layui-form" action="">
+									<div class="layui-input-inline">
+										<select name="modules" lay-verify="required" lay-search="">
+											<option value="">直接选择或搜索选择</option>
+											<option value="1">layer</option>
+											<option value="2">form</option>
+											<option value="3">layim</option>
+										</select>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="row singleRow nextBox">
+						<div class="row singleInput longInput">
+							<div class="lefttextArea">
+								<span class="mustInput">*</span>
+								<span class="leftText">公司地址</span>
+							</div>
+							<div class="middleLineDep">|</div>
+							<div class="inputArea">
+								<input class="name longInputText" type="text" placeholder="请填写公司地址" />
+							</div>
+						</div>
+					</div>
+					<div class="row singleRow nextBox">
+						<div class="row singleInput longInput">
+							<div class="lefttextArea">
+								<span class="mustInput">*</span>
+								<span class="leftText">参建项目</span>
+							</div>
+							<div class="middleLineDep">|</div>
+							<div class="inputArea">
+								<input class="name longInputText" type="text" placeholder="请填写参建项目" />
+							</div>
+						</div>
+					</div>
+					
+					<div class="row singleRow nextBox">
+						<div class="row singleInput">
+							<div class="lefttextArea">
+								<span class="mustInput">*</span>
+								<span class="leftText">部门编码</span>
+							</div>
+							<div class="middleLineDep">|</div>
+							<div class="inputArea">
+								<input class="name" type="text" placeholder="请填写企业名称" />
+							</div>
+						</div>
+						<div class="row singleInput rightInput">
+							<div class="lefttextArea">
+								<span class="mustInput">*</span>
+								<span class="leftText">部门状态</span>
+							</div>
+							<div class="middleLineDep">|</div>
+							<div class="inputArea">
+								<form class="layui-form" action="">
+									<div class="layui-input-inline">
+										<select name="modules" lay-verify="required" lay-search="">
+											<option value="">直接选择或搜索选择</option>
+											<option value="1">layer</option>
+											<option value="2">form</option>
+											<option value="3">layim</option>
+										</select>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row singleRow nextBox">
+						<div class="row singleInput">
+							<div class="lefttextArea hadNextDep">
+								<span class="mustInput">*</span>
+								<span class="leftText">是否有下级部门</span>
+							</div>
+							<div class="hasNextDepLine">|</div>
+							<div class="inputArea">
+								<form class="layui-form" action="">
+									<div class="layui-input-inline">
+										<select name="modules" lay-verify="required" lay-search="">
+											<option value="1">是</option>
+											<option value="2">否</option>
+										</select>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="row singleInput rightInput">
+							<div class="lefttextArea addDepArea">
+								<span class="mustInput">*</span>
+								<span class="leftText">是否独立法人</span>
+							</div>
+							<div class="hasNextDepLine">|</div>
+							<div class="inputArea">
+								<form class="layui-form" action="">
+									<div class="layui-input-inline">
+										<select name="modules" lay-verify="required" lay-search="">
+											<option value="1">是</option>
+											<option value="2">否</option>
+										</select>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row singleRow nextBox">
+						<div class="row singleInput">
+							<div class="lefttextArea">
+								<span class="mustInput">*</span>
+								<span class="leftText">部门负责人</span>
+							</div>
+							<div class="middleLineDep fitLine">|</div>
+							<div class="inputArea">
+								<input class="name" type="text" />
+							</div>
+						</div>
+						<div class="row singleInput rightInput">
+							<div class="lefttextArea">
+								<span class="mustInput">*</span>
+								<span class="leftText">上级部门</span>
+							</div>
+							<div class="middleLineDep linefit">|</div>
+							<div class="inputArea">
+								<input class="name" type="text" />
+							</div>
+						</div>
+					</div>
+					<div class="bottomBtnArea">
+						<button type="button" id="addBtn" class="layui-btn">添加</button>
+						<button type="button" id="resetBtn" class="layui-btn">重置</button>
+					</div>
+				</div>
+			</div>
+		</script>
+
+		<!-- 添加人员弹窗 -->
+		<script type="text/template" id="addWorkerModel">
+			<div class="addAttendanceBox addWorker">
+				<div class="headTitle"><span>添加人员</span></div>
+				<div class="column pickArea">
+					<div class="row singleRow">
+						<div class="row singleInput">
+							<div class="lefttextArea">
+								<span class="mustInput">*</span>
+								<span class="leftText">姓名</span>
+							</div>
+							<div class="middleLineDep">|</div>
+							<div class="inputArea">
+								<input class="name" type="text" placeholder="" />
+							</div>
+						</div>
+						<div class="row singleInput rightInput">
+							<div class="lefttextArea">
+								<span class="mustInput">*</span>
+								<span class="leftText">工号</span>
+							</div>
+							<div class="middleLineDep">|</div>
+							<div class="inputArea">
+								<input class="name" type="text" placeholder="" />
+							</div>
+						</div>
+					</div>
+					<div class="row singleRow nextBox">
+						<div class="row singleInput longInput">
+							<div class="lefttextArea">
+								<span class="mustInput">*</span>
+								<span class="leftText">所属项目</span>
+							</div>
+							<div class="middleLineDep">|</div>
+							<div class="inputArea">
+								<input class="name longInputText" type="text" placeholder="" />
+							</div>
+						</div>
+					</div>
+					<div class="row singleRow nextBox">
+						<div class="row singleInput longInput">
+							<div class="lefttextArea">
+								<span class="mustInput">*</span>
+								<span class="leftText">所属单位</span>
+							</div>
+							<div class="middleLineDep">|</div>
+							<div class="inputArea">
+								<input class="name longInputText" type="text" placeholder="" />
+							</div>
+						</div>
+					</div>
+					<div class="row singleRow nextBox">
+						<div class="row singleInput longInput">
+							<div class="lefttextArea">
+								<span class="mustInput">*</span>
+								<span class="leftText">所属部门</span>
+							</div>
+							<div class="middleLineDep">|</div>
+							<div class="inputArea">
+								<input class="name longInputText" type="text" placeholder="" />
+							</div>
+						</div>
+					</div>
+					
+					<div class="row singleRow nextBox">
+						<div class="row singleInput">
+							<div class="lefttextArea">
+								<span class="mustInput">*</span>
+								<span class="leftText">负责人</span>
+							</div>
+							<div class="middleLineDep">|</div>
+							<div class="inputArea">
+								<input class="name" type="text" placeholder="请填写企业名称" />
+							</div>
+						</div>
+						<div class="row singleInput rightInput">
+							<div class="lefttextArea">
+								<span class="mustInput">*</span>
+								<span class="leftText">人员类别</span>
+							</div>
+							<div class="middleLineDep">|</div>
+							<div class="inputArea">
+								<form class="layui-form" action="">
+									<div class="layui-input-inline">
+										<select name="modules" lay-verify="required" lay-search="">
+											<option value="">建筑工人</option>
+											<option value="1">layer</option>
+											<option value="2">form</option>
+											<option value="3">layim</option>
+										</select>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					
 					<div class="bottomBtnArea">
 						<button type="button" id="addBtn" class="layui-btn">添加</button>
 						<button type="button" id="resetBtn" class="layui-btn">重置</button>

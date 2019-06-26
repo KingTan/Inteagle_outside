@@ -39,7 +39,8 @@
 	background: rgba(2, 75, 127, 1);
 	color: #FFFFFF;
 }
-.layui-btn{
+
+.layui-btn {
 	padding: 0;
 }
 
@@ -84,8 +85,8 @@
 }
 
 .layui-form-label {
-	width: auto !important;
 	padding: 0.25rem 0.9375rem;
+	width: 3.75rem;
 }
 
 .nameArea {
@@ -96,8 +97,7 @@
 	margin-right: 0rem !important;
 }
 
-.layui-inline{
-}
+.layui-inline {}
 
 
 .layui-input,
@@ -109,4 +109,34 @@
 .editorText span:hover {
 	cursor: pointer;
 	text-decoration: underline;
+}
+
+.rightText {
+	margin-left: 0.125rem;
+	font-size: 0.75rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(0, 0, 0, 1);
+}
+.rightText:hover{
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.singleTool {
+	align-items: center;
+	margin-left: 1.9375rem;
+}
+
+.finishText {
+	font-size: 1rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(0, 0, 0, 1)
+}
+
+.toolsArea{
+	height: 1.625rem;
+	display: none;
+}
+.editorArea{
+	height: 1.625rem;
 }

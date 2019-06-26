@@ -56,6 +56,63 @@ function addBussniess(e) {
 	}
 }
 
+/**
+ * @param {Object} e
+ * 添加项目弹窗
+ */
+function addDepartment(e) {
+	var html = document.getElementById("addDepartmentModel").innerHTML;
+	//页面层-自定义
+	layer.open({
+		type: 1,
+		title: false,
+		closeBtn: 0,
+		area: ['861px', '536px'],
+		shadeClose: true,
+		scrollbar: false,
+		resize: false,
+		content: html,
+		success: function() {
+			//初始化 from 对象
+			layui.use('form', function() {
+				layform = layui.form;
+				layform.render();
+			})
+		}
+	});
+}
+
+/**
+ * @param {Object} e
+ * 添加人员弹窗
+ */
+function addWorker(e){
+	var html = document.getElementById("addWorkerModel").innerHTML;
+	//页面层-自定义
+	layer.open({
+		type: 1,
+		title: false,
+		closeBtn: 0,
+		area: ['861px', 'auto'],
+		shadeClose: true,
+		scrollbar: false,
+		resize: false,
+		content: html,
+		success: function() {
+			//初始化 from 对象
+			layui.use('form', function() {
+				layform = layui.form;
+				layform.render();
+			})
+		}
+	});
+}
+
+
+
+
+
+
 
 
 /**
@@ -102,14 +159,14 @@ function addProject() {
 	layer.open({
 		type: 2,
 		title: "创建项目",
-		area: ['888px', '90%'],
+		area: ['888px', '80%'],
 		fixed: false, //不固定
 		maxmin: false, //不允许放大缩小
 		scrollbar: false,
 		shadeClose: true,
-		move:false,
+		move: false,
 		content: '../projectManagement/createProject.html'
-		
+
 	});
 }
 /**
@@ -199,7 +256,7 @@ function middleMenuMove(e) {
 			//修改样式
 			$(".projectMiddle ul li").removeClass("checkedMiddleMenu");
 			//项目单位
-			iframePath = "../projectManagement/projectManagement.html";
+			iframePath = "../projectManagement/projectDepartment.html";
 			break;
 		case "2-1":
 			//修改样式
@@ -229,7 +286,7 @@ function middleMenuMove(e) {
 			//修改样式
 			$(".peopleMiddle ul li").removeClass("checkedMiddleMenu");
 			//合同管理
-			iframePath = "../businessManagement/departmentManagement.html";
+			iframePath = "../workerManagemenet/contractManagement.html";
 			break;
 		case "4-1":
 			//修改样式

@@ -537,6 +537,25 @@ body {
 	color: rgba(150, 150, 150, 1);
 }
 
+.middleLineDep {
+	margin-right: 1.25rem;
+	margin-left: 0.9375rem;
+	color: rgba(150, 150, 150, 1);
+}
+
+.hasNextDepLine {
+	color: rgba(150, 150, 150, 1);
+}
+
+.addDepArea {
+	width: 30%;
+}
+
+.hadNextDep {
+	width: 35%;
+}
+
+
 .inputArea {
 	height: 100%;
 }
@@ -621,6 +640,24 @@ body {
 	box-shadow: 0px 0.125rem 3.75rem 0.0625rem rgba(0, 0, 0, 0.19);
 	border-radius: 1.25rem;
 }
+
+.addDepartment {
+	width: 53.8125rem !important;
+	height: 33.5rem !important;
+	background: rgba(255, 255, 255, 1);
+	box-shadow: 0px 0.125rem 3.75rem 0.0625rem rgba(0, 0, 0, 0.19);
+	border-radius: 1.25rem;
+}
+
+.addWorker{
+	width: 53.8125rem!important;
+	height: 29.875rem!important;
+	background: rgba(255, 255, 255, 1);
+	box-shadow: 0px 0.125rem 3.75rem 0.0625rem rgba(0, 0, 0, 0.19);
+	border-radius: 1.25rem;
+}
+
+
 
 .regisetMoneyLine {
 	margin-left: 8rem;
