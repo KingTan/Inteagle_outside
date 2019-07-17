@@ -1,12 +1,24 @@
 .bottomTable {
-	margin-top: 1.0625rem!important;
+	margin-top: 1.0625rem !important;
 }
-.nameArea{
+
+.nameArea {
 	width: 205px !important;
 }
-.layui-form-label{
-	width: 5rem!important;
+
+.layui-form-label {
+	width: 5rem !important;
 }
-.dateTextArea{
+
+.dateTextArea {
 	margin-left: 0rem;
+}
+
+.foundationPic {
+	margin: 0rem auto;
+	margin-top: 1.25rem;
+}
+
+.runtimeSet {
+	margin-right: 1.25rem;
 }

@@ -7,10 +7,12 @@ $(function() {
 	//判断屏幕尺寸 选择显示
 	if (isBigScreen) {
 		console.log("大屏幕");
-		$(".smallScreen").hide();
+		$("#smallScreen").hide();
+		console.log("1");
 	} else {
 		console.log("小屏幕");
-		$(".normalScreen").hide();
+		$("#normalScreen").css("display","none");
+		console.log("2");
 	}
 
 })

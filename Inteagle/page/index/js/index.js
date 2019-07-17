@@ -86,7 +86,7 @@ function addDepartment(e) {
  * @param {Object} e
  * 添加人员弹窗
  */
-function addWorker(e){
+function addWorker(e) {
 	var html = document.getElementById("addWorkerModel").innerHTML;
 	//页面层-自定义
 	layer.open({
@@ -349,6 +349,12 @@ function middleMenuMove(e) {
 			$(".deviceMiddle ul li").removeClass("checkedMiddleMenu");
 			//安全帽
 			iframePath = "../deviceManagement/helmet.html";
+			break;
+		case "8-4":
+			//修改样式
+			$(".deviceMiddle ul li").removeClass("checkedMiddleMenu");
+			//基坑监测
+			iframePath = "../deviceManagement/foundation.html";
 			break;
 		case "9-1":
 			//修改样式

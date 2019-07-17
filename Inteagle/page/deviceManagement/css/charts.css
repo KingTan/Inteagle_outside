@@ -1,0 +1,19 @@
+#bigCharts{
+	width: 800px;
+	height: 25rem;
+}
+#slChars{
+	width: 400px;
+	height: 300px;
+}
+.downArea{
+	margin-top: 50px;
+	margin-left: 20px;
+}
+.rightCharts{
+	margin-left: 40px;
+}
+#rightCanvas{
+	width: 240px;
+	height: 400px;
+}

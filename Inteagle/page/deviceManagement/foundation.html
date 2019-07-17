@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>基坑监测</title>
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<link href="../../common/layui/css/layui.css" rel="stylesheet" />
+		<link href="../../common/css/common.css" rel="stylesheet" />
+		<link href="../workerManagemenet/css/workerManagemenet.css" rel="stylesheet" />
+		<link href="../visitorManagement/css/visitorManagement.css" rel="stylesheet" />
+		<link href="css/router.css" rel="stylesheet" />
+		<link href="css/foundation.css" rel="stylesheet" />
+	</head>
+	<body>
+		<div class="column mainBody">
+			<!-- 顶部信息 -->
+			<div class="row topHead">
+				<div class="projectListText">
+					<span>基坑监测</span>
+				</div>
+				<div class="row">
+					<div class="row editorArea ">
+						<div class="editorIconArea">
+							<img src="../projectManagement/img/editor.png" class="editorIcon" />
+						</div>
+						<div class="editorText" onclick="setOption(0)"><span>报警值设置</span></div>
+					</div>
+					<div class="row editorArea runtimeSet">
+						<div class="editorIconArea">
+							<img src="../projectManagement/img/editor.png" class="editorIcon" />
+						</div>
+						<div class="editorText" onclick="setOption(1)"><span>运行时间设置</span></div>
+					</div>
+					<div class="row editorArea">
+						<div class="editorIconArea">
+							<img src="../projectManagement/img/editor.png" class="editorIcon" />
+						</div>
+						<div class="editorText" onclick="setOption(2)"><span>导出报表</span></div>
+					</div>
+				</div>
+			</div>
+			<!--分割线  -->
+			<div class="departLine"></div>
+
+			<!-- 基坑图 -->
+			<div class="foundationPic">
+				<canvas id="myCanvas" style="border: 1px solid black;"></canvas>
+			</div>
+
+
+		</div>
+		<script src="../../common/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+		<script src="../../common/layui/layui.js" type="text/javascript"></script>
+		<script src="../../common/js/common.js" type="text/javascript"></script>
+		<script src="js/draw.js" type="text/javascript"></script>
+		<script src="js/foundation.js" type="text/javascript"></script>
+		<!--运行时间设置  -->
+		<script type="text/template" id="runtimeSetModal">
+			<div class="runScheduleArea">
+				<div class="titleTextArea">运行时间设置</div>
+				<div class="row scheduleList">
+					<div class="row runtimeSet">
+						<div class="leftTextStr">目标(分钟)</div>
+						<div class="row runtimeSetInput">
+							<div class="inputArea">
+								<input class="name" type="number" min="0"/>
+							</div>
+							<div class="middleLine">|</div>
+							<div class="lefttextArea">
+								<span class="leftText">分钟/次</span>
+							</div>
+						</div>
+					</div>
+					<div class="row runtimeSetSec">
+						<div class="leftTextStr">频率(间隔)</div>
+						<div class="row runtimeSetInput">
+							<div class="inputArea">
+								<input class="name" type="number" min="0"/>
+							</div>
+							<div class="middleLine">|</div>
+							<div class="lefttextArea">
+								<span class="leftText">分钟/次</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row btnGroup">
+					<button type="button" class="layui-btn layui-btn-normal confirmBtn">确认</button>
+					<button type="button" class="layui-btn layui-btn-normal resetBtnSec">重置</button>
+				</div>
+			</div>
+		</script>
+		
+		<!-- 报警值设定弹窗 -->
+		<script type="text/template" id="warnValModal">
+			<div class="warnValArea">
+				<div class="titleTextArea">报警值设定</div>
+				<div class="column singleWarning">
+					<div class="warningTile">水平位移报警</div>
+					<div class="column waringContent">
+						<form class="layui-form" action="">
+							<div class="row singleContent">
+								<div class="layui-input-block radioArray">
+									<input type="radio" name="warnVal" value="0" title="预警值" checked="">
+								</div>
+								<div class="row runtimeSetInput">
+									<div class="inputArea warningArea">
+										<input class="name" type="number" min="0"/>
+									</div>
+									<div class="middleLine">|</div>
+									<div class="lefttextArea">
+										<span class="leftText">mm</span>
+									</div>
+								</div>
+							</div>
+							<div class="row singleContent secContent">
+								<div class="layui-input-block radioArray">
+									<input type="radio" name="warnVal" value="0" title="报警值" checked="">
+								</div>
+								<div class="row runtimeSetInput">
+									<div class="inputArea warningArea">
+										<input class="name" type="number" min="0"/>
+									</div>
+									<div class="middleLine">|</div>
+									<div class="lefttextArea">
+										<span class="leftText">mm</span>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="warningLine"></div>
+				<div class="column singleWarning">
+					<div class="warningTile">偏移速率报警</div>
+					<div class="column waringContent">
+						<form class="layui-form" action="">
+							<div class="row singleContent">
+								<div class="layui-input-block radioArray">
+									<input type="radio" name="warnSpeedVal" value="0" title="速率报警值" checked="">
+								</div>
+								<div class="row runtimeSetInput speedSetInput">
+									<div class="inputArea warningSpeedArea">
+										<input class="name" type="number" min="0"/>
+									</div>
+									<div class="middleLine">|</div>
+									<div class="lefttextArea">
+										<span class="leftText">mm/d</span>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="row speedBtnGroup ">
+					<button type="button" class="layui-btn layui-btn-normal confirmBtn">确认</button>
+					<button type="button" class="layui-btn layui-btn-normal resetBtnSec">重置</button>
+				</div>
+			</div>
+		</script>
+	</body>
+</html>

@@ -1,9 +1,10 @@
 var layer;
 var form;
 var laydate;
-
 //是否大屏幕显示
 var isBigScreen;
+//服务器地址
+const PATH = "http://127.0.0.1:8080/";
 
 $(function() {
 	//屏幕分辨率的宽高
@@ -40,6 +41,16 @@ layui.use('laydate', function() {
 		range: "到",
 		format: "yyyy年M月d日H时m分s秒"
 	});
+	laydate.render({
+		elem: "#mondayPeriod",
+		type: "time",
+		range: "到",
+		format: "H时m分s秒"
+	});
+	
+	
+	
+	
 	laydate.render({
 		elem: "#wageTime",
 		type: "date"

@@ -72,205 +72,210 @@
 			<!-- 搜索条件区域 -->
 			<div class="column searchArea">
 				<!-- 正常屏幕 -->
-				<form class="layui-form normalScreen" action="">
-					<div class="layui-form-item">
-						<div class="layui-inline">
-							<label class="layui-form-label">姓名</label>
-							<div class="layui-input-inline nameArea">
-								<input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
+				<div id="normalScreen">
+					<form class="layui-form" action="">
+						<div class="layui-form-item">
+							<div class="layui-inline">
+								<label class="layui-form-label">姓名</label>
+								<div class="layui-input-inline nameArea">
+									<input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label">身份证号</label>
+								<div class="layui-input-inline">
+									<input type="text" name="email" lay-verify="email" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label">工种</label>
+								<div class="layui-input-inline">
+									<select name="modules" lay-verify="required" lay-search="">
+										<option value="">直接选择或搜索选择</option>
+										<option value="1">layer</option>
+										<option value="2">form</option>
+										<option value="3">layim</option>
+									</select>
+								</div>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label">部门</label>
+								<div class="layui-input-inline">
+									<select name="modules" lay-verify="required" lay-search="">
+										<option value="">直接选择或搜索选择</option>
+										<option value="1">layer</option>
+										<option value="2">form</option>
+										<option value="3">layim</option>
+									</select>
+								</div>
 							</div>
 						</div>
-						<div class="layui-inline">
-							<label class="layui-form-label">身份证号</label>
-							<div class="layui-input-inline">
-								<input type="text" name="email" lay-verify="email" autocomplete="off" class="layui-input">
+						<div class="layui-form-item">
+							<div class="layui-inline">
+								<label class="layui-form-label">性别</label>
+								<div class="layui-input-inline nameArea">
+									<input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label">终端权限</label>
+								<div class="layui-input-inline">
+									<select name="modules" lay-verify="required" lay-search="">
+										<option value="">直接选择或搜索选择</option>
+										<option value="1">layer</option>
+										<option value="2">form</option>
+										<option value="3">layim</option>
+									</select>
+								</div>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label">人员状态</label>
+								<div class="layui-input-inline">
+									<select name="modules" lay-verify="required" lay-search="">
+										<option value="">直接选择或搜索选择</option>
+										<option value="1">layer</option>
+										<option value="2">form</option>
+										<option value="3">layim</option>
+									</select>
+								</div>
 							</div>
 						</div>
-						<div class="layui-inline">
-							<label class="layui-form-label">工种</label>
-							<div class="layui-input-inline">
-								<select name="modules" lay-verify="required" lay-search="">
-									<option value="">直接选择或搜索选择</option>
-									<option value="1">layer</option>
-									<option value="2">form</option>
-									<option value="3">layim</option>
-								</select>
+						<div class="layui-form-item">
+							<div class="layui-inline">
+								<label class="layui-form-label">所属单位</label>
+								<div class="layui-input-inline">
+									<select name="modules" lay-verify="required" lay-search="">
+										<option value="">直接选择或搜索选择</option>
+										<option value="1">layer</option>
+										<option value="2">form</option>
+										<option value="3">layim</option>
+									</select>
+								</div>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label">所属项目</label>
+								<div class="layui-input-inline">
+									<select name="modules" lay-verify="required" lay-search="">
+										<option value="">直接选择或搜索选择</option>
+										<option value="1">layer</option>
+										<option value="2">form</option>
+										<option value="3">layim</option>
+									</select>
+								</div>
+							</div>
+							<div class="layui-inline searchBtnArea">
+								<div>
+									<button type="button" class="layui-btn layui-btn-normal searchBtn">查询</button>
+								</div>
 							</div>
 						</div>
-						<div class="layui-inline">
-							<label class="layui-form-label">部门</label>
-							<div class="layui-input-inline">
-								<select name="modules" lay-verify="required" lay-search="">
-									<option value="">直接选择或搜索选择</option>
-									<option value="1">layer</option>
-									<option value="2">form</option>
-									<option value="3">layim</option>
-								</select>
-							</div>
-						</div>
-					</div>
-					<div class="layui-form-item">
-						<div class="layui-inline">
-							<label class="layui-form-label">性别</label>
-							<div class="layui-input-inline nameArea">
-								<input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
-							</div>
-						</div>
-						<div class="layui-inline">
-							<label class="layui-form-label">终端权限</label>
-							<div class="layui-input-inline">
-								<select name="modules" lay-verify="required" lay-search="">
-									<option value="">直接选择或搜索选择</option>
-									<option value="1">layer</option>
-									<option value="2">form</option>
-									<option value="3">layim</option>
-								</select>
-							</div>
-						</div>
-						<div class="layui-inline">
-							<label class="layui-form-label">人员状态</label>
-							<div class="layui-input-inline">
-								<select name="modules" lay-verify="required" lay-search="">
-									<option value="">直接选择或搜索选择</option>
-									<option value="1">layer</option>
-									<option value="2">form</option>
-									<option value="3">layim</option>
-								</select>
-							</div>
-						</div>
-					</div>
-					<div class="layui-form-item">
-						<div class="layui-inline">
-							<label class="layui-form-label">所属单位</label>
-							<div class="layui-input-inline">
-								<select name="modules" lay-verify="required" lay-search="">
-									<option value="">直接选择或搜索选择</option>
-									<option value="1">layer</option>
-									<option value="2">form</option>
-									<option value="3">layim</option>
-								</select>
-							</div>
-						</div>
-						<div class="layui-inline">
-							<label class="layui-form-label">所属项目</label>
-							<div class="layui-input-inline">
-								<select name="modules" lay-verify="required" lay-search="">
-									<option value="">直接选择或搜索选择</option>
-									<option value="1">layer</option>
-									<option value="2">form</option>
-									<option value="3">layim</option>
-								</select>
-							</div>
-						</div>
-						<div class="layui-inline searchBtnArea">
-							<div>
-								<button type="button" class="layui-btn layui-btn-normal searchBtn">查询</button>
-							</div>
-						</div>
-					</div>
-				</form>
+					</form>
+				</div>
+
 				<!-- 小屏幕 -->
-				<form class="layui-form smallScreen" action="">
-					<div class="layui-form-item">
-						<div class="layui-inline">
-							<label class="layui-form-label">姓名</label>
-							<div class="layui-input-inline nameArea">
-								<input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
+				<div id="smallScreen">
+					<form class="layui-form" action="">
+						<div class="layui-form-item">
+							<div class="layui-inline">
+								<label class="layui-form-label">姓名</label>
+								<div class="layui-input-inline nameArea">
+									<input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label">身份证号</label>
+								<div class="layui-input-inline">
+									<input type="text" name="email" lay-verify="email" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label">工种</label>
+								<div class="layui-input-inline">
+									<select name="modules" lay-verify="required" lay-search="">
+										<option value="">直接选择或搜索选择</option>
+										<option value="1">layer</option>
+										<option value="2">form</option>
+										<option value="3">layim</option>
+									</select>
+								</div>
 							</div>
 						</div>
-						<div class="layui-inline">
-							<label class="layui-form-label">身份证号</label>
-							<div class="layui-input-inline">
-								<input type="text" name="email" lay-verify="email" autocomplete="off" class="layui-input">
+						<div class="layui-form-item">
+							<div class="layui-inline">
+								<label class="layui-form-label">性别</label>
+								<div class="layui-input-inline nameArea">
+									<input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label">终端权限</label>
+								<div class="layui-input-inline">
+									<select name="modules" lay-verify="required" lay-search="">
+										<option value="">直接选择或搜索选择</option>
+										<option value="1">layer</option>
+										<option value="2">form</option>
+										<option value="3">layim</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="layui-inline">
+								<label class="layui-form-label">部门</label>
+								<div class="layui-input-inline">
+									<select name="modules" lay-verify="required" lay-search="">
+										<option value="">直接选择或搜索选择</option>
+										<option value="1">layer</option>
+										<option value="2">form</option>
+										<option value="3">layim</option>
+									</select>
+								</div>
 							</div>
 						</div>
-						<div class="layui-inline">
-							<label class="layui-form-label">工种</label>
-							<div class="layui-input-inline">
-								<select name="modules" lay-verify="required" lay-search="">
-									<option value="">直接选择或搜索选择</option>
-									<option value="1">layer</option>
-									<option value="2">form</option>
-									<option value="3">layim</option>
-								</select>
+						<div class="layui-form-item">
+							<div class="layui-inline">
+								<label class="layui-form-label">人员状态</label>
+								<div class="layui-input-inline">
+									<select name="modules" lay-verify="required" lay-search="">
+										<option value="">直接选择或搜索选择</option>
+										<option value="1">layer</option>
+										<option value="2">form</option>
+										<option value="3">layim</option>
+									</select>
+								</div>
 							</div>
-						</div>
-					</div>
-					<div class="layui-form-item">
-						<div class="layui-inline">
-							<label class="layui-form-label">性别</label>
-							<div class="layui-input-inline nameArea">
-								<input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
-							</div>
-						</div>
-						<div class="layui-inline">
-							<label class="layui-form-label">终端权限</label>
-							<div class="layui-input-inline">
-								<select name="modules" lay-verify="required" lay-search="">
-									<option value="">直接选择或搜索选择</option>
-									<option value="1">layer</option>
-									<option value="2">form</option>
-									<option value="3">layim</option>
-								</select>
+							<div class="layui-inline">
+								<label class="layui-form-label">所属单位</label>
+								<div class="layui-input-inline">
+									<select name="modules" lay-verify="required" lay-search="">
+										<option value="">直接选择或搜索选择</option>
+										<option value="1">layer</option>
+										<option value="2">form</option>
+										<option value="3">layim</option>
+									</select>
+								</div>
 							</div>
 						</div>
 
-						<div class="layui-inline">
-							<label class="layui-form-label">部门</label>
-							<div class="layui-input-inline">
-								<select name="modules" lay-verify="required" lay-search="">
-									<option value="">直接选择或搜索选择</option>
-									<option value="1">layer</option>
-									<option value="2">form</option>
-									<option value="3">layim</option>
-								</select>
+						<div class="layui-form-item">
+							<div class="layui-inline">
+								<label class="layui-form-label">所属项目</label>
+								<div class="layui-input-inline">
+									<select name="modules" lay-verify="required" lay-search="">
+										<option value="">直接选择或搜索选择</option>
+										<option value="1">layer</option>
+										<option value="2">form</option>
+										<option value="3">layim</option>
+									</select>
+								</div>
+							</div>
+							<div class="layui-inline searchBtnArea">
+								<div>
+									<button type="button" class="layui-btn layui-btn-normal searchBtn">查询</button>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="layui-form-item">
-						<div class="layui-inline">
-							<label class="layui-form-label">人员状态</label>
-							<div class="layui-input-inline">
-								<select name="modules" lay-verify="required" lay-search="">
-									<option value="">直接选择或搜索选择</option>
-									<option value="1">layer</option>
-									<option value="2">form</option>
-									<option value="3">layim</option>
-								</select>
-							</div>
-						</div>
-						<div class="layui-inline">
-							<label class="layui-form-label">所属单位</label>
-							<div class="layui-input-inline">
-								<select name="modules" lay-verify="required" lay-search="">
-									<option value="">直接选择或搜索选择</option>
-									<option value="1">layer</option>
-									<option value="2">form</option>
-									<option value="3">layim</option>
-								</select>
-							</div>
-						</div>
-					</div>
-
-					<div class="layui-form-item">
-						<div class="layui-inline">
-							<label class="layui-form-label">所属项目</label>
-							<div class="layui-input-inline">
-								<select name="modules" lay-verify="required" lay-search="">
-									<option value="">直接选择或搜索选择</option>
-									<option value="1">layer</option>
-									<option value="2">form</option>
-									<option value="3">layim</option>
-								</select>
-							</div>
-						</div>
-						<div class="layui-inline searchBtnArea">
-							<div>
-								<button type="button" class="layui-btn layui-btn-normal searchBtn">查询</button>
-							</div>
-						</div>
-					</div>
-				</form>
+					</form>
+				</div>
 			</div>
 
 			<!--底部表格  -->

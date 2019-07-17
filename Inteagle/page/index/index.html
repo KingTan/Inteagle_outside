@@ -489,6 +489,16 @@
 									</div>
 								</div>
 							</li>
+							<li class=" middleMenuOption" data-index="8-4" onclick="middleMenuMove(this)">
+								<div class="row middleMenuInfo ">
+									<div class="menuListIcon">
+										<img src="img/list.png" class="listIcon" />
+									</div>
+									<div class="middleMenuName">
+										<span>基坑监测</span>
+									</div>
+								</div>
+							</li>
 						</ul>
 						<!-- 添加菜单 -->
 						<div class="row addMiddleMenu addCertMenu" data-index="8-4" onclick="addDevice(this)">
@@ -1187,6 +1197,99 @@
 			</div>
 		</script>
 
+		<!-- 位移值报警弹窗 -->
+		<script type="text/template" id="displacementWarningModal">
+			<div class="displacementWarning">
+				<div class="topTextArea">报警弹窗</div>
+				<div class="column contentArea">
+					<div class="titleText">围护桩体和土体深层侧向位移偏移</div>
+					<div class="column dataArea">
+						<div class="row singleDataRow">
+							<div class="dataTitle">id</div>
+							<div class="dataValue">47</div>
+						</div>
+						<div class="row singleDataRow">
+							<div class="dataTitle">位移值</div>
+							<div class="dataValue">13(mm)</div>
+						</div>
+						<div class="row singleDataRow">
+							<div class="dataTitle">日期</div>
+							<div class="dataValue">2019-07-15 13:00:00</div>
+						</div>
+					</div>
+					<div class="slideValueArea">
+						<div class="row count">
+							<div class="zeroText ">0</div>
+							<div class="fiveText countText">5</div>
+							<div class="tenText countText">10</div>
+							<div class="fifteenText countText">15</div>
+						</div>
+						<!-- 进度条直线 -->
+						<div class="line"></div>
+						<!-- 选中的正方形 -->
+						<div class="checkRectBox"></div>
+						<div class="lineTitle">位移值(mm)</div>
+					</div>
+					<div class="watchBtnArea">
+						<button type="button" class="layui-btn layui-btn-normal watchBtn">查看</button>
+					</div>
+				</div>
+			</div>
+		</script>
+
+		<!--位移值速率报警弹窗  -->
+		<script type="text/template" id="speedWarningModal">
+			<div class="speedWarning">
+				<div class="topTextArea">报警弹窗</div>
+				<div class="column contentArea">
+					<div class="titleText">围护桩体和土体深层侧向位移偏移速率</div>
+					<div class="column dataArea">
+						<div class="row singleDataRow">
+							<div class="dataTitle">id</div>
+							<div class="dataValue">47</div>
+						</div>
+						<div class="row singleDataRow">
+							<div class="dataTitle">速率</div>
+							<div class="dataValue"><span id="speedVal">0.7</span>mm/d</div>
+						</div>
+						<div class="row singleDataRow">
+							<div class="dataTitle">日期</div>
+							<div class="dataValue">2019-07-15 13:00:00</div>
+						</div>
+					</div>
+					<div class="watchSpeedBtnArea">
+						<button type="button" class="layui-btn layui-btn-normal watchBtn">查看</button>
+					</div>
+				</div>
+			</div>
+		</script>
+
+		<!-- 设备故障报警弹窗 -->
+		<script type="text/template">
+			<div class="speedWarning">
+				<div class="topTextArea">报警弹窗</div>
+				<div class="column contentArea">
+					<div class="titleText">设备故障报警</div>
+					<div class="column dataArea">
+						<div class="row singleDataRow">
+							<div class="dataTitle">id</div>
+							<div class="dataValue">47</div>
+						</div>
+						<div class="row singleDataRow">
+							<div class="dataTitle">问题</div>
+							<div class="dataValue"><span id="reason">设备故障</span></div>
+						</div>
+						<div class="row singleDataRow">
+							<div class="dataTitle">日期</div>
+							<div class="dataValue">2019-07-15 13:00:00</div>
+						</div>
+					</div>
+					<div class="watchSpeedBtnArea">
+						<button type="button" class="layui-btn layui-btn-normal watchBtn">查看</button>
+					</div>
+				</div>
+			</div>
+		</script>
 
 	</body>
 </html>
