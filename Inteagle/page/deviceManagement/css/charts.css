@@ -6,7 +6,7 @@
 
 #slChars {
 	width: 400px;
-	height: 300px;
+	height: 400px;
 }
 
 .downArea {
@@ -65,9 +65,8 @@
 	height: 42.0625rem;
 	margin-top: 1.25rem;
 }
-
-.selOptionArea {
-	margin: 0rem auto;
+.layui-btn-container{
+	display: flex;
 }
 
 .layui-btn-container button {

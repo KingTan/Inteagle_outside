@@ -3,20 +3,52 @@
  */
 $(function() {
 	// 初始化右边按钮组
-	intialBtnGroup();
+	intialBtnGroup("normal_1");
+
 })
+//初始化 from 对象
+layui.use('form', function() {
+	form = layui.form;
+	//渲染表单对象
+	form.render();
+	console.log(form)
+	//监听设备ID 下拉框改变事件
+	form.on('select(chooseOrderSel)', function(data) {
+		var orderNum = data.value;
+		var order = "";
+		switch (orderNum) {
+			case "1":
+				order = "normal_1";
+				break;
+			case "2":
+				order = "warning";
+				break;
+			case "3":
+				order = "warning_header";
+				break;
+			case "4":
+				order = "error";
+				break;
+		}
+		//渲染按钮组
+		intialBtnGroup(order);
+
+	});
+})
+
 
 /**
  * 初始化右边按钮组
  */
-function intialBtnGroup() {
-
+function intialBtnGroup(order) {
+	//总数据数组
 	var btnList = [];
 
+	//优先数据数组
+	var orderList = [];
+
 	for (var i = 0; i < 80; i++) {
-
 		var status = "normal";
-
 		if (i % 11 == 0) {
 			status = "warning";
 		} else if (i % 24 == 0) {
@@ -24,13 +56,27 @@ function intialBtnGroup() {
 		} else if (i % 8 == 0) {
 			status = "warning_header";
 		}
-		var btnObj = {
-			"id": i + 1,
-			"status": status
-		};
-		btnList.push(btnObj);
+
+		if (order == status) {
+			var btnObj = {
+				"id": i + 1,
+				"status": status
+			};
+			orderList.push(btnObj);
+		} else {
+			var btnObj = {
+				"id": i + 1,
+				"status": status
+			};
+			btnList.push(btnObj);
+		}
 	}
 
+	btnList = orderList.concat(btnList);
+	
+	//清空元素
+	$(".deviceListArea").html("");
+	
 	var shtml = "<div class='layui-btn-container'>";
 
 	for (var i = 0; i < btnList.length; i++) {
