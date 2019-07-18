@@ -51,11 +51,21 @@
 				<div class="column chartsArea">
 					<div id="bigCharts"></div>
 					<div class="row downArea">
+						
+						<!--左侧echarts  -->
 						<div id="slChars"></div>
-						<div class="rightCharts">
-							<canvas id="rightCanvas">
-								抱歉，您的浏览器不支持Canvas！建议使用谷歌chrome浏览器...
-							</canvas>
+						
+						<!-- 右侧canvas 测斜管纵向位移图 -->
+						<div class="column rightCharts">
+							<div class="canvasTitle textcenter">位移值(mm)</div>
+							<div class="canvasArea">
+								<canvas id="rightCanvas">抱歉，您的浏览器不支持Canvas！建议使用谷歌chrome浏览器...</canvas>
+							</div>
+							<div class="column canvasText">
+								<div class="deviceName textcenter">测斜管</div>
+								<div class="deviceTime textcenter">2019-07-15 10:51</div>
+							</div>
+						
 						</div>
 					</div>
 				</div>
