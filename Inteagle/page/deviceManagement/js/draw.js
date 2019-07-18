@@ -151,7 +151,7 @@ canvas.addEventListener("click", function(e) {
 		var checkedObj = isInPoint(eventX, eventY);
 		
 		//跳转到对应圆点的 图表  页面
-		 window.location.href = "xCharts.html?id=" + checkedObj.id;
+		 window.location.href = "charts.html?id=" + checkedObj.id;
 	}
 }, false)
 

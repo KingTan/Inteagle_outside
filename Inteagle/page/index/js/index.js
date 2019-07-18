@@ -9,13 +9,60 @@ $(function() {
 })
 
 /**
+ * 报警值弹窗
+ */
+function showWarnValModal(){
+	var html = document.getElementById("warnValModal").innerHTML;
+	//页面层-自定义
+	layer.open({
+		type: 1,
+		title: false,
+		closeBtn: 0,
+		area: ['730px', '504px'],
+		shadeClose: true,
+		scrollbar: true,
+		resize: false,
+		content: html,
+		success: function() {
+			//初始化 from 对象
+			layui.use('form', function() {
+				layform = layui.form;
+				layform.render();
+			})
+		}
+	});
+}
+/**
+ * 运行时间弹窗
+ */
+function runtimeSetModal(){
+	var html = document.getElementById("runtimeSetModal").innerHTML;
+	//页面层-自定义
+	layer.open({
+		type: 1,
+		title: false,
+		closeBtn: 0,
+		area: ['730px', '260px'],
+		shadeClose: true,
+		scrollbar: true,
+		resize: false,
+		content: html,
+		success: function() {
+			//初始化 from 对象
+			layui.use('form', function() {
+				layform = layui.form;
+				layform.render();
+			})
+		}
+	});
+}
+
+/**
  * 点击取消按钮 关闭layer弹窗
  */
 function closeLayer() {
 	layer.closeAll();
 }
-
-
 
 /**
  * @param {Object} e

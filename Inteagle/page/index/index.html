@@ -13,7 +13,6 @@
 		<link rel="shortcut icon" href="../../common/img/inteagle_logo.ico">
 	</head>
 	<body>
-
 		<div class="container">
 			<!--顶部导航条  -->
 			<div class="row topContainer">
@@ -542,7 +541,7 @@
 				<iframe src="../projectManagement/projectManagement.html" id="mainFrame" class="mainFrame" name='iframe'
 				 frameborder="0"></iframe>
 			</div>
-
+			
 			<!--底部备案信息区域  -->
 			<div class="bottomArea">
 				<div class="recordText">
@@ -1287,6 +1286,110 @@
 					<div class="watchSpeedBtnArea">
 						<button type="button" class="layui-btn layui-btn-normal watchBtn">查看</button>
 					</div>
+				</div>
+			</div>
+		</script>
+		<!--运行时间设置  -->
+		<script type="text/template" id="runtimeSetModal">
+			<div class="runScheduleArea">
+				<div class="titleTextArea">运行时间设置</div>
+				<div class="row scheduleList">
+					<div class="row runtimeSet">
+						<div class="leftTextStr">目标(分钟)</div>
+						<div class="row runtimeSetInput">
+							<div class="inputArea">
+								<input class="name" type="number" min="0"/>
+							</div>
+							<div class="middleLine">|</div>
+							<div class="lefttextArea">
+								<span class="leftText">分钟/次</span>
+							</div>
+						</div>
+					</div>
+					<div class="row runtimeSetSec">
+						<div class="leftTextStr">频率(间隔)</div>
+						<div class="row runtimeSetInput">
+							<div class="inputArea">
+								<input class="name" type="number" min="0"/>
+							</div>
+							<div class="middleLine">|</div>
+							<div class="lefttextArea">
+								<span class="leftText">分钟/次</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row btnGroup">
+					<button type="button" class="layui-btn layui-btn-normal confirmBtn">确认</button>
+					<button type="button" class="layui-btn layui-btn-normal resetBtnSec">重置</button>
+				</div>
+			</div>
+		</script>
+
+		<!-- 报警值设定弹窗 -->
+		<script type="text/template" id="warnValModal">
+			<div class="warnValArea">
+				<div class="titleTextArea">报警值设定</div>
+				<div class="column singleWarning">
+					<div class="warningTile">水平位移报警</div>
+					<div class="column waringContent">
+						<form class="layui-form" action="">
+							<div class="row singleContent">
+								<div class="layui-input-block radioArray">
+									<input type="radio" name="warnVal" value="0" title="预警值" checked="">
+								</div>
+								<div class="row runtimeSetInput">
+									<div class="inputArea warningArea">
+										<input class="name" type="number" min="0"/>
+									</div>
+									<div class="middleLine">|</div>
+									<div class="lefttextArea">
+										<span class="leftText">mm</span>
+									</div>
+								</div>
+							</div>
+							<div class="row singleContent secContent">
+								<div class="layui-input-block radioArray">
+									<input type="radio" name="warnVal" value="0" title="报警值" checked="">
+								</div>
+								<div class="row runtimeSetInput">
+									<div class="inputArea warningArea">
+										<input class="name" type="number" min="0"/>
+									</div>
+									<div class="middleLine">|</div>
+									<div class="lefttextArea">
+										<span class="leftText">mm</span>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="warningLine"></div>
+				<div class="column singleWarning">
+					<div class="warningTile">偏移速率报警</div>
+					<div class="column waringContent">
+						<form class="layui-form" action="">
+							<div class="row singleContent">
+								<div class="layui-input-block radioArray">
+									<input type="radio" name="warnSpeedVal" value="0" title="速率报警值" checked="">
+								</div>
+								<div class="row runtimeSetInput speedSetInput">
+									<div class="inputArea warningSpeedArea">
+										<input class="name" type="number" min="0"/>
+									</div>
+									<div class="middleLine">|</div>
+									<div class="lefttextArea">
+										<span class="leftText">mm/d</span>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="row speedBtnGroup ">
+					<button type="button" class="layui-btn layui-btn-normal confirmBtn">确认</button>
+					<button type="button" class="layui-btn layui-btn-normal resetBtnSec">重置</button>
 				</div>
 			</div>
 		</script>
