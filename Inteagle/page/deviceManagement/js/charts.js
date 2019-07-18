@@ -17,9 +17,9 @@ function intialBtnGroup() {
 
 		var status = "normal";
 
-		if (i % 3 == 0) {
+		if (i % 11 == 0) {
 			status = "warning";
-		} else if (i % 5 == 0) {
+		} else if (i % 24 == 0) {
 			status = "error";
 		} else if (i % 8 == 0) {
 			status = "warning_header";
