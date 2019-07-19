@@ -4,6 +4,58 @@
 $(function() {
 	// 初始化右边按钮组
 	intialBtnGroup("normal_1");
+	var id = getParam("id");
+	var rate = "x";
+	
+	//初始化数据
+	var initialData = [
+		["2019-07-12 08:00:00", 116],
+		["2019-07-13 08:20:00", 120],
+		["2019-07-14 10:00:00", 135],
+		["2019-07-15 11:00:00", 140],
+		["2019-07-16 12:00:00", 300]
+	];
+	var rightChartsData = [
+		["07-18", 0.05],
+		["07-19", 0.12],
+		["07-20", 0.23],
+		["07-21", 0.35],
+		["07-22", -0.05],
+		["07-23", -0.18],
+		["07-24", -0.32]
+	]
+	//当前屏幕可用区域
+	// var clientWidth = document.body.clientWidth * 0.85;
+	// var clientHeight = $(window).height() * 0.85;
+	// $(".bottomArea").width(clientWidth);
+	// $(".bottomArea").height(clientHeight + 200);
+
+	//初始化 大Echarts
+	inintialEcharts(id, rate, initialData);
+	//初始化 左下Echarts
+	inintialSLEcharts(initialData);
+
+	//获得页面跳转路由
+	var router = getParam("router")
+	console.log("router-----",router);
+	switch (router) {
+		case "foundation":
+			//初始化 右下canvas画布
+			drawRate();
+			break;
+		case "deepMove":
+			//初始化 右下canvas画布
+			drawRate();
+			break;
+		case "topLevel":
+			//初始化 右下Echarts
+			inintialRightSLEcharts(rightChartsData);
+			break;
+		case "topVertical":
+			//初始化 右下Echarts
+			inintialRightSLEcharts(rightChartsData);
+			break;
+	}
 
 })
 //初始化 from 对象
@@ -11,7 +63,6 @@ layui.use('form', function() {
 	form = layui.form;
 	//渲染表单对象
 	form.render();
-	console.log(form)
 	//监听设备ID 下拉框改变事件
 	form.on('select(chooseOrderSel)', function(data) {
 		var orderNum = data.value;
@@ -73,10 +124,10 @@ function intialBtnGroup(order) {
 	}
 
 	btnList = orderList.concat(btnList);
-	
+
 	//清空元素
 	$(".deviceListArea").html("");
-	
+
 	var shtml = "<div class='layui-btn-container'>";
 
 	for (var i = 0; i < btnList.length; i++) {

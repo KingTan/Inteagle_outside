@@ -84,11 +84,6 @@
 	margin-top: 1.875rem;
 }
 
-.layui-form-label {
-	padding: 0.25rem 0.9375rem;
-	width: 3.75rem;
-}
-
 .nameArea {
 	width: 6.25rem !important;
 }
@@ -97,7 +92,19 @@
 	margin-right: 0rem !important;
 }
 
-.layui-inline {}
+@media only screen and (max-width: 1200px) {
+	.layui-form-label {
+		padding: 0.2rem 0.3rem !important;
+		width: 3.75rem;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	.layui-form-label {
+		padding: 0.2rem 0.7rem !important;
+		width: 3.75rem;
+	}
+}
 
 
 .layui-input,
@@ -112,19 +119,21 @@
 }
 
 .rightText {
-	margin-left: 0.125rem;
+	margin-left: 0.425rem;
+	margin-top: 0.25rem;
 	font-size: 0.75rem;
 	font-family: MicrosoftYaHei;
 	color: rgba(0, 0, 0, 1);
 }
-.rightText:hover{
+
+.rightText:hover {
 	cursor: pointer;
 	text-decoration: underline;
 }
 
 .singleTool {
 	align-items: center;
-	margin-left: 1.9375rem;
+	margin-left: 1.2375rem;
 }
 
 .finishText {
@@ -133,10 +142,11 @@
 	color: rgba(0, 0, 0, 1)
 }
 
-.toolsArea{
+.toolsArea {
 	height: 1.625rem;
 	display: none;
 }
-.editorArea{
+
+.editorArea {
 	height: 1.625rem;
 }

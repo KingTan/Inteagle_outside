@@ -9,12 +9,17 @@
 	height: 380px;
 }
 
+#rightCharts{
+	width: 400px;
+	height: 380px;
+}
+
 .downArea {
 	margin-top: 1.5625rem;
 	margin-left: 3.75rem;
 }
 
-.rightCharts {
+.rightCanvas {
 	position: relative;
 	margin-left: 40px;
 }
@@ -60,6 +65,7 @@
 	width: 17.125rem;
 	height: 42.0625rem;
 	margin-top: 1.25rem;
+	margin-left: 1.875rem;
 }
 
 .layui-btn-container {
@@ -118,4 +124,20 @@
 	font-size: 0.8125rem;
 	font-family: MicrosoftYaHei;
 	color: rgba(155, 155, 155, 1);
+}
+
+@media only screen and (max-width: 1200px) {
+	.mainBody {
+		width: 90%;
+		margin: 0px auto;
+		margin-top: 1.875rem;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	.mainBody {
+		width: 90%;
+		margin: 0px auto;
+		margin-top: 1.875rem;
+	}
 }

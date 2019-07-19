@@ -150,8 +150,10 @@ canvas.addEventListener("click", function(e) {
 		//当前选中圆点对象
 		var checkedObj = isInPoint(eventX, eventY);
 		
+		console.log("checkedObj.id---",checkedObj.id);
+		
 		//跳转到对应圆点的 图表  页面
-		 window.location.href = "charts.html?id=" + checkedObj.id;
+		 window.location.href = "charts.html?id=" + checkedObj.id+"&router=foundation";
 	}
 }, false)
 

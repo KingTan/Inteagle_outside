@@ -13,18 +13,33 @@ $(function() {
  * 基坑监测下级菜单点击事件
  */
 function agentContnet(e) {
-	
 	//隐藏所有箭头 修改样式
 	$(".trianleImg").hide();
 	$(".agentText").css("margin-left",23);
-	
 	//显示箭头 修改样式
 	var index = $(e).attr("data-index");
 	$(e).children(".addIconArea").children(".trianleImg").show();
 	$(e).children(".addText").css("margin-left",0);
+	
+	var index=$(e).attr("data-index");
+	
+	//iframe框架跳转路径
+	var iframePath="";
+	
+	switch(index){
+		case "8-4-1":
+			iframePath="../deviceManagement/charts.html?id=1" +"&router=deepMove";
+			break;
+		case "8-4-2":
+			iframePath="../deviceManagement/charts.html?id=1" +"&router=topLevel";
+			break;
+		case "8-4-3":
+			iframePath="../deviceManagement/charts.html?id=1" +"&router=topVertical";
+			break;
+	}
+	//控制右边iframe路径
+	$("#mainFrame").attr("src", iframePath);
 }
-
-
 
 /**
  * 报警值弹窗

@@ -6,7 +6,14 @@ function inintialEcharts(id, rate, data) {
 	//表格配置项
 	var option = {
 		title: {
-			text: text
+			text: text,
+			x:'50px',
+			textStyle: {
+               fontSize:20,
+			   fontFamily:'MicrosoftYaHei-Bold',
+			   fontWeight:'bold',
+			   color:'rgba(0,0,0,1)',
+            }
 		},
 		tooltip: {
 			trigger: 'axis'
@@ -21,21 +28,107 @@ function inintialEcharts(id, rate, data) {
 				show: false
 			}
 		},
-		toolbox: {
-			left: 'center',
-			feature: {
-				dataZoom: {
-					yAxisIndex: 'none'
-				},
-				restore: {},
-				saveAsImage: {}
-			}
-		},
 		dataZoom: [{
 			startValue: '2019-06-01'
 		}, {
 			type: 'inside'
 		}],
+		series: {
+			name: text,
+			type: 'line',
+			data: data.map(function(item) {
+				return item[1];
+			}),
+			markLine: {
+				silent: true,
+				data: [{
+					yAxis: 50
+				}, {
+					yAxis: 100
+				}, {
+					yAxis: 150
+				}, {
+					yAxis: 200
+				}, {
+					yAxis: 300
+				}]
+			}
+		}
+	};
+	// 使用刚指定的配置项和数据显示图表。
+	myChart.setOption(option);
+}
+
+//初始化 右下echarts
+function inintialRightSLEcharts(data) {
+	
+	//显示echarts
+	$("#rightCharts").show();
+	
+	// 基于准备好的dom，初始化echarts实例
+	var myChart = echarts.init(document.getElementById('rightCharts'));
+	var text = "累计水平位移";
+	//表格配置项
+	var option = {
+		title: {
+			text: text,
+			textStyle: {
+			   fontSize:13,
+			   fontFamily:'MicrosoftYaHei-Bold',
+			   color:'rgba(53,78,101,1)',
+			}
+		},
+		tooltip: {
+			trigger: 'axis'
+		},
+		xAxis: {
+			data: data.map(function(item) {
+				return item[0];
+			})
+		},
+		yAxis: {
+			splitLine: {
+				show: false
+			}
+		},
+		dataZoom: [{
+			startValue: '2019-06-01'
+		}, {
+			type: 'slider'
+		}],
+		visualMap: {
+            top: 10,
+            right: 10,
+			precision:1,
+            pieces: [{
+                min: 0,
+                max: 0.1,
+                color: '#00C00B'
+            }, {
+                min: 0.1,
+                max: 0.2,
+                color: '#FF9B00'
+            }, {
+                min: 0.2,
+                max: 0.3,
+                color: '#CD2423'
+            }, {
+                max: 0,
+                min: -0.1,
+                color: '#00C00B'
+            }, {
+                max: -0.1,
+                min: -0.2,
+                color: '#FF9B00'
+            }, {
+                max: -0.2,
+				min: -0.3,
+                color: '#CD2423'
+            }],
+            outOfRange: {
+                color: '#CD2423'
+            }
+        },
 		series: {
 			name: text,
 			type: 'line',
@@ -70,7 +163,12 @@ function inintialSLEcharts(data) {
 	//表格配置项
 	var option = {
 		title: {
-			text: text
+			text: text,
+			textStyle: {
+			   fontSize:13,
+			   fontFamily:'MicrosoftYaHei-Bold',
+			   color:'rgba(53,78,101,1)',
+			}
 		},
 		tooltip: {
 			trigger: 'axis'
@@ -118,6 +216,10 @@ function inintialSLEcharts(data) {
 
 //位移图
 function drawRate() {
+	
+	//显示画布
+	$(".rightCanvas").show();
+	
 	var canvas = document.getElementById("rightCanvas");
 	canvas.width = 280;
 	canvas.height = 300;

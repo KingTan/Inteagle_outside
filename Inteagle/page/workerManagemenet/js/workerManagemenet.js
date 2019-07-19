@@ -8,11 +8,9 @@ $(function() {
 	if (isBigScreen) {
 		console.log("大屏幕");
 		$("#smallScreen").hide();
-		console.log("1");
 	} else {
 		console.log("小屏幕");
 		$("#normalScreen").css("display","none");
-		console.log("2");
 	}
 
 })
