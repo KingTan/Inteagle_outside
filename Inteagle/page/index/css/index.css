@@ -991,3 +991,12 @@ body {
 	margin-top: 2.6875rem;
 	background-color: rgba(150,150,150,1);
 }
+.agentContent{
+	display: none;
+}
+.trianleImg{
+	display: none;
+}
+.agentContent .addText{
+	margin-left: 23px;
+}

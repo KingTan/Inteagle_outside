@@ -6,7 +6,7 @@
 
 #slChars {
 	width: 400px;
-	height: 400px;
+	height: 380px;
 }
 
 .downArea {
@@ -15,12 +15,8 @@
 }
 
 .rightCharts {
+	position: relative;
 	margin-left: 40px;
-}
-
-#rightCanvas {
-	width: 240px;
-	height: 400px;
 }
 
 .leftBox {
@@ -65,7 +61,8 @@
 	height: 42.0625rem;
 	margin-top: 1.25rem;
 }
-.layui-btn-container{
+
+.layui-btn-container {
 	display: flex;
 }
 
@@ -87,16 +84,38 @@
 .textcenter {
 	width: 100%;
 	text-align: center;
-	font-size: 0.9125rem;
+	font-size: 0.8125rem;
 	font-family: MicrosoftYaHei;
 	color: rgba(155, 155, 155, 1);
 }
-.canvasTitle{
+.textTitlecenter {
+	font-size: 0.875rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(53, 78, 101, 1);
+}
+
+.canvasTitle {
 	margin-bottom: 0.9375rem;
 }
-.deviceTime{
+
+.deviceTime {
 	color: #000000;
 	font-size: 0.75rem;
 	margin-top: 0.375rem;
 	margin-bottom: 1.25rem;
+}
+
+.canvasText {
+	position: absolute;
+	margin-top: 340px;
+	margin-left: 90px;
+}
+.deepVal{
+	position: absolute;
+    transform: rotate(268deg);
+    left: -46px;
+    top: 170px;
+	font-size: 0.8125rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(155, 155, 155, 1);
 }

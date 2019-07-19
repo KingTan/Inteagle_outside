@@ -119,17 +119,13 @@ function inintialSLEcharts(data) {
 //位移图
 function drawRate() {
 	var canvas = document.getElementById("rightCanvas");
-	canvas.width = 225;
-	canvas.height = 380;
-
-	// 获取设备像素比
-	console.log("window.devicePixelRatio-------", window.devicePixelRatio);
-	
+	canvas.width = 280;
+	canvas.height = 300;
 	var ctx = canvas.getContext("2d");
 	//绘制矩形
 	ctx.beginPath();
 	ctx.moveTo(0, 0); //定义开始绘制路径
-	ctx.strokeRect(20.5, 20.5, 185, 340);
+	ctx.strokeRect(20.5, 20.5, 245, 240);
 	ctx.closePath();
 	ctx.lineWidth = 1;
 	ctx.strokeStyle = "black";
@@ -145,16 +141,16 @@ function drawRate() {
 	//设置垂直对齐方式
 	ctx.textBaseline = "middle";
 	//绘制文字（参数：x坐标，y坐标,值）
-	var numberList=[{p:{x:20,y:10,number:0}},{p:{x:81,y:10,number:5}},{p:{x:143,y:10,number:10}},{p:{x:205,y:10,number:15}},
-					{p:{x:10,y:20,number:0}},{p:{x:10,y:76,number:2}},{p:{x:10,y:133,number:4}},{p:{x:10,y:189,number:6}},
-					{p:{x:10,y:246,number:8}},{p:{x:10,y:303,number:10}},{p:{x:10,y:360,number:12}}];
+	var numberList=[{p:{x:20.5,y:10,number:0}},{p:{x:102,y:10,number:5}},{p:{x:183,y:10,number:10}},{p:{x:265,y:10,number:15}},
+					{p:{x:10,y:20,number:0}},{p:{x:10,y:60,number:2}},{p:{x:10,y:100,number:4}},{p:{x:10,y:140,number:6}},
+					{p:{x:10,y:180,number:8}},{p:{x:10,y:220,number:10}},{p:{x:10,y:260,number:12}}];
 	for (var i = 0; i < numberList.length; i++) {
 		ctx.fillText(numberList[i].p.number, numberList[i].p.x, numberList[i].p.y);
 	}
 	//绘制坐标轴
-	var numberRateList=[{p:[{x:81,y:20},{x:81,y:30}]},{p:[{x:143,y:20},{x:143,y:30}]},
-						{p:[{x:20,y:76},{x:30,y:76}]},{p:[{x:20,y:133},{x:30,y:133}]},
-						{p:[{x:20,y:189},{x:30,y:189}]},{p:[{x:20,y:246},{x:30,y:246}]},{p:[{x:20,y:303},{x:30,y:303}]}];				
+	var numberRateList=[{p:[{x:102,y:20},{x:102,y:30}]},{p:[{x:183,y:20},{x:183,y:30}]},
+						{p:[{x:20,y:60},{x:30,y:60}]},{p:[{x:20,y:100},{x:30,y:100}]},
+						{p:[{x:20,y:140},{x:30,y:140}]},{p:[{x:20,y:180},{x:30,y:180}]},{p:[{x:20,y:220},{x:30,y:220}]}];				
 	for(var i=0;i<numberRateList.length;i++){
 		ctx.beginPath();
 		ctx.moveTo(numberRateList[i].p[0].x,numberRateList[i].p[0].y);  //定义开始绘制路径
@@ -178,8 +174,8 @@ function drawDisplacementFilter(ctx){
 	var y_begin=20;
 	
 	//x,y轴 一刻度的倍率
-	var x_rate=12.3;
-	var y_rate=28.3;
+	var x_rate=16.3;
+	var y_rate=20;
 	
 	//数据刻度线
 	var disLineList=[{p:[{"x":(x_begin+x_rate*7),"y":(y_begin+y_rate*0),"color":"#FF0000"},{"x":(x_begin+x_rate*5.2),"y":(y_begin+y_rate*1),"color":"#FF0000"}]},
@@ -199,6 +195,7 @@ function drawDisplacementFilter(ctx){
 		for(var j=1;j<disLineList[i].p.length;j++){
 				ctx.lineTo(disLineList[i].p[j].x,disLineList[i].p[j].y);
 				ctx.strokeStyle=disLineList[i].p[j].color;	
+				ctx.fillStyle=disLineList[i].p[j].color;
 			}
 		ctx.lineWidth=1;
 		ctx.closePath();
@@ -206,8 +203,7 @@ function drawDisplacementFilter(ctx){
 		
 		//绘制矩形
 		ctx.beginPath();
-		ctx.fillStyle="rgba(205,36,35,1)";
-		ctx.fillRect(disLineList[i].p[0].x-4,disLineList[i].p[0].y, 7, 7);
+		ctx.fillRect(disLineList[i].p[0].x-5,disLineList[i].p[0].y, 6, 6);
 		ctx.closePath();
 	}
 	

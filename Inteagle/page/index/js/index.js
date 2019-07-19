@@ -9,9 +9,27 @@ $(function() {
 })
 
 /**
+ * @param {Object} e
+ * 基坑监测下级菜单点击事件
+ */
+function agentContnet(e) {
+	
+	//隐藏所有箭头 修改样式
+	$(".trianleImg").hide();
+	$(".agentText").css("margin-left",23);
+	
+	//显示箭头 修改样式
+	var index = $(e).attr("data-index");
+	$(e).children(".addIconArea").children(".trianleImg").show();
+	$(e).children(".addText").css("margin-left",0);
+}
+
+
+
+/**
  * 报警值弹窗
  */
-function showWarnValModal(){
+function showWarnValModal() {
 	var html = document.getElementById("warnValModal").innerHTML;
 	//页面层-自定义
 	layer.open({
@@ -35,7 +53,7 @@ function showWarnValModal(){
 /**
  * 运行时间弹窗
  */
-function runtimeSetModal(){
+function runtimeSetModal() {
 	var html = document.getElementById("runtimeSetModal").innerHTML;
 	//页面层-自定义
 	layer.open({
@@ -154,13 +172,6 @@ function addWorker(e) {
 		}
 	});
 }
-
-
-
-
-
-
-
 
 /**
  * 添加访客
@@ -290,7 +301,11 @@ function middleMenuMove(e) {
 	//根据data-index的值 切换iframe的路径
 	var index = $(e).attr("data-index");
 
+	// 内联框架跳转路径
 	var iframePath = "";
+
+	// 基坑监测下级菜单隐藏
+	$(".agentContent").hide();
 
 	switch (index) {
 		case "1-0":
@@ -402,6 +417,13 @@ function middleMenuMove(e) {
 			$(".deviceMiddle ul li").removeClass("checkedMiddleMenu");
 			//基坑监测
 			iframePath = "../deviceManagement/foundation.html";
+
+			//显示基坑监测下级菜单
+			$(".agentContent").show();
+			
+			//显示第一项下拉菜单被选中
+			$(".firstTriangle").show();
+			$(".firstTriangle").parent(".addIconArea").siblings(".addText").css("margin-left",0);
 			break;
 		case "9-1":
 			//修改样式
