@@ -7,7 +7,6 @@ function inintialEcharts(id, rate, data) {
 	var option = {
 		title: {
 			text: text,
-			x:'50px',
 			textStyle: {
                fontSize:20,
 			   fontFamily:'MicrosoftYaHei-Bold',
@@ -72,6 +71,9 @@ function inintialRightSLEcharts(data) {
 	var option = {
 		title: {
 			text: text,
+			x:'center',
+			y:'top',
+			textAlign:'left',
 			textStyle: {
 			   fontSize:13,
 			   fontFamily:'MicrosoftYaHei-Bold',
@@ -164,6 +166,9 @@ function inintialSLEcharts(data) {
 	var option = {
 		title: {
 			text: text,
+			x:'center',
+			y:'top',
+			textAlign:'left',
 			textStyle: {
 			   fontSize:13,
 			   fontFamily:'MicrosoftYaHei-Bold',

@@ -1,7 +1,7 @@
 #bigCharts {
-	width: 800px;
+	width: 860px;
 	height: 25rem;
-	margin-top: 1.25rem;
+	margin-top: 3.25rem;
 }
 
 #slChars {
@@ -9,7 +9,7 @@
 	height: 380px;
 }
 
-#rightCharts{
+#rightCharts {
 	width: 400px;
 	height: 380px;
 }
@@ -21,7 +21,7 @@
 
 .rightCanvas {
 	position: relative;
-	margin-left: 40px;
+	margin-left: 70px;
 }
 
 .leftBox {
@@ -62,10 +62,9 @@
 }
 
 .rightOptionArea {
-	width: 17.125rem;
 	height: 42.0625rem;
-	margin-top: 1.25rem;
-	margin-left: 1.875rem;
+	margin-top: 3.25rem;
+	margin-left: 4.6875rem;
 }
 
 .layui-btn-container {
@@ -94,6 +93,7 @@
 	font-family: MicrosoftYaHei;
 	color: rgba(155, 155, 155, 1);
 }
+
 .textTitlecenter {
 	font-size: 0.875rem;
 	font-family: MicrosoftYaHei;
@@ -116,11 +116,12 @@
 	margin-top: 340px;
 	margin-left: 90px;
 }
-.deepVal{
+
+.deepVal {
 	position: absolute;
-    transform: rotate(268deg);
-    left: -46px;
-    top: 170px;
+	transform: rotate(268deg);
+	left: -46px;
+	top: 170px;
 	font-size: 0.8125rem;
 	font-family: MicrosoftYaHei;
 	color: rgba(155, 155, 155, 1);
@@ -140,4 +141,14 @@
 		margin: 0px auto;
 		margin-top: 1.875rem;
 	}
+}
+
+.orderTypeArea {
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	margin-left: -0.625rem;
+}
+.bottomArea{
+	justify-content: space-between;
 }

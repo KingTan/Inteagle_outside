@@ -51,16 +51,16 @@
 				<div class="column chartsArea">
 					<div id="bigCharts"></div>
 					<div class="row downArea">
-						
+
 						<!--左侧echarts  -->
 						<div id="slChars"></div>
-						
+
 						<!-- 右侧canvas 测斜管纵向位移图 -->
 						<div class="column rightCanvas" style="display: none;">
 							<div class="canvasTitle textcenter textTitlecenter">围护桩体深层侧向位移曲线图</div>
 							<div class="canvasTitle textcenter">位移值(mm)</div>
 							<div class="canvasArea">
-								<canvas id="rightCanvas" >抱歉，您的浏览器不支持Canvas！建议使用谷歌chrome浏览器...</canvas>
+								<canvas id="rightCanvas">抱歉，您的浏览器不支持Canvas！建议使用谷歌chrome浏览器...</canvas>
 							</div>
 							<div class="canvasTitle deepVal">深度(mm)</div>
 							<div class="column canvasText">
@@ -68,25 +68,27 @@
 								<div class="deviceTime textcenter">2019-07-15 10:51</div>
 							</div>
 						</div>
-						
+
 						<!-- 右侧eharts -->
 						<div id="rightCharts" style="display: none;"></div>
-						
+
 					</div>
 				</div>
 				<div class="column rightOptionArea">
-					<div class="row selOptionArea">
-						<div class="leftBox">排序方式<span class="maohao">:</span> </div>
-						<form class="layui-form" action="">
-							<div class="layui-input-inline">
-								<select name="modules" lay-filter="chooseOrderSel" lay-verify="required" lay-search="" id="chooseOrderSel">
-									<option value="1">ID顺序</option>
-									<option value="2">报警点优先</option>
-									<option value="3">预警点优先</option>
-									<option value="4">故障优先</option>
-								</select>
-							</div>
-						</form>
+					<div class="orderTypeArea">
+						<div class="row selOptionArea">
+							<div class="leftBox">排序方式<span class="maohao">:</span> </div>
+							<form class="layui-form" action="">
+								<div class="layui-input-inline">
+									<select name="modules" lay-filter="chooseOrderSel" lay-verify="required" lay-search="" id="chooseOrderSel">
+										<option value="1">ID顺序</option>
+										<option value="2">报警点优先</option>
+										<option value="3">预警点优先</option>
+										<option value="4">故障优先</option>
+									</select>
+								</div>
+							</form>
+						</div>
 					</div>
 					<!-- 设备组 -->
 					<div class="deviceListArea"></div>

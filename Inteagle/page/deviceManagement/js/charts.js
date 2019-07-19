@@ -24,12 +24,6 @@ $(function() {
 		["07-23", -0.18],
 		["07-24", -0.32]
 	]
-	//当前屏幕可用区域
-	// var clientWidth = document.body.clientWidth * 0.85;
-	// var clientHeight = $(window).height() * 0.85;
-	// $(".bottomArea").width(clientWidth);
-	// $(".bottomArea").height(clientHeight + 200);
-
 	//初始化 大Echarts
 	inintialEcharts(id, rate, initialData);
 	//初始化 左下Echarts
@@ -56,7 +50,6 @@ $(function() {
 			inintialRightSLEcharts(rightChartsData);
 			break;
 	}
-
 })
 //初始化 from 对象
 layui.use('form', function() {
