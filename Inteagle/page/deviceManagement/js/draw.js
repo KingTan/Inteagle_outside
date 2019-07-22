@@ -5,8 +5,22 @@ var clientHeight=$(window).height()*0.85;
 var canvas = document.getElementById("myCanvas");
 canvas.width = clientWidth;
 canvas.height = clientHeight;
+
+console.log()
+
+
 // canvas.width = 1103;
 // canvas.height = 653;
+
+//绘制底图
+var img = new Image();
+	img.src = "img/foundation_SL.jpg";
+	/**等图片资源加载完成后，才在 Canvas 上进行绘制渲染*/
+	img.onload = function() {
+		ctx.drawImage(img, 0, 0);
+	}
+
+
 
 //缩放倍数
 var scaleNum=0.8;

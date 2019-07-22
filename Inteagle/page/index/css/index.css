@@ -266,8 +266,12 @@ body {
 }
 
 .agentOption{
-	 height: 25px;
+	height: 25px;
     line-height: 25px;
+}
+.helmetOption{
+	height: 25px;
+	line-height: 25px;
 }
 .agentOption:hover {
 	cursor: pointer;
@@ -277,6 +281,9 @@ body {
 .addIconArea {
 	margin-left: 1.5625rem;
 }
+.addIconAreaHel{
+	margin-left: 1.5625rem;
+}
 
 .addText {
 	margin-left: 0.3125rem;
@@ -284,7 +291,7 @@ body {
 }
 
 .mainFrame {
-	width: 75%;
+	width: 77%;
 	height: 100%;
 }
 
@@ -1010,4 +1017,7 @@ body {
 }
 .agentContent .addText{
 	margin-left: 23px;
+}
+.helmetContent{
+	display: none;
 }

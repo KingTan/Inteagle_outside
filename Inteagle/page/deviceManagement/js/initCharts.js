@@ -40,6 +40,7 @@ function inintialEcharts(id, rate, data) {
 			}),
 			markLine: {
 				silent: true,
+				symbolSize:[6,6],
 				data: [{
 					yAxis: 50
 				}, {
@@ -137,20 +138,6 @@ function inintialRightSLEcharts(data) {
 			data: data.map(function(item) {
 				return item[1];
 			}),
-			markLine: {
-				silent: true,
-				data: [{
-					yAxis: 50
-				}, {
-					yAxis: 100
-				}, {
-					yAxis: 150
-				}, {
-					yAxis: 200
-				}, {
-					yAxis: 300
-				}]
-			}
 		}
 	};
 	// 使用刚指定的配置项和数据显示图表。
@@ -201,6 +188,7 @@ function inintialSLEcharts(data) {
 			}),
 			markLine: {
 				silent: true,
+				symbolSize:[6,6],
 				data: [{
 					yAxis: 50
 				}, {

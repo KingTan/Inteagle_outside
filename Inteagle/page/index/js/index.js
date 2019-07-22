@@ -8,6 +8,27 @@ $(function() {
 
 })
 
+
+/**
+ * 安全帽下级菜单点击事件
+ */
+function helmetPos(e) {
+
+	var index = $(e).attr("data-index");
+	//iframe框架跳转路径
+	var iframePath = "";
+
+	switch (index) {
+		case "8-3-1":
+			iframePath = "../deviceManagement/helmetPosition.html";
+			break;
+	}
+	//控制右边iframe路径
+	$("#mainFrame").attr("src", iframePath);
+
+}
+
+
 /**
  * @param {Object} e
  * 基坑监测下级菜单点击事件
@@ -15,26 +36,32 @@ $(function() {
 function agentContnet(e) {
 	//隐藏所有箭头 修改样式
 	$(".trianleImg").hide();
-	$(".agentText").css("margin-left",23);
+	$(".agentText").css("margin-left", 23);
 	//显示箭头 修改样式
 	var index = $(e).attr("data-index");
 	$(e).children(".addIconArea").children(".trianleImg").show();
-	$(e).children(".addText").css("margin-left",0);
-	
-	var index=$(e).attr("data-index");
-	
+	$(e).children(".addText").css("margin-left", 0);
+
+	var index = $(e).attr("data-index");
+
 	//iframe框架跳转路径
-	var iframePath="";
-	
-	switch(index){
+	var iframePath = "";
+
+	switch (index) {
 		case "8-4-1":
-			iframePath="../deviceManagement/charts.html?id=1" +"&router=deepMove";
+			iframePath = "../deviceManagement/charts.html?id=1" + "&router=deepMove";
 			break;
 		case "8-4-2":
-			iframePath="../deviceManagement/charts.html?id=1" +"&router=topLevel";
+			iframePath = "../deviceManagement/charts.html?id=1" + "&router=topLevel";
 			break;
 		case "8-4-3":
-			iframePath="../deviceManagement/charts.html?id=1" +"&router=topVertical";
+			iframePath = "../deviceManagement/charts.html?id=1" + "&router=topVertical";
+			break;
+		case "8-4-4":
+			iframePath = "../deviceManagement/charts.html?id=1" + "&router=topVertical";
+			break;
+		case "8-4-5":
+			iframePath = "../deviceManagement/charts.html?id=1" + "&router=topVertical";
 			break;
 	}
 	//控制右边iframe路径
@@ -424,8 +451,11 @@ function middleMenuMove(e) {
 		case "8-3":
 			//修改样式
 			$(".deviceMiddle ul li").removeClass("checkedMiddleMenu");
+			$(".addCertMenu").removeClass("checkedMiddleMenu");
 			//安全帽
 			iframePath = "../deviceManagement/helmet.html";
+			//显示安全帽下级菜单
+			$(".helmetContent").show();
 			break;
 		case "8-4":
 			//修改样式
@@ -435,10 +465,10 @@ function middleMenuMove(e) {
 
 			//显示基坑监测下级菜单
 			$(".agentContent").show();
-			
+
 			//显示第一项下拉菜单被选中
 			$(".firstTriangle").show();
-			$(".firstTriangle").parent(".addIconArea").siblings(".addText").css("margin-left",0);
+			$(".firstTriangle").parent(".addIconArea").siblings(".addText").css("margin-left", 0);
 			break;
 		case "9-1":
 			//修改样式
