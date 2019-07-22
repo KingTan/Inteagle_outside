@@ -27,14 +27,18 @@ function inintialEcharts(id, rate, data) {
 				show: false
 			}
 		},
-		dataZoom: [{
-			startValue: '2019-06-01'
-		}, {
-			type: 'inside'
-		}],
+		dataZoom: [ {
+            type: 'slider',
+            show: true,
+            xAxisIndex: [0],
+            start: 1,
+            end: 35
+        }
+		],
 		series: {
 			name: text,
 			type: 'line',
+			smooth: true,
 			data: data.map(function(item) {
 				return item[1];
 			}),
@@ -135,6 +139,7 @@ function inintialRightSLEcharts(data) {
 		series: {
 			name: text,
 			type: 'line',
+			smooth: true,
 			data: data.map(function(item) {
 				return item[1];
 			}),

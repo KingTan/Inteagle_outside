@@ -348,6 +348,11 @@ function middleMenuMove(e) {
 
 	// 基坑监测下级菜单隐藏
 	$(".agentContent").hide();
+	//隐藏所有箭头 修改样式
+	$(".trianleImg").hide();
+	$(".agentText").css("margin-left", 23);
+	//安全帽下级菜单隐藏
+	$(".helmetContent").hide();
 
 	switch (index) {
 		case "1-0":
@@ -465,7 +470,7 @@ function middleMenuMove(e) {
 
 			//显示基坑监测下级菜单
 			$(".agentContent").show();
-
+		
 			//显示第一项下拉菜单被选中
 			$(".firstTriangle").show();
 			$(".firstTriangle").parent(".addIconArea").siblings(".addText").css("margin-left", 0);
