@@ -90,6 +90,20 @@
 							</li>
 							<li>
 								<div class="row menuArea" data-checked="false" onmouseenter="leftMenuMove(this)" onclick="checkLeftMenu(this)"
+								 data-index="9">
+									<div class="column singleMenu">
+										<div class="row eighteenWidth">
+											<div class="menuIconArea">
+												<img src="img/shishijiance.png" class="menuIcon icon_10" />
+											</div>
+											<div class="optionName"><span>安全监测</span></div>
+										</div>
+										<div class="bottomLine"></div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="row menuArea" data-checked="false" onmouseenter="leftMenuMove(this)" onclick="checkLeftMenu(this)"
 								 data-index="2">
 									<div class="column singleMenu">
 										<div class="row eighteenWidth">
@@ -273,6 +287,88 @@
 							</div>
 						</div>
 					</div>
+
+					<!-- 安全监测 -->
+					<div class="middleMenuList saftyMiddle" >
+						<!--初始菜单栏  -->
+						<ul>
+							<li class="checkedMiddleMenu middleMenuOption" data-index="10-1" onclick="middleMenuMove(this)">
+								<div class="row middleMenuInfo peopleMiddleMenu">
+									<div class="menuListIcon">
+										<img src="img/list.png" class="listIcon" />
+									</div>
+									<div class="middleMenuName">
+										<span>人员实时定位</span>
+									</div>
+								</div>
+							</li>
+							<li class="middleMenuOption" data-index="10-2" onclick="middleMenuMove(this)">
+								<div class="row middleMenuInfo peopleMiddleMenu">
+									<div class="menuListIcon">
+										<img src="img/list.png" class="listIcon" />
+									</div>
+									<div class="middleMenuName">
+										<span>基坑监测</span>
+									</div>
+								</div>
+								<div class="foundationMenu">
+									<ul>
+										<li>
+											<div class="row agentOption addCertMenu" data-index="8-4-1" onclick="agentContnet(this)">
+												<div class="addsaftyImgArea">
+													<img src="img/triangle.png" class="addIcon saftyImg firstTriangle" />
+												</div>
+												<div class="addText saftyAgentText">
+													<span>深层水平位移</span>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="row agentOption addCertMenu" data-index="8-4-1" onclick="agentContnet(this)">
+												<div class="addsaftyImgArea">
+													<img src="img/triangle.png" class="addIcon saftyImg firstTriangle" />
+												</div>
+												<div class="addText saftyAgentText">
+													<span>顶部水平位移</span>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="row agentOption addCertMenu" data-index="8-4-1" onclick="agentContnet(this)">
+												<div class="addsaftyImgArea">
+													<img src="img/triangle.png" class="addIcon saftyImg firstTriangle" />
+												</div>
+												<div class="addText saftyAgentText">
+													<span>顶部竖向位移</span>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="row agentOption addCertMenu" data-index="8-4-1" onclick="agentContnet(this)">
+												<div class="addsaftyImgArea">
+													<img src="img/triangle.png" class="addIcon saftyImg firstTriangle" />
+												</div>
+												<div class="addText saftyAgentText">
+													<span>立柱竖向位移</span>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="row agentOption addCertMenu" data-index="8-4-1" onclick="agentContnet(this)">
+												<div class="addsaftyImgArea">
+													<img src="img/triangle.png" class="addIcon saftyImg firstTriangle" />
+												</div>
+												<div class="addText saftyAgentText">
+													<span>周边管线沉降位移</span>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+
 
 					<!-- 人员管理 -->
 					<div class="middleMenuList peopleMiddle">
@@ -488,7 +584,7 @@
 									</div>
 								</div>
 							</li>
-							
+
 							<!-- 安全帽人员实时位置 -->
 							<div class="column addMiddleMenu helmetContent">
 								<div class="row helmetOption addCertMenu" data-index="8-3-1" onclick="helmetPos(this)">
@@ -500,7 +596,7 @@
 									</div>
 								</div>
 							</div>
-							
+
 							<li class=" middleMenuOption" data-index="8-4" onclick="middleMenuMove(this)">
 								<div class="row middleMenuInfo ">
 									<div class="menuListIcon">
@@ -554,7 +650,7 @@
 								</div>
 							</div>
 						</div>
-						
+
 						<!-- 添加菜单 -->
 						<div class="row addMiddleMenu addCertMenu" data-index="8-4" onclick="addDevice(this)">
 							<div class="addIconArea">

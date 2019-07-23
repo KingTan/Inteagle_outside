@@ -243,7 +243,8 @@ body {
 	width: 1.5625rem;
 	height: 1.5625rem;
 }
-.addDeviceIcon{
+
+.addDeviceIcon {
 	width: 1.0625rem;
 	height: 1.0625rem;
 }
@@ -265,14 +266,16 @@ body {
 	background-color: rgba(225, 226, 227, 1);
 }
 
-.agentOption{
-	height: 25px;
-    line-height: 25px;
-}
-.helmetOption{
+.agentOption {
 	height: 25px;
 	line-height: 25px;
 }
+
+.helmetOption {
+	height: 25px;
+	line-height: 25px;
+}
+
 .agentOption:hover {
 	cursor: pointer;
 	background-color: rgba(225, 226, 227, 1);
@@ -281,7 +284,8 @@ body {
 .addIconArea {
 	margin-left: 1.5625rem;
 }
-.addIconAreaHel{
+
+.addIconAreaHel {
 	margin-left: 1.5625rem;
 }
 
@@ -558,7 +562,8 @@ body {
 	border: 1px solid rgba(221, 221, 221, 1);
 	margin-left: 1.875rem;
 }
-.speedSetInput{
+
+.speedSetInput {
 	margin-left: 0rem;
 }
 
@@ -577,10 +582,11 @@ body {
 }
 
 .warningArea {
-	width: 75%!important;
+	width: 75% !important;
 }
-.warningSpeedArea{
-	width: 70%!important;
+
+.warningSpeedArea {
+	width: 70% !important;
 }
 
 .runtimeSetInput .inputArea input {
@@ -937,7 +943,8 @@ body {
 	box-shadow: 0px 2px 60px 0px rgba(0, 0, 0, 0.09);
 	border-radius: 20px;
 }
-.warnValArea{
+
+.warnValArea {
 	width: 45.625rem;
 	height: 31.5rem;
 	background: rgba(255, 255, 255, 1);
@@ -983,7 +990,7 @@ body {
 	margin-top: 1.875rem;
 }
 
-.speedBtnGroup{
+.speedBtnGroup {
 	margin-top: 2.875rem;
 }
 
@@ -992,32 +999,58 @@ body {
 	font-family: MicrosoftYaHei;
 	color: rgba(53, 78, 101, 1);
 }
-.singleWarning{
+
+.singleWarning {
 	margin-left: 7.0625rem;
 	margin-top: 1.875rem;
 }
-.waringContent{
+
+.waringContent {
 	margin-top: 1.5625rem;
 }
-.secContent{
+
+.secContent {
 	margin-top: 0.625rem;
 }
-.warningLine{
+
+.warningLine {
 	width: 31.1875rem;
-	height:0.0625rem;
+	height: 0.0625rem;
 	margin-left: 7.0625rem;
 	margin-top: 2.6875rem;
-	background-color: rgba(150,150,150,1);
+	background-color: rgba(150, 150, 150, 1);
 }
-.agentContent{
+
+.agentContent {
 	display: none;
 }
-.trianleImg{
+
+.trianleImg {
 	display: none;
 }
-.agentContent .addText{
+
+.agentContent .addText {
 	margin-left: 23px;
 }
-.helmetContent{
+
+.helmetContent {
+	display: none;
+}
+
+.foundationMenu ul{
+	margin: 0!important;
+	padding: 0!important;
+}
+
+.foundationMenu ul li {
+	list-style: none;
+	font-size: 14px;
+	font-family: MicrosoftYaHei;
+	color: rgba(50, 50, 50, 1);
+}
+
+.foundationMenu{
+	position: absolute;
+	margin-left: 50px;
 	display: none;
 }

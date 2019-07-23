@@ -36,11 +36,11 @@ function helmetPos(e) {
 function agentContnet(e) {
 	//隐藏所有箭头 修改样式
 	$(".trianleImg").hide();
-	$(".agentText").css("margin-left", 23);
+	// $(".agentText").css("margin-left", 23);
 	//显示箭头 修改样式
 	var index = $(e).attr("data-index");
-	$(e).children(".addIconArea").children(".trianleImg").show();
-	$(e).children(".addText").css("margin-left", 0);
+	// $(e).children(".addIconArea").children(".trianleImg").show();
+	// $(e).children(".addText").css("margin-left", 0);
 
 	var index = $(e).attr("data-index");
 
@@ -470,7 +470,7 @@ function middleMenuMove(e) {
 
 			//显示基坑监测下级菜单
 			$(".agentContent").show();
-		
+
 			//显示第一项下拉菜单被选中
 			$(".firstTriangle").show();
 			$(".firstTriangle").parent(".addIconArea").siblings(".addText").css("margin-left", 0);
@@ -487,6 +487,22 @@ function middleMenuMove(e) {
 			//账号安全
 			iframePath = "../systemManagement/accountSafety.html";
 			break;
+		case "10-1":
+			//修改样式
+			$(".saftyMiddle ul li").removeClass("checkedMiddleMenu");
+			//账号安全
+			iframePath = "../systemManagement/accountSafety.html";
+			break;
+		case "10-2":
+			//修改样式
+			$(".saftyMiddle ul li").removeClass("checkedMiddleMenu");
+			
+			 //改变菜单样式
+			$(".middleMenu").css("width","243px");
+			$(".foundationMenu").show();
+			//账号安全
+			iframePath = "../systemManagement/accountSafety.html";
+			break;	
 	}
 
 	$(e).addClass("checkedMiddleMenu");
@@ -538,6 +554,9 @@ $(".menuArea").bind("mouseleave", function(e) {
 		case "8":
 			imgPath = "img/xitong(1).png";
 			break;
+		case "9":
+			imgPath = "img/shishijiance.png";
+			break;
 	}
 
 	if (isChecked != "true") {
@@ -545,7 +564,6 @@ $(".menuArea").bind("mouseleave", function(e) {
 			".menuIcon").attr(
 			"src", imgPath);
 	}
-
 
 
 })
@@ -590,10 +608,15 @@ function leftMenuMove(e) {
 		case "8":
 			imgPath = "img/xitong.png";
 			break;
+		case "9":
+			imgPath = "img/shishijiance_black.png";
+			break;
 	}
+
 	//修改当前选中节点菜单的icon
 	$(e).children(".singleMenu").children(".eighteenWidth").children(".menuIconArea").children(".menuIcon").attr("src",
 		imgPath);
+
 }
 /**
  * @param {Object} e
@@ -710,6 +733,17 @@ function checkLeftMenu(e) {
 			iframePath = "../systemManagement/basicInformation.html";
 			imgPath = "img/xitong.png";
 			break;
+		case "9":
+			controlMiddleMenu();
+			//显示安全监测中间菜单
+			 $(".saftyMiddle").show();
+			//对应中间菜单栏选中第一个
+			//修改样式
+			$(".deviceMiddle ul li").removeClass("checkedMiddleMenu");
+			$(".deviceMiddle ul li:first").addClass("checkedMiddleMenu");
+			// iframePath = "../systemManagement/basicInformation.html";
+			imgPath = "img/shishijiance_black.png";
+			break;
 	}
 	//修改当前选中节点菜单的icon
 	$(e).children(".singleMenu").children(".eighteenWidth").children(".menuIconArea").children(".menuIcon").attr("src",
@@ -747,4 +781,5 @@ function changeClickIconPath() {
 	$(".icon_7").attr("src", "img/anquan(1).png");
 	$(".icon_8").attr("src", "img/shebei(1).png");
 	$(".icon_9").attr("src", "img/xitong(1).png");
+	$(".icon_10").attr("src", "img/shishijiance.png");
 }

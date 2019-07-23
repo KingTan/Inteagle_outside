@@ -32,7 +32,7 @@ function inintialEcharts(id, rate, data) {
             show: true,
             xAxisIndex: [0],
             start: 1,
-            end: 35
+            end: 100
         }
 		],
 		series: {
@@ -183,11 +183,12 @@ function inintialSLEcharts(data) {
 		dataZoom: [{
 			startValue: '2019-06-01'
 		}, {
-			type: 'inside'
+			type: 'slider'
 		}],
 		series: {
 			name: text,
 			type: 'line',
+			smooth: true,
 			data: data.map(function(item) {
 				return item[1];
 			}),

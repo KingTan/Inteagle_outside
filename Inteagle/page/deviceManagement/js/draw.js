@@ -52,7 +52,6 @@ function drawFoundation(tangram_inside,ctx,color){
 	for(var i=0;i<tangram_inside.length;i++){
 		//外圈
 		if(tangram_inside[i].p[0].x==900){
-			console.log("1");
 			//三次方贝塞尔曲线
 			ctx.beginPath();
 			ctx.strokeStyle = 'red';
@@ -65,7 +64,6 @@ function drawFoundation(tangram_inside,ctx,color){
 		}
 		//内圈
 		if(tangram_outside[i].p[0].x==895){
-			console.log("2");
 			//三次方贝塞尔曲线
 			ctx.beginPath();
 			ctx.strokeStyle = 'gray';

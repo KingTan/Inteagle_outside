@@ -1,37 +1,38 @@
+var id = getParam("id");
+var rate = "x";
+
+//初始化数据
+var initialData = [
+	["2019/07/22 08:00:00", 116],
+	["2019/07/22 08:20:00", 120],
+	["2019/07/22 10:00:00", 135],
+	["2019/07/22 11:00:00", 140],
+	["2019/07/22 12:00:00", 300]
+];
+var rightChartsData = [
+	["07-18", 0.05],
+	["07-19", 0.12],
+	["07-20", 0.23],
+	["07-21", 0.35],
+	["07-22", -0.05],
+	["07-23", -0.18],
+	["07-24", -0.32]
+]
+
+//获得页面跳转路由
+var router = getParam("router");
+
 /**
  * 页面加载事件
  */
 $(function() {
 	// 初始化右边按钮组
 	intialBtnGroup("normal_1");
-	var id = getParam("id");
-	var rate = "x";
-	
-	//初始化数据
-	var initialData = [
-		["2019/07/22 08:00:00", 116],
-		["2019/07/22 08:20:00", 120],
-		["2019/07/22 10:00:00", 135],
-		["2019/07/22 11:00:00", 140],
-		["2019/07/22 12:00:00", 300]
-	];
-	var rightChartsData = [
-		["07-18", 0.05],
-		["07-19", 0.12],
-		["07-20", 0.23],
-		["07-21", 0.35],
-		["07-22", -0.05],
-		["07-23", -0.18],
-		["07-24", -0.32]
-	]
 	//初始化 大Echarts
 	inintialEcharts(id, rate, initialData);
 	//初始化 左下Echarts
 	inintialSLEcharts(initialData);
 
-	//获得页面跳转路由
-	var router = getParam("router")
-	console.log("router-----",router);
 	switch (router) {
 		case "foundation":
 			//初始化 右下canvas画布
@@ -79,6 +80,40 @@ layui.use('form', function() {
 
 	});
 })
+
+/**
+ * @param {Object} e
+ * 点击基坑按钮
+ */
+function clickFounBtn(e) {
+	var choose_id = $(e).attr("data-index");
+	//初始化 大Echarts
+	inintialEcharts(choose_id, rate, initialData);
+	//初始化 左下Echarts
+	inintialSLEcharts(initialData);
+	
+	console.log(router);
+	
+	switch (router) {
+		case "foundation":
+			//初始化 右下canvas画布
+			drawRate();
+			break;
+		case "deepMove":
+			//初始化 右下canvas画布
+			drawRate();
+			break;
+		case "topLevel":
+			//初始化 右下Echarts
+			inintialRightSLEcharts(rightChartsData);
+			break;
+		case "topVertical":
+			//初始化 右下Echarts
+			inintialRightSLEcharts(rightChartsData);
+			break;
+	}
+}
+
 
 
 /**
@@ -131,22 +166,26 @@ function intialBtnGroup(order) {
 		switch (btnList[i].status) {
 			//报警
 			case "warning":
-				shtml += "<button class='layui-btn' type='button' style='background-color:" + "rgba(255,0,0,1)" + " ;'>" + btnList[
-					i].id + "</button>";
+				shtml += "<button class='layui-btn' type='button' data-index=" + btnList[i].id +
+					" onclick='clickFounBtn(this)' style='background-color:" + "rgba(255,0,0,1)" + " ;'>" + btnList[
+						i].id + "</button>";
 				break;
 				//正常
 			case "normal":
-				shtml += "<button class='layui-btn' type='button' style='background-color:" + "rgba(0,192,11,1)" + " ;'>" + btnList[
-					i].id + "</button>";
+				shtml += "<button class='layui-btn' type='button' data-index=" + btnList[i].id +
+					" onclick='clickFounBtn(this)' style='background-color:" + "rgba(0,192,11,1)" + " ;'>" + btnList[
+						i].id + "</button>";
 				break;
 				//故障
 			case "error":
-				shtml += "<button class='layui-btn' type='button' style='background-color:" + "rgba(0,0,0,1)" + " ;'>" + btnList[i]
+				shtml += "<button class='layui-btn' type='button' data-index=" + btnList[i].id +
+					" onclick='clickFounBtn(this)' style='background-color:" + "rgba(0,0,0,1)" + " ;'>" + btnList[i]
 					.id + "</button>";
 				break;
 				//预警	
 			case "warning_header":
-				shtml += "<button class='layui-btn' type='button' style='background-color:" + "rgba(254,212,50,1)" + " ;'>" +
+				shtml += "<button class='layui-btn' type='button' data-index=" + btnList[i].id +
+					" onclick='clickFounBtn(this)' style='background-color:" + "rgba(254,212,50,1)" + " ;'>" +
 					btnList[i]
 					.id + "</button>";
 				break;
