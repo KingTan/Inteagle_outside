@@ -203,7 +203,11 @@
 						</ul>
 					</div>
 				</div>
-
+				
+				<!-- 点击缩进canvas -->
+				<!-- style="border: 0.0625rem dashed plum;" -->
+				<canvas id="toolCanvas_left" class="left_canvas"></canvas>
+				
 				<!-- 中间选择栏 -->
 				<div class="middleMenu">
 
@@ -368,7 +372,6 @@
 							</li>
 						</ul>
 					</div>
-
 
 					<!-- 人员管理 -->
 					<div class="middleMenuList peopleMiddle">
@@ -622,6 +625,11 @@
 							</li>
 						</ul>
 					</div>
+					
+					<!-- 点击缩进canvas -->
+					<!-- style="border: 0.0625rem dashed plum;" -->
+					<canvas id="toolCanvas_right" class="canvasArea" ></canvas>
+					
 				</div>
 				<!-- 右边iframe内联框架 -->
 				<iframe src="../projectManagement/projectManagement.html" id="mainFrame" class="mainFrame" name='iframe'
@@ -640,6 +648,7 @@
 		<script src="../../common/js/jquery-3.2.1.min.js" type="text/javascript"></script>
 		<script src="../../common/layui/layui.js" type="text/javascript"></script>
 		<script src="../../common/js/common.js" type="text/javascript"></script>
+		<script src="js/drawCanvas.js" type="text/javascript"></script>
 		<script src="js/index.js" type="text/javascript"></script>
 
 		<!-- 添加班制基本信息弹窗 -->

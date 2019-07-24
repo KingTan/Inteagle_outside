@@ -5,6 +5,8 @@ var layform;
  * 页面加载事件
  */
 $(function() {
+	//canvas绘制拉托工具
+	canvasTool();
 
 })
 

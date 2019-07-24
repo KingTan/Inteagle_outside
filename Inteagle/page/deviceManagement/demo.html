@@ -4,19 +4,56 @@
 		<meta charset="utf-8">
 		<title></title>
 		<style type="text/css">
-			img {
-				width: 59.875rem;
-				height: 39.6875rem;
-				margin-top: 3.125rem;
-				margin-left: 3.125rem;
-				opacity: 0.4;
-				filter: alpha(opacity=40);
-				/* 针对 IE8 以及更早的版本 */
-				border: 0.0625rem gray solid;
-			}
+
 		</style>
 	</head>
 	<body>
-		<img src="img/foundation_CR.jpg" />
+		<div class="canvas-box">
+			<canvas id="cvs" width="500" height="400" style="border: 0.0625rem fuchsia solid;">不支持canvas</canvas>
+		</div>
+		<script type="text/javascript">
+			var cvs = document.getElementById('cvs');
+			var ctx = cvs.getContext('2d');
+			// 封装绘制的图形
+			function draw() {
+				ctx.fillStyle = '#000';
+				ctx.beginPath();
+				ctx.moveTo(100, 100);
+				ctx.bezierCurveTo(110, 110, 199, 278, 300, 379);
+				ctx.lineTo(400, 100)
+				ctx.closePath();
+			}
+
+			function circle() {
+				ctx.fillStyle = '#000';
+				ctx.beginPath();
+				ctx.arc(100, 200, 50, 0, Math.PI * 2)
+				ctx.closePath();
+			}
+			// 初始化绘制图形
+			draw();
+			ctx.fill()
+			circle();
+			ctx.fill()
+			var fns = [draw, circle];
+			// 监听鼠标事件
+			cvs.onmousemove = function(e) {
+				// 得到鼠标的坐标
+				var x = e.pageX,
+					y = e.pageY;
+				// ctx.clearRect(0, 0, 400, 300);
+				// 遍历绘制图形
+				for (var i = fns.length; i--;) {
+					fns[i]();
+					// 每绘制一个图形就判断一次当前鼠标的坐标是否在这个图形上，然后进行自定义操作
+					if (ctx.isPointInPath(x, y)) {
+						ctx.fillStyle = "#f00"
+					} else {
+						ctx.fillStyle = "#000"
+					}
+					ctx.fill()
+				}
+			}
+		</script>
 	</body>
 </html>
