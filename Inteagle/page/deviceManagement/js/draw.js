@@ -199,9 +199,9 @@ canvas.addEventListener("mousemove", function(e) {
 
 	//判断是否选中圆点
 	if (isInPoint(eventX, eventY) != null) {
-		canvas.style.cursor = "pointer";
 		//改变样式
-		// changePointStyle(isInPoint(eventX, eventY),ctx);
+		changePointStyle(isInPoint(eventX, eventY),ctx);
+		canvas.style.cursor = "pointer";
 	} else {
 		canvas.style.cursor = "default";
 	}

@@ -8,65 +8,47 @@ $(function() {
 
 })
 
-
 /**
- * 安全帽下级菜单点击事件
+ * 基坑下级菜单点击事件
+ * 防止时间冒泡
  */
-function helmetPos(e) {
-
-	var index = $(e).attr("data-index");
+$(".foundationMiddleMenu").bind("click", function(e) {
+	// 阻止事件冒泡到DOM树上
+	e.stopPropagation();
+	//隐藏所有选中样式
+	$(".saftyImg").css("visibility", "hidden");
+	var index = e.currentTarget.dataset.index;
+	//当前选中节点对象
+	var element = "";
 	//iframe框架跳转路径
 	var iframePath = "";
-
-	switch (index) {
-		case "8-3-1":
-			iframePath = "../deviceManagement/helmetPosition.html";
-			break;
-	}
-	//控制右边iframe路径
-	$("#mainFrame").attr("src", iframePath);
-
-}
-
-
-/**
- * @param {Object} e
- * 基坑监测下级菜单点击事件
- */
-function agentContnet(e) {
-	//隐藏所有箭头 修改样式
-	$(".trianleImg").hide();
-	// $(".agentText").css("margin-left", 23);
-	//显示箭头 修改样式
-	var index = $(e).attr("data-index");
-	// $(e).children(".addIconArea").children(".trianleImg").show();
-	// $(e).children(".addText").css("margin-left", 0);
-
-	var index = $(e).attr("data-index");
-
-	//iframe框架跳转路径
-	var iframePath = "";
-
 	switch (index) {
 		case "8-4-1":
+			element = ".deepImg";
 			iframePath = "../deviceManagement/charts.html?id=1" + "&router=deepMove";
 			break;
 		case "8-4-2":
+			element = ".topImg";
 			iframePath = "../deviceManagement/charts.html?id=1" + "&router=topLevel";
 			break;
 		case "8-4-3":
+			element = ".topVerImg";
 			iframePath = "../deviceManagement/charts.html?id=1" + "&router=topVertical";
 			break;
 		case "8-4-4":
+			element = ".botImg";
 			iframePath = "../deviceManagement/charts.html?id=1" + "&router=topVertical";
 			break;
 		case "8-4-5":
+			element = ".souroundImg";
 			iframePath = "../deviceManagement/charts.html?id=1" + "&router=topVertical";
 			break;
 	}
+	//显示当前菜单的选中图片
+	$(element).css("visibility", "visible");
 	//控制右边iframe路径
 	$("#mainFrame").attr("src", iframePath);
-}
+})
 
 /**
  * 报警值弹窗
@@ -338,16 +320,15 @@ function addDevice(e) {
  * 中间菜单点击事件
  */
 function middleMenuMove(e) {
-
 	//获取当前选中的data-index  
 	//根据data-index的值 切换iframe的路径
 	var index = $(e).attr("data-index");
-
 	// 内联框架跳转路径
 	var iframePath = "";
-
 	// 基坑监测下级菜单隐藏
 	$(".agentContent").hide();
+	//改变菜单样式
+	$(".middleMenu").css("width", "12.5rem");
 	//隐藏所有箭头 修改样式
 	$(".trianleImg").hide();
 	$(".agentText").css("margin-left", 23);
@@ -466,14 +447,12 @@ function middleMenuMove(e) {
 			//修改样式
 			$(".deviceMiddle ul li").removeClass("checkedMiddleMenu");
 			//基坑监测
-			iframePath = "../deviceManagement/foundation.html";
-
+			// iframePath = "../deviceManagement/foundation.html";
 			//显示基坑监测下级菜单
-			$(".agentContent").show();
-
+			// $(".agentContent").show();
 			//显示第一项下拉菜单被选中
-			$(".firstTriangle").show();
-			$(".firstTriangle").parent(".addIconArea").siblings(".addText").css("margin-left", 0);
+			// $(".firstTriangle").show();
+			// $(".firstTriangle").parent(".addIconArea").siblings(".addText").css("margin-left", 0);
 			break;
 		case "9-1":
 			//修改样式
@@ -489,20 +468,22 @@ function middleMenuMove(e) {
 			break;
 		case "10-1":
 			//修改样式
-			$(".saftyMiddle ul li").removeClass("checkedMiddleMenu");
-			//账号安全
-			iframePath = "../systemManagement/accountSafety.html";
+			$(".safetyAgentMiddle ul li").removeClass("checkedMiddleMenu");
+			//隐藏基坑监测下级菜单
+			$(".foundationMenu").hide();
+
+			//人员实时定位
+			iframePath = "../deviceManagement/helmetPosition.html";
 			break;
 		case "10-2":
 			//修改样式
-			$(".saftyMiddle ul li").removeClass("checkedMiddleMenu");
-			
-			 //改变菜单样式
-			$(".middleMenu").css("width","243px");
+			$(".safetyAgentMiddle ul li").removeClass("checkedMiddleMenu");
+			//改变菜单样式
+			$(".middleMenu").css("width", "243px");
 			$(".foundationMenu").show();
-			//账号安全
-			iframePath = "../systemManagement/accountSafety.html";
-			break;	
+			//基坑监测
+			iframePath = "../deviceManagement/foundation.html";
+			break;
 	}
 
 	$(e).addClass("checkedMiddleMenu");
@@ -634,6 +615,8 @@ function checkLeftMenu(e) {
 	$(e).attr("data-checked", "true");
 	//修改当前列表其他菜单的icon
 	changeClickIconPath();
+	//修改中间菜单样式
+	$(".middleMenu").css("width", "12.5rem");
 
 	//当前点击菜单index
 	var index = $(e).attr("data-index");
@@ -728,20 +711,22 @@ function checkLeftMenu(e) {
 			$(".systemMiddle").show();
 			//对应中间菜单栏选中第一个
 			//修改样式
-			$(".deviceMiddle ul li").removeClass("checkedMiddleMenu");
-			$(".deviceMiddle ul li:first").addClass("checkedMiddleMenu");
+			$(".systemMiddle ul li").removeClass("checkedMiddleMenu");
+			$(".systemMiddle ul li:first").addClass("checkedMiddleMenu");
 			iframePath = "../systemManagement/basicInformation.html";
 			imgPath = "img/xitong.png";
 			break;
 		case "9":
 			controlMiddleMenu();
 			//显示安全监测中间菜单
-			 $(".saftyMiddle").show();
+			$(".safetyAgentMiddle").show();
 			//对应中间菜单栏选中第一个
-			//修改样式
-			$(".deviceMiddle ul li").removeClass("checkedMiddleMenu");
-			$(".deviceMiddle ul li:first").addClass("checkedMiddleMenu");
-			// iframePath = "../systemManagement/basicInformation.html";
+			$(".safetyAgentMiddle ul li").removeClass("checkedMiddleMenu");
+			$(".safetyAgentMiddle ul li:first").addClass("checkedMiddleMenu");
+			//隐藏基坑监测下级菜单
+			$(".foundationMenu").hide();
+
+			iframePath = "../deviceManagement/helmetPosition.html";
 			imgPath = "img/shishijiance_black.png";
 			break;
 	}
@@ -765,6 +750,7 @@ function controlMiddleMenu() {
 	$(".safetyMiddle").hide();
 	$(".deviceMiddle").hide();
 	$(".systemMiddle").hide();
+	$(".safetyAgentMiddle").hide();
 }
 
 
