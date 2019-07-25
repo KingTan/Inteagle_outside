@@ -21,7 +21,7 @@ span:hover {
 	cursor: default;
 }
 
-.editorArea {
+/* .editorArea {
 	moz-user-select: -moz-none;
 	-moz-user-select: none;
 	-o-user-select: none;
@@ -40,4 +40,4 @@ body {
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-}
+} */

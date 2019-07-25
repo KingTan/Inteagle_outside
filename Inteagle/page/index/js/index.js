@@ -10,6 +10,41 @@ $(function() {
 	//canvas绘制拉托工具
 	canvasTool();
 
+	var data_str = "00000001020304050006003001.000002.000003.000004.000005.000006.000007.000008.000009.000";
+	var id = data_str.substr(0, 8);
+	var min = data_str.substr(8, 2);
+	var hour = data_str.substr(10, 2);
+	var day = data_str.substr(12, 2);
+	var month = data_str.substr(14, 2);
+	var year = data_str.substr(16, 4);
+	var num = data_str.substr(20, 3);
+	console.log("data_str----------", data_str);
+	console.log("id----------", id);
+	console.log("min----------", min);
+	console.log("hour----------", hour);
+	console.log("day----------", day);
+	console.log("month----------", month);
+	console.log("year----------", year);
+	console.log("num----------", num);
+
+	for (var i = 0; i < 3; i++) {
+		console.log("p" + (i+1) + "_x(7)-------" + data_str.substr(23+(i*7*3),7));
+		if(i==0){
+			console.log("p" + (i+1) + "_y(7)-------" + data_str.substr(23+(i*7*3+ (i+1)*7),7));
+			console.log("p" + (i+1) + "_z(7)-------" + data_str.substr(23+(i*7*3+ (i+2)*7),7));
+			console.log("p" + (i+1) + "-----------" );
+		}else{
+			console.log("p" + (i+1) + "_y(7)-------" + data_str.substr(23+(i*7*3+ (i-1)*7),7));
+			console.log("p" + (i+1) + "_z(7)-------" + data_str.substr(23+(i*7*3+ i*7),7));
+			console.log("p" + (i+1) + "-----------" );
+		}
+		
+		
+	}
+
+
+
+
 })
 
 
@@ -22,7 +57,19 @@ $(".checkAllBtn").bind("click", function(e) {
 	clickNum = clickNum + 1;
 	//隐藏消息窗
 	$(".msgBox").hide();
+	//隐藏中间菜单栏
+	$(".middleMenu").hide();
 
+	//去除左边菜单栏选中状态
+	//移除移动选中样式和点击选中样式
+	$(".menuArea").removeClass("checkedMenu");
+	$(".menuArea").removeClass("clickCheckedMenu");
+	$(".menuArea").attr("data-checked", "false");
+	//初始icon路径
+	changeClickIconPath();
+
+	//修改iframe的宽度
+	$(".mainFrame").css("width", "88.5%");
 	//iframe跳转至全部通知界面
 	$("#mainFrame").attr("src", "../notice/notice.html");
 
@@ -653,6 +700,9 @@ function leftMenuMove(e) {
  * 左边菜单点击事件
  */
 function checkLeftMenu(e) {
+
+	//隐藏中间菜单栏
+	$(".middleMenu").show();
 	//移除移动选中样式和点击选中样式
 	$(".menuArea").removeClass("checkedMenu");
 	$(".menuArea").removeClass("clickCheckedMenu");
@@ -805,6 +855,21 @@ function controlMiddleMenu() {
 
 /**
  * 改变左侧菜单点击选中之后 其他菜单的icon路径
+ */
+function changeClickIconPath() {
+	$(".icon_1").attr("src", "img/xiangmu(1).png");
+	$(".icon_2").attr("src", "img/qiye.png");
+	$(".icon_3").attr("src", "img/renyuan.png");
+	$(".icon_4").attr("src", "img/gongzi.png");
+	$(".icon_5").attr("src", "img/kaoqin.png");
+	$(".icon_6").attr("src", "img/chakanfangke(1).png");
+	$(".icon_7").attr("src", "img/anquan(1).png");
+	$(".icon_8").attr("src", "img/shebei(1).png");
+	$(".icon_9").attr("src", "img/xitong(1).png");
+	$(".icon_10").attr("src", "img/shishijiance.png");
+}
+/**
+ * 左侧菜单栏初始icon路径
  */
 function changeClickIconPath() {
 	$(".icon_1").attr("src", "img/xiangmu(1).png");
