@@ -15,6 +15,20 @@ $(function() {
 
 
 /**
+ * 消息窗点击查看全部
+ */
+$(".checkAllBtn").bind("click", function(e) {
+	//点击数+1
+	clickNum = clickNum + 1;
+	//隐藏消息窗
+	$(".msgBox").hide();
+
+	//iframe跳转至全部通知界面
+	$("#mainFrame").attr("src", "../notice/notice.html");
+
+
+})
+/**
  * 点击消息弹出消息窗
  */
 function changeMsgStatus() {
@@ -23,10 +37,10 @@ function changeMsgStatus() {
 		//隐藏消息数
 		$(".msgCount").hide();
 		//显示消息窗
-		$(".msgBox").show(100);
+		$(".msgBox").show();
 	} else {
 		//显示消息窗
-		$(".msgBox").hide(100);
+		$(".msgBox").hide();
 	}
 }
 

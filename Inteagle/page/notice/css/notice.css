@@ -1,0 +1,97 @@
+.layui-nav {
+	background-color: #FFFFFF !important;
+}
+
+.layui-nav .layui-nav-item a {
+	padding: 0 30px!important;
+	font-size: 16px !important;
+	font-family: MicrosoftYaHei !important;
+	color: rgba(0, 0, 0, 1) !important;
+}
+
+.layui-nav .layui-this:after,
+.layui-nav-bar,
+.layui-nav-tree .layui-nav-itemed:after {
+	height: 0.25rem;
+	background-color: #024B7F !important;
+}
+
+.linePart {
+	width: 100%;
+	height: 1px;
+	background: rgba(2, 75, 127, 1);
+	opacity: 0.2;
+}
+.lineaPart{
+	width: 100%;
+	height: 1px;
+	background: rgba(2, 75, 127, 1);
+	opacity: 0.2;
+	position: absolute;
+	bottom: 0;
+}
+.noticeTypeText {
+	font-size: 16px;
+	font-family: MicrosoftYaHei;
+	color: rgba(0, 0, 0, 1);
+	font-weight: bold;
+}
+
+.noticeTime {
+	margin-left: 21px;
+	font-size: 13px;
+	font-family: MicrosoftYaHei;
+	color: rgba(0, 0, 0, 1);
+}
+
+.noticeContent {
+	line-height: 1.5625rem;
+	margin-top: 1.125rem;
+	font-size: 14px;
+	font-family: MicrosoftYaHei;
+	color: rgba(102, 102, 102, 1);
+}
+
+.warningType {
+	color: rgba(234, 79, 79, 1);
+}
+
+.checkDetailBtn {
+	width: 122px;
+	height: 39px;
+	background: rgba(44, 115, 196, 1);
+}
+
+.navArea {
+	width: 50%;
+	margin-left: 7.1875rem;
+}
+
+.noticeList {
+	width: 90%;
+	margin: 0rem auto;
+}
+
+.noticeList ul li {
+	position: relative;
+	padding-top: 2.8125rem;
+	padding-bottom: 2.5rem;
+}
+
+.picArea {
+	width: 49px;
+	height: 49px;
+	background: rgba(216, 216, 216, 1);
+	border: 1px solid rgba(151, 151, 151, 1);
+	border-radius: 50%;
+}
+.singleNotice{
+	align-items: center;
+}
+.noticeTextArea{
+	width: 70%;
+	margin-left: 1.3125rem;
+}
+.noticeTypeArea{
+	align-items: center;
+}
