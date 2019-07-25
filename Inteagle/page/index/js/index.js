@@ -1,5 +1,7 @@
 //layui form组件
 var layform;
+//消息窗点击显示次数
+var clickNum = 1;
 
 /**
  * 页面加载事件
@@ -9,6 +11,37 @@ $(function() {
 	canvasTool();
 
 })
+
+
+
+/**
+ * 点击消息弹出消息窗
+ */
+function changeMsgStatus() {
+	clickNum = clickNum + 1;
+	if (clickNum % 2 == 0) {
+		//隐藏消息数
+		$(".msgCount").hide();
+		//显示消息窗
+		$(".msgBox").show(100);
+	} else {
+		//显示消息窗
+		$(".msgBox").hide(100);
+	}
+}
+
+/**
+ * @param {Object} e
+ * 消息窗样式改变
+ */
+function changeMsgBoxStyle(e) {
+	//去除选中样式
+	$(".msgList ul li").removeClass("checkedMessage");
+	//当前节点选中
+	$(e).addClass("checkedMessage");
+}
+
+
 
 /**
  * 基坑下级菜单点击事件

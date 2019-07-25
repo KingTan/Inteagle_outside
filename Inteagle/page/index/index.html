@@ -26,7 +26,10 @@
 					</div>
 					<div class="row messageArea rightArea">
 						<img src="img/tongzhi.png" class="headIcon" />
-						<div class="helpText textUnderLine"><span>消息</span></div>
+						<div class="helpText textUnderLine msgBoxTextArea" onclick="changeMsgStatus()">
+							<span>消息</span>
+						</div>
+						<div class="msgCount" onclick="changeMsgStatus()">1</div>
 					</div>
 					<div class="row userInofArea rightArea">
 						<img src="img/man.png" class="userIcon" />
@@ -34,6 +37,53 @@
 					</div>
 				</div>
 			</div>
+
+			<!--消息提示窗  -->
+			<div class="msgBox">
+				<div class="row topBox">
+					<div class="msgBoxText">消息盒</div>
+					<div class="clearBtn">清空</div>
+				</div>
+				<!-- 切割线 -->
+				<div class="apartLine"></div>
+				<div class="msgList">
+					<ul>
+						<li onmouseenter="changeMsgBoxStyle(this)">
+							<div class="row singleMsg">
+								<div class="msgContentArea">
+									<span class="notice">[公告]</span>
+									<span class="msgContent">xxx企业测试项目正式启动大非生产性发放</span>
+								</div>
+								<div class="msgCountNum">32</div>
+							</div>
+						</li>
+						<li onmouseenter="changeMsgBoxStyle(this)">
+							<div class="row singleMsg">
+								<div class="msgContentArea">
+									<span class="notice">[公告]</span>
+									<span class="msgContent">xxx企业测试项目正式启动大非生产性发放</span>
+								</div>
+								<div class="msgCountNum">32</div>
+							</div>
+						</li>
+						<li onmouseenter="changeMsgBoxStyle(this)">
+							<div class="row singleMsg">
+								<div class="msgContentArea">
+									<span class="notice warningMsg">[警告]</span>
+									<span class="msgContent">xxx企业测试项目正式启动大非生产性发放</span>
+								</div>
+								<div class="msgCountNum">32</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<!-- 切割线 -->
+				<div class="apartLine apartTop"></div>
+				<div class="checkAll">
+					<button type="button" class="layui-btn layui-btn-normal checkAllBtn">查看全部</button>
+				</div>
+			</div>
+
 
 			<!-- 中间显示区域 -->
 			<div class="row mainBody">
@@ -203,11 +253,11 @@
 						</ul>
 					</div>
 				</div>
-				
+
 				<!-- 点击缩进canvas -->
 				<!-- style="border: 0.0625rem dashed plum;" -->
 				<canvas id="toolCanvas_left" class="left_canvas"></canvas>
-				
+
 				<!-- 中间选择栏 -->
 				<div class="middleMenu">
 
@@ -625,11 +675,11 @@
 							</li>
 						</ul>
 					</div>
-					
+
 					<!-- 点击缩进canvas -->
 					<!-- style="border: 0.0625rem dashed plum;" -->
-					<canvas id="toolCanvas_right" class="canvasArea" ></canvas>
-					
+					<canvas id="toolCanvas_right" class="canvasArea"></canvas>
+
 				</div>
 				<!-- 右边iframe内联框架 -->
 				<iframe src="../projectManagement/projectManagement.html" id="mainFrame" class="mainFrame" name='iframe'

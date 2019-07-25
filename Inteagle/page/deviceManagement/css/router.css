@@ -22,3 +22,6 @@
 .runtimeSet {
 	margin-right: 1.25rem;
 }
+.error_status{
+	color:rgba(0,34,255,1);
+}

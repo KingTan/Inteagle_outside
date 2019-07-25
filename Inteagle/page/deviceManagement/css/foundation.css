@@ -288,6 +288,31 @@
 .runtimeSetSec {
 	align-items: center;
 }
-.editorArea{
+
+.editorArea {
 	align-items: center;
+}
+
+.foundationTextArea {
+	width: 5.9375rem;
+	height: 1.875rem;
+	/* line-height: 1.875rem; */
+	background-color: #024B7F;
+	font-size: 16px;
+	font-family: MicrosoftYaHei;
+	color: rgba(255, 255, 255, 1);
+	text-align: center;
+}
+.leftArea{
+	position: relative;
+}
+.topTriangle {
+	width: 0px;
+    height: 0px;
+    position: absolute;
+    top: -27px;
+    border-top: 12px solid rgba(0, 0, 0, 0);
+    border-bottom: 15px solid #024B7F;
+    border-right: 50px solid rgba(0, 0, 0, 0);
+    border-left: 45px solid rgba(0, 0, 0, 0);
 }

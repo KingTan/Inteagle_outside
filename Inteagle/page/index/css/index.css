@@ -79,7 +79,8 @@ body {
 		background-color: #000000;
 		color: #FFFFFF;
 	}
-	.left_canvas{
+
+	.left_canvas {
 		position: absolute;
 		left: 15.5%;
 		top: 40%;
@@ -109,7 +110,8 @@ body {
 		background-color: #000000;
 		color: #FFFFFF;
 	}
-	.left_canvas{
+
+	.left_canvas {
 		position: absolute;
 		left: 12.5rem;
 		top: 40%;
@@ -1084,3 +1086,134 @@ body {
 	top: 40%;
 }
 
+.msgCount {
+	position: absolute;
+	width: 1.125rem;
+	height: 1.125rem;
+	margin-left: 41px;
+	top: 16px;
+	border-radius: 50%;
+	background-color: rgba(226, 0, 0, 1);
+	font-size: 12px;
+	font-family: MicrosoftYaHei;
+	color: rgba(255, 255, 255, 1);
+	line-height: 1.125rem;
+	text-align: center;
+}
+
+.msgCount:hover {
+	cursor: pointer;
+}
+
+.msgBox {
+	display: none;
+	position: absolute;
+	z-index: 2;
+	margin-right: 12.1875rem;
+	right: 0;
+	width: 298px;
+	height: 301px;
+	background: rgba(255, 255, 255, 1);
+	box-shadow: 2px 2px 16px 2px rgba(0, 0, 0, 0.04);
+}
+
+.msgBoxText {
+	font-size: 15px;
+	font-family: MicrosoftYaHei;
+	color: rgba(0, 0, 0, 1);
+}
+
+.clearBtn {
+	font-size: 12px;
+	font-family: MicrosoftYaHei;
+	color: rgba(145, 145, 145, 1);
+}
+
+.topBox {
+	width: 85%;
+	margin: 0px auto;
+	line-height: 50px;
+	justify-content: space-between;
+}
+
+.apartLine {
+	width: 100%;
+	height: 0.0625rem;
+	background-color: #DEDEDE;
+}
+
+.singleMsg {
+	width: 85%;
+	margin: 0rem auto;
+	align-items: center;
+}
+
+.msgCountNum {
+	width: 30px;
+	height: 18px;
+	line-height: 1rem;
+	text-align: center;
+	background: rgba(186, 187, 186, 1);
+	border-radius: 8px;
+	font-size: 12px;
+	font-family: MicrosoftYaHei;
+	color: rgba(255, 255, 255, 1);
+}
+
+.msgList ul li {
+	display: flex;
+	height: 4rem;
+	border-bottom: 0.0625rem solid #DEDEDE;
+}
+
+.msgList ul li:hover{
+	cursor: pointer;
+}
+
+.msgContent {
+	font-size: 14px;
+	color: #969696;
+	font-family: MicrosoftYaHei;
+}
+
+.notice {
+	font-weight: bold;
+}
+
+.apartTop {
+	margin-top: 0.4375rem;
+}
+
+.checkAll {
+	width: 100%;
+}
+
+.checkAllBtn {
+	width: 100%;
+	height: 100%;
+	background-color: #FFFFFF;
+	font-size: 14px;
+	font-family: MicrosoftYaHei;
+	color: rgba(0, 0, 0, 1);
+}
+
+.checkAllBtn:hover {
+	color: rgba(0, 0, 0, 1) !important;
+}
+
+.checkedMessage {
+	background: rgba(0, 0, 0, 1);
+	color: #FFFFFF;
+}
+
+.checkedMessage .msgContentArea .msgContent {
+	color: #FFFFFF;
+}
+
+.warningMsg {
+	color: #E20000;
+}
+.clearBtn:hover{
+	cursor: pointer;
+	text-decoration: underline;
+}

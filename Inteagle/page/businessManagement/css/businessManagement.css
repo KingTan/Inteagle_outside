@@ -16,7 +16,7 @@
 .projectBaseInfo ul li {
 	list-style: none;
 	width: 100%;
-	height: 3.75rem;
+	/* height: 3.75rem; */
 	line-height: 3.75rem;
 	border-bottom: 1px solid #F2F2F2;
 }
@@ -32,6 +32,7 @@
 }
 
 .projectName {
+	align-items: center;
 	font-size: 0.875rem;
 	font-family: MicrosoftYaHei;
 	color: rgba(150, 150, 150, 1);
@@ -46,6 +47,85 @@
 	color: rgba(0, 0, 0, 1);
 }
 
-.businessList{
+.businessList {
 	margin-bottom: 6.875rem;
+}
+
+.elecInfo {
+	line-height: 20px;
+	margin-top: 1.25rem;
+	color: rgba(150, 150, 150, 1);
+}
+
+.chargeText {
+	font-size: 14px;
+	font-family: MicrosoftYaHei;
+	color: rgba(0, 0, 0, 1);
+}
+
+.tempureText {
+	font-size: 14px;
+	font-family: MicrosoftYaHei;
+	color: rgba(0, 0, 0, 1);
+}
+
+.currentElec {
+	margin-left: 4.375rem;
+	font-size: 16px;
+	font-family: MicrosoftYaHei;
+	color: rgba(150, 150, 150, 1);
+}
+
+.lastChargeTime {
+	margin-top: 0.1875rem;
+	font-size: 13px;
+	font-family: MicrosoftYaHei;
+	color: rgba(150, 150, 150, 1);
+}
+
+.topEleArea {
+	align-items: center;
+}
+
+.bottomEleArea {
+	margin-top: 1.5625rem;
+	margin-bottom: 1.4375rem;
+}
+
+.boldText {
+	font-weight: bold;
+}
+
+.tempureValueArea {
+	margin-left: 0.3125rem;
+}
+
+.tempureArea {
+	margin-top: 0.1875rem;
+}
+
+.cardPic {
+	margin-left: 2.625rem;
+	margin-top: 1.25rem;
+}
+
+.idcardIcon {
+	font-size: 1rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(53, 78, 101, 1);
+}
+
+.cardBack {
+	margin-left: 6.25rem;
+}
+
+.cardArea {
+	margin-bottom: 1.25rem;
+}
+
+.checkRountine {
+	margin-left: 6.8125rem;
+	font-size: 14px;
+	font-family: MicrosoftYaHei;
+	color: rgba(226, 0, 0, 1);
 }

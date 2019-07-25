@@ -34,7 +34,7 @@ function canvasTool() {
 		//修改iframe的宽度
 		$(".mainFrame").css("width","88.5%");
 		//隐藏中间菜单栏
-		$(".middleMenu").hide(300);	
+		$(".middleMenu").hide(200);	
 		//显示左边拖拉工具
 		$(".left_canvas").show(300);
 		
