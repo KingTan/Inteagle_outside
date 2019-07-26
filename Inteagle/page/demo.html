@@ -38,6 +38,41 @@
 		<script src="../common/layui/layui.js" type="text/javascript"></script>
 		<script src="../common/js/common.js" type="text/javascript"></script>
 		<script type="text/javascript">
+			
+			var data_str = "00000001020304050006003001.000002.000003.000004.000005.000006.000007.000008.000009.000";
+			var id = data_str.substr(0, 8);
+			var min = data_str.substr(8, 2);
+			var hour = data_str.substr(10, 2);
+			var day = data_str.substr(12, 2);
+			var month = data_str.substr(14, 2);
+			var year = data_str.substr(16, 4);
+			var num = data_str.substr(20, 3);
+			console.log("data_str----------", data_str);
+			console.log("data_str.length----------", data_str.length);
+			console.log("id----------", id);
+			console.log("min----------", min);
+			console.log("hour----------", hour);
+			console.log("day----------", day);
+			console.log("month----------", month);
+			console.log("year----------", year);
+			console.log("num----------", num);
+			
+			for (var i = 0; i < 3; i++) {
+				console.log("p" + (i+1) + "_x(7)-------" + data_str.substr(23+(i*7*3),7));
+				console.log("tt----------", 23+(i*7*3));
+				if(i==0){
+					console.log("p" + (i+1) + "_y(7)-------" + data_str.substr(23+(i*7*3+ (i+1)*7),7));
+					console.log("p" + (i+1) + "_z(7)-------" + data_str.substr(23+(i*7*3+ (i+2)*7),7));
+					console.log("p" + (i+1) + "-----------" );
+				}else{
+					console.log("p" + (i+1) + "_y(7)-------" + data_str.substr(23+(i*7*3+ (i-1)*7),7));
+					console.log("p" + (i+1) + "_z(7)-------" + data_str.substr(23+(i*7*3+ i*7),7));
+					console.log("p" + (i+1) + "-----------" );
+				}
+			}
+			
+			
+			
 			$(function() {
 				console.log("ready");
 				var Gaomap = new AMap.Map('gcontainer', {

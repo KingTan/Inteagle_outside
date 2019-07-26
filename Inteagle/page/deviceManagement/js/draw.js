@@ -7,25 +7,27 @@ var canvas = document.getElementById("myCanvas");
 // canvas.height = clientHeight;
 // console.log("clientWidth-------",clientWidth);
 // console.log("clientHeight-------",clientHeight);
-
 canvas.width = 1131;
 canvas.height = 653;
 
 //绘制底图
-var img = new Image();
-img.src = "img/foundation_CR_SL.jpg";
-/**等图片资源加载完成后，才在 Canvas 上进行绘制渲染*/
-img.onload = function() {
-	ctx.drawImage(img, 0, 0,1131,653);
-	//绘制基坑
-	drawFoundation(tangram_inside, ctx);
-	//绘制小圆点
-	drwaPoint(pointArray, ctx);
-	//绘制提示面板
-	drawHitPanel(hitPanelArray,ctx);
-    
-}
+drawImageMethod();
 
+function drawImageMethod(){
+	//绘制底图
+	var img = new Image();
+	img.src = "img/foundation_CR_SL.jpg";
+	/**等图片资源加载完成后，才在 Canvas 上进行绘制渲染*/
+	img.onload = function() {
+		ctx.drawImage(img, 0, 0,1131,653);
+		//绘制基坑
+		drawFoundation(tangram_inside, ctx);
+		//绘制小圆点
+		drwaPoint(pointArray, ctx);
+		//绘制提示面板
+		drawHitPanel(hitPanelArray,ctx);
+	}
+}
 
 //缩放倍数
 var scaleNum=1;
@@ -200,7 +202,7 @@ canvas.addEventListener("mousemove", function(e) {
 	//判断是否选中圆点
 	if (isInPoint(eventX, eventY) != null) {
 		//改变样式
-		// changePointStyle(isInPoint(eventX, eventY),ctx);
+		changePointStyle(isInPoint(eventX, eventY),ctx);
 		canvas.style.cursor = "pointer";
 	} else {
 		canvas.style.cursor = "default";
@@ -243,13 +245,15 @@ function changePointStyle(checkedPointObj,ctx) {
 	
 	//清空所有画布
 	ctx.clearRect(0, 0, 1024, 768);
-
-	//绘制基坑
-	drawFoundation(tangram_inside, ctx);
-	//绘制小圆点
-	drwaPoint(pointArray, ctx);
-	//绘制提示面板
-	drawHitPanel(hitPanelArray,ctx);
+	
+	drawImageMethod();
+	
+	// //绘制基坑
+	// drawFoundation(tangram_inside, ctx);
+	// //绘制小圆点
+	// drwaPoint(pointArray, ctx);
+	// //绘制提示面板
+	// drawHitPanel(hitPanelArray,ctx);
 }
 
 //是否在小圆点内部

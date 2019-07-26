@@ -2,10 +2,10 @@
  * 页面加载事件
  */
 $(function() {
-	//延迟3s加载外部构件
+	//延迟5s加载外部构件
 	setTimeout(function() {
 		load();
-	}, 3000);
+	}, 5000);
 })
 // socket消息处理
 if (window.parent.webSocket != null) {

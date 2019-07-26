@@ -26,31 +26,36 @@ var router = getParam("router");
  * 页面加载事件
  */
 $(function() {
+	
 	// 初始化右边按钮组
 	intialBtnGroup("normal_1");
+	
 	//初始化 大Echarts
 	inintialEcharts(id, rate, initialData);
+	
+	initHeatCharts();
+	
 	//初始化 左下Echarts
 	inintialSLEcharts(initialData);
 
-	switch (router) {
-		case "foundation":
-			//初始化 右下canvas画布
-			drawRate();
-			break;
-		case "deepMove":
-			//初始化 右下canvas画布
-			drawRate();
-			break;
-		case "topLevel":
-			//初始化 右下Echarts
-			inintialRightSLEcharts(rightChartsData);
-			break;
-		case "topVertical":
-			//初始化 右下Echarts
-			inintialRightSLEcharts(rightChartsData);
-			break;
-	}
+	// switch (router) {
+	// 	case "foundation":
+	// 		//初始化 右下canvas画布
+	// 		drawRate();
+	// 		break;
+	// 	case "deepMove":
+	// 		//初始化 右下canvas画布
+	// 		drawRate();
+	// 		break;
+	// 	case "topLevel":
+	// 		//初始化 右下Echarts
+	// 		inintialRightSLEcharts(rightChartsData);
+	// 		break;
+	// 	case "topVertical":
+	// 		//初始化 右下Echarts
+	// 		inintialRightSLEcharts(rightChartsData);
+	// 		break;
+	// }
 })
 //初始化 from 对象
 layui.use('form', function() {

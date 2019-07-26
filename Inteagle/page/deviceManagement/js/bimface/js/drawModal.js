@@ -7,7 +7,7 @@ $.ajax({
 	type: "post",
 	async: false,
 	data: {
-		fileId: "1645836707619840"
+		fileId: "1657248007685440"
 	},
 	success: function(res) {
 		console.log("res", res);
@@ -46,9 +46,7 @@ function onSDKLoadSucceeded(viewMetaData) {
 
 	var app = new Glodon.Bimface.Application.WebApplication3D(webAppConfig);
 	app.addView(viewToken);
-
 	viewer = app.getViewer();
-
 	viewer.addEventListener(Glodon.Bimface.Viewer.Viewer3DEvent.ViewAdded, function() {
 		viewAdded = true;
 		enableButton("loadBtn");
@@ -57,30 +55,26 @@ function onSDKLoadSucceeded(viewMetaData) {
 			viewer3D.resize(document.documentElement.clientWidth, document.documentElement.clientHeight - 40)
 		}
 	});
+	console.log("BimFace SDK加载完成...");
 }
 
 //加载外部构件
 function load(x, y, z) {
 
-	console.log("x-----", x);
-	console.log("y-----", y);
-	console.log("z-----", z);
-
+	console.log("加载外部组件...");
 	//http://static.bimface.com/attach/32d6b03412d641bb81a6e23f854e47fe_car.3ds
 
-	if (viewAdded) {
-		//目前仅支持3ds外部构件
-		loadExternalComponent("js/bimface/3ds/smallBall.3ds", function(object) {
-			addExternalObject(viewer, "car1", object);
-			var tempQuaternion = new THREE.Quaternion();
-			tempQuaternion.setFromAxisAngle(new THREE.Vector3(0.0, 0.0, 0.0), 4.6);
-			setTransform("car1", new THREE.Vector3(x, y, z), new THREE.Vector3(2, 2, 2), tempQuaternion);
-			// viewer.setView("Home");
-			viewer.render();
-			// disableButton("loadBtn");
-			// enableButton("animationBtn");
-		});
-	}
+	//目前仅支持3ds外部构件
+	loadExternalComponent("js/bimface/3ds/smallBall.3ds", function(object) {
+		addExternalObject(viewer, "car1", object);
+		var tempQuaternion = new THREE.Quaternion();
+		tempQuaternion.setFromAxisAngle(new THREE.Vector3(0.0, 0.0, 0.0), 4.6);
+		setTransform("car1", new THREE.Vector3(x, y, z), new THREE.Vector3(2, 2, 2), tempQuaternion);
+		// viewer.setView("Home");
+		viewer.render();
+		// disableButton("loadBtn");
+		// enableButton("animationBtn");
+	});
 }
 
 //轨迹模拟
@@ -162,5 +156,5 @@ function createCurve1(x, y, z) {
 }
 
 function onSDKLoadFailed(error) {
-
+	console.log("Bimface SDK载入失败...");
 };

@@ -3,63 +3,133 @@ function inintialEcharts(id, rate, data) {
 	// 基于准备好的dom，初始化echarts实例
 	var myChart = echarts.init(document.getElementById('bigCharts'));
 	var text = 'id:' + id + ' ' + rate;
-	//表格配置项
+	
+	//初始化数据
+	data = [
+		["x", "y", "z", "t"],
+		["1", "2", "3", "2019-07-23 08:00:00"],
+		["2", "3", "4", "2019-07-23 08:10:00"],
+		["3", "4", "5", "2019-07-23 08:20:00"],
+		["4", "5", "6", "2019-07-23 08:30:00"],
+		["5", "6", "7", "2019-07-23 08:40:00"],
+		["6", "7", "8", "2019-07-23 08:50:00"],
+		["7", "8", "9", "2019-07-23 09:00:00"],
+		["8", "9", "10", "2019-07-23 09:10:00"],
+		["9", "10", "11", "2019-07-23 09:20:00"]
+	];
+	var symbolSize = 8.5;
+	
 	var option = {
-		title: {
-			text: text,
-			textStyle: {
-               fontSize:20,
-			   fontFamily:'MicrosoftYaHei-Bold',
-			   fontWeight:'bold',
-			   color:'rgba(0,0,0,1)',
-            }
+		tooltip: {},
+		grid3D: {
+			width: '100%'
 		},
-		tooltip: {
-			trigger: 'axis'
+		xAxis3D: {},
+		yAxis3D: {},
+		zAxis3D: {},
+		dataset: {
+			dimensions: [
+				'x',
+				'y',
+				'z',
+				{
+					name: "time",
+					type: "ordinal"
+				}
+			],
+			source: data
 		},
-		xAxis: {
-			data: data.map(function(item) {
-				return item[0];
-			})
-		},
-		yAxis: {
-			splitLine: {
-				show: false
+		series: [{
+			type: 'scatter3D',
+			symbolSize: symbolSize,
+			encode: {
+				x: 'x',
+				y: 'y',
+				z: 'z',
+				t: 't',
+				tooltip: [0, 1, 2, 3]
 			}
-		},
-		dataZoom: [ {
-            type: 'slider',
-            show: true,
-            xAxisIndex: [0],
-            start: 1,
-            end: 100
-        }
-		],
-		series: {
-			name: text,
-			type: 'line',
-			smooth: true,
-			data: data.map(function(item) {
-				return item[1];
-			}),
-			markLine: {
-				silent: true,
-				symbolSize:[6,6],
-				data: [{
-					yAxis: 50
-				}, {
-					yAxis: 100
-				}, {
-					yAxis: 150
-				}, {
-					yAxis: 200
-				}, {
-					yAxis: 300
-				}]
-			}
-		}
+		}]
 	};
 	// 使用刚指定的配置项和数据显示图表。
+	myChart.setOption(option);
+}
+
+//初始化热力图
+function initHeatCharts(data){
+	//基于准备好的dom，初始化echarts实例
+	var myChart = echarts.init(document.getElementById('heatCharts'), 'light');
+	
+	var hours = ['08:00:00', '08:10:00', '08:20:00', '08:30:00', '08:40:00', '08:50:00', '09:00:00'];
+	
+	var days = ['1m', '2m', '3m',
+		'4m', '5m', '6m', '7m'
+	];
+	
+	data = [
+		[0, 0, 1],
+		[1, 0, 2],
+		[2, 0, 3],
+		[3, 0, 4],
+		[0, 1, 5],
+		[1, 1, 6],
+		[2, 1, 7]
+	];
+	
+	data = data.map(function(item) {
+		return [item[1], item[0], item[2] || '-'];
+	});
+	
+	option = {
+		tooltip: {
+			position: 'top'
+		},
+		animation: false,
+		grid: {
+			height: '50%',
+			y: '10%'
+		},
+		xAxis: {
+			type: 'category',
+			name: "时间",
+			data: hours,
+			splitArea: {
+				show: true
+			}
+		},
+		yAxis: {
+			type: 'category',
+			name: "深度",
+			data: days,
+			splitArea: {
+				show: true
+			}
+		},
+		visualMap: {
+			min: 0,
+			max: 10,
+			calculable: true,
+			orient: 'horizontal',
+			left: 'center',
+			bottom: '15%'
+		},
+		series: [{
+			name: '水平位移',
+			type: 'heatmap',
+			data: data,
+			label: {
+				normal: {
+					show: true
+				}
+			},
+			itemStyle: {
+				emphasis: {
+					shadowBlur: 10,
+					shadowColor: 'rgba(0, 0, 0, 0.5)'
+				}
+			}
+		}]
+	};
 	myChart.setOption(option);
 }
 
@@ -67,7 +137,7 @@ function inintialEcharts(id, rate, data) {
 function inintialRightSLEcharts(data) {
 	
 	//显示echarts
-	$("#rightCharts").show();
+	// $("#rightCharts").show();
 	
 	// 基于准备好的dom，初始化echarts实例
 	var myChart = echarts.init(document.getElementById('rightCharts'));
@@ -153,7 +223,78 @@ function inintialRightSLEcharts(data) {
 function inintialSLEcharts(data) {
 	// 基于准备好的dom，初始化echarts实例
 	var myChart = echarts.init(document.getElementById('slChars'));
-	var text = "围护桩体和土体深层侧向位移偏移速率";
+	var hours = ['08:00:00', '08:10:00', '08:20:00', '08:30:00', '08:40:00', '08:50:00', '09:00:00'];
+	
+	var days = ['1m', '2m', '3m',
+		'4m', '5m', '6m', '7m'
+	];
+	
+	data = [
+		[0, 0, 1],
+		[1, 0, 2],
+		[2, 0, 3],
+		[3, 0, 4],
+		[0, 1, 5],
+		[1, 1, 6],
+		[2, 1, 7]
+	];
+	
+	data = data.map(function(item) {
+		return [item[1], item[0], item[2] || '-'];
+	});
+	
+	option = {
+		tooltip: {
+			position: 'top'
+		},
+		animation: false,
+		grid: {
+			height: '50%',
+			y: '10%'
+		},
+		xAxis: {
+			type: 'category',
+			name: "时间",
+			data: hours,
+			splitArea: {
+				show: true
+			}
+		},
+		yAxis: {
+			type: 'category',
+			name: "深度",
+			data: days,
+			splitArea: {
+				show: true
+			}
+		},
+		visualMap: {
+			min: 0,
+			max: 10,
+			calculable: true,
+			orient: 'horizontal',
+			left: 'center',
+			bottom: '15%'
+		},
+		series: [{
+			name: '水平位移',
+			type: 'heatmap',
+			data: data,
+			label: {
+				normal: {
+					show: true
+				}
+			},
+			itemStyle: {
+				emphasis: {
+					shadowBlur: 10,
+					shadowColor: 'rgba(0, 0, 0, 0.5)'
+				}
+			}
+		}]
+	};
+	
+	/* var text = "围护桩体和土体深层侧向位移偏移速率";
 	//表格配置项
 	var option = {
 		title: {
@@ -208,7 +349,7 @@ function inintialSLEcharts(data) {
 				}]
 			}
 		}
-	};
+	}; */
 	// 使用刚指定的配置项和数据显示图表。
 	myChart.setOption(option);
 }

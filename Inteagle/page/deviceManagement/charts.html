@@ -49,10 +49,16 @@
 
 			<div class="row bottomArea">
 				<div class="column chartsArea">
-					<div id="bigCharts"></div>
+					
+					<div class="row topCharts">
+						<!-- 左上图表 -->
+						<div id="bigCharts"></div>
+						<!-- 右上图表 -->
+						<div id="heatCharts"></div>
+					</div>
+					
 					<div class="row downArea">
-
-						<!--左侧echarts  -->
+						<!--左下echarts  -->
 						<div id="slChars"></div>
 
 						<!-- 右侧canvas 测斜管纵向位移图 -->
@@ -99,6 +105,7 @@
 		<script src="../../common/layui/layui.js" type="text/javascript"></script>
 		<script src="../../common/js/common.js" type="text/javascript"></script>
 		<script src="js/echarts.min.js" type="text/javascript"></script>
+		<script src="js/echarts-gl.min.js" type="text/javascript"></script>
 		<script src="js/initCharts.js" type="text/javascript"></script>
 		<script src="js/charts.js" type="text/javascript"></script>
 	</body>
