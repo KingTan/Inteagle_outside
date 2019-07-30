@@ -11,23 +11,32 @@
 		<link href="../../common/layui/css/layui.css" rel="stylesheet" />
 		<link href="../../common/css/common.css" rel="stylesheet" />
 		<link href="css/helmetPosition.css" rel="stylesheet" />
-		<style type="text/css">
-			
-		</style>
 	</head>
 	<body>
 		<div class="column mainBody">
 			<!-- 顶部信息 -->
-			<div class="row topHead">
+			<!-- <div class="row topHead">
 				<div class="column leftArea">
 					<div class="topTriangle"></div>
 					<div class="foundationTextArea">
 						<span>人员实时定位</span>
 					</div>
 				</div>
+			</div> -->
+			<div class="row topHead">
+				<div class="projectListText">
+					<span>人员实时定位</span>
+				</div>
+				<!-- <div class="row editorArea">
+					<div class="editorIconArea">
+						<img src="../projectManagement/img/editor.png" class="editorIcon" />
+					</div>
+					<div class="editorText"><span>编辑</span></div>
+				</div> -->
 			</div>
 			<!--分割线  -->
 			<div class="departLine"></div>
+			
 			<div class='main'>
 				<div class='model' id="domId"></div>
 			</div>
@@ -39,6 +48,5 @@
 		<script src="js/socketBase.js" type="text/javascript"></script>
 		<script src="js/connectSocket.js" type="text/javascript"></script>
 		<script src="js/bimface/js/helmetPosition.js" type="text/javascript"></script>
-
 	</body>
 </html>

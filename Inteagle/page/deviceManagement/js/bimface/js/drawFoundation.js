@@ -1,13 +1,12 @@
-var positionPATH = "https://www.inteagle.com.cn/Inteagle/";
 var viewToken = "";
-
+var foundationPATH="https://www.inteagle.com.cn/Inteagle/";
 //获取viewToken
 $.ajax({
-	url: positionPATH + "bim/getViewToken",
+	url: foundationPATH + "bim/getViewToken",
 	type: "post",
 	async: false,
 	data: {
-		fileId: "1660625452746048"
+		fileId: "1659995870577824"
 	},
 	success: function(res) {
 		console.log("res", res);

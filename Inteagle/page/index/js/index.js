@@ -10,9 +10,22 @@ $(function() {
 	//canvas绘制拉托工具
 	canvasTool();
 
+	//页面加载时 切换到首页
+	onLoadShow();
 })
 
+/**
+ * 页面加载时 切换到首页
+ */
+function onLoadShow() {
 
+	//更改body背景颜色
+	$("body").css("background-color", "rgba(239,243,245,1)");
+
+	//更改iframe的属性
+	$(".mainFrame").css("width", "90%")
+	$(".mainFrame").css("margin-left", "14px")
+}
 
 /**
  * 消息窗点击查看全部
@@ -665,7 +678,10 @@ function leftMenuMove(e) {
  * 左边菜单点击事件
  */
 function checkLeftMenu(e) {
-
+	
+	//更改body背景颜色
+	$(".mainBody").css("background-color","rgba(255,255,255,1)");
+	
 	//隐藏中间菜单栏
 	$(".middleMenu").show();
 	//移除移动选中样式和点击选中样式

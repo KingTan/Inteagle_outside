@@ -18,11 +18,14 @@
 		<div class="column mainBody">
 			<!-- 顶部信息 -->
 			<div class="row topHead">
-				<div class="column leftArea">
+				<!-- <div class="column leftArea">
 					<div class="topTriangle"></div>
 					<div class="foundationTextArea">
 						<span>基坑监测</span>
 					</div>
+				</div> -->
+				<div class="projectListText">
+					<span>基坑监测</span>
 				</div>
 
 				<div class="row">
@@ -50,15 +53,25 @@
 			<div class="departLine"></div>
 
 			<!-- 基坑图 -->
-			<div class="foundationPic">
+			<!-- <div class="foundationPic">
 				<canvas id="myCanvas" style="border: 1px solid black;"></canvas>
+			</div> -->
+			
+			<div class='main'>
+				<div class='model' id="domId"></div>
 			</div>
+			<div id="view"></div>
 
 		</div>
 		<script src="../../common/js/jquery-3.2.1.min.js" type="text/javascript"></script>
 		<script src="../../common/layui/layui.js" type="text/javascript"></script>
 		<script src="../../common/js/common.js" type="text/javascript"></script>
-		<script src="js/draw.js" type="text/javascript"></script>
+		<!-- canvas绘制基坑图 -->
+		<!-- <script src="js/draw.js" type="text/javascript"></script> -->
+		<script src="js/bimface/js/release.js" charset="utf-8"></script>
+		<script src="js/bimface/js/drawFoundation.js" type="text/javascript"></script>
+		<!-- <script src="js/socketBase.js" type="text/javascript"></script> -->
+		<!-- <script src="js/connectSocket.js" type="text/javascript"></script> -->
 		<script src="js/foundation.js" type="text/javascript"></script>
 	</body>
 </html>

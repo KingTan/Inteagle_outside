@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>首页</title>
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<link href="../../common/layui/css/layui.css" rel="stylesheet" />
+		<link href="../../common/css/common.css" rel="stylesheet" />
+		<link href="../../common/css/swiper.min.css" rel="stylesheet" />
+		<link href="css/currentPage.css" rel="stylesheet" />
+	</head>
+	<body>
+		<div class="row mainBody">
+
+			<div class="column leftPart">
+
+				<!-- 项目概览 -->
+				<div class="column leftTopArea">
+					<div class="singleBoxContent">
+						<div class="row leftTopTitle">
+							<div class="column titleDec">
+								<div class="topBlueBox"></div>
+								<div class="bottomRedBox"></div>
+							</div>
+							<div class="titleText">项目概要</div>
+						</div>
+						<div class="row leftMiddleArea">
+							<div class="leftInfoList">
+								<ul>
+									<li>
+										<div class="row singleInfo">
+											<div class="leftTitle">项目类型</div>
+											<div class="maohao">:</div>
+											<div class="rightValue">新建社区</div>
+										</div>
+									</li>
+									<li>
+										<div class="row singleInfo">
+											<div class="leftTitle">总投资额</div>
+											<div class="maohao">:</div>
+											<div class="rightValue">600万元</div>
+										</div>
+									</li>
+									<li>
+										<div class="row singleInfo">
+											<div class="leftTitle">建筑面积</div>
+											<div class="maohao">:</div>
+											<div class="rightValue">2189平方米</div>
+										</div>
+									</li>
+									<li>
+										<div class="row singleInfo">
+											<div class="leftTitle">建筑层数</div>
+											<div class="maohao">:</div>
+											<div class="rightValue">23层</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="rightPic">
+								<img src="img/sample.png" class="samplePic" />
+							</div>
+						</div>
+						<div class="leftbottomTextArea">
+							<div class="leftInfoList">
+								<ul>
+									<li>
+										<div class="row singleInfo">
+											<div class="leftTitle">施工单位</div>
+											<div class="maohao">:</div>
+											<div class="rightValue">中国建筑第八工程有限公司</div>
+										</div>
+									</li>
+									<li>
+										<div class="row singleInfo">
+											<div class="leftTitle">建设单位</div>
+											<div class="maohao">:</div>
+											<div class="rightValue">东莞万科房地产开发有限公司</div>
+										</div>
+									</li>
+									<li>
+										<div class="row singleInfo">
+											<div class="leftTitle">监理单位</div>
+											<div class="maohao">:</div>
+											<div class="rightValue">东莞金鹤工程咨询监理有限公司</div>
+										</div>
+									</li>
+									<li>
+										<div class="row singleInfo">
+											<div class="leftTitle">建筑层数</div>
+											<div class="maohao">:</div>
+											<div class="rightValue">23层</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 人员分析 -->
+				<div class="leftBottomArea">
+					<div class="singleBoxContent">
+						<div class="row leftBottomTopTitle">
+							<div class="row leftTopTitle">
+								<div class="column titleDec">
+									<div class="topBlueBox"></div>
+									<div class="bottomRedBox"></div>
+								</div>
+								<div class="titleText">人员分析</div>
+							</div>
+							<div class="rightTitleText">在册人数<span class="onCountPeople">2040</span></div>
+						</div>
+						<div class="row leftBottomMiddle">
+							<div class="column singleBigCount">
+								<div class="bigCountValue inSidePeopleCount">1240</div>
+								<div class="bigCountText">场内人数</div>
+							</div>
+							<div class="column singleBigCount">
+								<div class="bigCountValue workPeopleCount">1110</div>
+								<div class="bigCountText">劳务工人</div>
+							</div>
+							<div class="column singleBigCount">
+								<div class="bigCountValue managemntPeopleCount">130</div>
+								<div class="bigCountText">管理人员</div>
+							</div>
+						</div>
+						<div class="leftBottomTile">
+							<div class="row leftTopTitle">
+								<div class="column titleDec">
+									<div class="topBlueBox"></div>
+									<div class="bottomRedBox"></div>
+								</div>
+								<div class="titleText">场内人数占比</div>
+							</div>
+						</div>
+						<!-- 场内人数占比charts -->
+						<div id="leftBottomCharts"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="column middlePart">
+				
+				<div class="column middleTop">
+					<!-- <div class="middleTopPic">
+						<img src="img/wallhaven.png" class="bigSwiperPic" />
+					</div>
+					<div class=""></div> -->
+					<!-- Swiper -->
+					<div class="swiper-container gallery-top">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide" style="background-image:url(img/wallhaven.png)"></div>
+							<div class="swiper-slide" style="background-image:url(img/wallhaven.png)"></div>
+							<div class="swiper-slide" style="background-image:url(img/wallhaven.png)"></div>
+							<div class="swiper-slide" style="background-image:url(img/wallhaven.png)"></div>
+							<div class="swiper-slide" style="background-image:url(img/wallhaven.png)"></div>
+							<div class="swiper-slide" style="background-image:url(img/wallhaven.png)"></div>
+							<div class="swiper-slide" style="background-image:url(img/wallhaven.png)"></div>
+							<div class="swiper-slide" style="background-image:url(img/wallhaven.png)"></div>
+						</div>
+						<!-- Add Arrows -->
+						<div class="swiper-button-next swiper-button-white"></div>
+						<div class="swiper-button-prev swiper-button-white"></div>
+					</div>
+					<div class="swiper-container gallery-thumbs">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide" style="background-image:url(img/wallhaven.png)"></div>
+							<div class="swiper-slide" style="background-image:url(img/wallhaven.png)"></div>
+							<div class="swiper-slide" style="background-image:url(img/wallhaven.png)"></div>
+							<div class="swiper-slide" style="background-image:url(img/wallhaven.png)"></div>
+							<div class="swiper-slide" style="background-image:url(img/wallhaven.png)"></div>
+							<div class="swiper-slide" style="background-image:url(img/wallhaven.png)"></div>
+							<div class="swiper-slide" style="background-image:url(img/wallhaven.png)"></div>
+							<div class="swiper-slide" style="background-image:url(img/wallhaven.png)"></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="middleBottom">
+					<div class="column singleBoxContent">
+						<div class="row leftTopTitle">
+							<div class="column titleDec">
+								<div class="topBlueBox"></div>
+								<div class="bottomRedBox"></div>
+							</div>
+							<div class="titleText">项目进度</div>
+						</div>
+						<div class="row progressArea">
+							<div class="column alreadyDoneArea">
+								<div class="alreadyText">已施工(天)</div>
+								<div class="alreadyDoneDays bigCountValue">130</div>
+							</div>
+							<div class="column middleProgressArea">
+								<div class="layui-progress layui-progress-big">
+									<div class="layui-progress-bar" lay-percent="40%" class="alreadyDoneProgress"></div>
+								</div>
+								<div class="row bottomInfoArea">
+									<div class="column startInfo infoArea">
+										<div class="startDate dateInfo">2019-04-07</div>
+										<div class="startText">项目开工</div>
+									</div>
+								</div>
+								<div class="row endInfoArea">
+									<div class="column endInfo infoArea">
+										<div class="endDate dateInfo">2021-02-07</div>
+										<div class="startText">项目竣工</div>
+									</div>
+								</div>
+							</div>
+							<div class="column totalDayArea">
+								<div class="alreadyText">总工期(天)</div>
+								<div class="totayDays bigCountValue">584</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="column rightPart">
+				<div class="rightTop">
+					<div class="column singleBoxContent">
+						<div class="row leftTopTitle">
+							<div class="column titleDec">
+								<div class="topBlueBox"></div>
+								<div class="bottomRedBox"></div>
+							</div>
+							<div class="titleText">天气情况</div>
+						</div>
+						<div class="row dateAndPosition">
+							<div class="dateText">07月29日 周一</div>
+							<div class="row rightPositon">
+								<div class="positionArea">
+									<img src="img/position.png" class="positionIcon" />
+								</div>
+								<div class="positionName">东莞</div>
+							</div>
+						</div>
+						<div class="row threeDaysWeatherArea">
+							<!-- 今日天气 -->
+							<div class="row nowDayWeather">
+								<div class="column singleWeather">
+									<div class="nowWeatherIcon">
+										<img src="img/qingtian.png" class="sunIcon" />
+									</div>
+									<div class="bottomWether">26~33°C</div>
+								</div>
+								<div class="column singleWeather nowWeatherTextArea">
+									<div class="row  nowWeatherIcon nowWeatherText">
+										<div class="nowTemp  bigCountValue">33</div>
+										<div class="column tempureAera">
+											<div class="tempUnit">°C</div>
+											<div class="nowWeatherTextStr">晴(实时)</div>
+										</div>
+									</div>
+									<div class="bottomWether">无持续风向微风</div>
+								</div>
+							</div>
+							<div class="column nextWeather">
+								<div class="topDate">07月30日</div>
+								<div class="column weaPic">
+									<div class="weatherImg">
+										<img src="img/qingtian_small.png" class="nextWeaIcon" />
+									</div>
+									<div class="weatherText">晴</div>
+								</div>
+								<div class="nextTempl bottomWether">26~32°C</div>
+							</div>
+
+							<div class="column nextWeather">
+								<div class="topDate">07月31日</div>
+								<div class="column weaPic">
+									<div class="weatherImg">
+										<img src="img/yu.png" class="nextWeaIcon" />
+									</div>
+									<div class="weatherText">雨</div>
+								</div>
+								<div class="nextTempl bottomWether">26~32°C</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="rightMiddle">
+					<div class="column singleBoxContent">
+						<div class="row leftTopTitle">
+							<div class="column titleDec">
+								<div class="topBlueBox"></div>
+								<div class="bottomRedBox"></div>
+							</div>
+							<div class="titleText">设备统计</div>
+						</div>
+
+						<div class="row deviceCountArea">
+							<div class="column singleBigCount">
+								<div class="bigCountValue inSidePeopleCount">1240</div>
+								<div class="bigCountText">智能安全帽总数</div>
+							</div>
+							<div class="column singleBigCount">
+								<div class="bigCountValue workPeopleCount">1110</div>
+								<div class="bigCountText">摄像头监控总数</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="rightBottom">
+					<div class="row boxArea">
+
+						<div class="column singleBox">
+							<div class="titleTextStr">安全检查</div>
+							<div class="row safeExamine">
+								<div class="safetyCount">2</div>
+								<div class="safetyImg">
+									<img src="" />
+								</div>
+							</div>
+						</div>
+
+						<div class="column singleBox dataWarning">
+							<div class="titleTextStr">数据异常</div>
+							<div class="row safeExamine">
+								<div class="safetyCount">0</div>
+								<div class="safetyImg">
+									<img src="" />
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+
+				</div>
+			</div>
+
+
+		</div>
+		<script src="../../common/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+		<script src="../../common/layui/layui.js" type="text/javascript"></script>
+		<script src="../../common/js/common.js" type="text/javascript"></script>
+		<script src="../../common/js/echarts.min.js" type="text/javascript"></script>
+		<script src="../../common/js/swiper.min.js" type="text/javascript"></script>
+		<script src="js/drawCharts.js" type="text/javascript"></script>
+		<script src="js/currentPage.js" type="text/javascript"></script>
+	</body>
+</html>

@@ -8,8 +8,8 @@ const PATH = "http://127.0.0.1:8080/";
 
 $(function() {
 	//屏幕分辨率的宽高
-	var clientWidth = window.screen.width; 
-	var clientHeight = window.screen.width; 
+	var clientWidth = window.screen.width;
+	var clientHeight = window.screen.width;
 	if (clientWidth > 1400) {
 		isBigScreen = true;
 	} else {
@@ -63,7 +63,7 @@ layui.use('laydate', function() {
 		elem: "#smallCertificateManagementYear",
 		type: "year"
 	});
-		laydate.render({
+	laydate.render({
 		elem: "#attendanceTime",
 		type: "datetime"
 	});
@@ -99,4 +99,33 @@ function getParam(paramName) {
 			paramName.toLowerCase() && (paramValue = arrSource[i].split("=")[1], isFound = !0), i++
 	}
 	return paramValue == "" && (paramValue = null), paramValue
+}
+
+/**
+ * 获得当前时间 yyyy-MM-dd HH:mm:ss
+ */
+function getNowFormatDate() {
+	var date = new Date();
+	var seperator1 = "-";
+	var seperator2 = ":";
+	var month = date.getMonth() + 1;
+	var strDate = date.getDate();
+	var str_minute = date.getMinutes();
+	var str_second = date.getMinutes();
+	if (month >= 1 && month <= 9) {
+		month = "0" + month;
+	}
+	if (strDate >= 0 && strDate <= 9) {
+		strDate = "0" + strDate;
+	}
+	if (str_minute >= 0 && str_minute <= 9) {
+		str_minute = "0" + str_minute;
+	}
+	if (str_second >= 0 && str_second <= 9) {
+		str_second = "0" + str_second;
+	}
+	var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
+		" " + date.getHours() + seperator2 + str_second+
+		seperator2 + str_second;
+	return currentdate;
 }
