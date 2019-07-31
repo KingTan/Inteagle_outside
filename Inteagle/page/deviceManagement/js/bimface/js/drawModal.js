@@ -36,6 +36,20 @@ function removeExternalObject(viewer3D, objectName) {
 	viewer3D.removeExternalObjectByName(objectName);
 }
 
+//更改视角
+function changeViewSite(viewer3D) {
+	viewer3D.addEventListener("ViewAdded", function() {
+		//获取自己想要的视角信息
+		var camera =
+			'{"name":"persp","position":{"x":572,"y":40,"z":60},"target":{"x":173,"y":20,"z":60},"up":{"x":73,"y":80,"z":60},"version":1}';
+		//设置视角
+		viewer3D.setCameraStatus(JSON.parse(camera));
+		//手动render()
+		viewer3D.render();
+		console.log("更换初始视角");
+	})
+}
+
 function onSDKLoadSucceeded(viewMetaData) {
 	//http://static.bimface.com/attach/341bb8bde7bf4a5898ecdf58c2a476fb_TDSLoader.js
 
@@ -47,15 +61,21 @@ function onSDKLoadSucceeded(viewMetaData) {
 	var app = new Glodon.Bimface.Application.WebApplication3D(webAppConfig);
 	app.addView(viewToken);
 	viewer = app.getViewer();
+	//3D模型加载完毕事件
 	viewer.addEventListener(Glodon.Bimface.Viewer.Viewer3DEvent.ViewAdded, function() {
 		viewAdded = true;
-		enableButton("loadBtn");
 		//自适应屏幕大小
 		window.onresize = function() {
 			viewer3D.resize(document.documentElement.clientWidth, document.documentElement.clientHeight - 40)
 		}
+		console.log("BimFace SDK加载完成...");
 	});
-	console.log("BimFace SDK加载完成...");
+	//鼠标单击事件
+	viewer.addEventListener(Glodon.Bimface.Viewer.Viewer3DEvent.MouseClicked, function(objectData) {
+		console.log("点击模型");
+		console.log(objectData);
+		console.log(objectData.worldPosition)
+	});
 }
 
 //加载外部构件
@@ -63,7 +83,7 @@ function load(x, y, z) {
 
 	console.log("加载外部组件...");
 	//http://static.bimface.com/attach/32d6b03412d641bb81a6e23f854e47fe_car.3ds
-
+	//js/bimface/3ds/smallBall.3ds
 	//目前仅支持3ds外部构件
 	loadExternalComponent("js/bimface/3ds/smallBall.3ds", function(object) {
 		addExternalObject(viewer, "car1", object);
@@ -75,7 +95,10 @@ function load(x, y, z) {
 		// disableButton("loadBtn");
 		// enableButton("animationBtn");
 	});
-}
+
+	//切换视角
+	changeViewSite(viewer);
+};
 
 //轨迹模拟
 function animation(x, y, z) {

@@ -5,7 +5,7 @@ $(function() {
 	//延迟5s加载外部构件
 	setTimeout(function() {
 		load();
-	}, 5000);
+	}, 15000);
 })
 // socket消息处理
 if (window.parent.webSocket != null) {
@@ -19,7 +19,7 @@ if (window.parent.webSocket != null) {
 			console.log(res.y);
 			console.log(res.t);
 			//渲染动画
-			animation(res.x, res.y, res.t);
+			// animation(res.x, res.y, res.t);
 		}
 	}
 }
