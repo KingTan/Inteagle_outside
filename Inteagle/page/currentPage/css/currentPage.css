@@ -6,13 +6,13 @@
 }
 
 .leftPart {
-	/* width: 30%; */
+	width: 24%;
 	height: 100%;
 }
 
 .leftTopArea {
-	/* width: 100%; */
-	width: 23.875rem;
+	width: 100%;
+	/* width: 23.875rem; */
 	height: 18.75rem;
 	background: rgba(255, 255, 255, 1);
 }
@@ -74,7 +74,8 @@
 }
 
 .leftBottomArea {
-	width: 23.875rem;
+	width: 100%;
+	/* width: 23.875rem; */
 	height: 28.5rem;
 	margin-top: 0.6875rem;
 	background: rgba(255, 255, 255, 1);
@@ -120,7 +121,8 @@
 }
 
 .middlePart {
-	width: 38.75rem;
+	/* width: 38.75rem; */
+	width: 50%;
 	margin-left: 0.75rem;
 }
 
@@ -171,7 +173,7 @@
 
 .progressArea {
 	margin-top: 3.4375rem;
-	margin-left: 15px;
+	margin-left: 70px;
 }
 
 .middleProgressArea {
@@ -228,12 +230,14 @@
 }
 
 .rightTop {
-	width: 22.4375rem;
+	/* width: 22.4375rem; */
+	width: 100%;
 	height: 13.75rem;
 	background: rgba(255, 255, 255, 1);
 }
 
 .rightPart {
+	width: 25%;
 	margin-left: 0.8125rem;
 }
 
@@ -383,4 +387,8 @@
 
 .safetyCount {
 	margin-left: 17px;
+}
+.safetyImg{
+	margin-left: 53px;
+	margin-top: 7px;
 }
