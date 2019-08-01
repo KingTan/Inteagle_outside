@@ -388,7 +388,20 @@
 .safetyCount {
 	margin-left: 17px;
 }
-.safetyImg{
+
+.safetyImg {
 	margin-left: 53px;
 	margin-top: 7px;
+}
+
+.maohao {
+	font-weight: bolder;
+}
+
+.singleInfo {
+	align-items: center;
+}
+.rightValue{
+	margin-top: 0.125rem;
+	margin-left: 0.3125rem;
 }

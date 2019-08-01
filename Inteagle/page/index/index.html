@@ -17,7 +17,7 @@
 			<!--顶部导航条  -->
 			<div class="row topContainer">
 				<!-- 左侧logo -->
-				<div class="logoText"><span>INTEAGLE</span></div>
+				<div class="logoText"><span class="logoTextStr">INTEAGLE</span></div>
 				<!-- 右侧选项栏 -->
 				<div class="row rightOption">
 					<div class="row helpArea rightArea">
@@ -26,7 +26,7 @@
 					</div>
 					<div class="row messageArea rightArea">
 						<img src="img/tongzhi.png" class="headIcon" />
-						<div class="helpText textUnderLine msgBoxTextArea" >
+						<div class="helpText textUnderLine msgBoxTextArea">
 							<span onclick="changeMsgStatus()">消息</span>
 						</div>
 						<div class="msgCount" onclick="changeMsgStatus()">1</div>
@@ -80,13 +80,12 @@
 				<!-- 切割线 -->
 				<div class="apartLine apartTop"></div>
 				<div class="checkAll">
-					 <button type="button" class="layui-btn layui-btn-normal checkAllBtn">查看全部</button>
+					<button type="button" class="layui-btn layui-btn-normal checkAllBtn">查看全部</button>
 				</div>
 			</div>
 
 			<!-- 中间显示区域 -->
-
-			<div class="row mainBody">
+			<div class="row mainBody" >
 
 				<!-- 左侧菜单选择栏 -->
 				<div class="column leftMenu">
@@ -681,12 +680,11 @@
 					<canvas id="toolCanvas_right" class="canvasArea"></canvas>
 
 				</div>
-				
+
 				<!-- 右边iframe内联框架 -->
 				<!--../projectManagement/projectManagement.html  -->
-				<iframe src="../currentPage/currentPage.html" id="mainFrame" class="mainFrame" name='iframe'
-				 frameborder="0"></iframe>
-				 
+				<iframe src="../currentPage/currentPage.html" id="mainFrame" class="mainFrame" name='iframe' frameborder="0"></iframe>
+
 			</div>
 
 			<!--底部备案信息区域  -->
@@ -1412,7 +1410,7 @@
 		</script>
 
 		<!-- 设备故障报警弹窗 -->
-		<script type="text/template">
+		<script type="text/template" id="deviceWarningModal">
 			<div class="speedWarning">
 				<div class="topTextArea">报警弹窗</div>
 				<div class="column contentArea">
@@ -1437,6 +1435,31 @@
 				</div>
 			</div>
 		</script>
+
+		<!-- 安全帽人脸识别报警弹窗 -->
+		<script type="text/template" id="helmetWarningModal">
+			<div class="speedWarning">
+				<div class="topTextArea">报警弹窗</div>
+				<div class="column contentArea">
+					<div class="titleText">安全帽跟人脸不匹配</div>
+					<div class="column dataArea">
+						<div class="row singleDataRow">
+							<div class="dataTitle">安全帽id</div>
+							<div class="dataValue">SB-45672</div>
+						</div>
+						<div class="row singleDataRow">
+							<div class="dataTitle">日期</div>
+							<div class="dataValue">2019-07-15 13:00:00</div>
+						</div>
+					</div>
+					<div class="watchSpeedBtnArea">
+						<button type="button" class="layui-btn layui-btn-normal watchBtn">查看</button>
+					</div>
+				</div>
+			</div>
+		</script>
+
+
 		<!--运行时间设置  -->
 		<script type="text/template" id="runtimeSetModal">
 			<div class="runScheduleArea">

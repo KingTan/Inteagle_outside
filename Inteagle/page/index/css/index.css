@@ -18,7 +18,15 @@ body {
 	/* margin-left: 13.5625rem; */
 }
 
+.logoText span:hover{
+	cursor: pointer;
+}
+
 .logoText span {
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	user-select:none;
 	color: #FFFFFF;
 	font-size: 1.25rem;
 }

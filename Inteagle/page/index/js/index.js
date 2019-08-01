@@ -15,6 +15,14 @@ $(function() {
 })
 
 /**
+ * 点击Integer Logo页面重载
+ */
+$(".logoTextStr").bind("click", function(e) {
+	//当前页面重载
+	window.location.reload();
+})
+
+/**
  * 页面加载时 切换到首页
  */
 function onLoadShow() {
@@ -678,10 +686,10 @@ function leftMenuMove(e) {
  * 左边菜单点击事件
  */
 function checkLeftMenu(e) {
-	
+
 	//更改body背景颜色
-	$(".mainBody").css("background-color","rgba(255,255,255,1)");
-	
+	$(".mainBody").css("background-color", "rgba(255,255,255,1)");
+
 	//隐藏中间菜单栏
 	$(".middleMenu").show();
 	//移除移动选中样式和点击选中样式
