@@ -1,7 +1,7 @@
 var socket;
 
-// 本地socket路径
-const wsServer = "ws://localhost:8080/netSocket/ivan";
+// 本地sock
+const wsServer = "ws://localhost:8080/netSocket/" + userId;
 
 // 服务器socket路径
 // const wsServer = "wss://www.inteagle.com.cn/Inteagle/netSocket/ivan";
