@@ -846,13 +846,11 @@ body {
 }
 
 .speedWarning {
-	margin: 0px auto;
-	margin-top: 1.875rem;
 	width: 34.6875rem;
-	height: 23.5rem;
-	background: rgba(255, 255, 255, 1);
-	box-shadow: 0px 2px 60px 1px rgba(0, 0, 0, 0.19);
-	border-radius: 20px;
+    height: 23.5rem;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 2px 60px 1px rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
 }
 
 .topTextArea {
