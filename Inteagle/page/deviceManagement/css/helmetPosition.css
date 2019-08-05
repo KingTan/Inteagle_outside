@@ -62,3 +62,68 @@
 .projectListText {
 	border-bottom: 0.1875rem solid rgba(2, 75, 127, 1);
 }
+
+.searchArea {
+	margin-top: 1.25rem;
+}
+
+.inputArea {
+	width: 18.4375rem;
+	height: 1.625rem;
+	border: 1px solid rgba(230, 231, 232, 1);
+	background: rgba(255, 255, 255, 1);
+	border-radius: 9px;
+}
+
+.searchBtn {
+	width: 2.6875rem;
+	height: 1.625rem;
+	line-height: 1.625rem;
+	margin-left: 3.125rem;
+	background: rgba(2, 75, 127, 1);
+	border-radius: 0.8125rem;
+	font-size: 0.75rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(255, 255, 255, 1);
+	text-align: center;
+}
+
+.layui-btn {
+	padding: 0 11px;
+}
+
+/**
+ *  修改google浏览器，默认的聚焦黄色背景为白色
+ */
+input:-webkit-autofill,
+select:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+
+input {
+	outline-color: invert;
+	outline-style: none;
+	outline-width: 0px;
+	border: none;
+	border-style: none;
+	text-shadow: none;
+	-webkit-appearance: none;
+	-webkit-user-select: text;
+	outline-color: transparent;
+	box-shadow: none;
+}
+
+input::-webkit-input-placeholder {
+	/* placeholder颜色  */
+	color: rgba(150, 150, 150, 1);
+	/* placeholder字体大小  */
+	font-size: 14px;
+	font-family: MicrosoftYaHei;
+}
+
+.inputProjectName {
+	width: 95%;
+	text-align: center;
+	margin-left: 5px;
+}

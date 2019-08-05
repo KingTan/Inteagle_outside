@@ -19,7 +19,7 @@ if (window.parent.webSocket != null) {
 			// console.log(res.y);
 			// console.log(res.t);
 			//渲染动画
-			animation(res.x, res.y, res.t);
+			// animation(res.x, res.y, res.t);
 		}
 	}
 }
