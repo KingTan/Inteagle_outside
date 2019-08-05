@@ -5,7 +5,7 @@ $(function() {
 	//延迟5s加载外部构件
 	setTimeout(function() {
 		load();
-	}, 15000);
+	}, 5000);
 })
 // socket消息处理
 if (window.parent.webSocket != null) {

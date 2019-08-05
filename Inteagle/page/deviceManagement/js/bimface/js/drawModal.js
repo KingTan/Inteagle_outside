@@ -38,18 +38,15 @@ function removeExternalObject(viewer3D, objectName) {
 
 //更改视角
 function changeViewSite(viewer3D) {
-	// viewer3D.addEventListener("ViewAdded", function() {
-		//获取自己想要的视角信息
-		var camera =
-			'{"name":"persp","position":{"x":362,"y":-1094,"z":300},"target":{"x":79,"y":-23,"z":-64},"up":{"x":0,"y":0,"z":9},"version":1}';
-		//设置视角
-		viewer3D.setCameraStatus(JSON.parse(camera));
-		//手动render()
-		viewer3D.render();
-		console.log("更换初始视角");
-	// })
+	//获取自己想要的视角信息
+	var camera =
+		'{"name":"persp","position":{"x":672.5828752473132,"y":-1669.7722783428717,"z":1380.4133900769662},"target":{"x":-124.84475810259246,"y":1672.0462026503512,"z":-2355.0520550522974},"up":{"x":0,"y":-0.00000367320528273156,"z":0.9999999999932538},"version":1}';
+	//设置视角
+	viewer3D.setCameraStatus(JSON.parse(camera));
+	console.log("更换初始视角");
 }
 
+// 装载SDK
 function onSDKLoadSucceeded(viewMetaData) {
 	//http://static.bimface.com/attach/341bb8bde7bf4a5898ecdf58c2a476fb_TDSLoader.js
 
@@ -60,7 +57,9 @@ function onSDKLoadSucceeded(viewMetaData) {
 
 	var app = new Glodon.Bimface.Application.WebApplication3D(webAppConfig);
 	app.addView(viewToken);
+	//获得视角
 	viewer = app.getViewer();
+	
 	//3D模型加载完毕事件
 	viewer.addEventListener(Glodon.Bimface.Viewer.Viewer3DEvent.ViewAdded, function() {
 		viewAdded = true;
@@ -69,7 +68,7 @@ function onSDKLoadSucceeded(viewMetaData) {
 			viewer3D.resize(document.documentElement.clientWidth, document.documentElement.clientHeight - 40)
 		}
 		console.log("BimFace SDK加载完成...");
-		
+
 		//切换视角
 		changeViewSite(viewer);
 	});
@@ -79,14 +78,15 @@ function onSDKLoadSucceeded(viewMetaData) {
 		console.log("点击模型");
 		console.log(objectData);
 		console.log(objectData.worldPosition)
+		
+		//获取相机的状态
+		console.log(viewer.getCameraStatus());
 	});
 }
 
 //加载外部构件
 function load(x, y, z) {
 	console.log("加载外部组件...");
-	//http://static.bimface.com/attach/32d6b03412d641bb81a6e23f854e47fe_car.3ds
-	//js/bimface/3ds/smallBall.3ds
 	//目前仅支持3ds外部构件
 	loadExternalComponent("js/bimface/3ds/smallBall.3ds", function(object) {
 		addExternalObject(viewer, "car1", object);
@@ -95,8 +95,6 @@ function load(x, y, z) {
 		setTransform("car1", new THREE.Vector3(x, y, z), new THREE.Vector3(2, 2, 2), tempQuaternion);
 		// viewer.setView("Home");
 		viewer.render();
-		// disableButton("loadBtn");
-		// enableButton("animationBtn");
 	});
 };
 
@@ -167,7 +165,6 @@ function setTransform(name, position, scale, rotation) {
 	rotation = rotation || group.quaternion;
 	group.setRotationFromQuaternion(rotation);
 	group.updateMatrixWorld();
-
 }
 
 function createCurve1(x, y, z) {
