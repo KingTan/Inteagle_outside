@@ -5,92 +5,106 @@ if (window.parent.webSocket != null) {
 			console.log("心跳..");
 			return;
 		} else {
+			console.log(res);
 			//判断是否mqtt发送过来的数据
 			if (res.messageType == "mqtt") {
-				//数据类型
-				var dataType = res.dataType;
-				//数据值
-				var data = "";
+				//调接口发送的数据
+				if (res.invoke == "send") {
 
-				var shtml_dataType = "";
+					console.log("send-------------------");
 
-				var send_html = "";
+					var socketData = res.data;
+					var sendHtml = "<div class='singleMsgArea'>";
+					if (socketData.dataType != null && socketData.dataType != undefined) {
+						switch (socketData.dataType) {
+							//发送的数据
+							case "sendTimeSync":
+								sendHtml += "<p> hex_str : " + socketData.msg + "</p>" + "<p> topic : " + socketData.topic + "</p>" +
+									"<p> cmd : " + socketData.cmd_ten + "<span class='cmdData'> cmd_value :" + socketData.cmd_value + "</span>" +
+									"</p>"
+								break;
+						}
+					}
+					sendHtml += "</div>";
+					//发送的数据
+					$("#sendDataArea").append(sendHtml);
+					//滚动条保持最底部
+					var div_send = document.getElementById('sendDataArea');
+					div_send.scrollTop = div_send.scrollHeight;
+				} else if (res.invoke == "receive") {
 
-				switch (dataType) {
-					// 16进制数据
-					case "hexStr":
-						data = res.data;
-						shtml_dataType = "<div class='dataTypeArea'>" + dataType + "------------<span class='dataArea'>" + data +
-							"</span></div><br/>";
-						break;
-						// 主题
-					case "topic":
-						data = res.data;
-						shtml_dataType = "<div class='dataTypeArea topicArea'>" + dataType + "------------<span class='dataArea'>" +
-							data +
-							"</span></div><br/>";
-						break;
-						// 10进制命令
-					case "cmd_ten":
-						data = res.data;
-						shtml_dataType = "<div class='dataTypeArea'>" + dataType + "------------<span class='dataArea'>" + data +
-							"</span></div><br/>";
-						data = res.data;
-						break;
-						// 时间同步消息
-					case "timeSyncData":
-						shtml_dataType = "<div class='dataTypeArea'>" + dataType + "------------<span class='timet_h'> t_h: " + res.data
-							.t_h + "</span>" + "<span class='timet_l'>t_l: " + res.data.t_l + "</span></div>";
-						break;
-						// 人员定位数据
-					case "IdInfoStruct":
-						shtml_dataType = "<div class='dataTypeArea'>" + dataType + "------------<span class='timet_h'> id: " + res.data
-							.id + "</span>" + "<span class='timet_l'>x: " + res.data.x + "</span>" + "<span class='timet_l'>y: " + res.data
-							.y + "</span>" +
-							"<span class='timet_l'>t: " + res.data.t + "</span>" + "<span class='timet_l'>camera_id: " + res.data.camera_id +
-							"</span>" + "</div>";
-						break;
-						// 人脸识别数据
-					case "HelmetDiscernStruct":
-						shtml_dataType = "<div class='dataTypeArea'>" + dataType + "------------<span class='timet_h'> id: " + res.data
-							.id + "</span>" + "<span class='timet_l'>x: " + res.data.x + "</span>" + "<span class='timet_l'>y: " + res.data
-							.y + "</span>" +
-							"<span class='timet_l'>t: " + res.data.t + "</span>" + "<span class='timet_l'>camera_id: " + res.data.camera_id +
-							"</span>" + "</div>";
-						break;
-						// 设备行为数据
-					case "DeviceActionStruct":
-						shtml_dataType = "<div class='dataTypeArea'>" + dataType + "------------<span class='timet_h'> action: " + res.data
-							.action + "</span>" + "<span class='timet_l'>device_type: " + res.data.device_type + "</span>" +
-							"<span class='timet_l'>priority: " + res.data
-							.priority + "</span>" + "</div>";
-						break;
-						// 电池情况数据
-					case "HelmetSensorDataStruct":
-						shtml_dataType = "<div class='dataTypeArea'>" + dataType + "------------<span class='timet_h'> vol: " + res.data
-							.vol + "</span>" + "<span class='timet_l'>temp: " + res.data.temp + "</span>" +
-							"<span class='timet_l'>helmet_on: " + res.data.helmet_on + "</span>" + "</div>";
-						break;
-						//发送的数据
-					case "send":
-						send_html = "<div class='dataTypeArea'>" + dataType + "------------<span class='timet_h'> sendData: " + res
-							.data.msg + "</span>" + "<span class='timet_l'>topic: " + res.data.topic + "</span>" +
-							"<span class='timet_l'>cmd_ten: " + res.data.cmd_ten + "</span>" + "</div>";
-						break;
+					console.log("receive-------------------");
+
+					var socketData = res.data;
+					var shtml = "<div class='singleMsgArea'>";
+					if (socketData.dataType != null && socketData.dataType != undefined) {
+						switch (socketData.dataType) {
+							case "TimeSyncData":
+								var TimeSyncData = socketData.TimeSyncData;
+								shtml += "<p>hex_str : " + socketData.hexStr + "</p>" + "<p>topic : " + socketData.topic + "</p>" +
+									"<p>cmd : " + socketData.cmd_ten + "<span class='cmdData'> cmd_value :" + socketData.cmd_value + "</span>" +
+									"</p>" + "<p>data--------  t_l :" + TimeSyncData.t_l +
+									"<span> t_h :" + TimeSyncData.t_h + "</span> </p>";
+								break;
+							case "IdInfoStruct":
+								var IdInfoStruct = socketData.IdInfoStruct;
+								shtml += "<p>hex_str : " + socketData.hexStr + "</p>" + "<p>topic : " + socketData.topic + "</p>" +
+									"<p>cmd : " + socketData.cmd_ten + "<span class='cmdData'> cmd_value :" + socketData.cmd_value + "</span>" +
+									"</p>" + "<p>data--------  id :" + IdInfoStruct.id +
+									"<span> x :" + IdInfoStruct.x + "</span>" + "<span> y :" + IdInfoStruct.y + "</span>" +
+									"<span> t :" + IdInfoStruct.t + "</span>" + "<span> camera_id :" + IdInfoStruct.camera_id + "</span>" +
+									"</p>";
+								break;
+							case "HelmetDiscernStruct":
+								var HelmetDiscernStruct = socketData.HelmetDiscernStruct;
+								shtml += "<p>hex_str : " + socketData.hexStr + "</p>" + "<p>topic : " + socketData.topic + "</p>" +
+									"<p>cmd : " + socketData.cmd_ten + "<span class='cmdData'> cmd_value :" + socketData.cmd_value + "</span>" +
+									"</p>" + "<p>data--------  id :" + HelmetDiscernStruct.id +
+									"</p>";
+								break;
+							case "DeviceActionStruct":
+								var DeviceActionStruct = socketData.DeviceActionStruct;
+								shtml += "<p>hex_str : " + res.hexStr + "</p>" + "<p>topic : " + res.topic + "</p>" +
+									"<p>cmd : " + res.cmd_ten + "<span class='cmdData'> cmd_value :" + socketData.cmd_value + "</span>" + "</p>" +
+									"<p>data--------  action :" + DeviceActionStruct.action +
+									"<span> device_type :" + DeviceActionStruct.device_type + "</span>" + "<span> device_type :" +
+									DeviceActionStruct.priority + "</span>" + "</p>";
+								break;
+							case "HelmetSensorDataStruct":
+								var HelmetSensorDataStruct = socketData.HelmetSensorDataStruct;
+								shtml += "<p>hex_str : " + socketData.hexStr + "</p>" + "<p>topic : " + socketData.topic + "</p>" +
+									"<p>cmd : " + socketData.cmd_ten + "<span class='cmdData'> cmd_value :" + socketData.cmd_value + "</span>" +
+									"</p>" + "<p>data--------  id :" + HelmetSensorDataStruct.id +
+									"<span> vol :" + HelmetSensorDataStruct.vol + "</span>" + "<span> temp :" +
+									HelmetSensorDataStruct.temp + "</span>" + "<span> helmet_on :" +
+									HelmetSensorDataStruct.helmet_on + "</span>" + "</p>";
+								break;
+							case "MotorStartStruct":
+								var MotorStartStruct = socketData.MotorStartStruct;
+								shtml += "<p>hex_str : " + socketData.hexStr + "</p>" + "<p>topic : " + socketData.topic + "</p>" +
+									"<p>cmd : " + socketData.cmd_ten + "<span class='cmdData'> cmd_value :" + socketData.cmd_value + "</span>" +
+									"</p>" + "<p>data--------  fre :" + MotorStartStruct.fre +
+									"<span> dir :" + MotorStartStruct.dir + "</span>" + "<span> duty :" +
+									MotorStartStruct.duty + "</span>" + "<span> hold_time :" + MotorStartStruct.hold_time + "</span>" +
+									"<span> steps :" + MotorStartStruct.steps + "</span>" + "<span> steps_hold :" + MotorStartStruct.steps_hold +
+									"</span>" +
+									"</p>";
+								break;
+							case "MotorStopStruct":
+								var MotorStartStruct = socketData.MotorStartStruct;
+								shtml += "<p>hex_str : " + socketData.hexStr + "</p>" + "<p>topic : " + socketData.topic + "</p>" +
+									"<p>cmd : " + socketData.cmd_ten + "<span class='cmdData'> cmd_value :" + socketData.cmd_value + "</span>" +
+									"</p>";
+								break;
+						}
+					}
+					shtml += "</div>";
+					//接收的数据
+					$("#sendMsgText").append(shtml);
+					//滚动条保持最底部
+					var div = document.getElementById('sendMsgText');
+					div.scrollTop = div.scrollHeight;
 				}
-				//接收的数据
-				$("#sendMsgText").append(shtml_dataType);
-
-				//发送的数据
-				$("#sendDataArea").append(send_html);
-
-				//滚动条保持最底部
-				var div = document.getElementById('sendMsgText');
-				div.scrollTop = div.scrollHeight;
-
-				//滚动条保持最底部
-				var div_send = document.getElementById('sendDataArea');
-				div_send.scrollTop = div_send.scrollHeight;
 			}
 		}
 	}

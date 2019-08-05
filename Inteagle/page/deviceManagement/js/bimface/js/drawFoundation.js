@@ -1,5 +1,5 @@
 var viewToken = "";
-var foundationPATH="https://www.inteagle.com.cn/Inteagle/";
+var foundationPATH="https://www.inteagle.com.cn/Inteagle_java/";
 //获取viewToken
 $.ajax({
 	url: foundationPATH + "bim/getViewToken",

@@ -74,8 +74,6 @@
 	width: 15.3125rem;
 	height: 2.5625rem;
 	font-size: 1.125rem;
-	background: rgba(213, 213, 213, 1);
-	color: rgba(100, 100, 100, 1);
 }
 
 .slideValueArea {
@@ -320,4 +318,8 @@
 	width: 100%;
 	height: 86vh;
 	margin-top: 1.25rem;
+}
+.buttonGroup{
+	position: absolute;
+	margin-top: 12.5rem;
 }

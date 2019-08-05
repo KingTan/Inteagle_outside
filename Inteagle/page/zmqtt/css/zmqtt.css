@@ -65,3 +65,27 @@
 #sendDataArea .dataTypeArea {
 	margin-top: 1.3125rem;
 }
+
+.singleMsgArea {
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 30px;
+	text-indent: 2rem;
+}
+
+.singleMsgArea p:last-child {
+	border-bottom: 0.0625rem solid yellowgreen;
+	padding-bottom: 0.3125rem;
+}
+
+.singleMsgArea p:first-child {
+	margin-top: 0.625rem;
+}
+
+.singleMsgArea p span{
+	margin-left: 0.625rem;
+}
+
+.cmdData{
+	color: orangered;
+}

@@ -1,4 +1,4 @@
-var positionPATH = "https://www.inteagle.com.cn/Inteagle/";
+var positionPATH = "https://www.inteagle.com.cn/Inteagle_java/";
 var viewToken = "";
 
 //获取viewToken
