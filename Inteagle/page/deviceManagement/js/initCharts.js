@@ -2,143 +2,192 @@
 function inintialEcharts(id, rate, data) {
 	// 基于准备好的dom，初始化echarts实例
 	var myChart = echarts.init(document.getElementById('bigCharts'));
-	var text = 'id:' + id + ' ' + rate;
+	//X轴显示的数据
+	var x_rate_data = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30];
+
+	var timeData = [];
+		
+	var data_option=[];	
+		
+	//总数据数组
+	var data_array=[{"2019/8/6 08:00":[{"x":12,"y":20},{"x":24,"y":20},{"x":38,"y":30},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36}]},
+					{"2019/8/6 09:00":[{"x":22,"y":12},{"x":20,"y":12},{"x":28,"y":26},{"x":19,"y":32},{"x":12,"y":33},{"x":11,"y":12}]},
+					{"2019/8/6 10:00":[{"x":32,"y":33},{"x":13,"y":22},{"x":16,"y":33},{"x":32,"y":14},{"x":42,"y":21},{"x":22,"y":32}]},
+					{"2019/8/6 11:00":[{"x":15,"y":24},{"x":46,"y":35},{"x":34,"y":26},{"x":25,"y":28},{"x":23,"y":12},{"x":33,"y":43}]},
+					{"2019/8/6 12:00":[{"x":23,"y":16},{"x":25,"y":38},{"x":25,"y":18},{"x":45,"y":36},{"x":12,"y":18},{"x":44,"y":23}]},
+					{"2019/8/6 13:00":[{"x":24,"y":46},{"x":32,"y":25},{"x":27,"y":32},{"x":32,"y":32},{"x":34,"y":29},{"x":21,"y":12}]}
+				]
 	
-	//初始化数据
-	data = [
-		["x", "y", "z", "t"],
-		["1", "2", "3", "2019-07-23 08:00:00"],
-		["2", "3", "4", "2019-07-23 08:10:00"],
-		["3", "4", "5", "2019-07-23 08:20:00"],
-		["4", "5", "6", "2019-07-23 08:30:00"],
-		["5", "6", "7", "2019-07-23 08:40:00"],
-		["6", "7", "8", "2019-07-23 08:50:00"],
-		["7", "8", "9", "2019-07-23 09:00:00"],
-		["8", "9", "10", "2019-07-23 09:10:00"],
-		["9", "10", "11", "2019-07-23 09:20:00"]
-	];
-	var symbolSize = 8.5;
+	for (var i = 0; i < data_array.length; i++) {
+		var single_x_data=[];
+		var single_y_data=[];
+		var json_data=data_array[i];
+		//获取所有的时间
+		for(var key in json_data){
+			timeData.push(key);
+			var singleData=json_data[key];
+			for(var j=0;j<singleData.length;j++){
+				single_x_data.push(singleData[j].x);
+				single_y_data.push(singleData[j].y)
+			}
+			console.log("single_x_data----------",single_x_data);
+			console.log("single_y_data------------",single_y_data)
+			data_option.push(setSingleOption(single_x_data,single_y_data));
+		}
+	}
 	
-	var option = {
-		tooltip: {},
-		grid3D: {
-			width: '100%'
-		},
-		xAxis3D: {},
-		yAxis3D: {},
-		zAxis3D: {},
-		dataset: {
-			dimensions: [
-				'x',
-				'y',
-				'z',
+	console.log("data_option",data_option);
+	
+	
+	timeData = timeData.map(function(str) {
+		return str.replace('2019/', '');
+	});
+	
+	function setSingleOption(single_x_data,single_y_data){
+		// 单个配置项
+		var singleOption = {
+			title: {
+				text: '深层水平位移',
+				// subtext: '数据来自西安兰特水电测控技术有限公司',
+				x: 'center'
+			},
+			tooltip: {
+				trigger: 'axis',
+				axisPointer: {
+					animation: false
+				}
+			},
+			legend: {
+				data: ['位移量', '位移量'],
+				x: 'left'
+			},
+			toolbox: {
+				feature: {
+					dataZoom: {
+						yAxisIndex: 'none'
+					},
+					restore: {},
+					saveAsImage: {}
+				}
+			},
+			axisPointer: {
+				link: {
+					xAxisIndex: 'all'
+				}
+			},
+			grid: [{
+				left: 50,
+				right: 50,
+				height: '35%'
+			}, {
+				left: 50,
+				right: 50,
+				top: '55%',
+				height: '35%'
+			}],
+			xAxis: [{
+					type: 'category',
+					name: '深度(mm)',
+					boundaryGap: false,
+					axisLine: {
+						onZero: true,
+						lineStyle: {
+							type: 'dashed'
+						}
+					},
+					data: x_rate_data
+				},
 				{
-					name: "time",
-					type: "ordinal"
+					gridIndex: 1,
+					name: '深度(mm)',
+					type: 'category',
+					boundaryGap: false,
+					axisLine: {
+						onZero: true,
+						lineStyle: {
+							type: 'dashed'
+						}
+					},
+					data: x_rate_data
 				}
 			],
-			source: data
+			yAxis: [{
+					name: 'x_位移量(mm)',
+					nameGap: 20,
+					type: 'value',
+					max: 50,
+					min: -50
+				},
+				{
+					gridIndex: 1,
+					nameGap: 30,
+					name: 'y_位移量(mm)',
+					type: 'value',
+					max: 50,
+					min: -50,
+					inverse: false
+				}
+			],
+			series: [{
+					name: 'x_位移量',
+					type: 'line',
+					symbolSize: 8,
+					hoverAnimation: false,
+					data: single_x_data
+				},
+				{
+					name: 'y_位移量',
+					type: 'line',
+					xAxisIndex: 1,
+					yAxisIndex: 1,
+					symbolSize: 8,
+					hoverAnimation: false,
+					data: single_y_data
+				}
+			]
+		};
+		
+		return singleOption;
+	}
+	
+	
+	// 总配置项
+	var option = {
+		baseOption: {
+			timeline: {
+				show: true,
+				bottom: 0,
+				left: 50,
+				type: 'slider',
+				axisType: 'category',
+				// autoPlay: false,
+				// playInterval: 1000,
+				loop: true,
+				data: timeData,
+				controlStyle: {
+					showPlayBtn: false
+				}
+			},
 		},
-		series: [{
-			type: 'scatter3D',
-			symbolSize: symbolSize,
-			encode: {
-				x: 'x',
-				y: 'y',
-				z: 'z',
-				t: 't',
-				tooltip: [0, 1, 2, 3]
-			}
-		}]
+		options: data_option
 	};
+
 	// 使用刚指定的配置项和数据显示图表。
 	myChart.setOption(option);
+
 }
 
 //初始化热力图
-function initHeatCharts(data){
-	//基于准备好的dom，初始化echarts实例
-	var myChart = echarts.init(document.getElementById('heatCharts'), 'light');
-	
-	var hours = ['08:00:00', '08:10:00', '08:20:00', '08:30:00', '08:40:00', '08:50:00', '09:00:00'];
-	
-	var days = ['1m', '2m', '3m',
-		'4m', '5m', '6m', '7m'
-	];
-	
-	data = [
-		[0, 0, 1],
-		[1, 0, 2],
-		[2, 0, 3],
-		[3, 0, 4],
-		[0, 1, 5],
-		[1, 1, 6],
-		[2, 1, 7]
-	];
-	
-	data = data.map(function(item) {
-		return [item[1], item[0], item[2] || '-'];
-	});
-	
-	option = {
-		tooltip: {
-			position: 'top'
-		},
-		animation: false,
-		grid: {
-			height: '50%',
-			y: '10%'
-		},
-		xAxis: {
-			type: 'category',
-			name: "时间",
-			data: hours,
-			splitArea: {
-				show: true
-			}
-		},
-		yAxis: {
-			type: 'category',
-			name: "深度",
-			data: days,
-			splitArea: {
-				show: true
-			}
-		},
-		visualMap: {
-			min: 0,
-			max: 10,
-			calculable: true,
-			orient: 'horizontal',
-			left: 'center',
-			bottom: '15%'
-		},
-		series: [{
-			name: '水平位移',
-			type: 'heatmap',
-			data: data,
-			label: {
-				normal: {
-					show: true
-				}
-			},
-			itemStyle: {
-				emphasis: {
-					shadowBlur: 10,
-					shadowColor: 'rgba(0, 0, 0, 0.5)'
-				}
-			}
-		}]
-	};
-	myChart.setOption(option);
+function initHeatCharts(data) {
+
 }
 
 //初始化 右下echarts
 function inintialRightSLEcharts(data) {
-	
+
 	//显示echarts
 	// $("#rightCharts").show();
-	
+
 	// 基于准备好的dom，初始化echarts实例
 	var myChart = echarts.init(document.getElementById('rightCharts'));
 	var text = "累计水平位移";
@@ -146,13 +195,13 @@ function inintialRightSLEcharts(data) {
 	var option = {
 		title: {
 			text: text,
-			x:'center',
-			y:'top',
-			textAlign:'left',
+			x: 'center',
+			y: 'top',
+			textAlign: 'left',
 			textStyle: {
-			   fontSize:13,
-			   fontFamily:'MicrosoftYaHei-Bold',
-			   color:'rgba(53,78,101,1)',
+				fontSize: 13,
+				fontFamily: 'MicrosoftYaHei-Bold',
+				color: 'rgba(53,78,101,1)',
 			}
 		},
 		tooltip: {
@@ -174,38 +223,38 @@ function inintialRightSLEcharts(data) {
 			type: 'slider'
 		}],
 		visualMap: {
-            top: 10,
-            right: 10,
-			precision:1,
-            pieces: [{
-                min: 0,
-                max: 0.1,
-                color: '#00C00B'
-            }, {
-                min: 0.1,
-                max: 0.2,
-                color: '#FF9B00'
-            }, {
-                min: 0.2,
-                max: 0.3,
-                color: '#CD2423'
-            }, {
-                max: 0,
-                min: -0.1,
-                color: '#00C00B'
-            }, {
-                max: -0.1,
-                min: -0.2,
-                color: '#FF9B00'
-            }, {
-                max: -0.2,
+			top: 10,
+			right: 10,
+			precision: 1,
+			pieces: [{
+				min: 0,
+				max: 0.1,
+				color: '#00C00B'
+			}, {
+				min: 0.1,
+				max: 0.2,
+				color: '#FF9B00'
+			}, {
+				min: 0.2,
+				max: 0.3,
+				color: '#CD2423'
+			}, {
+				max: 0,
+				min: -0.1,
+				color: '#00C00B'
+			}, {
+				max: -0.1,
+				min: -0.2,
+				color: '#FF9B00'
+			}, {
+				max: -0.2,
 				min: -0.3,
-                color: '#CD2423'
-            }],
-            outOfRange: {
-                color: '#CD2423'
-            }
-        },
+				color: '#CD2423'
+			}],
+			outOfRange: {
+				color: '#CD2423'
+			}
+		},
 		series: {
 			name: text,
 			type: 'line',
@@ -224,11 +273,11 @@ function inintialSLEcharts(data) {
 	// 基于准备好的dom，初始化echarts实例
 	var myChart = echarts.init(document.getElementById('slChars'));
 	var hours = ['08:00:00', '08:10:00', '08:20:00', '08:30:00', '08:40:00', '08:50:00', '09:00:00'];
-	
+
 	var days = ['1m', '2m', '3m',
 		'4m', '5m', '6m', '7m'
 	];
-	
+
 	data = [
 		[0, 0, 1],
 		[1, 0, 2],
@@ -238,11 +287,11 @@ function inintialSLEcharts(data) {
 		[1, 1, 6],
 		[2, 1, 7]
 	];
-	
+
 	data = data.map(function(item) {
 		return [item[1], item[0], item[2] || '-'];
 	});
-	
+
 	option = {
 		tooltip: {
 			position: 'top'
@@ -293,7 +342,7 @@ function inintialSLEcharts(data) {
 			}
 		}]
 	};
-	
+
 	/* var text = "围护桩体和土体深层侧向位移偏移速率";
 	//表格配置项
 	var option = {
@@ -356,10 +405,10 @@ function inintialSLEcharts(data) {
 
 //位移图
 function drawRate() {
-	
+
 	//显示画布
 	$(".rightCanvas").show();
-	
+
 	var canvas = document.getElementById("rightCanvas");
 	canvas.width = 280;
 	canvas.height = 300;
@@ -383,76 +432,301 @@ function drawRate() {
 	//设置垂直对齐方式
 	ctx.textBaseline = "middle";
 	//绘制文字（参数：x坐标，y坐标,值）
-	var numberList=[{p:{x:20.5,y:10,number:0}},{p:{x:102,y:10,number:5}},{p:{x:183,y:10,number:10}},{p:{x:265,y:10,number:15}},
-					{p:{x:10,y:20,number:0}},{p:{x:10,y:60,number:2}},{p:{x:10,y:100,number:4}},{p:{x:10,y:140,number:6}},
-					{p:{x:10,y:180,number:8}},{p:{x:10,y:220,number:10}},{p:{x:10,y:260,number:12}}];
+	var numberList = [{
+			p: {
+				x: 20.5,
+				y: 10,
+				number: 0
+			}
+		}, {
+			p: {
+				x: 102,
+				y: 10,
+				number: 5
+			}
+		}, {
+			p: {
+				x: 183,
+				y: 10,
+				number: 10
+			}
+		}, {
+			p: {
+				x: 265,
+				y: 10,
+				number: 15
+			}
+		},
+		{
+			p: {
+				x: 10,
+				y: 20,
+				number: 0
+			}
+		}, {
+			p: {
+				x: 10,
+				y: 60,
+				number: 2
+			}
+		}, {
+			p: {
+				x: 10,
+				y: 100,
+				number: 4
+			}
+		}, {
+			p: {
+				x: 10,
+				y: 140,
+				number: 6
+			}
+		},
+		{
+			p: {
+				x: 10,
+				y: 180,
+				number: 8
+			}
+		}, {
+			p: {
+				x: 10,
+				y: 220,
+				number: 10
+			}
+		}, {
+			p: {
+				x: 10,
+				y: 260,
+				number: 12
+			}
+		}
+	];
 	for (var i = 0; i < numberList.length; i++) {
 		ctx.fillText(numberList[i].p.number, numberList[i].p.x, numberList[i].p.y);
 	}
 	//绘制坐标轴
-	var numberRateList=[{p:[{x:102,y:20},{x:102,y:30}]},{p:[{x:183,y:20},{x:183,y:30}]},
-						{p:[{x:20,y:60},{x:30,y:60}]},{p:[{x:20,y:100},{x:30,y:100}]},
-						{p:[{x:20,y:140},{x:30,y:140}]},{p:[{x:20,y:180},{x:30,y:180}]},{p:[{x:20,y:220},{x:30,y:220}]}];				
-	for(var i=0;i<numberRateList.length;i++){
+	var numberRateList = [{
+			p: [{
+				x: 102,
+				y: 20
+			}, {
+				x: 102,
+				y: 30
+			}]
+		}, {
+			p: [{
+				x: 183,
+				y: 20
+			}, {
+				x: 183,
+				y: 30
+			}]
+		},
+		{
+			p: [{
+				x: 20,
+				y: 60
+			}, {
+				x: 30,
+				y: 60
+			}]
+		}, {
+			p: [{
+				x: 20,
+				y: 100
+			}, {
+				x: 30,
+				y: 100
+			}]
+		},
+		{
+			p: [{
+				x: 20,
+				y: 140
+			}, {
+				x: 30,
+				y: 140
+			}]
+		}, {
+			p: [{
+				x: 20,
+				y: 180
+			}, {
+				x: 30,
+				y: 180
+			}]
+		}, {
+			p: [{
+				x: 20,
+				y: 220
+			}, {
+				x: 30,
+				y: 220
+			}]
+		}
+	];
+	for (var i = 0; i < numberRateList.length; i++) {
 		ctx.beginPath();
-		ctx.moveTo(numberRateList[i].p[0].x,numberRateList[i].p[0].y);  //定义开始绘制路径
-		for(var j=1;j<numberRateList[i].p.length;j++){
-				ctx.lineTo(numberRateList[i].p[j].x,numberRateList[i].p[j].y);
-			}
+		ctx.moveTo(numberRateList[i].p[0].x, numberRateList[i].p[0].y); //定义开始绘制路径
+		for (var j = 1; j < numberRateList[i].p.length; j++) {
+			ctx.lineTo(numberRateList[i].p[j].x, numberRateList[i].p[j].y);
+		}
 		ctx.closePath();
-		ctx.lineWidth=1;
+		ctx.lineWidth = 1;
 		ctx.stroke();
 	}
-	
+
 	drawDisplacementFilter(ctx);
 
 }
 
 //绘制位移曲线
-function drawDisplacementFilter(ctx){
-	
+function drawDisplacementFilter(ctx) {
+
 	//x,y轴开始坐标
-	var x_begin=20;
-	var y_begin=20;
-	
+	var x_begin = 20;
+	var y_begin = 20;
+
 	//x,y轴 一刻度的倍率
-	var x_rate=16.3;
-	var y_rate=20;
-	
+	var x_rate = 16.3;
+	var y_rate = 20;
+
 	//数据刻度线
-	var disLineList=[{p:[{"x":(x_begin+x_rate*7),"y":(y_begin+y_rate*0),"color":"#FF0000"},{"x":(x_begin+x_rate*5.2),"y":(y_begin+y_rate*1),"color":"#FF0000"}]},
-	 			 {p:[{"x":(x_begin+x_rate*5.2),"y":(y_begin+y_rate*1),"color":"#FED432"},{"x":(x_begin+x_rate*5.2),"y":(y_begin+y_rate*2),"color":"#FED432"}]},
-	 			 {p:[{"x":(x_begin+x_rate*5.2),"y":(y_begin+y_rate*2),"color":"#FED432"},{"x":(x_begin+x_rate*4.5),"y":(y_begin+y_rate*3),"color":"#00C00B"}]},
-	 			 {p:[{"x":(x_begin+x_rate*4.5),"y":(y_begin+y_rate*3),"color":"#00C00B"},{"x":(x_begin+x_rate*4),"y":(y_begin+y_rate*4),"color":"#00C00B"}]},
-	 			 {p:[{"x":(x_begin+x_rate*4),"y":(y_begin+y_rate*4),"color":"#00C00B"},{"x":(x_begin+x_rate*3),"y":(y_begin+y_rate*5),"color":"#00C00B"}]},
-	 			 {p:[{"x":(x_begin+x_rate*3),"y":(y_begin+y_rate*5),"color":"#00C00B"},{"x":(x_begin+x_rate*2.5),"y":(y_begin+y_rate*6),"color":"#00C00B"}]},
-				 {p:[{"x":(x_begin+x_rate*2.5),"y":(y_begin+y_rate*6),"color":"#00C00B"},{"x":(x_begin+x_rate*2),"y":(y_begin+y_rate*7),"color":"#00C00B"}]},
-				 {p:[{"x":(x_begin+x_rate*2),"y":(y_begin+y_rate*7),"color":"#00C00B"},{"x":(x_begin+x_rate*0),"y":(y_begin+y_rate*8),"color":"#00C00B"}]},
-				 {p:[{"x":(x_begin+x_rate*0),"y":(y_begin+y_rate*8),"color":"#00C00B"},{"x":(x_begin+x_rate*0),"y":(y_begin+y_rate*9),"color":"#00C00B"}]},
-				 {p:[{"x":(x_begin+x_rate*0),"y":(y_begin+y_rate*9),"color":"#00C00B"},{"x":(x_begin+x_rate*0),"y":(y_begin+y_rate*10),"color":"#00C00B"}]}];
-	
-	for(var i=0;i<disLineList.length;i++){
+	var disLineList = [{
+			p: [{
+				"x": (x_begin + x_rate * 7),
+				"y": (y_begin + y_rate * 0),
+				"color": "#FF0000"
+			}, {
+				"x": (x_begin + x_rate * 5.2),
+				"y": (y_begin + y_rate * 1),
+				"color": "#FF0000"
+			}]
+		},
+		{
+			p: [{
+				"x": (x_begin + x_rate * 5.2),
+				"y": (y_begin + y_rate * 1),
+				"color": "#FED432"
+			}, {
+				"x": (x_begin + x_rate * 5.2),
+				"y": (y_begin + y_rate * 2),
+				"color": "#FED432"
+			}]
+		},
+		{
+			p: [{
+				"x": (x_begin + x_rate * 5.2),
+				"y": (y_begin + y_rate * 2),
+				"color": "#FED432"
+			}, {
+				"x": (x_begin + x_rate * 4.5),
+				"y": (y_begin + y_rate * 3),
+				"color": "#00C00B"
+			}]
+		},
+		{
+			p: [{
+				"x": (x_begin + x_rate * 4.5),
+				"y": (y_begin + y_rate * 3),
+				"color": "#00C00B"
+			}, {
+				"x": (x_begin + x_rate * 4),
+				"y": (y_begin + y_rate * 4),
+				"color": "#00C00B"
+			}]
+		},
+		{
+			p: [{
+				"x": (x_begin + x_rate * 4),
+				"y": (y_begin + y_rate * 4),
+				"color": "#00C00B"
+			}, {
+				"x": (x_begin + x_rate * 3),
+				"y": (y_begin + y_rate * 5),
+				"color": "#00C00B"
+			}]
+		},
+		{
+			p: [{
+				"x": (x_begin + x_rate * 3),
+				"y": (y_begin + y_rate * 5),
+				"color": "#00C00B"
+			}, {
+				"x": (x_begin + x_rate * 2.5),
+				"y": (y_begin + y_rate * 6),
+				"color": "#00C00B"
+			}]
+		},
+		{
+			p: [{
+				"x": (x_begin + x_rate * 2.5),
+				"y": (y_begin + y_rate * 6),
+				"color": "#00C00B"
+			}, {
+				"x": (x_begin + x_rate * 2),
+				"y": (y_begin + y_rate * 7),
+				"color": "#00C00B"
+			}]
+		},
+		{
+			p: [{
+				"x": (x_begin + x_rate * 2),
+				"y": (y_begin + y_rate * 7),
+				"color": "#00C00B"
+			}, {
+				"x": (x_begin + x_rate * 0),
+				"y": (y_begin + y_rate * 8),
+				"color": "#00C00B"
+			}]
+		},
+		{
+			p: [{
+				"x": (x_begin + x_rate * 0),
+				"y": (y_begin + y_rate * 8),
+				"color": "#00C00B"
+			}, {
+				"x": (x_begin + x_rate * 0),
+				"y": (y_begin + y_rate * 9),
+				"color": "#00C00B"
+			}]
+		},
+		{
+			p: [{
+				"x": (x_begin + x_rate * 0),
+				"y": (y_begin + y_rate * 9),
+				"color": "#00C00B"
+			}, {
+				"x": (x_begin + x_rate * 0),
+				"y": (y_begin + y_rate * 10),
+				"color": "#00C00B"
+			}]
+		}
+	];
+
+	for (var i = 0; i < disLineList.length; i++) {
 		ctx.beginPath();
-		ctx.moveTo(disLineList[i].p[0].x,disLineList[i].p[0].y);  //定义开始绘制路径
-		for(var j=1;j<disLineList[i].p.length;j++){
-				ctx.lineTo(disLineList[i].p[j].x,disLineList[i].p[j].y);
-				ctx.strokeStyle=disLineList[i].p[j].color;	
-				ctx.fillStyle=disLineList[i].p[j].color;
-			}
-		ctx.lineWidth=1;
+		ctx.moveTo(disLineList[i].p[0].x, disLineList[i].p[0].y); //定义开始绘制路径
+		for (var j = 1; j < disLineList[i].p.length; j++) {
+			ctx.lineTo(disLineList[i].p[j].x, disLineList[i].p[j].y);
+			ctx.strokeStyle = disLineList[i].p[j].color;
+			ctx.fillStyle = disLineList[i].p[j].color;
+		}
+		ctx.lineWidth = 1;
 		ctx.closePath();
 		ctx.stroke();
-		
+
 		//绘制矩形
 		ctx.beginPath();
-		ctx.fillRect(disLineList[i].p[0].x-5,disLineList[i].p[0].y, 6, 6);
+		ctx.fillRect(disLineList[i].p[0].x - 5, disLineList[i].p[0].y, 6, 6);
 		ctx.closePath();
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
 }
 
 

@@ -33,10 +33,10 @@ $(function() {
 	//初始化 大Echarts
 	inintialEcharts(id, rate, initialData);
 	
-	initHeatCharts();
+	// initHeatCharts();
 	
 	//初始化 左下Echarts
-	inintialSLEcharts(initialData);
+	// inintialSLEcharts(initialData);
 
 	// switch (router) {
 	// 	case "foundation":

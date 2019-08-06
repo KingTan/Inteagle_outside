@@ -7,12 +7,28 @@ var clickNum = 1;
  * 页面加载事件
  */
 $(function() {
+
+	//判断是否登录
+	// getLoginUserInfo();
+
 	//canvas绘制拉托工具
 	canvasTool();
-
 	//页面加载时 切换到首页
 	onLoadShow();
 })
+
+/**
+ * 获取登录对象
+ */
+function getLoginUserInfo() {
+	var LocalUser = sessionStorage.getItem("LoginUserInfo");
+	console.log("LocalUser--------", LocalUser);
+	if (LocalUser == undefined || LocalUser == null) {
+		window.location.href = "../login/login.html";
+	}
+}
+
+
 
 /**
  * 点击Integer Logo页面重载

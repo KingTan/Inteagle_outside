@@ -1,12 +1,7 @@
 #bigCharts {
-	width: 560px;
-	height: 25rem;
-	position: absolute;
-}
-
-#bigCharts canvas {
-	left: -3.6875rem !important;
-	top: -1.125rem !important;
+	width: 60vw;
+	height: 40rem;
+	margin-top: 20px;
 }
 
 #heatCharts {

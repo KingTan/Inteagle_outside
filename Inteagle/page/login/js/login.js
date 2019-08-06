@@ -33,9 +33,9 @@ $("#loginBtn").bind("click", function() {
 		return;
 	}
 	//执行登录
-	// login(loginName, passWord);
+	login(loginName, passWord);
 
-	window.location.href = "../index/index.html";
+	// window.location.href = "../index/index.html";
 })
 
 /**
@@ -78,14 +78,14 @@ function login(searchParam, pwd) {
 				})
 			} else {
 				//保存当前登录用户信息
-				localStorage.setItem("LoginUserInfo", JSON.stringify(res.data));
+				sessionStorage.setItem("LoginUserInfo", JSON.stringify(res.data));
 				//跳转到index界面
 				layer.ready(function() {
 					layer.msg("登录成功", {
 						icon: 1,
 						time: 1000
 					}, function() {
-						/* window.location.href = "../index/index.html"; */
+						 window.location.href = "../index/index.html"; 
 					});
 				})
 			}

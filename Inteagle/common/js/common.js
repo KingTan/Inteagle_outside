@@ -4,7 +4,10 @@ var laydate;
 //是否大屏幕显示
 var isBigScreen;
 //服务器地址
-const PATH = "http://127.0.0.1:8080/";
+// const PATH = "http://127.0.0.1:8080/";
+
+const PATH="https://www.inteagle.com.cn/Inteagle_java/";
+
 
 $(function() {
 	//屏幕分辨率的宽高

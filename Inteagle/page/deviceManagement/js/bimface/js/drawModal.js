@@ -42,7 +42,7 @@ function onSDKLoadSucceeded(viewMetaData) {
 	
 	//tdsLoader.js
 	//http://static.bimface.com/attach/341bb8bde7bf4a5898ecdf58c2a476fb_TDSLoader.js
-	loadScript("http://static.bimface.com/attach/341bb8bde7bf4a5898ecdf58c2a476fb_TDSLoader.js");
+	loadScript("https://static.bimface.com/attach/341bb8bde7bf4a5898ecdf58c2a476fb_TDSLoader.js");
 	var dom4Show = document.getElementById('view');
 	var webAppConfig = new Glodon.Bimface.Application.WebApplication3DConfig();
 	webAppConfig.domElement = dom4Show;
@@ -83,9 +83,9 @@ function load(x,y,z) {
 		var tempQuaternion = new THREE.Quaternion();
 		tempQuaternion.setFromAxisAngle(new THREE.Vector3(0.0, 0.0, 1.0), 4.6);
 
-		setTransform("ball_1", new THREE.Vector3(x, y, z), new THREE.Vector3(2, 2, 2), tempQuaternion);
+		setTransform("ball_1", new THREE.Vector3(x, y, z), new THREE.Vector3(1, 1, 1), tempQuaternion);
 		
-		setTransform("ball_2", new THREE.Vector3(120, 200, 20), new THREE.Vector3(2, 2, 2));
+		setTransform("ball_2", new THREE.Vector3(120, 200, 20), new THREE.Vector3(1, 1, 1));
 		
 		console.log("加载外部构件...");
 		
