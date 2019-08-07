@@ -39,7 +39,6 @@ function removeExternalObject(viewer3D, objectName) {
 function onSDKLoadSucceeded(viewMetaData) {
 
 	//tdsLoader.js
-	//http://static.bimface.com/attach/341bb8bde7bf4a5898ecdf58c2a476fb_TDSLoader.js
 	loadScript("http://static.bimface.com/attach/341bb8bde7bf4a5898ecdf58c2a476fb_TDSLoader.js");
 	var dom4Show = document.getElementById('view');
 	var webAppConfig = new Glodon.Bimface.Application.WebApplication3DConfig();
@@ -64,10 +63,16 @@ function onSDKLoadSucceeded(viewMetaData) {
 	//鼠标单击事件
 	viewer.addEventListener(Glodon.Bimface.Viewer.Viewer3DEvent.MouseClicked, function(objectData) {
 		console.log("点击模型");
-
 		console.log("objectData----", objectData);
-
 		console.log("相机视野对象", viewer.getCameraStatus());
+		
+		var objectId=objectData.objectId;
+		
+		if(objectId=="nd76a5a636-207e-4295-8be9-3fce014fd69d"){
+			//跳转到对应圆点的 图表  页面
+			 window.location.href = "charts.html?id=" + objectId+"&router=foundation";
+		}
+		
 	});
 
 	//模型上显示 图片标签
@@ -103,6 +108,7 @@ function onSDKLoadSucceeded(viewMetaData) {
 
 
 }
+
 
 //加载外部构件
 function load(x, y, z) {

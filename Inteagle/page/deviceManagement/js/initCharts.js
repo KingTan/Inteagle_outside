@@ -1,54 +1,62 @@
 //初始化 大echarts
-function inintialEcharts(id, rate, data) {
+function inintialEcharts(id, data_single_array_all) {
 	// 基于准备好的dom，初始化echarts实例
 	var myChart = echarts.init(document.getElementById('bigCharts'));
 	//X轴显示的数据
 	var x_rate_data = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30];
 
+	// 总时间数组
 	var timeData = [];
-		
-	var data_option=[];	
-		
+	
+	//总配置项数组
+	var data_option = [];
+	
 	//总数据数组
-	var data_array=[{"2019/8/6 08:00":[{"x":12,"y":20},{"x":24,"y":20},{"x":38,"y":30},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36}]},
-					{"2019/8/6 09:00":[{"x":22,"y":12},{"x":20,"y":12},{"x":28,"y":26},{"x":19,"y":32},{"x":12,"y":33},{"x":11,"y":12}]},
-					{"2019/8/6 10:00":[{"x":32,"y":33},{"x":13,"y":22},{"x":16,"y":33},{"x":32,"y":14},{"x":42,"y":21},{"x":22,"y":32}]},
-					{"2019/8/6 11:00":[{"x":15,"y":24},{"x":46,"y":35},{"x":34,"y":26},{"x":25,"y":28},{"x":23,"y":12},{"x":33,"y":43}]},
-					{"2019/8/6 12:00":[{"x":23,"y":16},{"x":25,"y":38},{"x":25,"y":18},{"x":45,"y":36},{"x":12,"y":18},{"x":44,"y":23}]},
-					{"2019/8/6 13:00":[{"x":24,"y":46},{"x":32,"y":25},{"x":27,"y":32},{"x":32,"y":32},{"x":34,"y":29},{"x":21,"y":12}]}
-				]
+	var data_array = [];
+	
+	// var data_array=	[{"2019/8/6 08:00:00":[{"x":12,"y":20},{"x":24,"y":20},{"x":38,"y":30},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":12,"y":20},{"x":24,"y":20},{"x":38,"y":30},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":-17,"y":27}]},
+	// 				{"2019/8/6 09:00:00":[{"x":22,"y":12},{"x":20,"y":12},{"x":28,"y":26},{"x":19,"y":32},{"x":12,"y":33},{"x":11,"y":12},{"x":12,"y":20},{"x":24,"y":20},{"x":38,"y":30},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":-17,"y":27}]},
+	// 				{"2019/8/6 10:00:00":[{"x":32,"y":33},{"x":13,"y":22},{"x":16,"y":33},{"x":32,"y":14},{"x":42,"y":21},{"x":22,"y":32},{"x":12,"y":20},{"x":24,"y":20},{"x":38,"y":30},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":-17,"y":27}]},
+	// 				{"2019/8/6 11:00:00":[{"x":15,"y":24},{"x":46,"y":35},{"x":34,"y":26},{"x":25,"y":28},{"x":23,"y":12},{"x":33,"y":43},{"x":12,"y":20},{"x":24,"y":20},{"x":38,"y":30},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":-17,"y":27}]},
+	// 				{"2019/8/6 12:00:00":[{"x":23,"y":16},{"x":25,"y":38},{"x":25,"y":18},{"x":45,"y":36},{"x":12,"y":18},{"x":44,"y":23},{"x":12,"y":20},{"x":24,"y":20},{"x":38,"y":30},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":-17,"y":27}]},
+	// 				{"2019/8/6 13:00:00":[{"x":24,"y":46},{"x":32,"y":25},{"x":27,"y":32},{"x":32,"y":32},{"x":34,"y":29},{"x":21,"y":12},{"x":12,"y":20},{"x":24,"y":20},{"x":38,"y":30},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":-17,"y":27}]}
+	// 			];
+	
+	if (data_single_array_all != null && data_single_array_all != undefined) {
+		data_array = data_array.concat(data_single_array_all)
+	}
+
+	console.log("data-array------------", data_array);
 	
 	for (var i = 0; i < data_array.length; i++) {
-		var single_x_data=[];
-		var single_y_data=[];
-		var json_data=data_array[i];
+		var single_x_data = [];
+		var single_y_data = [];
+		var json_data = data_array[i];
 		//获取所有的时间
-		for(var key in json_data){
+		for (var key in json_data) {
 			timeData.push(key);
-			var singleData=json_data[key];
-			for(var j=0;j<singleData.length;j++){
+			var singleData = json_data[key];
+			for (var j = 0; j < singleData.length; j++) {
 				single_x_data.push(singleData[j].x);
 				single_y_data.push(singleData[j].y)
 			}
-			console.log("single_x_data----------",single_x_data);
-			console.log("single_y_data------------",single_y_data)
-			data_option.push(setSingleOption(single_x_data,single_y_data));
+			// console.log("single_x_data----------", single_x_data);
+			// console.log("single_y_data------------", single_y_data)
+			data_option.push(setSingleOption(single_x_data, single_y_data));
 		}
 	}
-	
-	console.log("data_option",data_option);
-	
-	
+
 	timeData = timeData.map(function(str) {
 		return str.replace('2019/', '');
 	});
-	
-	function setSingleOption(single_x_data,single_y_data){
+
+	console.log("data_option", data_option);
+
+	function setSingleOption(single_x_data, single_y_data) {
 		// 单个配置项
 		var singleOption = {
 			title: {
 				text: '深层水平位移',
-				// subtext: '数据来自西安兰特水电测控技术有限公司',
 				x: 'center'
 			},
 			tooltip: {
@@ -61,15 +69,6 @@ function inintialEcharts(id, rate, data) {
 				data: ['位移量', '位移量'],
 				x: 'left'
 			},
-			toolbox: {
-				feature: {
-					dataZoom: {
-						yAxisIndex: 'none'
-					},
-					restore: {},
-					saveAsImage: {}
-				}
-			},
 			axisPointer: {
 				link: {
 					xAxisIndex: 'all'
@@ -78,34 +77,36 @@ function inintialEcharts(id, rate, data) {
 			grid: [{
 				left: 50,
 				right: 50,
-				height: '35%'
+				height: '30%'
 			}, {
 				left: 50,
 				right: 50,
 				top: '55%',
-				height: '35%'
+				height: '30%'
 			}],
 			xAxis: [{
 					type: 'category',
-					name: '深度(mm)',
+					name: '深度(m)',
+					nameGap: 5,
 					boundaryGap: false,
 					axisLine: {
-						onZero: true,
+						onZero: false,
 						lineStyle: {
-							type: 'dashed'
+							type: 'solid'
 						}
 					},
 					data: x_rate_data
 				},
 				{
 					gridIndex: 1,
-					name: '深度(mm)',
+					name: '深度(m)',
 					type: 'category',
+					nameGap: 5,
 					boundaryGap: false,
 					axisLine: {
-						onZero: true,
+						onZero: false,
 						lineStyle: {
-							type: 'dashed'
+							type: 'solid'
 						}
 					},
 					data: x_rate_data
@@ -132,7 +133,7 @@ function inintialEcharts(id, rate, data) {
 					name: 'x_位移量',
 					type: 'line',
 					symbolSize: 8,
-					hoverAnimation: false,
+					hoverAnimation: true,
 					data: single_x_data
 				},
 				{
@@ -141,28 +142,29 @@ function inintialEcharts(id, rate, data) {
 					xAxisIndex: 1,
 					yAxisIndex: 1,
 					symbolSize: 8,
-					hoverAnimation: false,
+					hoverAnimation: true,
 					data: single_y_data
 				}
 			]
 		};
-		
+
 		return singleOption;
 	}
-	
-	
+
 	// 总配置项
 	var option = {
 		baseOption: {
 			timeline: {
 				show: true,
 				bottom: 0,
-				left: 50,
+				left: 80,
 				type: 'slider',
 				axisType: 'category',
-				// autoPlay: false,
+				// autoPlay: true,
 				// playInterval: 1000,
-				loop: true,
+				currentIndex: data_array.length - 1,
+				loop: false,
+				symbolSize: 10,
 				data: timeData,
 				controlStyle: {
 					showPlayBtn: false

@@ -31,7 +31,7 @@ $(function() {
 	intialBtnGroup("normal_1");
 	
 	//初始化 大Echarts
-	inintialEcharts(id, rate, initialData);
+	inintialEcharts(id,null);
 	
 	// initHeatCharts();
 	
