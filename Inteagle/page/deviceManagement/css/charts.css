@@ -1,5 +1,5 @@
 #bigCharts {
-	width: 60vw;
+	width: 70vw;
 	height: 40rem;
 	margin-top: 20px;
 }
@@ -23,6 +23,19 @@
 
 .topCharts {
 	position: relative;
+	margin-top: 0.625rem;
+}
+
+.chartsArea {
+	position: relative;
+}
+
+.deviceIDArea {
+	position: absolute;
+	font-size: 16px;
+	font-weight: bold;
+	margin-top: 15px;
+	margin-left: 50px;
 }
 
 .downArea {

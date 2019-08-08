@@ -28,14 +28,16 @@ function getLoginUserInfo() {
 	}
 }
 
-
-
 /**
  * 点击Integer Logo页面重载
  */
 $(".logoTextStr").bind("click", function(e) {
+	//跳转到主页
+	window.location.href="../index/index.html";
+	
+	
 	//当前页面重载
-	window.location.reload();
+	// window.location.reload();
 })
 
 /**

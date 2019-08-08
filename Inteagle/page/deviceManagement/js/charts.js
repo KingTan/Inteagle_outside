@@ -1,4 +1,8 @@
 var id = getParam("id");
+//当前选中设备id
+$(".checked_id").text(id);
+
+
 var rate = "x";
 
 //初始化数据
@@ -92,31 +96,33 @@ layui.use('form', function() {
  */
 function clickFounBtn(e) {
 	var choose_id = $(e).attr("data-index");
+	
+	//当前选中设备id
+	$(".checked_id").text(choose_id);
+	
 	//初始化 大Echarts
-	inintialEcharts(choose_id, rate, initialData);
+	inintialEcharts(choose_id,null);
 	//初始化 左下Echarts
-	inintialSLEcharts(initialData);
-	
-	console.log(router);
-	
-	switch (router) {
-		case "foundation":
-			//初始化 右下canvas画布
-			drawRate();
-			break;
-		case "deepMove":
-			//初始化 右下canvas画布
-			drawRate();
-			break;
-		case "topLevel":
-			//初始化 右下Echarts
-			inintialRightSLEcharts(rightChartsData);
-			break;
-		case "topVertical":
-			//初始化 右下Echarts
-			inintialRightSLEcharts(rightChartsData);
-			break;
-	}
+	// inintialSLEcharts(initialData);
+	// console.log(router);
+	// switch (router) {
+	// 	case "foundation":
+	// 		//初始化 右下canvas画布
+	// 		drawRate();
+	// 		break;
+	// 	case "deepMove":
+	// 		//初始化 右下canvas画布
+	// 		drawRate();
+	// 		break;
+	// 	case "topLevel":
+	// 		//初始化 右下Echarts
+	// 		inintialRightSLEcharts(rightChartsData);
+	// 		break;
+	// 	case "topVertical":
+	// 		//初始化 右下Echarts
+	// 		inintialRightSLEcharts(rightChartsData);
+	// 		break;
+	// }
 }
 
 
@@ -131,7 +137,7 @@ function intialBtnGroup(order) {
 	//优先数据数组
 	var orderList = [];
 
-	for (var i = 0; i < 80; i++) {
+	for (var i = 0; i < 35; i++) {
 		var status = "normal";
 		if (i % 11 == 0) {
 			status = "warning";

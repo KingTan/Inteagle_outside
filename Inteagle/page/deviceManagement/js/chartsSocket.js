@@ -1,7 +1,7 @@
 var socket;
 
 // 本地socket路径
-// const wsServer = "ws://localhost:8080/chartsSocket/001";
+const wsServer = "ws://localhost:8080/chartsSocket/001";
 
 // 服务器socket路径
 // const wsServer = "wss://www.inteagle.com.cn/Inteagle_java/chartsSocket/001";
@@ -28,13 +28,14 @@ if (typeof(WebSocket) == "undefined") {
 			} else {
 				if (res.messageType == "foundation") {
 					var data_array_single = res.data;
-					if (data_single_array_all.length > 7) {
-						data_single_array_all = [data_single_array_all.pop()];
-					}
 					
-					console.log("data_single_array_all------------", data_single_array_all);
-					data_single_array_all.push(data_array_single);
-					inintialEcharts("001", data_single_array_all);
+					// if (data_single_array_all.length > 7) {
+					// 	data_single_array_all = [data_single_array_all.pop()];
+					// }
+					// console.log("data_single_array_all------------", data_single_array_all);
+					// data_single_array_all.push(data_array_single);
+					
+					inintialEcharts("001", data_array_single);
 				}
 			}
 		}

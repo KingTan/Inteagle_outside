@@ -2,6 +2,7 @@
 	width: 100%;
 	height: 86vh;
 	margin-top: 1.25rem;
+	margin-bottom: 1.25rem;
 }
 
 @media only screen and (max-width: 1200px) {
