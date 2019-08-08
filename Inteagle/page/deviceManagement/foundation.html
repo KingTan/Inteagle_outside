@@ -13,6 +13,9 @@
 		<link href="../visitorManagement/css/visitorManagement.css" rel="stylesheet" />
 		<link href="css/router.css" rel="stylesheet" />
 		<link href="css/foundation.css" rel="stylesheet" />
+		<style>
+			.button {margin: 5px auto; width: 80px; height: 30px; background: #11DAB7; color: #FFFFFF; border-radius: 3px; border: none; cursor: pointer}
+		</style>
 	</head>
 	<body>
 		<div class="column mainBody">
@@ -65,7 +68,10 @@
 			<!-- <div class="foundationPic">
 				<canvas id="myCanvas" style="border: 1px solid black;"></canvas>
 			</div> -->
-
+			<div class='buttons'>
+				<button type="button" class="button" onclick="transparentComponents()">设置半透明</button>
+				<button type="button" class="button" onclick="opaqueComponents()">取消半透明</button>
+			</div>
 			<div class='main'>
 				<div class='model' id="domId"></div>
 			</div>

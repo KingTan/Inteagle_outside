@@ -1,10 +1,10 @@
 var socket;
 
 // 本地socket路径
-const wsServer = "ws://localhost:8080/chartsSocket/001";
+// const wsServer = "ws://localhost:8080/chartsSocket/001";
 
 // 服务器socket路径
-// const wsServer = "wss://www.inteagle.com.cn/Inteagle_java/chartsSocket/001";
+const wsServer = "wss://www.inteagle.com.cn/Inteagle_java/chartsSocket/001";
 
 //收到的总数据
 var data_single_array_all = [];
