@@ -1,0 +1,22 @@
+.tableArea {
+	width: 50vw;
+	margin: 0rem auto;
+	margin-top: 1.875rem;
+}
+
+.dataTable {
+	width: 100%;
+	text-align: center;
+	border-collapse: collapse;
+	padding: 0.125rem;
+}
+
+.dataTable tr th {
+	height: 2.375rem;
+	border: 0.0625rem solid rgba(231, 240, 247, 1);
+}
+
+.dataTable tr td {
+	height: 2.375rem;
+	border: 0.0625rem solid rgba(231, 240, 247, 1);
+}

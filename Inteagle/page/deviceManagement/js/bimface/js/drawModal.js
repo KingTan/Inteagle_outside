@@ -7,8 +7,7 @@ $.ajax({
 	type: "post",
 	async: false,
 	data: {
-		//1660625452746048
-		fileId: "1660625452746048"
+		fileId: "1667797934105760"
 	},
 	success: function(res) {
 		console.log("res", res);
@@ -100,7 +99,7 @@ function onSDKLoadFailed(error) {
 }
 
 // 轨迹模拟
-function animation() {
+function animation(x,y,z) {
 
 	if (viewAdded) {
 		var position1 = new THREE.Vector3(x, y, z);

@@ -704,7 +704,10 @@
 		<script src="js/dealSocket.js" type="text/javascript"></script>
 		<script src="js/drawCanvas.js" type="text/javascript"></script>
 		<script src="js/index.js" type="text/javascript"></script>
-
+		
+		<!-- echarts -->
+		<script src="../../common/js/echarts.min.js" type="text/javascript"></script>
+		<script src="../deviceManagement/js/initCharts.js" type="text/javascript"></script>
 		<!-- 添加班制基本信息弹窗 -->
 		<script type="text/template" id="addAttendaceModel">
 			<div class="addAttendanceBox">
@@ -1564,6 +1567,16 @@
 				<div class="row speedBtnGroup ">
 					<button type="button" class="layui-btn layui-btn-normal confirmBtn">确认</button>
 					<button type="button" class="layui-btn layui-btn-normal resetBtnSec">重置</button>
+				</div>
+			</div>
+		</script>
+		
+		<!-- 选中时间后 表格弹窗 -->
+		<script type="text/template" id="checkTimeChartsModal">
+			<div class="deepCharts">
+				<div class="deviceIDArea">ID: <span class="checked_id">[check_id]</span></div>
+				<div class="row topCharts">
+					<div id="checkedCharts"></div>
 				</div>
 			</div>
 		</script>

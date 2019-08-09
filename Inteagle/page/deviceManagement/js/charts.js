@@ -1,9 +1,8 @@
 var id = getParam("id");
-//当前选中设备id
-$(".checked_id").text(id);
-
-
-var rate = "x";
+if (id != null) {
+	//当前选中设备id
+	$(".checked_id").text(id);
+}
 
 //初始化数据
 var initialData = [
@@ -30,40 +29,40 @@ var router = getParam("router");
  * 页面加载事件
  */
 $(function() {
+	//初始化laydate
+	initialLayDate();
 	
 	// 初始化右边按钮组
 	intialBtnGroup("normal_1");
-	
-	//初始化 大Echarts
-	inintialEcharts(id,null);
-	
-	// initHeatCharts();
-	
-	//初始化 左下Echarts
-	// inintialSLEcharts(initialData);
 
-	// switch (router) {
-	// 	case "foundation":
-	// 		//初始化 右下canvas画布
-	// 		drawRate();
-	// 		break;
-	// 	case "deepMove":
-	// 		//初始化 右下canvas画布
-	// 		drawRate();
-	// 		break;
-	// 	case "topLevel":
-	// 		//初始化 右下Echarts
-	// 		inintialRightSLEcharts(rightChartsData);
-	// 		break;
-	// 	case "topVertical":
-	// 		//初始化 右下Echarts
-	// 		inintialRightSLEcharts(rightChartsData);
-	// 		break;
-	// }
+	//初始化 大Echarts
+	inintialEcharts('bigCharts',id, null,true);
+
+	// initHeatCharts();
+
 })
+
+
+function initialLayDate() {
+	//初始化 laydate 对象
+	layui.use('laydate', function() {
+		var laydate = layui.laydate;
+		laydate.render({
+			elem: "#deepChartsTime",
+			type: "datetime",
+			trigger: 'click',
+			done: function(value, date) {
+				//调用父页面方法
+				parent.openDeepCheckCharts(id,value);
+			}
+		});
+	})
+}
+
+
 //初始化 from 对象
 layui.use('form', function() {
-	form = layui.form;
+	var form = layui.form;
 	//渲染表单对象
 	form.render();
 	//监听设备ID 下拉框改变事件
@@ -86,7 +85,6 @@ layui.use('form', function() {
 		}
 		//渲染按钮组
 		intialBtnGroup(order);
-
 	});
 })
 
@@ -96,12 +94,12 @@ layui.use('form', function() {
  */
 function clickFounBtn(e) {
 	var choose_id = $(e).attr("data-index");
-	
+
 	//当前选中设备id
 	$(".checked_id").text(choose_id);
-	
+
 	//初始化 大Echarts
-	inintialEcharts(choose_id,null);
+	inintialEcharts('bigCharts',choose_id, null,true);
 	//初始化 左下Echarts
 	// inintialSLEcharts(initialData);
 	// console.log(router);

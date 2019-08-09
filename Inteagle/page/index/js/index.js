@@ -28,6 +28,35 @@ function getLoginUserInfo() {
 	}
 }
 
+
+/**
+ * @param {Object} checked_id
+ * @param {Object} checked_time
+ * 显示深层水平位移 charts 表格弹窗
+ */
+function openDeepCheckCharts(checked_id,checked_time){
+	var html = document.getElementById("checkTimeChartsModal").innerHTML;
+	html=html.replace("[check_id]", checked_id);
+	
+	//页面层-自定义
+	layer.open({
+		type: 1,
+		title: false,
+		closeBtn: 0,
+		area: ['730px', '70%'],
+		shadeClose: true,
+		scrollbar: false,
+		resize: false,
+		content: html,
+		success: function() {
+			//初始化 大Echarts
+			inintialEcharts('checkedCharts',checked_id, null,false);
+		}
+	});
+}
+
+
+
 /**
  * 点击Integer Logo页面重载
  */

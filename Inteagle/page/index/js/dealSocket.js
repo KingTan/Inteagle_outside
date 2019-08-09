@@ -6,10 +6,10 @@ if (window.parent.webSocket != null) {
 			console.log("心跳..");
 			return;
 		} else {
-			console.log(res);
+			
 			if (res.dataType == "helmet_analysis" && res.data == "-1") {
 				showHelmetWarningModal(res.helmet_id);
-
+				console.log(res);
 				//当前报警安全帽ID
 				$("#warningHelmetId").val(123);
 			}

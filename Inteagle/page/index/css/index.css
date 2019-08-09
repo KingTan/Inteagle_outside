@@ -18,7 +18,7 @@ body {
 	/* margin-left: 13.5625rem; */
 }
 
-.logoText span:hover{
+.logoText span:hover {
 	cursor: pointer;
 }
 
@@ -26,7 +26,7 @@ body {
 	-ms-user-select: none;
 	-moz-user-select: none;
 	-webkit-user-select: none;
-	user-select:none;
+	user-select: none;
 	color: #FFFFFF;
 	font-size: 1.25rem;
 }
@@ -73,7 +73,7 @@ body {
 		position: relative;
 		margin: 0rem auto;
 		margin-top: 1.875rem;
-		background:rgba(239,243,245,1);
+		background: rgba(239, 243, 245, 1);
 		box-shadow: 0px 0.125rem 6.9375rem 0px rgba(0, 0, 0, 0.1);
 		margin-bottom: 2.5rem;
 	}
@@ -94,7 +94,7 @@ body {
 		top: 40%;
 		display: none;
 	}
-	
+
 	.middleMenuList {
 		height: 80%;
 		width: 11.875rem;
@@ -111,9 +111,10 @@ body {
 		position: relative;
 		margin: 0rem auto;
 		margin-top: 1.875rem;
-		background:rgba(239,243,245,1);
+		background: rgba(239, 243, 245, 1);
 		box-shadow: 0px 2px 111px 0px rgba(0, 0, 0, 0.1);
 	}
+
 	.bottomArea {
 		position: fixed;
 		bottom: 0;
@@ -131,7 +132,7 @@ body {
 		top: 40%;
 		display: none;
 	}
-	
+
 	.middleMenuList {
 		height: 80%;
 		width: 100%;
@@ -853,10 +854,10 @@ body {
 
 .speedWarning {
 	width: 34.6875rem;
-    height: 23.5rem;
-    background: rgba(255, 255, 255, 1);
-    box-shadow: 0px 2px 60px 1px rgba(0, 0, 0, 0.19);
-    border-radius: 5px;
+	height: 23.5rem;
+	background: rgba(255, 255, 255, 1);
+	box-shadow: 0px 2px 60px 1px rgba(0, 0, 0, 0.19);
+	border-radius: 5px;
 }
 
 .topTextArea {
@@ -1178,7 +1179,7 @@ body {
 	border-bottom: 0.0625rem solid #DEDEDE;
 }
 
-.msgList ul li:hover{
+.msgList ul li:hover {
 	cursor: pointer;
 }
 
@@ -1226,7 +1227,26 @@ body {
 .warningMsg {
 	color: #E20000;
 }
-.clearBtn:hover{
+
+.clearBtn:hover {
 	cursor: pointer;
 	text-decoration: underline;
+}
+
+#checkedCharts {
+	width: 80vw;
+	height: 65vh;
+	margin-top: 20px;
+}
+
+.deviceIDArea {
+	width: 100px;
+	font-size: 16px;
+	position: absolute;
+	font-weight: bold;
+	margin-top: 15px;
+	margin-left: 20px;
+}
+.topCharts{
+	margin-top: 1.5625rem;
 }

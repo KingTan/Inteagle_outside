@@ -13,9 +13,9 @@ var data_array=	[{"2019/8/8 08:00:00":[{"x":12,"y":20},{"x":24,"y":20},{"x":38,"
 var current_check_time="";
 
 //初始化 大echarts
-function inintialEcharts(id, data_single_array_all) {
+function inintialEcharts(dom,id, data_single_array_all,showTimeLine) {
 	// 基于准备好的dom，初始化echarts实例
-	var myChart = echarts.init(document.getElementById('bigCharts'));
+	var myChart = echarts.init(document.getElementById(dom));
 	//X轴显示的数据
 	var x_rate_data = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30];
 
@@ -102,7 +102,6 @@ function inintialEcharts(id, data_single_array_all) {
 
 						htmlStr += '</div>';
 					}
-					console.log("htmlStr----------",htmlStr);
 					return htmlStr;
 				}
 			},
@@ -196,7 +195,7 @@ function inintialEcharts(id, data_single_array_all) {
 	var option = {
 		baseOption: {
 			timeline: {
-				show: true,
+				show: showTimeLine,
 				bottom: 0,
 				left: 36,
 				right: 36,

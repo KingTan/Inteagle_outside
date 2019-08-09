@@ -28,14 +28,7 @@ if (typeof(WebSocket) == "undefined") {
 			} else {
 				if (res.messageType == "foundation") {
 					var data_array_single = res.data;
-					
-					// if (data_single_array_all.length > 7) {
-					// 	data_single_array_all = [data_single_array_all.pop()];
-					// }
-					// console.log("data_single_array_all------------", data_single_array_all);
-					// data_single_array_all.push(data_array_single);
-					
-					inintialEcharts("001", data_array_single);
+					inintialEcharts('bigCharts',"001", data_array_single,true);
 				}
 			}
 		}
