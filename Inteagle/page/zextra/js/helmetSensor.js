@@ -15,7 +15,7 @@ layui.use('table', function(){
   var table = layui.table;
   table.render({
     elem: '#test'
-    ,url: 'https://www.inteagle.com.cn/Inteagle_java/layuiTableData'
+    ,url: 'http://127.0.0.1:8080/layuiTableData'
     ,parseData: function(res){ //res 即为原始返回的数据
 		console.log(res);
 		return {

@@ -317,7 +317,7 @@
 #view {
 	width: 100%;
 	height: 86vh;
-	/* margin-top: 1.25rem; */
+	margin-top: 1.25rem;
 }
 .buttonGroup{
 	position: absolute;
