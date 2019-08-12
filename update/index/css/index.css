@@ -1,0 +1,304 @@
+body {
+	width: 100%;
+	height: 90%;
+	/* background-repeat: no-repeat;
+	background-image: url(../img/back.jpg); */
+	position: relative;
+	color: #FFFFFF;
+}
+
+.backImagePic {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+.middleNameText {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	font-family: AdobeHeitiStd-Regular;
+	font-size: 35px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #ffffff;
+	z-index: -1;
+}
+
+.leftLogoText {
+	font-family: AdobeHeitiStd-Regular;
+	font-size: 30px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #ffffff;
+}
+
+.mainBody {
+	position: relative;
+	margin-left: 5rem;
+	margin-right: 5rem;
+}
+
+
+.topHead {
+	position: relative;
+	width: 100%;
+	margin-top: 19px;
+	justify-content: flex-end;
+}
+
+.singleRightOptionArea {
+	align-items: center;
+	padding-left: 1.25rem;
+}
+
+.topRightText {
+	margin-left: 0.625rem;
+	font-family: AdobeHeitiStd-Regular;
+	font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+}
+
+.topRightText:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.topIcon {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+.headShotIcon {
+	width: 2.375rem;
+	height: 2.375rem;
+}
+
+.bottomBox {
+	width: 100%;
+	height: 31.25rem;
+	margin-top: 15px;
+}
+
+.navList {
+	height: 45px;
+	line-height: 53px;
+	background-repeat: no-repeat;
+	background-image: url(../img/leftOptionBox.png);
+}
+
+.navList ul li {
+	float: left;
+	width: 150px;
+	text-align: center;
+	font-family: MicrosoftYaHei-Bold;
+	font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+}
+
+.topNavArea {
+	margin-left: 20px;
+	margin-right: 20px;
+	position: relative;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.projectNameArea {
+	width: 100%;
+	position: absolute;
+	text-align: center;
+	font-family: AdobeHeitiStd-Regular;
+	font-size: 31px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #5dd4ff;
+	z-index: -1;
+}
+
+.symbolLi {
+	opacity: 0.6;
+	font-size: 22px !important;
+}
+
+.rightOptionArea {
+	margin-top: 0.625rem;
+}
+
+.optionSelectArea {
+	position: relative;
+	justify-content: space-between;
+}
+
+.middleProjectName {
+	width: 100%;
+	position: absolute;
+	text-align: center;
+	font-family: AdobeHeitiStd-Regular;
+	font-size: 31px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #5dd4ff;
+	z-index: -1;
+}
+
+#leftBottomCharts {
+	width: 100%;
+	height: 300px;
+}
+
+.leftPart {
+	/* width: 30%; */
+	margin-left: 20px;
+}
+
+.leftTopArea {
+	width: 405px;
+	height: 302px;
+	border: 1px solid white;
+	margin-top: 25px;
+}
+
+.leftTopArea ul li {
+	font-family: AdobeHeitiStd-Regular;
+	font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #ffffff;
+	line-height: 26px;
+}
+
+.leftProjectText {
+	color: #a3a3a3;
+}
+
+.leftBottomArea {
+	width: 406px;
+	height: 406px;
+	border: 1px solid white;
+	margin-top: 17px;
+}
+
+.boxTitle {
+	font-family: AdobeHeitiStd-Regular;
+	font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #ffffff;
+	margin-left: 70px;
+	margin-top: 3px;
+}
+
+.middleText {
+	margin-left: 30px;
+	margin-top: 35px;
+	position: relative;
+}
+
+.rightProjectImage {
+	position: absolute;
+	right: 25px;
+	top: -35px;
+
+}
+
+.projectPic {
+	width: 165px;
+	height: 98px;
+}
+
+.departmentDetail {
+	margin-left: 30px;
+	margin-top: 35px;
+}
+
+.insidePeopleArea {
+	margin-left: 257px;
+}
+
+.peopleCount {
+	width: 80%;
+	margin: 0px auto;
+	margin-top: 37px;
+	justify-content: space-between;
+}
+
+.bottomText {
+	color: #a3a3a3;
+}
+
+.insidePeopleNum {
+	font-size: 20px;
+}
+
+.insidePeopleText {
+	margin-left: 5px;
+}
+
+.middlePart {
+	margin-left: 24px;
+	margin-top: 25px;
+}
+
+.middleTop {
+	width: 860px;
+	height: 500px;
+	border: 1px solid white;
+}
+
+.middleBottom {
+	width: 860px;
+	height: 200px;
+	border: 1px solid white;
+	margin-top: 20px;
+}
+
+.swiper-container {
+	width: 803px;
+	height: 330px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 23px;
+}
+
+.swiper-slide {
+	background-size: cover;
+	background-position: center;
+}
+
+.gallery-thumbs {
+	height: 20%;
+	box-sizing: border-box;
+	padding: 10px 0;
+	margin-top: 10px;
+}
+
+
+
+.gallery-top {
+	height: 80%;
+	width: 100%;
+}
+
+
+.gallery-thumbs .swiper-slide {
+	height: 100%;
+	opacity: 0.4;
+}
+
+.gallery-thumbs .swiper-slide-thumb-active {
+	opacity: 1;
+}

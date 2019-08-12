@@ -1,18 +1,33 @@
 var layer;
 var form;
 var laydate;
+layui.use(['layer', 'laydate', 'form'], function() {
+	//表单组件
+	form = layui.form;
+	form.render();
+
+	//时间组件
+	laydate = layui.laydate;
+
+	//弹窗组件
+	layer = layui.layer;
+});
+
+
 //是否大屏幕显示
 var isBigScreen;
-//服务器地址
-// const PATH = "http://127.0.0.1:8080/";
 
-const PATH="https://www.inteagle.com.cn/Inteagle_java/";
+// 本地服务器地址
+const PATH = "http://127.0.0.1:8080/";
+
+//服务器地址
+// const PATH="https://www.inteagle.com.cn/Inteagle_java/";
 
 
 $(function() {
 	//屏幕分辨率的宽高
 	var clientWidth = window.screen.width;
-	var clientHeight = window.screen.height;
+	var clientHeight = window.screen.width;
 	if (clientWidth > 1400) {
 		isBigScreen = true;
 	} else {
@@ -20,73 +35,7 @@ $(function() {
 	}
 })
 
-//初始化 layer 对象
-layui.use('layer', function() {
-	layer = layui.layer;
-})
-//初始化 from 对象
-layui.use('form', function() {
-	form = layui.form;
-	form.render();
-})
-//初始化 laydate 对象
-layui.use('laydate', function() {
-	laydate = layui.laydate;
-	laydate.render({
-		elem: "#trackTime",
-		type: "datetime",
-		range: "到",
-		format: "yyyy年M月d日H时m分s秒"
-	});
-	laydate.render({
-		elem: "#visitorTrackTime",
-		type: "datetime",
-		range: "到",
-		format: "yyyy年M月d日H时m分s秒"
-	});
-	laydate.render({
-		elem: "#mondayPeriod",
-		type: "time",
-		range: "到",
-		format: "H时m分s秒"
-	});
-	laydate.render({
-		elem: "#wageTime",
-		type: "date"
-	});
-	laydate.render({
-		elem: "#certificateManagementYear",
-		type: "year"
-	});
-	laydate.render({
-		elem: "#addCertificateManagementYear",
-		type: "year"
-	});
-	laydate.render({
-		elem: "#smallCertificateManagementYear",
-		type: "year"
-	});
-	laydate.render({
-		elem: "#attendanceTime",
-		type: "datetime"
-	});
-	laydate.render({
-		elem: "#smallAttendanceTime",
-		type: "datetime"
-	});
-	laydate.render({
-		elem: "#visitorTime",
-		type: "date"
-	});
-	laydate.render({
-		elem: "#safetyTime",
-		type: "date"
-	});
-	laydate.render({
-		elem: "#inspectionTime",
-		type: "date"
-	});
-})
+
 /**
  * 获取指定的URL参数值
  * URL:http://www.quwan.com/index?name=tyler
@@ -128,7 +77,7 @@ function getNowFormatDate() {
 		str_second = "0" + str_second;
 	}
 	var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
-		" " + date.getHours() + seperator2 + str_second+
+		" " + date.getHours() + seperator2 + str_second +
 		seperator2 + str_second;
 	return currentdate;
 }
