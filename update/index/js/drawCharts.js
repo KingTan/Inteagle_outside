@@ -15,7 +15,7 @@ var option = {
 		name: getNowFormatDate(),
 		type: 'pie',
 		radius: '55%',
-		center: ['50%', '50%'],
+		center: ['45%', '50%'],
 		data: [{
 				value: 335,
 				name: '一线工人'

@@ -85,7 +85,8 @@ function login(searchParam, pwd) {
 						icon: 1,
 						time: 1000
 					}, function() {
-						 window.location.href = "../index/index.html"; 
+						// window.location.href = "../index/index.html"; 
+						  window.location.href = "../../../update/index/index.html"; 
 					});
 				})
 			}

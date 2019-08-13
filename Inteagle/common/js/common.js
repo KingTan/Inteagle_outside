@@ -12,7 +12,7 @@ const PATH="https://www.inteagle.com.cn/Inteagle_java/";
 $(function() {
 	//屏幕分辨率的宽高
 	var clientWidth = window.screen.width;
-	var clientHeight = window.screen.height;
+	var clientHeight = window.screen.width;
 	if (clientWidth > 1400) {
 		isBigScreen = true;
 	} else {

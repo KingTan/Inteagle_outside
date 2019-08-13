@@ -11,12 +11,13 @@
 		<link href="../common/css/swiper.min.css" rel="stylesheet" />
 		<link href="../common/css/common.css" rel="stylesheet" />
 		<link href="css/index.css" rel="stylesheet" media="screen" />
+		<!-- <link href="css/index_fit.css" rel="stylesheet" media="screen" /> -->
 		<link rel="shortcut icon" href="../common/img/inteagle_logo.ico">
 	</head>
 	<body>
-		<div class="backImage">
+		<!-- <div class="backImage">
 			<img src="img/newBack.jpg" class="backImagePic" />
-		</div>
+		</div> -->
 		<div class="mainBody">
 			<div class="row topHead">
 				<div class="middleNameText">智慧工地云平台</div>
@@ -46,7 +47,7 @@
 			<div class="bottomBox">
 				<!-- 顶部导航 -->
 				<div class="row topNavArea">
-					<div class="navList">
+					<div class="navList leftOptionList">
 						<ul>
 							<li>项目管理</li>
 							<li>企业管理</li>
@@ -56,7 +57,7 @@
 						</ul>
 					</div>
 					<div class="projectNameArea">基地项目工程</div>
-					<div class="navList">
+					<div class="navList rightOptionList">
 						<ul>
 							<li>考勤管理</li>
 							<li>访客管理</li>
@@ -158,10 +159,10 @@
 								</div>
 							</div>
 						</div>
-						
+
 						<!-- 中下 -->
 						<div class="middleBottom">
-							<div class="column singleBoxContent">
+							<div class="column singleBoxContentMiddle">
 								<div class="leftTopTitleArea">
 									<div class="boxTitle">项目进度</div>
 								</div>
@@ -180,11 +181,11 @@
 												<div class="startText">项目开工</div>
 											</div>
 										</div>
-										<div class="row endInfoArea">
-											<div class="column endInfo infoArea">
-												<div class="endDate dateInfo">2021-02-07</div>
-												<div class="startText">项目竣工</div>
-											</div>
+									</div>
+									<div class="row endInfoArea">
+										<div class="column endInfo infoArea">
+											<div class="endDate dateInfo">2021-02-07</div>
+											<div class="startText">项目竣工</div>
 										</div>
 									</div>
 									<div class="column totalDayArea">
@@ -194,9 +195,124 @@
 								</div>
 							</div>
 						</div>
+					</div>
+
+					<!-- 右边区域 -->
+					<div class="column rightPart">
+
+						<!-- 右上 -->
+						<div class="column rightTopArea">
+							<div class="leftTopTitleArea">
+								<div class="boxTitle">天气情况</div>
+							</div>
+							<div class="row locationArea">
+								<div class="locationImage">
+									<img src="img/position.png" class="positionIcon" />
+								</div>
+								<div class="positionText">东莞</div>
+							</div>
+							<div class="todayDate">07月29日 周一</div>
+
+							<div class="row threeWeahterArea leftThirty">
+								<div class="row nowWeatherArea">
+									<div class="column nowWeath">
+										<div class="weatherIcon">
+											<img src="img/qingtian.png" />
+										</div>
+										<div class="tempPeriod tempPeriodText">26~33°C</div>
+									</div>
+									<div class="column nowWeath tempArea">
+										<div class="row  nowWeatherIcon nowWeatherText">
+											<div class="nowTemp">33</div>
+											<div class="column tempureAera">
+												<div class="tempUnit">°C</div>
+												<div class="nowWeatherTextStr">晴(实时)</div>
+											</div>
+										</div>
+										<div class="tempPeriod">无持续风向微风</div>
+									</div>
+								</div>
+							</div>
+							<div class="row nextTwoDayWeather">
+								<div class="column nextWeather">
+									<div class="topDate">07月30日</div>
+									<div class="column weaPic">
+										<div class="weatherImg">
+											<img src="img/qingtian_small.png" class="nextWeaIcon" />
+										</div>
+										<div class="weatherText">晴</div>
+									</div>
+									<div class="nextTempl bottomWether">26~32°C</div>
+								</div>
+								<div class="column nextWeather">
+									<div class="topDate">07月31日</div>
+									<div class="column weaPic">
+										<div class="weatherImg">
+											<img src="img/yu.png" class="nextWeaIcon" />
+										</div>
+										<div class="weatherText">雨</div>
+									</div>
+									<div class="nextTempl bottomWether">26~32°C</div>
+								</div>
+							</div>
+							
+							
+							
+						</div>
+
+						<!-- 右中 -->
+						<div class="rightMiddle">
+							<div class="column singleBoxContent">
+								<div class="leftTopTitleArea">
+									<div class="boxTitle">设备统计</div>
+								</div>
+								<div class="row deviceCountArea">
+									<div class="column singleBigCount">
+										<div class="bigCountValue inSidePeopleCount">1240</div>
+										<div class="bigCountText">智能安全帽总数</div>
+									</div>
+									<div class="column singleBigCount">
+										<div class="bigCountValue workPeopleCount">1110</div>
+										<div class="bigCountText">摄像头监控总数</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- 右下 -->
+						<div class="rightBottom">
+							<div class="leftTopTitleArea">
+								<div class="boxTitle">安全检查</div>
+							</div>
+							<div class="row boxAreaPart">
+								<div class="row boxArea">
+									<div class="column singleBox">
+										<div class="titleTextStr">安全检查</div>
+										<div class="row safeExamine">
+											<div class="safetyCount">2</div>
+											<div class="safetyImg">
+												<img src="img/anquan.png" class="safetyIcon" />
+											</div>
+										</div>
+									</div>
+
+									<div class="column singleBox dataWarning">
+										<div class="titleTextStr">数据异常</div>
+										<div class="row safeExamine">
+											<div class="safetyCount">0</div>
+											<div class="safetyImg">
+												<img src="img/shuju.png" class="dataIcon" />
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 
 
 					</div>
+
+
 
 				</div>
 

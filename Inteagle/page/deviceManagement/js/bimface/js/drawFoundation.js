@@ -134,11 +134,11 @@ function onSDKLoadSucceeded(viewMetaData) {
 		}
 		
 		//测斜仪点位
-		var pic_path="http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/cexie_normal.png";
+		var pic_path="https://www.inteagle.com.cn/tag/cexie_normal.png";
 		var tag_type="测斜仪点位";
 		
 		//位移管
-		var wy_pic_path="http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/weiyi_normal.png";
+		var wy_pic_path="https://www.inteagle.com.cn/tag/weiyi_normal.png";
 		var wy_tag_type="位移管点位";
 		
 		for(var i=0;i<tag_position_array.length;i++){
@@ -274,7 +274,7 @@ function setTransform(name, position, scale, rotation) {
 function changeViewSite(viewer3D) {
 	//获取自己想要的视角信息
 	var camera =
-		'{"name":"persp","position":{"x":55.31260587852512,"y":-62.764752909129534,"z":760.6115801968035},"target":{"x":-167.49055441224849,"y":389.04828129449385,"z":-2519.683544656425},"up":{"x":0,"y":-0.0000036732050794449643,"z":0.9999999999932538},"version":1}';
+		'{"name":"persp","position":{"x":-231.07335244703435,"y":-584.7453692522213,"z":539.0331695950133},"target":{"x":513.6810291459312,"y":1767.89874492815,"z":-1680.0924886488187},"up":{"x":0,"y":-0.0000036732050794449643,"z":0.9999999999932538},"version":1}';
 
 	//设置视角
 	viewer3D.setCameraStatus(JSON.parse(camera));
