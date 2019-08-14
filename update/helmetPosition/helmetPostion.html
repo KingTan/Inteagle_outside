@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>人员实时定位</title>
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<link href="../common/layui/css/layui.css" rel="stylesheet" media="all" />
+		<link href="../common/css/swiper.min.css" rel="stylesheet" />
+		<link href="../common/css/common.css" rel="stylesheet" />
+		<link href="css/helmetPosition.css" rel="stylesheet" media="screen" />
+		<link rel="shortcut icon" href="../common/img/inteagle_logo.ico">
+	</head>
+	<body>
+		<div class="column foundation">
+			<!-- 顶部标题栏-搜索区 -->
+			<div class="row topArea">
+				<!-- 标题栏 -->
+				<div class="titleArea">
+					<div class="titleText">
+						人员实时定位
+					</div>
+				</div>
+				<!-- 中间搜索区域 -->
+				<div class="row topMiddleSearchArea">
+					<!-- 搜索框 -->
+					<div class="leftInputArea">
+						<form class="layui-form" action="">
+							<div class="layui-input-inline">
+								<select name="modules" lay-verify="required" lay-search="">
+									<option value="">搜索人员位置/安全帽ID</option>
+									<option value="1">layer</option>
+									<option value="2">form</option>
+									<option value="3">layim</option>
+								</select>
+							</div>
+						</form>
+					</div>
+					<!-- 按钮 -->
+					<div class="searchBtnArea">
+						<button id="loginBtn" type="button" class="layui-btn layui-btn-normal">查询</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- 底部展示区 -->
+			<div class="row bottomShowArea">
+				<!-- 左边区域 -->
+				<div class="column leftBottomPositonArea">
+					<!-- 左上 -->
+					<div class="topPositionArea">
+						<div class="leftTopTitleArea">
+							<div class="boxTitle">现场人数</div>
+						</div>
+						<div class="row insidePeopleArea">
+							<div class="peopleIcon">
+								<img src="img/renyuan.png" class="peopleIconPic" />
+							</div>
+							<div class="insidePeopleText">在场人数 <span class="insidePeopleValue">2040</span></div>
+						</div>
+						<div class="column numberDetail">
+							<div class="topCirclrArea">
+								<div class="column singleCircle">
+									<div class="numberValue">88</div>
+									<div class="numberText">项目登记人数</div>
+								</div>
+							</div>
+							<div class="row bottomCircleArea">
+								<div class="column bottomLeftSingleCircle">
+									<div class="numberValue">88</div>
+									<div class="numberText">今日出勤人数</div>
+								</div>
+								<div class="column bottomRightSingleCircle">
+									<div class="numberValue">88</div>
+									<div class="numberText">现场实时人数</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- 左下 -->
+					<div class="bottomPositionArea">
+						<div class="leftTopTitleArea">
+							<div class="boxTitle">现场工种</div>
+						</div>
+						<div class="peopleChartArea">
+							<!-- 工种占比charts -->
+							<div id="leftBottomCharts"></div>
+						</div>
+					</div>
+				</div>
+				<!-- 右边区域 -->
+				<div class="rightBottomPositonArea">
+					<div class="rightBoxTitleArea">
+						<div class="boxTitle">工地模型</div>
+					</div>
+					<div class='main'>
+						<div class='model' id="domId"></div>
+					</div>
+					<div id="view"></div>
+				</div>
+			</div>
+		</div>
+		<script src="../common/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+		<script src="../common/layui/layui.js" type="text/javascript"></script>
+		<script src="../common/js/common.js" type="text/javascript"></script>
+		<script src="../common/js/echarts.min.js" type="text/javascript"></script>
+		<script src="../common/bimface/js/release.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../common/bimface/js/drawModal.js" type="text/javascript"></script>
+		<script src="js/drawCharts.js" type="text/javascript"></script>
+	</body>
+</html>

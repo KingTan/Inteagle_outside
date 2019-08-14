@@ -1,0 +1,271 @@
+.foundation {
+	width: 100%;
+	height: 100vh;
+	color: #FFFFFF;
+}
+
+.topArea {
+	width: 100%;
+	height: 5%;
+	margin-top: 1%;
+}
+
+.titleArea {
+	width: 15%;
+	height: 100%;
+	margin-left: 2%;
+	/* border: 1px solid white; */
+}
+
+.titleText {
+	width: 50%;
+	height: 70%;
+	margin-left: 10%;
+	margin-top: 2%;
+	text-align: center;
+	background-image: url(../img/title_box.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	font-family: AdobeHeitiStd-Regular;
+	font-size: 1.0625rem;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #93f3ff;
+}
+
+.topMiddleSearchArea {
+	width: 40%;
+	height: 100%;
+	margin-left: 4%;
+	/* border: 1px solid white; */
+	background-image: url(../img/middle_top.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+.leftInputArea {
+	width: 75%;
+	height: 65%;
+	margin-top: 1.2%;
+	margin-left: 2%;
+}
+
+.layui-form {
+	width: 100%;
+	height: 100%;
+}
+
+.layui-form-select {
+	width: 100%;
+	height: 100%;
+}
+
+.layui-input-inline {
+	width: 100%;
+	height: 100%;
+}
+
+.layui-select-title {
+	width: 100%;
+	height: 100%;
+	color: #FFFFFF !important;
+}
+
+.layui-select-title input {
+	color: #FFFFFF !important;
+}
+
+.layui-form-select .layui-input {
+	text-align: center;
+}
+
+.layui-input,
+.layui-select,
+.layui-textarea {
+	height: 100%;
+	background: transparent;
+	border: none;
+}
+
+.layui-form-select dl {
+	top: 27px;
+	background: transparent;
+	border: 1px solid #2C73C4;
+	border-top: none;
+}
+
+.layui-form-select dl dd:hover {
+	background-color: #2C73C4;
+}
+
+.layui-form-select dl dd.layui-select-tips {
+	color: #FFFFFF;
+}
+
+.searchBtnArea {
+	width: 18%;
+	height: 65%;
+	margin-top: 1.3%;
+	margin-left: 3.5%;
+}
+
+.searchBtnArea .layui-btn {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	border: none;
+	box-shadow: none;
+}
+
+.layui-btn-container .layui-btn {
+	margin-right: 3%;
+	margin-bottom: 3%;
+}
+
+.layui-btn {
+	width: 2.1875rem;
+	height: 1.375rem;
+	line-height: 1.375rem;
+	text-align: center;
+	padding: 0;
+	background: transparent;
+	/*完全透明*/
+	opacity: 1;
+	/* 仅调节背景的色彩，并加上不透明度，此例为70%不透明的白色 */
+	border: 1px solid #77bfec;
+	color: #77bfec;
+}
+
+.bottomShowArea {
+	width: 100%;
+	height: 100%;
+	margin-top: 1%;
+}
+
+.leftBottomPositonArea {
+	width: 24%;
+	margin-left: 2%;
+}
+
+.topPositionArea {
+	width: 100%;
+	height: 50%;
+	/* border: 1px solid white; */
+	background-image: url(../img/left_top.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+.bottomPositionArea {
+	width: 100%;
+	height: 50%;
+	margin-top: 5%;
+	/* border: 1px solid white; */
+	background-image: url(../img/left_bottom.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+.rightBottomPositonArea {
+	width: 70%;
+	height: 100%;
+	margin-left: 2%;
+	/* border: 1px solid white; */
+	background-image: url(../img/right_box.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+.leftTopTitleArea {
+	margin-left: 18%;
+	margin-top: 2%;
+}
+
+.insidePeopleArea {
+	width: 90%;
+	margin: 0px auto;
+	margin-top: 2%;
+	justify-content: flex-end;
+}
+
+.numberDetail {
+	width: 90%;
+	margin: 0px auto;
+	margin-top: 1%;
+}
+
+.topCirclrArea {
+	width: 100%;
+	text-align: center;
+}
+
+.singleCircle {
+	width: 6.25rem;
+	height: 5.8125rem;
+	margin: 0px auto;
+	background-image: url(../img/red_circle.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	align-items: center;
+}
+
+.bottomLeftSingleCircle {
+	width: 6.25rem;
+	height: 5.8125rem;
+	margin: 0px auto;
+	background-image: url(../img/yellow_circle.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	align-items: center;
+}
+
+.bottomRightSingleCircle {
+	width: 6.25rem;
+	height: 5.8125rem;
+	margin: 0px auto;
+	background-image: url(../img/pink_circle.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	align-items: center;
+}
+
+.numberValue {
+	font-family: MicrosoftYaHei;
+	font-size: 36px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #62c8ff;
+	margin-top: 17px;
+}
+
+.numberText {
+	font-family: AdobeHeitiStd-Regular;
+	font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #ffffff;
+}
+
+.bottomCircleArea {
+	width: 100%;
+	margin-top: 6%;
+}
+
+#leftBottomCharts {
+	width: 100%;
+	height: 300px;
+}
+
+.rightBoxTitleArea{
+	margin-left: 5.5%;
+	margin-top: 0.5%;
+}
+#view {
+	width: 95%;
+	height: 90%;
+	margin: 0px auto;
+	margin-top: 1.25rem;
+}
