@@ -30,7 +30,7 @@
 .topOptionList {
 	width: 28%;
 	height: 100%;
-	margin-left: 6%;
+	margin-left: 9%;
 	/* border: 1px solid white; */
 	align-items: center;
 	justify-content: flex-end;
@@ -52,8 +52,19 @@
 	background-repeat: no-repeat;
 }
 
+.bottomBim {
+	width: 77.7%;
+	height: 100%;
+	margin-left: 2%;
+	/* border: 1px solid white; */
+	background-image: url(../img/middle_bottom.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+
 .bottomMiddleArea {
-	width: 56%;
+	width: 58.5%;
 	height: 100%;
 	margin-left: 2%;
 	/* border: 1px solid white; */
@@ -71,11 +82,13 @@
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 }
-.middleTopTitleArea{
+
+.middleTopTitleArea {
 	margin-left: 6.5%;
 	margin-top: 0.8%;
 }
-.rightTopTitleArea{
+
+.rightTopTitleArea {
 	margin-left: 26%;
 	margin-top: 3%;
 }
@@ -195,7 +208,18 @@
 	height: 65%;
 	margin-top: 1.2%;
 	margin-left: 2%;
+	position: relative;
 }
+
+.leftInputArea .icon-search {
+	background: url(../img/search_btn.png) no-repeat;
+	width: 1.25rem;
+	height: 1.25rem;
+	position: absolute;
+	top: 0.3125rem;
+	left: 33%;
+}
+
 
 .layui-form {
 	width: 100%;
@@ -236,17 +260,23 @@
 
 .layui-form-select dl {
 	top: 27px;
-	background: transparent;
+	/* background: transparent; */
 	border: 1px solid #2C73C4;
 	border-top: none;
+	color: #000000;
 }
 
 .layui-form-select dl dd:hover {
 	background-color: #2C73C4;
+	color: #FFFFFF;
 }
 
 .layui-form-select dl dd.layui-select-tips {
-	color: #FFFFFF;
+	color: #000000;
+}
+
+.layui-form-select .layui-edge {
+	top: 55%;
 }
 
 .searchBtnArea {
@@ -279,4 +309,56 @@
 	font-stretch: normal;
 	letter-spacing: 0px;
 	color: #93f3ff;
+}
+
+.middleTopOption {
+	width: 50%;
+	height: 5%;
+	margin-top: 2%;
+	margin-left: 4%;
+	align-items: center;
+}
+
+.time_chosen_area {
+	margin-left: 5%;
+	height: 100%;
+}
+
+#deepChartsTime {
+	border: 1px solid white;
+	color: #FFFFFF !important;
+}
+
+.topCharts {
+	width: 96%;
+	height: 82%;
+	/* border: 1px solid white; */
+	margin: 0px auto;
+	margin-top: 2%;
+	color: #FFFFFF !important;
+}
+
+#bigCharts {
+	width: 100%;
+	height: 100%;
+	color: #FFFFFF !important;
+}
+
+input::-webkit-input-placeholder {
+	color: #FFFFFF;
+}
+
+input::-moz-placeholder {
+	/* Mozilla Firefox 19+ */
+	color: #FFFFFF;
+}
+
+input:-moz-placeholder {
+	/* Mozilla Firefox 4 to 18 */
+	color: #FFFFFF;
+}
+
+input:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: #FFFFFF;
 }
