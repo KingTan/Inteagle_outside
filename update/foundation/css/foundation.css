@@ -66,6 +66,7 @@
 .bottomMiddleArea {
 	width: 58.5%;
 	height: 100%;
+	position: relative;
 	margin-left: 2%;
 	/* border: 1px solid white; */
 	background-image: url(../img/middle_bottom.png);
@@ -216,8 +217,8 @@
 	width: 1.25rem;
 	height: 1.25rem;
 	position: absolute;
-	top: 0.3125rem;
-	left: 33%;
+	top: 4px;
+	left: 35%;
 }
 
 
@@ -247,7 +248,7 @@
 }
 
 .layui-form-select .layui-input {
-	text-align: center;
+	text-indent: 40%;
 }
 
 .layui-input,
@@ -312,11 +313,13 @@
 }
 
 .middleTopOption {
-	width: 50%;
+	width: 10%;
 	height: 5%;
-	margin-top: 2%;
-	margin-left: 4%;
+	margin-top: 3%;
 	align-items: center;
+	position: absolute;
+	right: 0;
+	font-size: 1.25rem;
 }
 
 .time_chosen_area {
@@ -325,13 +328,14 @@
 }
 
 #deepChartsTime {
-	border: 1px solid white;
+	/* border: 1px solid white; */
 	color: #FFFFFF !important;
+	text-align: center;
 }
 
 .topCharts {
 	width: 96%;
-	height: 82%;
+	height: 90%;
 	/* border: 1px solid white; */
 	margin: 0px auto;
 	margin-top: 2%;
@@ -361,4 +365,16 @@ input:-moz-placeholder {
 input:-ms-input-placeholder {
 	/* Internet Explorer 10-11 */
 	color: #FFFFFF;
+}
+
+#layui-laydate1 {
+	width: 30%;
+}
+
+.layui-laydate-main {
+	width: 100% !important;
+}
+
+.layui-laydate-content table {
+	width: 100% !important;
 }

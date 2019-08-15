@@ -7,11 +7,11 @@ var data_array=	[{"2019/8/8 08:00:00":[{"x":12,"y":20},{"x":24,"y":20},{"x":38,"
 				];
 
 //当前选中的时间
-var current_check_time="";
+var current_check_time = "";
 
 
 //初始化 大echarts
-function inintialEcharts(dom,id, data_single_array_all,showTimeLine) {
+function inintialEcharts(dom, id, data_single_array_all, showTimeLine) {
 	// 基于准备好的dom，初始化echarts实例
 	var myChart = echarts.init(document.getElementById(dom));
 	//X轴显示的数据
@@ -61,18 +61,18 @@ function inintialEcharts(dom,id, data_single_array_all,showTimeLine) {
 	timeData = timeData.map(function(str) {
 		return str.replace('2019/', '');
 	});
-	
+
 	//当前选中时间
-	current_check_time=timeData[timeData.length-1];
-	
+	current_check_time = timeData[timeData.length - 1];
+
 	function setSingleOption(single_x_data, single_y_data) {
 		// 单个配置项
 		var singleOption = {
 			title: {
 				text: '深层水平位移',
 				x: 'center',
-				textStyle:{
-					color:'#FFFFFF'
+				textStyle: {
+					color: '#FFFFFF'
 				}
 			},
 			tooltip: {
@@ -85,9 +85,9 @@ function inintialEcharts(dom,id, data_single_array_all,showTimeLine) {
 						var seriesName = param.seriesName; //图例名称
 						var value = param.value; //y轴值
 						var color = param.color; //图例颜色
-						
-						xName = "当前深度:"+xName+"米";
-						
+
+						xName = "当前深度:" + xName + "米";
+
 						if (i === 0) {
 							htmlStr += current_check_time + '<br/>'; //当前选中时间
 							htmlStr += xName + '<br/>'; // 当前深度
@@ -99,7 +99,7 @@ function inintialEcharts(dom,id, data_single_array_all,showTimeLine) {
 							color + ';"></span>';
 
 						//圆点后面显示的文本
-						htmlStr += seriesName + '：' + value ;
+						htmlStr += seriesName + '：' + value;
 
 						htmlStr += '</div>';
 					}
@@ -129,15 +129,15 @@ function inintialEcharts(dom,id, data_single_array_all,showTimeLine) {
 					type: 'category',
 					name: '深度(m)',
 					nameGap: 5,
-					nameTextStyle:{
-						color:'#FFFFFF'
+					nameTextStyle: {
+						color: '#FFFFFF'
 					},
 					boundaryGap: false,
 					axisLine: {
 						onZero: false,
 						lineStyle: {
 							type: 'solid',
-							color:'#FFFFFF'
+							color: '#FFFFFF'
 						}
 					},
 					data: x_rate_data
@@ -147,15 +147,15 @@ function inintialEcharts(dom,id, data_single_array_all,showTimeLine) {
 					name: '深度(m)',
 					type: 'category',
 					nameGap: 5,
-					nameTextStyle:{
-						color:'#FFFFFF'
+					nameTextStyle: {
+						color: '#FFFFFF'
 					},
 					boundaryGap: false,
 					axisLine: {
 						onZero: false,
 						lineStyle: {
 							type: 'solid',
-							color:'#FFFFFF'
+							color: '#FFFFFF'
 						}
 					},
 					data: x_rate_data
@@ -164,13 +164,13 @@ function inintialEcharts(dom,id, data_single_array_all,showTimeLine) {
 			yAxis: [{
 					name: 'x_位移量(mm)',
 					nameGap: 20,
-					nameTextStyle:{
-						color:'#FFFFFF'
+					nameTextStyle: {
+						color: '#FFFFFF'
 					},
 					type: 'value',
 					axisLine: {
 						lineStyle: {
-							color:'#FFFFFF'
+							color: '#FFFFFF'
 						}
 					},
 					max: 50,
@@ -180,13 +180,13 @@ function inintialEcharts(dom,id, data_single_array_all,showTimeLine) {
 					gridIndex: 1,
 					nameGap: 30,
 					name: 'y_位移量(mm)',
-					nameTextStyle:{
-						color:'#FFFFFF'
+					nameTextStyle: {
+						color: '#FFFFFF'
 					},
 					type: 'value',
 					axisLine: {
 						lineStyle: {
-							color:'#FFFFFF'
+							color: '#FFFFFF'
 						}
 					},
 					max: 50,
@@ -199,7 +199,14 @@ function inintialEcharts(dom,id, data_single_array_all,showTimeLine) {
 					type: 'line',
 					symbolSize: 8,
 					hoverAnimation: true,
-					data: single_x_data
+					data: single_x_data,
+					itemStyle: {
+						normal: {
+							lineStyle: {
+								color: 'red'
+							}
+						}
+					}
 				},
 				{
 					name: 'y_位移量',
@@ -208,7 +215,14 @@ function inintialEcharts(dom,id, data_single_array_all,showTimeLine) {
 					yAxisIndex: 1,
 					symbolSize: 8,
 					hoverAnimation: true,
-					data: single_y_data
+					data: single_y_data,
+					itemStyle: {
+						normal: {
+							lineStyle: {
+								color: 'yellow'
+							}
+						}
+					}
 				}
 			]
 		};
@@ -224,14 +238,14 @@ function inintialEcharts(dom,id, data_single_array_all,showTimeLine) {
 				bottom: 0,
 				left: 36,
 				right: 36,
-				lineStyle:{
-					color:'#FFFFFF'
+				lineStyle: {
+					color: '#FFFFFF'
 				},
-				itemStyle:{
-					color:'#FFFFFF'
+				itemStyle: {
+					color: '#FFFFFF'
 				},
-				label:{
-					color:'#FFFFFF'
+				label: {
+					color: '#FFFFFF'
 				},
 				type: 'slider',
 				axisType: 'category',
@@ -239,14 +253,14 @@ function inintialEcharts(dom,id, data_single_array_all,showTimeLine) {
 				// playInterval: 1000,
 				currentIndex: data_array.length - 1,
 				loop: false,
-				symbol:'circle',
+				symbol: 'circle',
 				symbolSize: 10,
 				data: timeData,
 				controlStyle: {
 					showPlayBtn: false,
 					itemSize: 12,
-					color:'#FFFFFF',
-					borderColor:'#FFFFFF'
+					color: '#FFFFFF',
+					borderColor: '#FFFFFF'
 				}
 			},
 		},

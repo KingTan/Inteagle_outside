@@ -204,10 +204,29 @@
 	width: 6.25rem;
 	height: 5.8125rem;
 	margin: 0px auto;
-	background-image: url(../img/red_circle.png);
-	background-size: 100% 100%;
-	background-repeat: no-repeat;
+	position: relative;
+	/* background-image: url(../img/red_circle.png); */
+	/* background-size: 100% 100%;
+	background-repeat: no-repeat; */
 	align-items: center;
+}
+
+.circle_icon {
+	position: absolute;
+	-webkit-transform: rotate(360deg);
+	animation: rotation 3s linear infinite;
+	-moz-animation: rotation 3s linear infinite;
+	-webkit-animation: rotation 3s linear infinite;
+	-o-animation: rotation 3s linear infinite;
+}
+
+@-webkit-keyframes rotation {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+	}
 }
 
 .bottomLeftSingleCircle {
@@ -259,10 +278,11 @@
 	height: 300px;
 }
 
-.rightBoxTitleArea{
+.rightBoxTitleArea {
 	margin-left: 5.5%;
 	margin-top: 0.5%;
 }
+
 #view {
 	width: 95%;
 	height: 90%;

@@ -152,9 +152,11 @@ function onSDKLoadSucceeded(viewMetaData) {
 			//添加标签(位移管)
 			add3DMarker(wy_tag_array[i],wy_pic_path,wy_tag_type);
 		}
-
 		// 更改初始视角
 		changeViewSite(viewer);
+		
+		//结束页面加载图标
+		
 
 	});
 	

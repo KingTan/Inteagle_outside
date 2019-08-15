@@ -26,6 +26,17 @@ $(function() {
  * 初始化 时间选择器
  */
 function initialLayDate() {
+	
+	var searchBoxWidth=$(".leftInputArea").width();
+	console.log("searchBoxWidth---------",searchBoxWidth);
+	
+	$("#layui-laydate1").width(searchBoxWidth);
+	
+	var width=$("#layui-laydate1").width();
+	console.log("width---------",width);
+	
+	
+	
 	//初始化 laydate 对象
 	layui.use('laydate', function() {
 		var laydate = layui.laydate;
