@@ -13,18 +13,19 @@
 
 .leftTop {
 	width: 100%;
-	height: 44%;
+	height: 38%;
 	position: relative;
 	/* border: 1px solid white; */
 	background-image: url(../img/1.png);
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
+	margin-top: 5%;
 }
 
 .leftBottom {
 	width: 100%;
 	position: relative;
-	height: 55%;
+	height: 56%;
 	margin-top: 4%;
 	/* border: 1px solid white; */
 	background-image: url(../img/2.png);
@@ -41,11 +42,12 @@
 
 .middleTop {
 	width: 100%;
-	height: 72%;
+	height: 68%;
 	/* border: 1px solid white; */
 	background-image: url(../img/3.png);
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
+	margin-top: 2%;
 }
 
 .middleBottom {
@@ -67,16 +69,17 @@
 
 .rightTop {
 	width: 100%;
-	    height: 32%;
+	height: 32%;
 	/* border: 1px solid white; */
 	background-image: url(../img/5.png);
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
+	margin-top: 5%;
 }
 
 .rightMiddle {
 	width: 100%;
-	height: 38%;
+	height: 34%;
 	margin-top: 3%;
 	/* border: 1px solid white; */
 	background-image: url(../img/6.png);
@@ -124,7 +127,7 @@
 	font-stretch: normal;
 	letter-spacing: 0px;
 	color: #ffffff;
-	
+
 }
 
 .projectPic {
@@ -134,15 +137,38 @@
 @media only screen and (max-width: 1700px) {
 	.leftTop ul li {
 		font-size: 1em;
-		line-height: 0.875rem;
+		line-height: 1.675rem;
 	}
 
+	.leftProjectText {
+		margin-left: 0.3125rem;
+		color: #a3a3a3;
+		font-size: 0.9375rem;
+	}
+
+	.stationText {
+		font-size: 13px;
+	}
+
+	.nowTemp {
+		font-size: 1.5875rem;
+	}
 }
 
 @media only screen and (min-width: 1700px) {
 	.leftTop ul li {
 		font-size: 1rem;
 		line-height: 1.625rem;
+	}
+
+	.leftProjectText {
+		margin-left: 0.3125rem;
+		color: #a3a3a3;
+		font-size: 0.9375rem;
+	}
+
+	.nowTemp {
+		font-size: 2.1875rem;
 	}
 }
 
@@ -167,17 +193,11 @@
 	width: 50%;
 }
 
-.leftProjectText {
-	margin-left: 0.3125rem;
-	color: #a3a3a3;
-	font-size: 0.9375rem;
-}
-
 .grayText {
 	color: #a3a3a3;
 }
 
-.peopleChartArea{
+.peopleChartArea {
 	height: 69%;
 }
 
@@ -330,10 +350,6 @@
 	justify-content: space-between;
 }
 
-.nowTemp {
-	font-size: 2.1875rem;
-}
-
 .tempureAera {
 	margin-left: 6px;
 	justify-content: space-around;
@@ -426,3 +442,4 @@
 .singleBigCount {
 	align-items: center;
 }
+

@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Demo</title>
+		<title>智慧工地云平台</title>
 		<meta name="renderer" content="webkit|ie-comp|ie-stand">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -18,7 +18,7 @@
 			<img src="img/back_n.jpg" class="backImagePic" />
 		</div>
 		<!-- 标题Logo -->
-		<div class="middileLogotextArea" onclick="backToCurrentPage()"></div>
+		<div class="middileLogotextArea"></div>
 		<!-- 用户信息 -->
 		<div class="row topHead">
 			<div class="row rightOptionArea">
@@ -46,56 +46,90 @@
 		<!-- 顶部导航栏 -->
 		<div class="row topNavArea">
 			<div class="navList leftOptionList">
-				<ul>
+				<ul> 
 					<li data-index="0" data-checked="true">
 						<a href="javascript:;">项目管理</a>
-						<dl style="display: none;">
-							<dd class="paddingTopTen">项目单位</dd>
+						<dl >
+							<dd class="paddingTopTen" data-index="0-1">项目资料</dd>
 							<div class="bottomLine"></div>
-							<dd class="paddingBottomTen">项目项目资料</dd>
+							<dd class="paddingBottomTen" data-index="0-2">项目单位</dd>
 						</dl>
 					</li>
 					<li data-index="1" data-checked="false">
 						<a href="javascript:;">企业管理</a>
-						<dl style="display: none;">
-							<dd class="paddingTopTen">项目单位</dd>
+						<dl >
+							<dd class="paddingTopTen" data-index="1-1">企业管理</dd>
 							<div class="bottomLine"></div>
-							<dd class="paddingBottomTen">项目项目资料</dd>
+							<dd class="paddingBottomTen" data-index="1-2">部门管理</dd>
 						</dl>
 					</li>
 					<li data-index="2" data-checked="false">
 						<a href="javascript:;">安全监测</a>
-						<dl style="display: none;">
-							<dd class="paddingTopTen">项目单位</dd>
+						<dl >
+							<dd class="paddingTopTen" data-index="2-1">人员实时定位</dd>
 							<div class="bottomLine"></div>
-							<dd class="paddingBottomTen">项目项目资料</dd>
+							<dd class="paddingBottomTen" data-index="2-2">基坑监测</dd>
 						</dl>
 					</li>
 					<li data-index="3" data-checked="false">
 						<a href="javascript:;">人员管理</a>
-						<dl style="display: none;">
-							<dd class="paddingTopTen">项目单位</dd>
+						<dl>
+							<dd class="paddingTopTen" data-index="3-1">建筑工人管理</dd>
 							<div class="bottomLine"></div>
-							<dd class="paddingBottomTen">项目项目资料</dd>
+							<dd class="middleSecMenu" data-index="3-2">管理工人管理</dd>
+							<div class="bottomLine"></div>
+							<dd class="paddingBottomTen" data-index="3-3">合同管理</dd>
 						</dl>
 					</li>
 					<li data-index="4" data-checked="false" class="lastOption">
 						<a href="javascript:;">工资管理</a>
-						<dl style="display: none;">
-							<dd class="paddingTopTen">项目单位</dd>
+						<dl >
+							<dd class="paddingTopTen" data-index="4-1">工资管理</dd>
 							<div class="bottomLine"></div>
-							<dd class="paddingBottomTen">项目项目资料</dd>
+							<dd class="paddingBottomTen" data-index="4-2">凭证管理</dd>
 						</dl>
 					</li>
 				</ul>
 			</div>
 			<div class="navList rightOptionList">
 				<ul>
-					<li data-index="5" data-checked="false">考勤管理</li>
-					<li data-index="6" data-checked="false">访客管理</li>
-					<li data-index="7" data-checked="false">安全管理</li>
-					<li data-index="8" data-checked="false">设备管理</li>
-					<li data-index="9" data-checked="false" class="lastOption">系统管理</li>
+					<li data-index="5" data-checked="false">
+						<a href="javascript:;">考勤管理</a>
+						<dl >
+							<dd class="paddingTopTen" data-index="5-1">考勤规则</dd>
+							<div class="bottomLine"></div>
+							<dd class="paddingBottomTen" data-index="5-2">考勤记录</dd>
+						</dl>
+					</li>
+					<li data-index="6" data-checked="false">
+						<a href="javascript:;">访客管理</a>
+					</li>
+					<li data-index="7" data-checked="false">
+						<a href="javascript:;">安全管理</a>
+						<dl >
+							<dd class="paddingTopTen" data-index="7-1">规划安全事项</dd>
+							<div class="bottomLine"></div>
+							<dd class="paddingBottomTen" data-index="7-2">审核检查情况</dd>
+						</dl>
+					</li>
+					<li data-index="8" data-checked="false">
+						<a href="javascript:;">设备管理</a>
+						<dl >
+							<dd class="paddingTopTen" data-index="8-1">路由器</dd>
+							<div class="bottomLine"></div>
+							<dd class="middleSecMenu" data-index="8-2">摄像头</dd>
+							<div class="bottomLine"></div>
+							<dd class="paddingBottomTen" data-index="8-3">安全帽</dd>
+						</dl>
+					</li>
+					<li data-index="9" data-checked="false" class="lastOption">
+						<a href="javascript:;">系统管理</a>
+						<dl >
+							<dd class="paddingTopTen" data-index="9-1">基本信息</dd>
+							<div class="bottomLine"></div>
+							<dd class="paddingBottomTen" data-index="9-2">账号安全</dd>
+						</dl>
+					</li>
 				</ul>
 			</div>
 		</div>

@@ -109,6 +109,7 @@ a:hover {
 }
 
 .navList ul li dl {
+	display: none;
 	position: absolute;
 	width: 100%;
 	/* background-color: white; */
@@ -162,8 +163,8 @@ a:hover {
 }
 
 .leftOptionList ul li:nth-child(4) {
-	width: 15%;
-	margin-left: 6%;
+	width: 18%;
+	margin-left: 3%;
 }
 
 .leftOptionList ul li:nth-child(5) {
@@ -245,5 +246,19 @@ a:hover {
 }
 
 .check_nav {
+	color: #01e1ff;
+}
+
+.layui-nav-bar {
+	display: none;
+}
+
+.layui-nav {
+	padding: 0px !important;
+	background-color: transparent !important;
+}
+
+.layui-nav .layui-nav-item a:hover,
+.layui-nav .layui-this a {
 	color: #01e1ff;
 }
