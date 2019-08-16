@@ -69,7 +69,10 @@ a:hover {
 	font-stretch: normal;
 	letter-spacing: 0px;
 }
-
+.topRightText:hover{
+	cursor: pointer;
+	text-decoration: underline;
+}
 .topNavArea {
 	position: absolute;
 	width: 88%;
@@ -129,6 +132,10 @@ a:hover {
 	cursor: pointer;
 	color: #01e1ff;
 	text-decoration: underline;
+}
+
+.navList>ul>li:hover>dl {
+	display: block;
 }
 
 .paddingTopTen {

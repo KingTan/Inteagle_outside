@@ -72,7 +72,7 @@ function onSDKLoadSucceeded(viewMetaData) {
 //加载外部构件
 function load(x,y,z) {
 	//目前仅支持3ds外部构件
-	loadExternalComponent("js/bimface/3ds/smallBall.3ds", function(object) {
+	loadExternalComponent("../3ds/smallBall.3ds", function(object) {
 		// 添加外部构件，命名为"ball_1"和"ball_2"
 		addExternalObject(viewer, "ball_1", object);
 

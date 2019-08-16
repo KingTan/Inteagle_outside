@@ -19,41 +19,6 @@ $(".middileLogotextArea").bind("click", function() {
 })
 
 /**
- * 导航栏菜单鼠标移入事件
- */
-$(".navList ul li a").bind("mouseenter", function(dom) {
-	//当前节点对象
-	var target = dom.target || dom.srcElemet;
-	if (target) {
-		$(".navList ul li dl").hide();
-		//相邻二级菜单显示
-		$(target).siblings("dl").show();
-	}
-})
-/**
- * 导航栏菜单鼠标移除事件
- */
-// $(".navList ul li").bind("mouseleave", function(dom) {
-//当前节点对象
-// var target = dom.target || dom.srcElemet;
-// if (target) {
-// 	//相邻二级菜单显示
-// 	$(target).siblings("dl").hide();w
-// }
-// })
-
-/**
- * 导航栏菜单鼠标移出事件
- */
-$(".navList ul li dl").bind("mouseleave", function(dom) {
-	//当前节点对象
-	var target = dom.currentTarget || dom.srcElemet;
-	if (target) {
-		$(target).hide();
-	}
-})
-
-/**
  * 二级菜单点击事件
  */
 $(".navList ul li dl dd").bind("click", function(dom) {
@@ -151,7 +116,7 @@ function changeIframePath(checkde_index) {
 			break;
 	}
 	if (iframePath != "" && iframePath != undefined) {
-		console.log("iframePath----------",iframePath);
+		console.log("iframePath----------", iframePath);
 		//控制右边iframe路径
 		$("#mainFrame").attr("src", iframePath);
 	}

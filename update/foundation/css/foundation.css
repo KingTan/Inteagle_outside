@@ -378,3 +378,7 @@ input:-ms-input-placeholder {
 .layui-laydate-content table {
 	width: 100% !important;
 }
+
+.checked_option{
+	background-color: #002e6f;
+}

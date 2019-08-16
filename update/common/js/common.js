@@ -81,3 +81,13 @@ function getNowFormatDate() {
 		seperator2 + str_second;
 	return currentdate;
 }
+
+//页面加载完成关闭动画
+function closeAnimate() {
+	//加载时
+	document.onreadystatechange = function() {
+		if (document.readyState == "complete") {
+			$('.loading', window.parent.document).fadeOut();
+		}
+	}
+}

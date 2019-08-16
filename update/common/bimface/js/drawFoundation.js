@@ -132,64 +132,74 @@ function onSDKLoadSucceeded(viewMetaData) {
 		window.onresize = function() {
 			viewer.resize(document.documentElement.clientWidth, document.documentElement.clientHeight - 40);
 		}
-		
+
 		//测斜仪点位
 		//http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/cexie_normal.png
 		//https://www.inteagle.com.cn/tag/cexie_normal.png
-		var pic_path="http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/cexie_normal.png";
-		var tag_type="测斜仪点位";
-		
+		var pic_path =
+			"http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/cexie_normal.png";
+		var tag_type = "测斜仪点位";
+
 		//位移管
 		//http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/weiyi_normal.png";
 		//https://www.inteagle.com.cn/tag/weiyi_normal.png
-		var wy_pic_path="http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/weiyi_normal.png";
-		var wy_tag_type="位移管点位";
-		
-		for(var i=0;i<tag_position_array.length;i++){
+		var wy_pic_path =
+			"http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/weiyi_normal.png";
+		var wy_tag_type = "位移管点位";
+
+		for (var i = 0; i < tag_position_array.length; i++) {
 			//添加标签(测斜仪)
-			add3DMarker(tag_position_array[i],pic_path,tag_type);
-			
+			add3DMarker(tag_position_array[i], pic_path, tag_type);
+
 			//添加标签(位移管)
-			add3DMarker(wy_tag_array[i],wy_pic_path,wy_tag_type);
+			add3DMarker(wy_tag_array[i], wy_pic_path, wy_tag_type);
 		}
 		// 更改初始视角
 		changeViewSite(viewer);
-		
-		//结束页面加载图标
-		
+
+		// //结束页面加载图标
+		// $(".loading").fadeOut();
+		// //显示内容
+		// $(".foundation").css("visibility","visible");
 
 	});
-	
-	var add_array=[];
-	
-	var add_id=0;
-	
+
+	var add_array = [];
+
+	var add_id = 0;
+
 	//鼠标单击事件
 	viewer.addEventListener(Glodon.Bimface.Viewer.Viewer3DEvent.MouseClicked, function(objectData) {
 		// console.log("点击模型");
 		// console.log("objectData----", objectData);
 		console.log("相机视野对象", viewer.getCameraStatus());
 		// console.log("objectData.worldPosition-------------------",objectData.worldPosition);
-		
+
 		add_id++;
-		var singleObj={"id":add_id,"x":objectData.worldPosition.x,"y":objectData.worldPosition.y,"z":objectData.worldPosition.z};
+		var singleObj = {
+			"id": add_id,
+			"x": objectData.worldPosition.x,
+			"y": objectData.worldPosition.y,
+			"z": objectData.worldPosition.z
+		};
 		add_array.push(singleObj);
-		
-		console.log("add_array--------------------",add_array);
-		
-		var pic_path="http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/cexie_normal.png";
-		var tag_type="测斜仪点位";
+
+		console.log("add_array--------------------", add_array);
+
+		var pic_path =
+			"http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/cexie_normal.png";
+		var tag_type = "测斜仪点位";
 		//点击添加标签
-		add3DMarker(objectData.worldPosition,pic_path,tag_type);
-		
+		add3DMarker(objectData.worldPosition, pic_path, tag_type);
+
 		var objectId = objectData.objectId;
 		if (objectId == "nd76a5a636-207e-4295-8be9-3fce014fd69d") {
 			//跳转到对应圆点的 图表  页面
 			window.location.href = "charts.html?id=" + objectId + "&router=foundation";
 		}
 	});
-	
-	
+
+
 
 }
 
@@ -290,44 +300,52 @@ function changeViewSite(viewer3D) {
 //根据构件ID 使构件透明
 function transparentComponents() {
 	//构件ID数组
-	viewer.transparentComponentsById(["nd7141f0cc-9766-4714-bb1d-fbf35928b060","ndc472e81c-71a0-4569-9dc9-1d798ca8e0cc","nd5461bd9a-9fda-4a7b-ae7c-438e6c220978"]);
+	viewer.transparentComponentsById(["nd7141f0cc-9766-4714-bb1d-fbf35928b060", "ndc472e81c-71a0-4569-9dc9-1d798ca8e0cc",
+		"nd5461bd9a-9fda-4a7b-ae7c-438e6c220978"
+	]);
 	viewer.render();
 }
 
 //根据构件ID 还原透明构件
 function opaqueComponents() {
 	//构件ID数组
-	viewer.opaqueComponentsById(["nd7141f0cc-9766-4714-bb1d-fbf35928b060","ndc472e81c-71a0-4569-9dc9-1d798ca8e0cc","nd5461bd9a-9fda-4a7b-ae7c-438e6c220978"]);
+	viewer.opaqueComponentsById(["nd7141f0cc-9766-4714-bb1d-fbf35928b060", "ndc472e81c-71a0-4569-9dc9-1d798ca8e0cc",
+		"nd5461bd9a-9fda-4a7b-ae7c-438e6c220978"
+	]);
 	viewer.render();
 }
 
 
 //增加三维标签的方法
-function add3DMarker(position,pic_path,tag_type) {
+function add3DMarker(position, pic_path, tag_type) {
 	var marker3dConfig = new Glodon.Bimface.Plugins.Marker3D.Marker3DConfig();
-	
+
 	//http://static.bimface.com/resources/3DMarker/warner/warner_red.png
 	// http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/cexie_normal.png
 	marker3dConfig.src = pic_path;
 	marker3dConfig.worldPosition = position;
-	marker3dConfig.size=15;
-	
-	
+	marker3dConfig.size = 15;
+
 	//测斜仪点位
 	//三维标签的提示
-	marker3dConfig.tooltip = tag_type+":"+position.id;
-	
+	marker3dConfig.tooltip = tag_type + ":" + position.id;
+
 	var marker3d = new Glodon.Bimface.Plugins.Marker3D.Marker3D(marker3dConfig);
 	marker3d.onClick(function(item) {
-		
+
 		//当前选中标签的ID
-		var check_tag_id=item.position.id;
-		
-		//跳转到对应圆点的 图表  页面
-		window.location.href = "charts.html?id=" + check_tag_id + "&router=foundation";
+		var check_tag_id = item.position.id;
+
+		//修改父页面Iframe的路径
+		$('#mainFrame', window.parent.document).attr("src", "http://127.0.0.1:8848/Inteagle_outside/update/foundation/foundation_charts.html?id=" + check_tag_id +
+			"&router=foundation");
+			
+			
+
+		//跳转到对应圆点的 图表页面
+		//window.location.href = "../../../foundation/foundation_charts.html?id=" + check_tag_id + "&router=foundation";
 		//缩放到该boundingbox
 		// viewer.zoomToBoundingBox(boundingbox);
-		
 		// 点击设置标签
 		//获取点击图片的postion
 		// var m = item.position;
@@ -363,31 +381,31 @@ function add3DMarker(position,pic_path,tag_type) {
 
 
 //模型上显示 图片标签
-	// 	viewer.addEventListener(Glodon.Bimface.Viewer.Viewer3DEvent.ComponentsSelectionChanged, function(componentData) {
-	// 		if (componentData && componentData.objectId) {
-	// 			// 首先创建DrawableContainer
-	// 			var drawaleContainerConfig = new Glodon.Bimface.Plugins.Drawable.DrawableContainerConfig();
-	// 			drawaleContainerConfig.viewer = viewer;
-	// 			var drawableContainer = new Glodon.Bimface.Plugins.Drawable.DrawableContainer(drawaleContainerConfig);
-	// 			var imageConfig = new Glodon.Bimface.Plugins.Drawable.ImageConfig();
-	// 
-	// 			imageConfig.width = 50;
-	// 			imageConfig.height = 50;
-	// 			// 设置自己的imageUrl
-	// 			imageConfig.src = "img/low_bat.png";
-	// 			// 通过selection change可以得到构件ID和坐标
-	// 			imageConfig.worldPosition = componentData.worldPosition;
-	// 			var image = new Glodon.Bimface.Plugins.Drawable.Image(imageConfig);
-	// 
-	// 			//图片的点击事件
-	// 			image.onClick(function() {
-	// 				var id = image.id;
-	// 				alert(id);
-	// 			});
-	// 
-	// 			//添加image
-	// 			drawableContainer.addItem(image);
-	// 
-	// 			console.log("加载图片标签....");
-	// 		}
-	// 	});
+// 	viewer.addEventListener(Glodon.Bimface.Viewer.Viewer3DEvent.ComponentsSelectionChanged, function(componentData) {
+// 		if (componentData && componentData.objectId) {
+// 			// 首先创建DrawableContainer
+// 			var drawaleContainerConfig = new Glodon.Bimface.Plugins.Drawable.DrawableContainerConfig();
+// 			drawaleContainerConfig.viewer = viewer;
+// 			var drawableContainer = new Glodon.Bimface.Plugins.Drawable.DrawableContainer(drawaleContainerConfig);
+// 			var imageConfig = new Glodon.Bimface.Plugins.Drawable.ImageConfig();
+// 
+// 			imageConfig.width = 50;
+// 			imageConfig.height = 50;
+// 			// 设置自己的imageUrl
+// 			imageConfig.src = "img/low_bat.png";
+// 			// 通过selection change可以得到构件ID和坐标
+// 			imageConfig.worldPosition = componentData.worldPosition;
+// 			var image = new Glodon.Bimface.Plugins.Drawable.Image(imageConfig);
+// 
+// 			//图片的点击事件
+// 			image.onClick(function() {
+// 				var id = image.id;
+// 				alert(id);
+// 			});
+// 
+// 			//添加image
+// 			drawableContainer.addItem(image);
+// 
+// 			console.log("加载图片标签....");
+// 		}
+// 	});

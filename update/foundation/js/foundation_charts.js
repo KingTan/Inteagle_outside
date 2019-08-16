@@ -12,31 +12,59 @@ $(function() {
 
 	//初始化右边设备ID集合
 	intialBtnGroup("normal_order");
-	
+
 	//初始化时间选择器
 	initialLayDate();
-	
+
 	//绘制深度水平位移 charts
-	inintialEcharts('bigCharts',id, null,true);
-	
-	
+	inintialEcharts('bigCharts', id, null, true);
+
+})
+
+/**
+ * 左边菜单栏点击事件
+ */
+$(".leftBottomList ul li").bind("click", function(dom) {
+	console.log(dom);
+	//清空其他的选中样式
+	$(".leftBottomList ul li").removeClass("checked_option");
+	$(".leftBottomList ul li").attr("data-checked","false");
+	//自身添加选中样式
+	var target = dom.currentTarget;
+	if (target) {
+		$(target).addClass("checked_option");
+		dom.currentTarget.dataset.checked = true;
+	}
+	//当前选中节点下标
+	var checkde_index = dom.currentTarget.dataset.index;
+	//当前节点选中状态
+	var checked_status = dom.currentTarget.dataset.checked;
+
+	//切换 渲染不同的 charts图
+	switch (checkde_index) {
+		case "0":
+			//深层水平位移
+			break;
+		case "1":
+			//顶部水平位移
+			break;
+		case "2":
+			//顶部竖向位移
+			break;
+		case "3":
+			//立柱竖向位移
+			break;
+		case "4":
+			//周边管线沉降位移
+			break;
+	}
+
 })
 
 /**
  * 初始化 时间选择器
  */
 function initialLayDate() {
-	
-	var searchBoxWidth=$(".leftInputArea").width();
-	console.log("searchBoxWidth---------",searchBoxWidth);
-	
-	$("#layui-laydate1").width(searchBoxWidth);
-	
-	var width=$("#layui-laydate1").width();
-	console.log("width---------",width);
-	
-	
-	
 	//初始化 laydate 对象
 	layui.use('laydate', function() {
 		var laydate = layui.laydate;
@@ -58,10 +86,8 @@ function initialLayDate() {
 function intialBtnGroup(order) {
 	//总数据数组
 	var btnList = [];
-
 	//优先数据数组
 	var orderList = [];
-
 	for (var i = 0; i < 35; i++) {
 		var status = "normal";
 		if (i % 11 == 0) {

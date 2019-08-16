@@ -1,7 +1,9 @@
 /**
  * 页面加载
  */
-$(function(){
+$(function() {
+	//关闭动画
+	// closeAnimate();
 	//初始化 Swiper
 	initialSwiper();
 })
