@@ -16,10 +16,58 @@ $(function() {
 	//初始化时间选择器
 	initialLayDate();
 
-	//绘制深度水平位移 charts
+	//绘制深度水平位移 默认折线图charts
 	inintialEcharts('bigCharts', id, null, true);
-
+	
 })
+
+//监听趋势图类型下拉框改变事件
+layui.use('form', function() {
+	var charts_form = layui.form;
+	charts_form.on('select(chartsType)', function(data) {
+		var value = data.value;
+		if (value == 1) {
+			//隐藏热力图
+			$(".heatMapArea").css("visibility","hidden");
+			//显示折线图
+			$("#bigCharts").fadeIn();
+			//绘制深度水平位移 默认折线图charts
+			inintialEcharts('bigCharts', id, null, true);
+
+		} else if (value == 2) {
+			//隐藏折线图
+			$("#bigCharts").fadeOut();
+			//显示热力图
+			$(".heatMapArea").css("visibility","visible");
+			//绘制热力图
+			drawHeatMapX();
+			drawHeatMapY();
+		}
+	})
+})
+
+
+
+/**
+ * @param {Object} index
+ * 点击工具栏(报警值、运行时间、导出报表)
+ */
+$(".optionText").bind("click", function(dom) {
+	var index = dom.currentTarget.dataset.index;
+	switch (index) {
+		case "0":
+			//调用父页面方法
+			parent.showWarnValModal();
+			break;
+		case "1":
+			//调用父页面方法
+			parent.runtimeSetModal();
+			break;
+		case "2":
+			break;
+	}
+})
+
 
 /**
  * 左边菜单栏点击事件
@@ -28,7 +76,7 @@ $(".leftBottomList ul li").bind("click", function(dom) {
 	console.log(dom);
 	//清空其他的选中样式
 	$(".leftBottomList ul li").removeClass("checked_option");
-	$(".leftBottomList ul li").attr("data-checked","false");
+	$(".leftBottomList ul li").attr("data-checked", "false");
 	//自身添加选中样式
 	var target = dom.currentTarget;
 	if (target) {

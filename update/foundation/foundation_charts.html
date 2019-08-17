@@ -23,7 +23,7 @@
 						基坑监测
 					</div>
 				</div>
-		
+
 				<!-- 中间搜索区域 -->
 				<div class="row topMiddleSearchArea">
 					<!-- 搜索框 -->
@@ -49,30 +49,30 @@
 						<button id="loginBtn" type="button" class="layui-btn layui-btn-normal">查询</button>
 					</div>
 				</div>
-		
+
 				<!-- 选项栏 -->
 				<div class="row topOptionList">
 					<div class="row singleOptionArea">
 						<div class="optionIcon">
 							<img src="../foundation/img/optionIcon.png" class="optionImage" />
 						</div>
-						<div class="optionText">报警值设置</div>
+						<div class="optionText" data-index="0">报警值设置</div>
 					</div>
 					<div class="row singleOptionArea">
 						<div class="optionIcon">
 							<img src="../foundation/img/optionIcon.png" class="optionImage" />
 						</div>
-						<div class="optionText">运行时间设置</div>
+						<div class="optionText" data-index="1">运行时间设置</div>
 					</div>
 					<div class="row singleOptionArea lastOption">
 						<div class="optionIcon">
 							<img src="../foundation/img/optionIcon.png" class="optionImage" />
 						</div>
-						<div class="optionText">导出报表</div>
+						<div class="optionText" data-index="2">导出报表</div>
 					</div>
 				</div>
 			</div>
-		
+
 			<!-- 底部展示区 -->
 			<div class="row bottomShowArea">
 				<!-- 左边 -->
@@ -90,32 +90,43 @@
 						</ul>
 					</div>
 				</div>
-		
+
 				<!-- 中间 -->
 				<div class="column bottomMiddleArea">
 					<div class="middleTopTitleArea">
-						<div class="boxTitle">工地模型</div>
+						<div class="boxTitle">趋势图</div>
 					</div>
-		
+
 					<!-- 时间选择区域 -->
-					<div class="row middleTopOption">
-						<div class="deviceIDArea">ID: <span class="checked_id">001</span></div>
-						<!-- <div class="time_chosen_area">
+					<div class="row rightPartArea">
+						<div class="time_chosen_area">
 							<form class="layui-form" action="">
 								<div class="layui-input-inline">
-									<input type="text" class="layui-input" id="deepChartsTime" placeholder="yyyy-MM-dd HH:mm:ss">
+									<select name="modules" lay-verify="required" lay-search="" lay-filter="chartsType">
+										<!-- <option value="0">请选择趋势图类型</option> -->
+										<option value="1">折线图</option>
+										<option value="2">热力图</option>
+									</select>
 								</div>
 							</form>
-						</div> -->
+						</div>
+						<div class="row middleTopOption">
+							<div class="deviceIDArea">ID: <span class="checked_id">001</span></div>
+						</div>
 					</div>
-					
-					<div class="row topCharts">
-						<!-- 左上图表 -->
-						<div id="bigCharts"></div>
+
+					<div class="topCharts">
+						<!-- 折线图 -->
+						<div id="bigCharts" ></div>
+						<!-- 热力图 -->
+						<div class="column heatMapArea" style="visibility: hidden;">
+							<div id="heat_x"></div>
+							<div id="heat_y"></div>
+						</div>
 					</div>
 				</div>
-		
-		
+
+
 				<!-- 右边 -->
 				<div class="column bottomRightArea">
 					<div class="rightTopTitleArea">

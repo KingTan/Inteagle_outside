@@ -2,7 +2,27 @@
  * 页面加载
  */
 $(function() {
-	
+
+})
+
+/**
+ * @param {Object} index
+ * 点击工具栏(报警值、运行时间、导出报表)
+ */
+$(".optionText").bind("click", function(dom) {
+	var index=dom.currentTarget.dataset.index;
+	switch (index) {
+		case "0":
+			//调用父页面方法
+			parent.showWarnValModal();
+			break;
+		case "1":
+			//调用父页面方法
+			parent.runtimeSetModal();
+			break;
+		case "2":
+			break;
+	}
 })
 
 /**

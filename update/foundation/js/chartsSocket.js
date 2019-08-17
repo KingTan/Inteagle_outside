@@ -9,6 +9,9 @@ const wsServer = "wss://www.inteagle.com.cn/Inteagle_java/chartsSocket/001";
 //收到的总数据
 var data_single_array_all = [];
 
+// 显示折线图
+var showLineChartsFlag = true;
+
 
 if (typeof(WebSocket) == "undefined") {
 	console.log("您的浏览器不支持WebSocket");
@@ -28,7 +31,12 @@ if (typeof(WebSocket) == "undefined") {
 			} else {
 				if (res.messageType == "foundation") {
 					var data_array_single = res.data;
-					inintialEcharts('bigCharts',"001", data_array_single,true);
+					
+					if(showLineChartsFlag){
+						//1--折线图  2-热力图
+						inintialEcharts('bigCharts', "001", data_array_single, true);
+					}
+					
 				}
 			}
 		}

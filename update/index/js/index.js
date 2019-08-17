@@ -1,12 +1,81 @@
+//layui form组件
+var layform;
+var element;
+
 /**
  * 页面加载事件
  */
 $(function() {
-	//JavaScript代码区域
-	layui.use('element', function() {
-		var element = layui.element;
+	//初始化layui组件
+	layui.use(['element', 'form'], function() {
+		element = layui.element;
+		layform = layui;
 	});
 })
+
+/**
+ * 运行时间弹窗
+ */
+function runtimeSetModal() {
+	var html = document.getElementById("runtimeSetModal").innerHTML;
+	var width;
+	var height;
+	console.log("isBigScreen----------",isBigScreen);
+	if (isBigScreen) {
+		width = "35%";
+		height = "25%";
+	} else {
+		width = "45%";
+		height = "30%";
+	}
+
+	//页面层-自定义
+	layer.open({
+		type: 1,
+		title: false,
+		closeBtn: 0,
+		area: [width, height],
+		shadeClose: true,
+		scrollbar: true,
+		resize: false,
+		content: html,
+		success: function() {
+			//初始化 from 对象
+			layui.use('form', function() {
+				layform = layui.form;
+				layform.render();
+			})
+		}
+	});
+}
+
+
+/**
+ * 报警值弹窗
+ */
+function showWarnValModal() {
+	var html = document.getElementById("warnValModal").innerHTML;
+	//页面层-自定义
+	layer.open({
+		type: 1,
+		title: false,
+		closeBtn: 0,
+		area: ['35%', '50%'],
+		shadeClose: true,
+		scrollbar: true,
+		resize: false,
+		content: html,
+		success: function() {
+			//初始化 from 对象
+			layui.use('form', function() {
+				layform = layui.form;
+				layform.render();
+			})
+		}
+	});
+}
+
+
 
 /**
  * 跳转到初始首页

@@ -2,15 +2,13 @@ var layer;
 var form;
 var laydate;
 layui.use(['layer', 'laydate', 'form'], function() {
+	//时间组件
+	laydate = layui.laydate;
+	//弹窗组件
+	layer = layui.layer;
 	//表单组件
 	form = layui.form;
 	form.render();
-
-	//时间组件
-	laydate = layui.laydate;
-
-	//弹窗组件
-	layer = layui.layer;
 });
 
 
@@ -28,7 +26,16 @@ $(function() {
 	//屏幕分辨率的宽高
 	var clientWidth = window.screen.width;
 	var clientHeight = window.screen.width;
-	if (clientWidth > 1400) {
+
+	var document_height = document.body.clientHeight;
+	var document_width = document.body.clientWidth;
+
+	// console.log("document_height------------", document_height);
+	// console.log("document_width------------", document_width);
+	// console.log("clientWidth------------", clientWidth);
+	// console.log("clientHeight-------------", clientHeight);
+
+	if (document_width > 1400) {
 		isBigScreen = true;
 	} else {
 		isBigScreen = false;

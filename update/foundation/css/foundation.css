@@ -85,8 +85,8 @@
 }
 
 .middleTopTitleArea {
-	margin-left: 6.5%;
-	margin-top: 0.8%;
+	margin-left: 7%;
+	margin-top: 0.5%;
 }
 
 .rightTopTitleArea {
@@ -114,6 +114,26 @@
 	color: rgb(255, 255, 255);
 	margin-left: 5%;
 	color: #77bfec;
+}
+
+.rightPartArea {
+	position: absolute;
+	width: 25%;
+	right: 0;
+	justify-content: space-around;
+	top: 5%;
+	height: 5%;
+	z-index: 9;
+}
+
+@media only screen and (max-width: 1400px) {
+	.optionText {
+		font-size: 13px;
+	}
+
+	.rightPartArea {
+		width: 40%;
+	}
 }
 
 .optionText:hover {
@@ -313,18 +333,19 @@
 }
 
 .middleTopOption {
-	width: 10%;
-	height: 5%;
-	margin-top: 3%;
+	width: 30%;
 	align-items: center;
-	position: absolute;
-	right: 0;
 	font-size: 1.25rem;
 }
 
 .time_chosen_area {
-	margin-left: 5%;
 	height: 100%;
+	width: 40%;
+}
+
+.time_chosen_area .layui-form-select .layui-input {
+	border: 1px solid white;
+	text-indent: 20%;
 }
 
 #deepChartsTime {
@@ -340,11 +361,31 @@
 	margin: 0px auto;
 	margin-top: 2%;
 	color: #FFFFFF !important;
+	position: relative;
+}
+
+.heatMapArea {
+	position: absolute;
+	width: 100%;
+	height: 100%;
 }
 
 #bigCharts {
+	position: absolute;
 	width: 100%;
 	height: 100%;
+	color: #FFFFFF !important;
+}
+
+#heat_x {
+	width: 100%;
+	height: 50%;
+	color: #FFFFFF !important;
+}
+
+#heat_y {
+	width: 100%;
+	height: 50%;
 	color: #FFFFFF !important;
 }
 
@@ -379,6 +420,6 @@ input:-ms-input-placeholder {
 	width: 100% !important;
 }
 
-.checked_option{
+.checked_option {
 	background-color: #002e6f;
 }

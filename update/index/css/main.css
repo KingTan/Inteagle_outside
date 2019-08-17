@@ -69,10 +69,27 @@ a:hover {
 	font-stretch: normal;
 	letter-spacing: 0px;
 }
-.topRightText:hover{
+
+.topRightText:hover {
 	cursor: pointer;
 	text-decoration: underline;
 }
+
+.msgCount {
+	position: absolute;
+	width: 1.125rem;
+	height: 1.125rem;
+	margin-left: 53px;
+	top: 0px;
+	border-radius: 50%;
+	background-color: rgba(226, 0, 0, 1);
+	font-size: 12px;
+	font-family: MicrosoftYaHei;
+	color: rgba(255, 255, 255, 1);
+	line-height: 1.125rem;
+	text-align: center;
+}
+
 .topNavArea {
 	position: absolute;
 	width: 88%;
@@ -107,20 +124,23 @@ a:hover {
 	font-weight: normal;
 	font-stretch: normal;
 	letter-spacing: 0px;
+	z-index: 1;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
 	align-items: center;
-	vertical-align: middle;
 }
 
 .navList ul li dl {
 	display: none;
 	position: absolute;
 	width: 100%;
-	/* background-color: white; */
 	background-image: url(../img/menu_back.png);
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	z-index: 1;
-	top: 110%;
+	top: 75%;
 }
 
 .navList ul li dl dd {
@@ -134,7 +154,11 @@ a:hover {
 	text-decoration: underline;
 }
 
-.navList>ul>li:hover>dl {
+.navList>ul>li>dl:hover {
+	display: block;
+}
+
+.navList>ul>li>a:hover+dl {
 	display: block;
 }
 
@@ -145,7 +169,6 @@ a:hover {
 .paddingBottomTen {
 	padding-bottom: 10px;
 }
-
 
 .bottomLine {
 	width: 70%;
@@ -203,11 +226,6 @@ a:hover {
 	margin-left: 5%;
 
 }
-
-/* .navList ul li:hover {
-	cursor: pointer;
-	text-decoration: underline;
-} */
 
 .symbolSize {
 	font-size: 20px !important;
@@ -268,4 +286,307 @@ a:hover {
 .layui-nav .layui-nav-item a:hover,
 .layui-nav .layui-this a {
 	color: #01e1ff;
+}
+
+.warnValArea {
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 255, 1);
+	box-shadow: 0px 2px 60px 0px rgba(0, 0, 0, 0.09);
+	border-radius: 20px;
+}
+
+.titleTextArea {
+	width: 100%;
+	height: 10%;
+	vertical-align: middle;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	text-align: center;
+	font-size: 1.125rem;
+	text-align: center;
+	font-family: MicrosoftYaHei;
+	color: rgba(255, 255, 255, 1);
+	background: rgba(44, 115, 196, 1);
+	border-radius: 4px 4px 0px 0px;
+}
+
+.warningTile {
+	font-size: 16px;
+	font-family: MicrosoftYaHei;
+	color: rgba(53, 78, 101, 1);
+}
+
+.inputArea input {
+	width: 100%;
+	height: 100%;
+	font-size: 0.9375rem;
+	background: rgba(249, 249, 249, 1) !important;
+}
+
+/**
+ *  修改google浏览器，默认的聚焦黄色背景为白色
+ */
+.inputArea input:-webkit-autofill,
+.inputArea select:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+.inputArea input {
+	outline-color: invert;
+	outline-style: none;
+	outline-width: 0px;
+	border: none;
+	border-style: none;
+}
+
+.inputArea input::-webkit-input-placeholder {
+	/* placeholder颜色  */
+	color: rgba(150, 150, 150, 1);
+	/* placeholder字体大小  */
+	font-size: 14px;
+	font-family: MicrosoftYaHei;
+}
+
+.leftText {
+	font-size: 0.8125rem;
+	font-family: MicrosoftYaHei;
+	color: rgba(150, 150, 150, 1);
+}
+
+.secContent {
+	margin-top: 0.625rem;
+}
+
+.warningArea {
+	width: 75% !important;
+}
+
+.warningArea input {
+	width: 100%;
+	text-indent: 1em;
+}
+
+.warningLine {
+	height: 0.0625rem;
+	background-color: rgba(150, 150, 150, 1);
+	width: 80%;
+	margin: 0px auto;
+	margin-top: 5%;
+}
+
+.warningTile {
+	font-size: 16px;
+	font-family: MicrosoftYaHei;
+	color: rgba(53, 78, 101, 1);
+}
+
+.waringContent {
+	margin-top: 1.5625rem;
+}
+
+.warningSpeedArea {
+	width: 70% !important;
+	text-indent: 1em;
+}
+
+.confirmBtn {
+	width: 35%;
+	height: 100%;
+	line-height: 2.5625rem;
+	background: rgba(44, 115, 196, 1);
+	font-size: 18px;
+	font-family: MicrosoftYaHei;
+	color: rgba(255, 255, 255, 1);
+	border-radius: 15px;
+}
+
+.resetBtnSec {
+	width: 35%;
+	height: 100%;
+	line-height: 2.5625rem;
+	background: rgba(213, 213, 213, 1);
+	font-size: 18px;
+	font-family: MicrosoftYaHei;
+	color: rgba(100, 100, 100, 1);
+	border-radius: 15px;
+}
+
+.layui-form-radio,
+.layui-form-radio * {
+	color: #000000;
+}
+
+.runScheduleArea {
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 255, 1);
+	box-shadow: 0px 2px 60px 0px rgba(0, 0, 0, 0.09);
+	border-radius: 20px;
+	color: #000000;
+}
+
+.runScheduleArea .titleTextArea {
+	width: 100%;
+	height: 20%;
+	vertical-align: middle;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	text-align: center;
+	font-size: 1.125rem;
+	text-align: center;
+	font-family: MicrosoftYaHei;
+	color: rgba(255, 255, 255, 1);
+	background: rgba(44, 115, 196, 1);
+	border-radius: 4px 4px 0px 0px;
+}
+
+.runScheduleArea .scheduleList {
+	width: 90%;
+	margin: 0px auto;
+	margin-top: 5%;
+	justify-content: space-around;
+}
+
+.runtimeSet {
+	align-items: center;
+}
+
+.runtimeSetInput {
+	width: 11.8125rem;
+	height: 2.25rem;
+	line-height: 2.25rem;
+	background: rgba(249, 249, 249, 1);
+	border-radius: 0.125rem;
+	border: 1px solid rgba(221, 221, 221, 1);
+}
+
+.runtimeSetSec {
+	align-items: center;
+	margin-left: 2.625rem;
+}
+
+.btnGroup {
+	width: 90%;
+	margin: 0px auto;
+	margin-top: 5%;
+	justify-content: space-evenly;
+}
+
+.leftTextStr {
+	width: 30%;
+}
+
+.runtimeSetInput .inputArea input {
+	text-indent: 1em;
+}
+
+@media only screen and (max-width: 1400px) {
+	.singleWarning {
+		width: 60%;
+		margin: 0px auto;
+		margin-top: 1%;
+	}
+
+	.runtimeSetInput {
+		width: 11.8125rem;
+		height: 2.25rem;
+		line-height: 2.25rem;
+		background: rgba(249, 249, 249, 1);
+		border-radius: 0.125rem;
+		border: 1px solid rgba(221, 221, 221, 1);
+	}
+
+	.runtimeSetInput .middleLine {
+		margin: 0;
+		margin-right: 0.375rem;
+		color: darkgray;
+	}
+
+	.runtimeSetInput .lefttextArea {
+		margin: 0;
+
+	}
+
+	.runtimeSetInput .inputArea {
+		width: 66%;
+	}
+
+	.waringContent {
+		margin-top: 0.2625rem;
+	}
+
+	.radioArray {
+		width: 55%;
+	}
+
+	.layui-input-block {
+		margin-left: 0px;
+	}
+
+	.speedBtnGroup {
+		width: 80%;
+		height: 12%;
+		margin: 0px auto;
+		margin-top: 5%;
+		justify-content: space-around;
+	}
+
+}
+
+@media only screen and (min-width: 1400px) {
+	.singleWarning {
+		width: 60%;
+		margin: 0px auto;
+		margin-top: 5%;
+	}
+
+	.runtimeSetInput {
+		width: 11.8125rem;
+		height: 2.25rem;
+		line-height: 2.25rem;
+		margin-left: 1.875rem;
+		background: rgba(249, 249, 249, 1);
+		border-radius: 0.125rem;
+		border: 1px solid rgba(221, 221, 221, 1);
+	}
+
+	.runtimeSetInput .middleLine {
+		margin: 0;
+		margin-right: 0.375rem;
+		color: darkgray;
+	}
+
+	.runtimeSetInput .lefttextArea {
+		margin: 0;
+
+	}
+
+	.runtimeSetInput .inputArea {
+		width: 66%;
+	}
+
+	.waringContent {
+		margin-top: 1.5625rem;
+	}
+
+	.radioArray {
+		margin-left: 2.25rem !important;
+	}
+
+	.speedBtnGroup {
+		width: 80%;
+		height: 8%;
+		margin: 0px auto;
+		margin-top: 5%;
+		justify-content: space-around;
+	}
+
+	.speedSetInput {
+		margin-left: 0.3125rem;
+	}
 }
