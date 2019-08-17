@@ -158,9 +158,9 @@ function onSDKLoadSucceeded(viewMetaData) {
 		changeViewSite(viewer);
 
 		// //结束页面加载图标
-		// $(".loading").fadeOut();
-		// //显示内容
-		// $(".foundation").css("visibility","visible");
+		$(".loading").fadeOut();
+		//显示内容
+		$(".foundation").css("visibility","visible");
 
 	});
 

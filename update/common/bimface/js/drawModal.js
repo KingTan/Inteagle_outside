@@ -60,6 +60,8 @@ function onSDKLoadSucceeded(viewMetaData) {
 		
 		// 更改初始视角
 		changeViewSite(viewer);
+		
+		load();
 	});
 	
 	//鼠标单击事件
@@ -72,7 +74,8 @@ function onSDKLoadSucceeded(viewMetaData) {
 //加载外部构件
 function load(x,y,z) {
 	//目前仅支持3ds外部构件
-	loadExternalComponent("../3ds/smallBall.3ds", function(object) {
+	//https://www.inteagle.com.cn/update/common/bimface/3ds/smallBall.3ds
+	loadExternalComponent("http://127.0.0.1:8848/Inteagle_outside/update/common/bimface/3ds/smallBall.3ds", function(object) {
 		// 添加外部构件，命名为"ball_1"和"ball_2"
 		addExternalObject(viewer, "ball_1", object);
 

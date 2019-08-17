@@ -330,17 +330,6 @@ function drawHeatMapX() {
 				}
 			}
 		},
-		visualMap: {
-			min: 0,
-			max: 10,
-			calculable: true,
-			orient: 'horizontal',
-			left: 'center',
-			bottom: '0%',
-			textStyle: {
-				color: '#FFFFFF'
-			}
-		},
 		grid:{
 		      left: '0%',
 		      right: '4%',
@@ -423,17 +412,6 @@ function drawHeatMapY() {
 				lineStyle: {
 					color: '#FFFFFF'
 				}
-			}
-		},
-		visualMap: {
-			min: 0,
-			max: 10,
-			calculable: true,
-			orient: 'horizontal',
-			left: 'center',
-			bottom: '0%',
-			textStyle: {
-				color: '#FFFFFF'
 			}
 		},
 		grid:{
