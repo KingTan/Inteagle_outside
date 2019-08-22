@@ -137,7 +137,9 @@
 
 		<!-- 底部Iframe -->
 		<div class="mainBody">
-			<iframe src="curPage.html" id="mainFrame" class="mainFrame" name='iframe' frameborder="0"></iframe>
+			<iframe src="../foundation/foundation_charts.html" id="mainFrame" class="mainFrame" name='iframe' frameborder="0"></iframe>
+			
+			
 			<!-- 页面加载动画 -->
 			<!-- 遮挡页面 -->
 			<!-- <div class='loading'>
@@ -161,6 +163,9 @@
 		<script src="../common/js/jquery-3.2.1.min.js" type="text/javascript"></script>
 		<script src="../common/layui/layui.js" type="text/javascript"></script>
 		<script src="../common/js/common.js" type="text/javascript"></script>
+		<!--绘制Echarts  -->
+		<script src="../common/js/echarts.min.js" type="text/javascript"></script>
+		<script src="../foundation/js/draw_checked_charts.js" type="text/javascript"></script>
 		<script src="js/index.js" type="text/javascript"></script>
 		<!-- 报警值设定弹窗 -->
 		<script type="text/template" id="warnValModal">
@@ -262,6 +267,38 @@
 				<div class="row btnGroup">
 					<button type="button" class="layui-btn layui-btn-normal confirmBtn">确认</button>
 					<button type="button" class="layui-btn layui-btn-normal resetBtnSec">重置</button>
+				</div>
+			</div>
+		</script>
+		<!-- 选中时间后 表格弹窗 -->
+		<script type="text/template" id="checkTimeChartsModal">
+			<div class="column bottomMiddleArea">
+				<!-- 表格类型选择区域 -->
+				<div class="row rightPartArea">
+					<div class="time_chosen_area">
+						<form class="layui-form" action="">
+							<div class="layui-input-inline">
+								<select name="modules" lay-verify="required" lay-search="" lay-filter="chartsType_checked">
+									<!-- <option value="0">请选择趋势图类型</option> -->
+									<option value="1">累计位移</option>
+									<option value="2">速率</option>
+								</select>
+							</div>
+						</form>
+					</div>
+					<div class="row middleTopOption">
+						<div class="deviceIDArea">ID: <span class="checked_id">001</span></div>
+					</div>
+				</div>
+				
+				<div class="topCharts">
+					<!-- 折线图 -->
+					<div id="checkedBigCharts" ></div>
+					<!-- 热力图 -->
+					<div class="column heatMapArea" style="visibility: hidden;">
+						<div id="heat_x_checked"></div>
+						<div id="heat_y_checked"></div>
+					</div>
 				</div>
 			</div>
 		</script>

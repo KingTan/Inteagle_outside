@@ -122,7 +122,7 @@ function initialLayDate() {
 			trigger: 'click',
 			done: function(value, date) {
 				//调用父页面方法
-				// parent.openDeepCheckCharts(id,value);
+				parent.openDeepCheckCharts(id,value);
 			}
 		});
 	})

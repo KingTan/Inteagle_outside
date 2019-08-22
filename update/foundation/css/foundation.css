@@ -196,8 +196,9 @@
 }
 
 .error_btn {
-	border: 1px solid #ff0000;
-	box-shadow: inset 0px 0px 3px 1px #ff0000 !important;
+	background-color: black;
+	color: white;
+	border: 1px solid black;
 }
 
 .warning_btn {
@@ -345,7 +346,7 @@
 
 .time_chosen_area .layui-form-select .layui-input {
 	border: 1px solid white;
-	text-indent: 20%;
+	text-indent: 5%;
 }
 
 #deepChartsTime {

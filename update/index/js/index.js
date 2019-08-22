@@ -10,8 +10,68 @@ $(function() {
 	layui.use(['element', 'form'], function() {
 		element = layui.element;
 		layform = layui;
-	});
+	});	
 })
+
+/**
+ * 基坑监测 表格弹窗
+ */
+/**
+ * @param {Object} checked_id
+ * @param {Object} checked_time
+ * 显示深层水平位移 charts 表格弹窗
+ */
+function openDeepCheckCharts(checked_id,checked_time){
+	var html = document.getElementById("checkTimeChartsModal").innerHTML;
+	//页面层-自定义
+	layer.open({
+		type: 1,
+		title: false,
+		closeBtn: 0,
+		area: ['80%', '70%'],
+		shadeClose: true,
+		scrollbar: false,
+		resize: false,
+		content: html,
+		success: function() {
+			//渲染layui表单元素_下拉框
+			form.render()
+			//初始化 大Echarts
+			drawChecekedCharts("checkedBigCharts");
+			//热力图
+			drawHeatMapX_checked();
+			drawHeatMapY_checked();
+			
+			//监听趋势图类型下拉框改变事件
+			layui.use('form', function() {
+				var charts_form = layui.form;
+				charts_form.on('select(chartsType_checked)', function(data) {
+					var value = data.value;
+					if (value == 1) {
+						//隐藏热力图
+						$(".heatMapArea").css("visibility","hidden");
+						//显示折线图
+						$("#checkedBigCharts").fadeIn();
+						//绘制深度水平位移 默认折线图charts
+						drawChecekedCharts("checkedBigCharts");
+			
+					} else if (value == 2) {
+						//隐藏折线图
+						$("#checkedBigCharts").fadeOut();
+						//显示热力图
+						$(".heatMapArea").css("visibility","visible");
+						//绘制热力图
+						drawHeatMapX_checked();
+						drawHeatMapY_checked();
+					}
+				})
+			})
+			
+			
+		}
+	});
+}
+
 
 /**
  * 运行时间弹窗

@@ -5,7 +5,6 @@ var data_array=	[{"2019/8/8 08:00:00":[{"x":12,"y":20},{"x":24,"y":20},{"x":38,"
 					{"2019/8/8 12:00:00":[{"x":23,"y":16},{"x":25,"y":38},{"x":25,"y":18},{"x":45,"y":36},{"x":12,"y":18},{"x":44,"y":23},{"x":12,"y":20},{"x":24,"y":20},{"x":38,"y":30},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":-17,"y":27}]},
 					{"2019/8/8 13:00:00":[{"x":24,"y":46},{"x":32,"y":25},{"x":27,"y":32},{"x":32,"y":32},{"x":34,"y":29},{"x":21,"y":12},{"x":12,"y":20},{"x":24,"y":20},{"x":38,"y":30},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":-17,"y":27}]}
 				];
-
 //当前选中的时间
 var current_check_time = "";
 
@@ -179,7 +178,6 @@ function setSingleOption(single_x_data, single_y_data) {
 			}
 		]
 	};
-
 	return singleOption;
 }
 /**
@@ -276,13 +274,20 @@ function drawLineCharts(id, data_single_array_all, showTimeLine) {
 function drawHeatMapX() {
 	// 基于准备好的dom，初始化echarts实例
 	var myChart = echarts.init(document.getElementById("heat_x"));
-	
+
 	//横轴 时间_天  纵轴 深度  值 速率
-	var x_data = ['0', '2', '4', '6', '8', '10', '12','14', '16', '18', '20', '22','24', '26', '28', '30'];
-	
-	var days = ['8-11', '8-12', '8-13','8-14', '8-15', '8-16', '8-17'];
-	
-	var data = [[0,0,5],[1,1,5],[2,2,5],[3,3,5],[4,4,5],[5,5,5],[6,6,5],[5,7,5],[4,8,5],[3,9,5],[2,10,5],[1,11,5],[0,12,5],[1,13,5],[2,14,5],[3,15,5]];
+	var x_data = ['0', '2', '4', '6', '8', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30'];
+
+	var days = ['8-11', '8-12', '8-13', '8-14', '8-15', '8-16', '8-17'];
+
+	//数据数组
+	var data = [];
+	for (var i = 0; i < 7; i++) {
+		for (var j = 0; j < 16; j++) {
+			var single_data = [i, j, Math.floor(Math.random() * 10 + 1)]; //生成0-9的随机数
+			data.push(single_data);
+		}
+	}
 
 	data = data.map(function(item) {
 		return [item[1], item[0], item[2] || '-'];
@@ -296,13 +301,32 @@ function drawHeatMapX() {
 				color: '#FFFFFF'
 			}
 		},
+		visualMap: {
+			show: false,
+			min: 0,
+			max: 10,
+			calculable: true,
+			orient: 'horizontal',
+			left: 'center',
+			bottom: '15%'
+		},
 		tooltip: {
-			position: 'top'
+			trigger: 'item',
+			formatter: function(params, ticket, callback) {
+				var shtml = "时间:" + days[params.value[1]] + "<br/>";
+				shtml += "当前深度:" + params.name + "米<br/>";
+				shtml += "速率:" + params.value[2];
+
+				return shtml;
+			}
 		},
 		animation: false,
 		grid: {
-			height: '50%',
-			y: '10%'
+			height: '80%',
+			left: '0%',
+			right: '4%',
+			top: '15%',
+			containLabel: true
 		},
 		xAxis: {
 			type: 'category',
@@ -329,12 +353,6 @@ function drawHeatMapX() {
 					color: '#FFFFFF'
 				}
 			}
-		},
-		grid:{
-		      left: '0%',
-		      right: '4%',
-			  top: '12%',
-		      containLabel: true
 		},
 		series: [{
 			type: 'heatmap',
@@ -362,11 +380,18 @@ function drawHeatMapY() {
 	// 基于准备好的dom，初始化echarts实例
 	var myChart = echarts.init(document.getElementById("heat_y"));
 
-	var x_data = ['0', '2', '4', '6', '8', '10', '12','14', '16', '18', '20', '22','24', '26', '28', '30'];
-	
-	var days = ['8-11', '8-12', '8-13','8-14', '8-15', '8-16', '8-17'];
-	
-	var data = [[0,0,5],[1,1,5],[2,2,5],[3,3,5],[4,4,5],[5,5,5],[6,6,5],[5,7,5],[4,8,5],[3,9,5],[2,10,5],[1,11,5],[0,12,5],[1,13,5],[2,14,5],[3,15,5]];
+	var x_data = ['0', '2', '4', '6', '8', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30'];
+
+	var days = ['8-11', '8-12', '8-13', '8-14', '8-15', '8-16', '8-17'];
+
+	//数据数组
+	var data = [];
+	for (var i = 0; i < 7; i++) {
+		for (var j = 0; j < 16; j++) {
+			var single_data = [i, j, Math.floor(Math.random() * 10 + 1)]; //生成0-9的随机数
+			data.push(single_data);
+		}
+	}
 
 	data = data.map(function(item) {
 		return [item[1], item[0], item[2] || '-'];
@@ -380,13 +405,32 @@ function drawHeatMapY() {
 				color: '#FFFFFF'
 			}
 		},
+		visualMap: {
+			show: false,
+			min: 0,
+			max: 10,
+			calculable: true,
+			orient: 'horizontal',
+			left: 'center',
+			bottom: '15%'
+		},
 		tooltip: {
-			position: 'top'
+			trigger: 'item',
+			formatter: function(params, ticket, callback) {
+				var shtml = "时间:" + days[params.value[1]] + "<br/>";
+				shtml += "当前深度:" + params.name + "米<br/>";
+				shtml += "速率:" + params.value[2];
+		
+				return shtml;
+			}
 		},
 		animation: false,
 		grid: {
-			height: '50%',
-			y: '10%'
+			height: '80%',
+			left: '0%',
+			right: '4%',
+			top: '15%',
+			containLabel: true
 		},
 		xAxis: {
 			type: 'category',
@@ -413,12 +457,6 @@ function drawHeatMapY() {
 					color: '#FFFFFF'
 				}
 			}
-		},
-		grid:{
-		      left: '0%',
-		      right: '4%',
-		      top: '12%',
-		      containLabel: true
 		},
 		series: [{
 			type: 'heatmap',
@@ -447,4 +485,180 @@ function inintialEcharts(dom, id, data_single_array_all, showTimeLine) {
 	myChart.setOption(drawLineCharts(id, data_single_array_all, showTimeLine));
 }
 
+/**
+ * 数据对比图 配置项
+ */
+function twoChartsOption() {
 
+	// 单个配置项
+	var singleOption = {
+		title: {
+			text: '深层水平位移',
+			x: 'center',
+			textStyle: {
+				color: '#FFFFFF'
+			}
+		},
+		tooltip: {
+			trigger: 'axis',
+			formatter: function(params, ticket, callback) {
+				var htmlStr = '';
+				for (var i = 0; i < params.length; i++) {
+					var param = params[i];
+					var xName = param.name; //x轴的名称
+					var seriesName = param.seriesName; //图例名称
+					var value = param.value; //y轴值
+					var color = param.color; //图例颜色
+					xName = "当前深度:" + xName + "米";
+					if (i === 0) {
+						htmlStr += current_check_time + '<br/>'; //当前选中时间
+						htmlStr += xName + '<br/>'; // 当前深度
+					}
+					htmlStr += '<div>';
+					//为了保证和原来的效果一样，这里自己实现了一个点的效果
+					htmlStr +=
+						'<span style="margin-right:5px;display:inline-block;width:10px;height:10px;border-radius:5px;background-color:' +
+						color + ';"></span>';
+					//圆点后面显示的文本
+					htmlStr += seriesName + '：' + value;
+					htmlStr += '</div>';
+				}
+				return htmlStr;
+			}
+		},
+		legend: {
+			data: ['位移量', '位移量'],
+			x: 'left'
+		},
+		axisPointer: {
+			link: {
+				xAxisIndex: 'all'
+			}
+		},
+		grid: [{
+			left: 50,
+			right: 50,
+			height: '30%'
+		}, {
+			left: 50,
+			right: 50,
+			top: '55%',
+			height: '30%'
+		}],
+		xAxis: [{
+				type: 'category',
+				name: '深度(m)',
+				nameGap: 5,
+				nameTextStyle: {
+					color: '#FFFFFF'
+				},
+				boundaryGap: false,
+				axisLine: {
+					onZero: false,
+					lineStyle: {
+						type: 'solid',
+						color: '#FFFFFF'
+					}
+				},
+				data: x_rate_data
+			},
+			{
+				gridIndex: 1,
+				name: '深度(m)',
+				type: 'category',
+				nameGap: 5,
+				nameTextStyle: {
+					color: '#FFFFFF'
+				},
+				boundaryGap: false,
+				axisLine: {
+					onZero: false,
+					lineStyle: {
+						type: 'solid',
+						color: '#FFFFFF'
+					}
+				},
+				data: x_rate_data
+			}
+		],
+		yAxis: [{
+				name: 'x_位移量(mm)',
+				nameGap: 20,
+				nameTextStyle: {
+					color: '#FFFFFF'
+				},
+				type: 'value',
+				axisLine: {
+					lineStyle: {
+						color: '#FFFFFF'
+					}
+				},
+				max: 50,
+				min: -50
+			},
+			{
+				gridIndex: 1,
+				nameGap: 30,
+				name: 'y_位移量(mm)',
+				nameTextStyle: {
+					color: '#FFFFFF'
+				},
+				type: 'value',
+				axisLine: {
+					lineStyle: {
+						color: '#FFFFFF'
+					}
+				},
+				max: 50,
+				min: -50,
+				inverse: false
+			}
+		],
+		series: [{
+				name: 'x_位移量',
+				type: 'line',
+				symbolSize: 8,
+				hoverAnimation: true,
+				data: single_x_data,
+				itemStyle: {
+					normal: {
+						lineStyle: {
+							color: 'red'
+						}
+					}
+				}
+			},
+			{
+				name: 'y_位移量',
+				type: 'line',
+				xAxisIndex: 1,
+				yAxisIndex: 1,
+				symbolSize: 8,
+				hoverAnimation: true,
+				data: single_y_data,
+				itemStyle: {
+					normal: {
+						lineStyle: {
+							color: 'yellow'
+						}
+					}
+				}
+			}
+		]
+	};
+}
+
+
+
+
+
+
+/**
+ * 当前选中时间-当前时间 数据对比图
+ */
+function makeTwoCharts(dom, id, data_single_array_all, showTimeLine) {
+	// 基于准备好的dom，初始化echarts实例
+	var myChart = echarts.init(document.getElementById(dom));
+	//折线图
+	myChart.setOption(drawLineCharts(id, data_single_array_all, showTimeLine));
+}
