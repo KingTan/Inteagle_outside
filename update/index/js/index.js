@@ -159,9 +159,13 @@ $(".navList ul li dl dd").bind("click", function(dom) {
 	//当前节点
 	var target=dom.currentTarget;
 	
-	//移除所有一级菜单的样式
-	$(".navList ul li a").removeClass("check_nav");
+	//移除所有二级菜单的选中样式
+	$(".navList ul li dl dd").removeClass("check_nav");
+	//当前节点添加选中样式
+	$(target).addClass("check_nav");
 	
+	//移除所有一级菜单的选中样式
+	$(".navList ul li a").removeClass("check_nav");
 	//修改二级菜单上一级菜单的样式
 	$(target).parent().siblings("a").addClass("check_nav");
 })

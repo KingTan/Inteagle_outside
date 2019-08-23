@@ -86,6 +86,7 @@ function drawChecekedCharts(dom) {
 function setSingleOption(single_x1_data, single_y1_data, single_x2_data, single_y2_data) {
 	// 单个配置项
 	var singleOption = {
+		color:['#FF00F6','#35F0E9','#54FF00','#8900FE'],
 		title: {
 			text: '深层水平位移',
 			x: 'center',
@@ -240,7 +241,7 @@ function setSingleOption(single_x1_data, single_y1_data, single_x2_data, single_
 				itemStyle: {
 					normal: {
 						lineStyle: {
-							color: '#c23531',
+							color: '#FF00F6',
 						}
 					}
 				}
@@ -254,7 +255,7 @@ function setSingleOption(single_x1_data, single_y1_data, single_x2_data, single_
 				itemStyle: {
 					normal: {
 						lineStyle: {
-							color: '#2f4554'
+							color: '#35F0E9'
 						}
 					}
 				}
@@ -270,7 +271,7 @@ function setSingleOption(single_x1_data, single_y1_data, single_x2_data, single_
 				itemStyle: {
 					normal: {
 						lineStyle: {
-							color: '#61a0a8'
+							color: '#54FF00'
 						}
 					}
 				}
@@ -286,7 +287,7 @@ function setSingleOption(single_x1_data, single_y1_data, single_x2_data, single_
 				itemStyle: {
 					normal: {
 						lineStyle: {
-							color: '#d48265'
+							color: '#8900FE'
 						}
 					}
 				}

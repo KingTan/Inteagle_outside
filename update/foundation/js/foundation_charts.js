@@ -2,8 +2,8 @@ var id = getParam("id");
 if (id != null) {
 	//当前选中设备id
 	$(".checked_id").text(id);
-}else{
-	id="001";
+} else {
+	id = "001";
 }
 
 //时间选择器选择的时间
@@ -126,19 +126,25 @@ function initialLayDate() {
 			type: "datetime",
 			trigger: 'click',
 			change: function(value, date, endDate) {
-				console.log("value-----------",value)
-				console.log("date-----------",date)
-				console.log("endDate---------",endDate)
-				//选择日期后 调用点击选择时间事件
-				$(".laydate-btns-time").click();
-				//显示选择日期按钮
-				$(".laydate-btns-time").css("visibility","visible")
+				var lay_date_type = $('.laydate-btns-time').attr('lay-type');
+				if (lay_date_type === 'datatime') {
+					$('.laydate-btns-time').css('visibility', 'hidden')
+				} else {
+					//选择日期后 调用点击选择时间事件
+					$(".laydate-btns-time").click();
+					$(".laydate-btns-time").click(function() {
+						$(this).css('visibility', 'hidden')
+					});
+					//显示选择日期按钮
+					$(".laydate-btns-time").css("visibility", "visible")
+				}
 			},
 			done: function(value, date) {
 				checked_time = value;
 			}
 		});
 	})
+	
 }
 /**
  * 点击查询按钮
@@ -147,7 +153,7 @@ $("#check_chart_btn").bind("click", function(dom) {
 	if (checked_time != "" && checked_time != undefined && checked_time != null) {
 		//调用父页面方法
 		parent.openDeepCheckCharts(id, checked_time);
-	}else{
+	} else {
 		layer.msg("请选择时间")
 	}
 })

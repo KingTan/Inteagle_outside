@@ -48,7 +48,7 @@ function closeAnimate() {
 	//加载时
 	document.onreadystatechange = function() {
 		if (document.readyState == "complete") {
-			$('.loading', window.parent.document).fadeOut();
+			$('.loading').fadeOut();
 		}
 	}
 }

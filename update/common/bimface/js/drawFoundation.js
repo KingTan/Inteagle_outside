@@ -157,7 +157,7 @@ function onSDKLoadSucceeded(viewMetaData) {
 		// 更改初始视角
 		changeViewSite(viewer);
 
-		// //结束页面加载图标
+		//结束页面加载图标
 		$(".loading").fadeOut();
 		//显示内容
 		$(".foundation").css("visibility","visible");
