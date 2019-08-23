@@ -3,7 +3,7 @@
  */
 $(function() {
 	//关闭动画
-	// closeAnimate();
+	closeAnimate();
 	//初始化 Swiper
 	initialSwiper();
 })

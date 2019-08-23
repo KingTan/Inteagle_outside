@@ -58,9 +58,13 @@ function onSDKLoadSucceeded(viewMetaData) {
 			viewer.resize(document.documentElement.clientWidth, document.documentElement.clientHeight - 40);
 		}
 		
+		//结束页面加载图标
+		$(".loading").fadeOut();
+		//显示内容
+		$(".foundation").css("visibility","visible");
 		// 更改初始视角
 		changeViewSite(viewer);
-		
+		//加载小球
 		load();
 	});
 	

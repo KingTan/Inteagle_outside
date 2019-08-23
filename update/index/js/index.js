@@ -23,11 +23,12 @@ $(function() {
  */
 function openDeepCheckCharts(checked_id,checked_time){
 	var html = document.getElementById("checkTimeChartsModal").innerHTML;
+	html=html.replace("[checked_id]", checked_id);
 	//页面层-自定义
 	layer.open({
 		type: 1,
 		title: false,
-		closeBtn: 0,
+		closeBtn: 2,
 		area: ['80%', '70%'],
 		shadeClose: true,
 		scrollbar: false,
@@ -80,7 +81,6 @@ function runtimeSetModal() {
 	var html = document.getElementById("runtimeSetModal").innerHTML;
 	var width;
 	var height;
-	console.log("isBigScreen----------",isBigScreen);
 	if (isBigScreen) {
 		width = "35%";
 		height = "25%";
@@ -93,7 +93,7 @@ function runtimeSetModal() {
 	layer.open({
 		type: 1,
 		title: false,
-		closeBtn: 0,
+		closeBtn: 2,
 		area: [width, height],
 		shadeClose: true,
 		scrollbar: true,
@@ -119,7 +119,7 @@ function showWarnValModal() {
 	layer.open({
 		type: 1,
 		title: false,
-		closeBtn: 0,
+		closeBtn: 2,
 		area: ['35%', '50%'],
 		shadeClose: true,
 		scrollbar: true,
@@ -155,6 +155,15 @@ $(".navList ul li dl dd").bind("click", function(dom) {
 	var checkde_index = dom.currentTarget.dataset.index;
 	//根据下标改变Iframe路径
 	changeIframePath(checkde_index);
+	
+	//当前节点
+	var target=dom.currentTarget;
+	
+	//移除所有一级菜单的样式
+	$(".navList ul li a").removeClass("check_nav");
+	
+	//修改二级菜单上一级菜单的样式
+	$(target).parent().siblings("a").addClass("check_nav");
 })
 
 /**
@@ -245,7 +254,7 @@ function changeIframePath(checkde_index) {
 			break;
 	}
 	if (iframePath != "" && iframePath != undefined) {
-		console.log("iframePath----------", iframePath);
+		// console.log("iframePath----------", iframePath);
 		//控制右边iframe路径
 		$("#mainFrame").attr("src", iframePath);
 	}

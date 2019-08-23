@@ -2,7 +2,12 @@ var id = getParam("id");
 if (id != null) {
 	//当前选中设备id
 	$(".checked_id").text(id);
+}else{
+	id="001";
 }
+
+//时间选择器选择的时间
+var checked_time = "";
 
 
 /**
@@ -18,7 +23,7 @@ $(function() {
 
 	//绘制深度水平位移 默认折线图charts
 	inintialEcharts('bigCharts', id, null, true);
-	
+
 })
 
 //监听趋势图类型下拉框改变事件
@@ -28,7 +33,7 @@ layui.use('form', function() {
 		var value = data.value;
 		if (value == 1) {
 			//隐藏热力图
-			$(".heatMapArea").css("visibility","hidden");
+			$(".heatMapArea").css("visibility", "hidden");
 			//显示折线图
 			$("#bigCharts").fadeIn();
 			//绘制深度水平位移 默认折线图charts
@@ -38,7 +43,7 @@ layui.use('form', function() {
 			//隐藏折线图
 			$("#bigCharts").fadeOut();
 			//显示热力图
-			$(".heatMapArea").css("visibility","visible");
+			$(".heatMapArea").css("visibility", "visible");
 			//绘制热力图
 			drawHeatMapX();
 			drawHeatMapY();
@@ -120,14 +125,32 @@ function initialLayDate() {
 			elem: "#deepChartsTime",
 			type: "datetime",
 			trigger: 'click',
+			change: function(value, date, endDate) {
+				console.log("value-----------",value)
+				console.log("date-----------",date)
+				console.log("endDate---------",endDate)
+				//选择日期后 调用点击选择时间事件
+				$(".laydate-btns-time").click();
+				//显示选择日期按钮
+				$(".laydate-btns-time").css("visibility","visible")
+			},
 			done: function(value, date) {
-				//调用父页面方法
-				parent.openDeepCheckCharts(id,value);
+				checked_time = value;
 			}
 		});
 	})
 }
-
+/**
+ * 点击查询按钮
+ */
+$("#check_chart_btn").bind("click", function(dom) {
+	if (checked_time != "" && checked_time != undefined && checked_time != null) {
+		//调用父页面方法
+		parent.openDeepCheckCharts(id, checked_time);
+	}else{
+		layer.msg("请选择时间")
+	}
+})
 /**
  * 初始化右边按钮组
  */

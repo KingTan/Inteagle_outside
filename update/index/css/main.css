@@ -76,6 +76,7 @@ a:hover {
 }
 
 .msgCount {
+	display: none;
 	position: absolute;
 	width: 1.125rem;
 	height: 1.125rem;
@@ -320,7 +321,7 @@ a:hover {
 }
 
 .inputArea input {
-	width: 100%;
+	width: 88%;
 	height: 100%;
 	font-size: 0.9375rem;
 	background: rgba(249, 249, 249, 1) !important;
@@ -557,6 +558,12 @@ a:hover {
 .layui-form-select dl dd {
 	color: #000000;
 }
+
+.layui-input, .layui-select, .layui-textarea{
+	background: transparent;
+	color: #FFFFFF;
+}
+
 
 @media only screen and (max-width: 1400px) {
 	.singleWarning {

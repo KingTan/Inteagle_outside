@@ -45,7 +45,7 @@
 .bottomleftMiddle {
 	width: 17%;
 	height: 100%;
-	margin-left: 2%;
+	margin-left: 1.5%;
 	/* border: 1px solid white; */
 	background-image: url(../img/left_bottom.png);
 	background-size: 100% 100%;
@@ -64,7 +64,7 @@
 
 
 .bottomMiddleArea {
-	width: 58.5%;
+	width: 59%;
 	height: 100%;
 	position: relative;
 	margin-left: 2%;
@@ -388,6 +388,10 @@
 	width: 100%;
 	height: 50%;
 	color: #FFFFFF !important;
+}
+
+.laydate-btns-time{
+	visibility: hidden;
 }
 
 input::-webkit-input-placeholder {
