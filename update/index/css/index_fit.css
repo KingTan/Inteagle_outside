@@ -320,22 +320,26 @@
 	margin-left: 0.625rem;
 }
 
-.todayDate {
-	width: 85%;
+.todayDateArea {
+	width: 90%;
 	margin: 0px auto;
 	margin-top: 3%;
 }
 
 .weatherAreaPart {
-	width: 85%;
+	width: 95%;
 	height: 50%;
 	margin: 0px auto;
 	margin-top: 3%;
 }
 
+.currentWeatherIcon {
+	width: 80%;
+}
+
 .threeWeahterArea {
 	height: 100%;
-	width: 50%;
+	width: 55%;
 	justify-content: space-between;
 }
 
@@ -348,6 +352,14 @@
 .nowWeath {
 	height: 100%;
 	justify-content: space-between;
+}
+
+.IconArea {
+	width: 45%;
+}
+
+.tempArea {
+	width: 55%;
 }
 
 .tempureAera {
@@ -374,7 +386,11 @@
 }
 
 .weatherIcon {
-	margin-top: 46%;
+	margin-top: 10%;
+}
+
+.tempPeriodText {
+	margin-left: 12%;
 }
 
 .deviceCountArea {
@@ -441,4 +457,15 @@
 
 .singleBigCount {
 	align-items: center;
+}
+
+.day_two_icon {
+	width: 50%;
+}
+.day_three_icon{
+	width: 50%;
+}
+
+.weatherImg {
+	text-align: center;
 }

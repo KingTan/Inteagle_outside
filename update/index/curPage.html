@@ -14,7 +14,7 @@
 		<link rel="shortcut icon" href="../common/img/inteagle_logo.ico">
 	</head>
 	<body>
-		<div class="row curPageBody">
+		<div class="row curPageBody" style="visibility: hidden;">
 			<!-- 左边区域 -->
 			<div class="column leftArea">
 				<!-- 左上 -->
@@ -161,49 +161,47 @@
 						</div>
 						<div class="positionText">东莞</div>
 					</div>
-					<div class="todayDate">07月29日 周一</div>
+					<div class="todayDateArea"><span class="todayDateValue"></span> <span class="todayWeek"></span></div>
 
 					<div class="row weatherAreaPart">
 						<div class="row threeWeahterArea leftThirty">
-							<div class="row nowWeatherArea">
-								<div class="column nowWeath">
+								<div class="column nowWeath IconArea">
 									<div class="weatherIcon thirtyPart">
-										<img src="img/qingtian.png" />
+										<img src="" class="currentWeatherIcon"/>
 									</div>
-									<div class="tempPeriod tempPeriodText grayText">26~33°C</div>
+									<div class="tempPeriod tempPeriodText grayText"><span class="tempPeriodValue"></span>°C</div>
 								</div>
 								<div class="column nowWeath tempArea">
 									<div class="row  nowWeatherIcon nowWeatherText thirtyPart">
-										<div class="nowTemp">33</div>
+										<div class="nowTemp"></div>
 										<div class="column tempureAera">
 											<div class="tempUnit">°C</div>
-											<div class="nowWeatherTextStr">晴(实时)</div>
+											<div class="nowWeatherTextStr"><span class="nowWeatherTextStrValue"></span>(实时)</div>
 										</div>
 									</div>
-									<div class="tempPeriod grayText stationText">无持续风向微风</div>
+									<div class="tempPeriod grayText stationText"></div>
 								</div>
-							</div>
 						</div>
 						<div class="row nextTwoDayWeather">
 							<div class="column nextWeather">
-								<div class="topDate">07月30日</div>
+								<div class="topDate day_two_date"></div>
 								<div class="column weaPic">
 									<div class="weatherImg">
-										<img src="img/qingtian_small.png" class="nextWeaIcon" />
+										<img src="" class="nextWeaIcon day_two_icon" />
 									</div>
-									<div class="weatherText ">晴</div>
+									<div class="weatherText day_two_value"></div>
 								</div>
-								<div class="nextTempl bottomWether grayText">26~32°C</div>
+								<div class="nextTempl bottomWether grayText"><span class="day_two_temperiod"></span>°C</div>
 							</div>
 							<div class="column nextWeather">
-								<div class="topDate">07月31日</div>
+								<div class="topDate day_three_date"></div>
 								<div class="column weaPic">
 									<div class="weatherImg">
-										<img src="img/yu.png" class="nextWeaIcon" />
+										<img src="" class="nextWeaIcon day_three_icon" />
 									</div>
-									<div class="weatherText ">雨</div>
+									<div class="weatherText day_three_value"></div>
 								</div>
-								<div class="nextTempl bottomWether grayText">26~32°C</div>
+								<div class="nextTempl bottomWether grayText"><span class="day_three_temperiod"></span>°C</div>
 							</div>
 						</div>
 					</div>
@@ -276,7 +274,10 @@
 		<script src="../common/js/common.js" type="text/javascript"></script>
 		<script src="../common/js/echarts.min.js" type="text/javascript"></script>
 		<script src="../common/js/swiper.min.js" type="text/javascript"></script>
+		<!-- 绘制Echarts饼图 -->
 		<script src="js/drawCharts.js" type="text/javascript"></script>
+		<!-- 查询天气 -->
+		<script src="js/weather.js" type="text/javascript"></script>
 		<script src="js/curPage.js" type="text/javascript"></script>
 	</body>
 </html>

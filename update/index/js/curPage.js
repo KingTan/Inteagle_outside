@@ -2,10 +2,11 @@
  * 页面加载
  */
 $(function() {
-	//关闭动画
-	closeAnimate();
+	
 	//初始化 Swiper
 	initialSwiper();
+	//查询天气
+	getWeatherInfo("东莞");
 })
 
 /**
