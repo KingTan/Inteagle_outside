@@ -2,11 +2,18 @@
  * 页面加载
  */
 $(function() {
-	
 	//初始化 Swiper
 	initialSwiper();
-	//查询天气
-	getWeatherInfo("东莞");
+
+	//本地已存在记录经纬度时  直接查询天气
+	if (lat_local != null && lng_local != null) {
+		getWeatherInfo(lat_local, lng_local);
+		//启动定时器 每一小时请求一次天气数据
+		var intervalId = window.setInterval(function() {
+			getWeatherInfo(lat_local, lng_local);
+		}, 1000 * 60 * 60);
+	}
+
 })
 
 /**

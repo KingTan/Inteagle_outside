@@ -88,7 +88,6 @@
 					<div class="swiper-container gallery-top">
 						<div class="swiper-wrapper">
 							<div class="swiper-slide" style="background-image:url(img/image_1.png)"></div>
-							<div class="swiper-slide" style="background-image:url(img/image_2.png)"></div>
 							<div class="swiper-slide" style="background-image:url(img/image_3.png)"></div>
 							<div class="swiper-slide" style="background-image:url(img/image_4.png)"></div>
 							<div class="swiper-slide" style="background-image:url(img/image_5.png)"></div>
@@ -100,7 +99,6 @@
 					<div class="swiper-container gallery-thumbs">
 						<div class="swiper-wrapper">
 							<div class="swiper-slide" style="background-image:url(img/image_1.png)"></div>
-							<div class="swiper-slide" style="background-image:url(img/image_2.png)"></div>
 							<div class="swiper-slide" style="background-image:url(img/image_3.png)"></div>
 							<div class="swiper-slide" style="background-image:url(img/image_4.png)"></div>
 							<div class="swiper-slide" style="background-image:url(img/image_5.png)"></div>
@@ -159,28 +157,28 @@
 						<div class="locationImage">
 							<img src="img/position.png" class="positionIcon" />
 						</div>
-						<div class="positionText">东莞</div>
+						<div class="positionText"></div>
 					</div>
 					<div class="todayDateArea"><span class="todayDateValue"></span> <span class="todayWeek"></span></div>
 
 					<div class="row weatherAreaPart">
 						<div class="row threeWeahterArea leftThirty">
-								<div class="column nowWeath IconArea">
-									<div class="weatherIcon thirtyPart">
-										<img src="" class="currentWeatherIcon"/>
-									</div>
-									<div class="tempPeriod tempPeriodText grayText"><span class="tempPeriodValue"></span>°C</div>
+							<div class="column nowWeath IconArea">
+								<div class="weatherIcon thirtyPart">
+									<img src="" class="currentWeatherIcon" />
 								</div>
-								<div class="column nowWeath tempArea">
-									<div class="row  nowWeatherIcon nowWeatherText thirtyPart">
-										<div class="nowTemp"></div>
-										<div class="column tempureAera">
-											<div class="tempUnit">°C</div>
-											<div class="nowWeatherTextStr"><span class="nowWeatherTextStrValue"></span>(实时)</div>
-										</div>
+								<div class="tempPeriod tempPeriodText grayText"><span class="tempPeriodValue"></span>°C</div>
+							</div>
+							<div class="column nowWeath tempArea">
+								<div class="row  nowWeatherIcon nowWeatherText thirtyPart">
+									<div class="nowTemp"></div>
+									<div class="column tempureAera">
+										<div class="tempUnit">°C</div>
+										<div class="nowWeatherTextStr"><span class="nowWeatherTextStrValue"></span>(实时)</div>
 									</div>
-									<div class="tempPeriod grayText stationText"></div>
 								</div>
+								<div class="tempPeriod grayText stationText"></div>
+							</div>
 						</div>
 						<div class="row nextTwoDayWeather">
 							<div class="column nextWeather">
@@ -278,6 +276,9 @@
 		<script src="js/drawCharts.js" type="text/javascript"></script>
 		<!-- 查询天气 -->
 		<script src="js/weather.js" type="text/javascript"></script>
+		<!-- 高德地图定位 -->
+		<script src="https://webapi.amap.com/maps?v=1.4.15&key=402de582c702368a9620fa176e221a24" type="text/javascript"></script>
+		<script src="../common/js/position.js" type="text/javascript"></script>
 		<script src="js/curPage.js" type="text/javascript"></script>
 	</body>
 </html>

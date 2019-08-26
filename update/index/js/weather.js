@@ -1,17 +1,18 @@
 /**
- * @param {Object} cityName
+ * @param {Object} lat 纬度，lng经度
  * 查询天气
  */
-function getWeatherInfo(cityName) {
+function getWeatherInfo(lat, lng) {
 	//"areaId": areaId
 	$.ajax({
-		url: PATH + "weather/getWeatherByAreaNameAndAreaId",
+		url: PATH + "weather/getWeatherByGPS",
 		type: "post",
 		data: {
-			"areaName": cityName
+			"lat": lat,
+			"lng": lng
 		},
 		success: function(res) {
-			// console.log("res", res);
+			console.log("res", res);
 			if (res.state == 200) {
 				var now_weather = res.data.showapi_res_body.now;
 				if (now_weather != null) {
@@ -29,43 +30,46 @@ function getWeatherInfo(cityName) {
 				//温度区间
 				var tempPeriod = today.night_air_temperature + "~" + today.day_air_temperature;
 				$(".tempPeriodValue").text(tempPeriod);
-	
+
+				//当前地址
+				$(".positionText").text(res.data.showapi_res_body.cityInfo.c3);
+
 				//当天日期
 				var todayDate = today.day;
 				$(".todayDateValue").text(todayDate.substring(0, 4) + "年" + todayDate.substring(4, 6) + "月" + todayDate.substring(
 					6, 8) + "日");
 				//当天星期
 				$(".todayWeek").text(getWeek(today.weekday));
-	
+
 				//第二天的天气数据
 				var day_two = res.data.showapi_res_body.f2;
 				//第二天日期
 				$(".day_two_date").text(day_two.day.substring(4, 6) + "月" + day_two.day.substring(
 					6, 8) + "日");
 				//天气图标
-				$(".day_two_icon").attr("src",day_two.day_weather_pic)
+				$(".day_two_icon").attr("src", day_two.day_weather_pic)
 				//天气
 				$(".day_two_value").text(day_two.day_weather);
 				//温度区间
-				$(".day_two_temperiod").text(day_two.night_air_temperature+"~"+day_two.day_air_temperature);
-				
+				$(".day_two_temperiod").text(day_two.night_air_temperature + "~" + day_two.day_air_temperature);
+
 				//第三天的天气数据
 				var day_three = res.data.showapi_res_body.f3;
 				//第三天日期
 				$(".day_three_date").text(day_three.day.substring(4, 6) + "月" + day_three.day.substring(
 					6, 8) + "日");
 				//天气图标
-				$(".day_three_icon").attr("src",day_three.day_weather_pic)
+				$(".day_three_icon").attr("src", day_three.day_weather_pic)
 				//天气
 				$(".day_three_value").text(day_three.day_weather);
 				//温度区间
-				$(".day_three_temperiod").text(day_three.night_air_temperature+"~"+day_three.day_air_temperature);
-				
+				$(".day_three_temperiod").text(day_three.night_air_temperature + "~" + day_three.day_air_temperature);
+
 				//关闭动画
 				$(".loading").fadeOut();
 				//显示内容
-				$(".curPageBody").css("visibility","visible");
-				
+				$(".curPageBody").css("visibility", "visible");
+
 			} else if (res.state == 500) {
 				console.log("天气查询失败...")
 			}
@@ -74,7 +78,7 @@ function getWeatherInfo(cityName) {
 			console.log(badRes);
 		}
 	});
-	
+
 	// $.ajax({
 	// 	url: PATH + "weather/getAreaIdByAreaName",
 	// 	type: "post",

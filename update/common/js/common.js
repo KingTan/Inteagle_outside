@@ -1,6 +1,7 @@
 var layer;
 var form;
 var laydate;
+
 layui.use(['layer', 'laydate', 'form'], function() {
 	//时间组件
 	laydate = layui.laydate;
@@ -19,7 +20,7 @@ var isBigScreen;
 const PATH = "http://127.0.0.1:8080/";
 
 //服务器地址
-// const PATH="https://www.inteagle.com.cn/Inteagle_java/";
+// const PATH = "https://www.inteagle.com.cn/Inteagle_java/";
 
 
 $(function() {
