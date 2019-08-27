@@ -315,6 +315,7 @@ input:-ms-input-placeholder {
 	background-color: #7E7F7F;
 	color: #FFFFFF;
 	font-size: 13px;
+	border: 1px solid #7E7F7F;
 }
 
 .left_input_text {
@@ -345,7 +346,8 @@ input:-ms-input-placeholder {
 	margin-top: 7%;
 	justify-content: space-between;
 }
-.identityCode_area_sec{
+
+.identityCode_area_sec {
 	width: 100%;
 	height: 15%;
 	margin-top: 7%;
@@ -429,4 +431,8 @@ input:-ms-input-placeholder {
 .register_option_area a {
 	color: #FFFFFF;
 	font-size: 13px;
+}
+
+.null_input {
+	border: 1px solid darkorange;
 }

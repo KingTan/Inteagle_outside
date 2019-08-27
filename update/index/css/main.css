@@ -72,7 +72,7 @@ a:hover {
 
 .topRightText:hover {
 	cursor: pointer;
-	text-decoration: underline;
+	/* text-decoration: underline; */
 }
 
 .msgCount {
@@ -152,7 +152,7 @@ a:hover {
 .navList ul li dl dd:hover {
 	cursor: pointer;
 	color: #01e1ff;
-	text-decoration: underline;
+	/* text-decoration: underline; */
 }
 
 .navList>ul>li>dl:hover {
@@ -263,7 +263,7 @@ a:hover {
 }
 
 .recordText a:hover {
-	text-decoration: underline;
+	/* text-decoration: underline; */
 }
 
 .mainFrame {
