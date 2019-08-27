@@ -1,6 +1,15 @@
 //是否勾选记住密码
 var is_checkbox_checked = false;
 
+var InterValObj; //timer变量，控制时间
+var count = 60; //间隔函数，1秒执行
+var curCount; //当前剩余秒数
+
+var InterValObj_login; //timer变量，控制时间
+var count_login = 60; //间隔函数，1秒执行
+var curCount_login; //当前剩余秒数
+
+
 /**
  * 页面加载事件
  */
@@ -10,6 +19,52 @@ $(function() {
 })
 
 
+
+/**
+ * 验证码登录(手机号输入框失焦事件)
+ */
+$(".login_phone_num").bind("blur", function(dom) {
+	var current_value = dom.currentTarget.value;
+	var target = dom.currentTarget; //当前节点
+	if (!isPoneAvailable(current_value)) {
+		//改变样式
+		$(target).parent().parent().addClass("null_input");
+	}
+})
+
+/**
+ * 发送验证码(验证码登录)
+ */
+$(".getIdentityBtn_login").bind("click", function() {
+	//登陆手机号
+	var login_phone = $(".login_phone_num").val().trim();
+	if (!notNull(login_phone)) {
+		layer.ready(function() {
+			layer.msg("请输入您的手机号", {
+				icon: 2,
+				time: 1000
+			}, function() {
+				$(".login_phone_num").focus();
+			});
+		})
+		return;
+	} else {
+		//验证手机号格式
+		if (isPoneAvailable(login_phone)) {
+			//发送验证码--登陆验证码
+			send_sms_code(login_phone, "login");
+		} else {
+			layer.ready(function() {
+				layer.msg("手机号码格式不正确", {
+					icon: 2,
+					time: 1000
+				}, function() {
+					$(".login_phone_num").focus();
+				});
+			})
+		}
+	}
+})
 /**
  * 发送验证码
  * @param {Object} phoneNumber 手机号
@@ -27,17 +82,38 @@ function send_sms_code(phoneNumber, codeType) {
 		},
 		success: function(res) {
 			console.log("res------", res)
-			if(res.state==200){
-				if(res.data.showapi_res_body.successCounts==1){
+			if (res.state == 200) {
+				if (res.data.showapi_res_body.successCounts == 1) {
 					layer.ready(function() {
 						layer.msg("验证码发送成功", {
 							icon: 1,
 							time: 1000
 						}, function() {
-							$(".phoneNumber").focus();
+							if (codeType == "register") {
+								curCount = count;
+								// 设置button效果，开始计时
+								$(".getIdentityBtn_register").attr("disabled", true); //设置按钮为禁用状态
+								$(".getIdentityBtn_register").text(curCount + "秒后重获"); //更改按钮文字
+								InterValObj = window.setInterval(SetRemainTime, 1000); // 启动计时器timer处理函数，1秒执行一次
+							} else if (codeType == "login") {
+								curCount_login = count_login;
+								// 设置button效果，开始计时
+								$(".getIdentityBtn_login").attr("disabled", true); //设置按钮为禁用状态
+								$(".getIdentityBtn_login").text(curCount_login + "秒后重获"); //更改按钮文字
+								InterValObj_login = window.setInterval(SetRemainTime_login, 1000); // 启动计时器timer处理函数，1秒执行一次
+							}
 						});
 					})
 				}
+			} else if (res.state == 500) {
+				layer.ready(function() {
+					layer.msg(res.message, {
+						icon: 1,
+						time: 1000
+					}, function() {
+						$(".phoneNumber").focus();
+					});
+				})
 			}
 		},
 		error: function(badRes) {
@@ -45,6 +121,40 @@ function send_sms_code(phoneNumber, codeType) {
 		}
 	});
 }
+
+//timer处理函数
+function SetRemainTime() {
+	if (curCount == 0) { //超时重新获取验证码
+		window.clearInterval(InterValObj); // 停止计时器
+		$(".getIdentityBtn_register").attr("disabled", false); //移除禁用状态改为可用
+		$(".getIdentityBtn_register").text("重获验证码");
+	} else {
+		curCount--;
+		$(".getIdentityBtn_register").text(curCount + "秒后重获");
+	}
+}
+
+function SetRemainTime_login() {
+	if (curCount_login == 0) { //超时重新获取验证码
+		window.clearInterval(InterValObj_login); // 停止计时器
+		$(".getIdentityBtn_login").attr("disabled", false); //移除禁用状态改为可用
+		$(".getIdentityBtn_login").text("重获验证码");
+	} else {
+		curCount_login--;
+		$(".getIdentityBtn_login").text(curCount_login + "秒后重获");
+	}
+}
+
+
+// 判断是否为手机号
+function isPoneAvailable(phone) {
+	var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+	if (!myreg.test(phone)) {
+		return false;
+	} else {
+		return true;
+	}
+};
 
 /**
  * 判断cookie中是否有用户保存的 登录名 密码
@@ -57,7 +167,7 @@ function checkCookieLoginInfo() {
 		$(".loginParam").val(cookieLoginName)
 		$(".loginPwd").val(cookieLoginPwd)
 		$(".choose_remember_pwd").attr("checked", "checked");
-		remeberPass = true;
+		is_checkbox_checked = true;
 	}
 }
 
@@ -81,10 +191,80 @@ $('.login_box_area').bind('keyup', function(event) {
 });
 
 /**
+ * 点击登录(验证码登录)
+ */
+$(".loginBtn_identity").bind("click",function(){
+	//手机号
+	var phoneNumber = $(".login_phone_num").val().trim();
+	//验证码
+	var identityCode = $(".identity_value").val().trim();
+	if (!notNull(phoneNumber)) {
+		layer.ready(function() {
+			layer.msg("请输入手机号", {
+				icon: 2,
+				time: 1000
+			}, function() {});
+		})
+		return;
+	}
+	if (!notNull(identityCode)) {
+		layer.ready(function() {
+			layer.msg("请输入验证码", {
+				icon: 2,
+				time: 1000
+			}, function() {});
+		})
+		return;
+	}
+	//执行登录
+	loginByIndentityCode(phoneNumber, identityCode);
+})
+
+/**
+ * @param {Object} phoneNumber
+ * @param {Object} indentityCode
+ * 执行登录(验证码登录)
+ */
+function loginByIndentityCode(phoneNumber, indentityCode) {
+	$.ajax({
+		url: PATH + "userInfo/loginByIdentityCode",
+		type: "post",
+		data: {
+			"phoneNumber": phoneNumber,
+			"identityCode": indentityCode
+		},
+		success: function(res) {
+			console.log("res", res);
+			if (res.state == 500) {
+				layer.ready(function() {
+					layer.msg(res.message, {
+						icon: 2,
+						time: 1000
+					}, function() {});
+				})
+			} else if (res.state == 200) {
+				//保存当前登录用户信息
+				sessionStorage.setItem("LoginUserInfo", JSON.stringify(res.data));
+				//跳转到index界面
+				layer.ready(function() {
+					layer.msg("登录成功", {
+						icon: 1,
+						time: 1000
+					}, function() {
+						window.location.href = "../index/index.html";
+					});
+				})
+			}
+		},
+		error: function(badRes) {}
+	});
+}
+
+
+/**
  * 点击登录
  */
 $(".loginBtn").bind("click", function(dom) {
-
 	//用户名-手机号
 	var loginName = $(".loginParam").val().trim();
 	//密码
@@ -114,7 +294,7 @@ $(".loginBtn").bind("click", function(dom) {
 /**
  * @param {Object} searchParam
  * @param {Object} pwd
- * 执行登录
+ * 执行登录(普通登录)
  */
 function login(searchParam, pwd) {
 	//密码MD5加密
@@ -144,6 +324,8 @@ function login(searchParam, pwd) {
 			} else if (res.state == 200) {
 				//保存当前登录用户信息
 				sessionStorage.setItem("LoginUserInfo", JSON.stringify(res.data));
+
+				console.log("is_checkbox_checked------------", is_checkbox_checked);
 
 				//判断用户是否选择 记住密码
 				if (is_checkbox_checked == true) {

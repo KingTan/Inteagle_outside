@@ -12,6 +12,9 @@ $(function() {
 		var intervalId = window.setInterval(function() {
 			getWeatherInfo(lat_local, lng_local);
 		}, 1000 * 60 * 60);
+	} else {
+		//通过城市名查询天气
+		getWeatherByCityName();
 	}
 
 })

@@ -1,8 +1,3 @@
-var InterValObj; //timer变量，控制时间
-var count = 60; //间隔函数，1秒执行
-var curCount; //当前剩余秒数
-
-
 /**
  * 输入框失焦事件
  */
@@ -33,10 +28,10 @@ $(".right_input_area input").bind("blur", function(dom) {
 			case "loginPwdValue":
 				break;
 			case "loginPwdValue_again":
-				if(!check_pwd_again(current_value)){
-					//改变样式
-					$(target).parent().parent().addClass("null_input");
-				}
+				// if (!check_pwd_again(current_value)) {
+				// 	//改变样式
+				// 	$(target).parent().parent().addClass("null_input");
+				// }
 				break;
 		}
 	}
@@ -48,14 +43,112 @@ $(".right_input_area input").bind("blur", function(dom) {
  * 点击注册
  */
 $(".registerBtn").bind("click", function(dom) {
-	var userName = $(".userName").val(); //用户名
-	var phoneNumber = $(".phoneNumber").val(); //手机号
-	var idCardNumber = $(".idCardNumber").val(); //身份证号
-	var loginPwdValue = $(".loginPwdValue").val(); //登录密码
-	var loginPwdValue_again = $(".loginPwdValue_again").val(); //确认登录密码
-	var identity_value_register = $(".identity_value_register").val(); //验证码
+	var userName = $(".userName").val().trim(); //用户名
+	var phoneNumber = $(".phoneNumber").val().trim(); //手机号
+	var idCardNumber = $(".idCardNumber").val().trim(); //身份证号
+	var loginPwdValue = $(".loginPwdValue").val().trim(); //登录密码
+	var loginPwdValue_again = $(".loginPwdValue_again").val().trim(); //确认登录密码
+	var identity_value_register = $(".identity_value_register").val().trim(); //验证码
+	//验证非空
+	if (check_null(userName, phoneNumber, idCardNumber, loginPwdValue, loginPwdValue_again, identity_value_register)) {
+		return;
+	}
+
+	//验证两次密码是否一致
+	if (!check_pwd_again(loginPwdValue_again)) {
+		layer.ready(function() {
+			layer.msg("两次密码不一致,请重新输入！", {
+				icon: 2,
+				time: 1000
+			}, function() {
+				$(".loginPwdValue_again").val();
+				$(".loginPwdValue_again").focus();
+			});
+		})
+		return;
+	}
+
+	//md5加密
+	loginPwdValue = hex_md5(loginPwdValue);
+
+	var formData = new FormData();
+	formData.append("userName", userName);
+	formData.append("phone", phoneNumber);
+	formData.append("idCardNum", idCardNumber);
+	formData.append("password", loginPwdValue);
+	formData.append("IdentityCode", identity_value_register);
+
+	//请求注册
+	$.ajax({
+		url: PATH + "userInfo/register",
+		type: "post",
+		data: formData,
+		contentType: false, // 告诉jQuery不要去设置Content-Type请求头
+		processData: false, // 告诉jQuery不要去处理发送的数据
+		success: function(res) {
+			console.log(res);
+			if (res.state == 200) {
+				layer.ready(function() {
+					layer.msg("注册成功！", {
+						icon: 1,
+						time: 1000
+					}, function() {
+						//隐藏注册框
+						$(".register_box_area").fadeOut();
+						//隐藏验证码登录框
+						$(".identityCode_box").fadeOut();
+						//显示登录框
+						$(".login_box_area").fadeIn();
+					});
+				})
+			} else if (res.state == 500) {
+				layer.ready(function() {
+					layer.msg(res.message, {
+						icon: 2,
+						time: 1000
+					}, function() {});
+				})
+			}
+		},
+		error: function(badRes) {}
+	});
 })
 
+//验证非空
+function check_null(userName, phoneNumber, idCardNumber, loginPwdValue, loginPwdValue_again, identity_value_register) {
+	var is_null = false;
+	if (!notNull(userName)) {
+		//改变样式
+		$(".userName").parent().parent().addClass("null_input");
+		is_null = true;
+	}
+	if (!notNull(phoneNumber)) {
+		//改变样式
+		$(".phoneNumber").parent().parent().addClass("null_input");
+		is_null = true;
+	}
+	if (!notNull(idCardNumber)) {
+		//改变样式
+		$(".idCardNumber").parent().parent().addClass("null_input");
+		is_null = true;
+	}
+	if (!notNull(loginPwdValue)) {
+		//改变样式
+		$(".loginPwdValue").parent().parent().addClass("null_input");
+		is_null = true;
+	}
+	if (!notNull(loginPwdValue_again)) {
+		//改变样式
+		$(".loginPwdValue_again").parent().parent().addClass("null_input");
+		is_null = true;
+	}
+	if (!notNull(identity_value_register)) {
+		//改变样式
+		$(".identity_value_register").parent().addClass("null_input");
+		is_null = true;
+	}
+	return is_null;
+}
 
 
 /**
@@ -77,14 +170,8 @@ $(".getIdentityBtn_register").bind("click", function(dom) {
 	} else {
 		//验证手机号格式
 		if (isPoneAvailable(register_phone)) {
-			var target = dom.currentTarget;
-			curCount = count;
-			// 设置button效果，开始计时
-			$(".getIdentityBtn_register").attr("disabled", true); //设置按钮为禁用状态
-			$(".getIdentityBtn_register").text(curCount + "秒后重获"); //更改按钮文字
-			InterValObj = window.setInterval(SetRemainTime, 1000); // 启动计时器timer处理函数，1秒执行一次
 			//发送验证码--注册验证码
-			send_sms_code(register_phone, "Register_Code");
+			send_sms_code(register_phone, "register");
 		} else {
 			layer.ready(function() {
 				layer.msg("手机号码格式不正确", {
@@ -109,15 +196,6 @@ function check_pwd_again(pwd_again) {
 }
 
 
-// 判断是否为手机号
-function isPoneAvailable(phone) {
-	var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
-	if (!myreg.test(phone)) {
-		return false;
-	} else {
-		return true;
-	}
-};
 
 // 验证身份证号格式
 function isCardNo(num) {
@@ -187,18 +265,4 @@ function isCardNo(num) {
 		}
 	}
 	return false;
-}
-
-
-
-//timer处理函数
-function SetRemainTime() {
-	if (curCount == 0) { //超时重新获取验证码                
-		window.clearInterval(InterValObj); // 停止计时器
-		$(".getIdentityBtn_register").attr("disabled", false); //移除禁用状态改为可用
-		$(".getIdentityBtn_register").text("重获验证码");
-	} else {
-		curCount--;
-		$(".getIdentityBtn_register").text(curCount + "秒后重获");
-	}
 }
