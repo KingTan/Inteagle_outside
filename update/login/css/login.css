@@ -171,7 +171,7 @@
 	opacity: 0.349;
 }
 
-.loginBtn_identity{
+.loginBtn_identity {
 	width: 100%;
 	background-color: rgb(0, 0, 0);
 	opacity: 0.349;
@@ -217,9 +217,24 @@
 	border: none;
 }
 
+/**
+ * 消除webkit内核浏览器 input框样式
+ */
+input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px  #7E7F7F inset;
+	-webkit-text-fill-color: rgb(255, 255, 255);
+}
+
+
+.check_agree_box {
+	margin-right: 10px;
+	margin-bottom: 5px;
+}
+
+
 input[type="checkbox"] {
-	width: 15px;
-	height: 15px;
+	width: 12px;
+	height: 12px;
 	display: inline-block;
 	text-align: center;
 	vertical-align: middle;
@@ -232,20 +247,10 @@ input[type="checkbox"]::before {
 	position: absolute;
 	top: 0;
 	left: 0;
+	width: 12px;
+	height: 12px;
 	background-color: #7E7F7F !important;
-	border: none !important;
-
-}
-
-input[type="checkbox"]::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 15px;
-	height: 15px;
-	background-color: #7E7F7F !important;
-	border: none !important;
+	border: 1px solid #7E7F7F;
 }
 
 input[type="checkbox"]:checked::before {
@@ -253,10 +258,10 @@ input[type="checkbox"]:checked::before {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 15px;
-	height: 15px;
+	width: 12px;
+	height: 12px;
 	background-color: #7E7F7F !important;
-	border: none !important;
+	border: 1px solid #7e7f7f !important;
 	color: #FFFFFF !important;
 	font-weight: bold;
 }
@@ -324,6 +329,9 @@ input:-ms-input-placeholder {
 	font-size: 13px;
 	border: 1px solid #7E7F7F;
 }
+
+
+
 
 .left_input_text {
 	width: 25%;
@@ -441,5 +449,70 @@ input:-ms-input-placeholder {
 }
 
 .null_input {
-	border: 1px solid darkorange;
+	border: 1px solid darkorange !important;
+}
+
+.user_agreement_area {
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+	background-color: #FFFFFF;
+}
+
+.W_tc {
+	text-align: center;
+}
+
+.WB_cardwrap {
+	margin: 0 0 10px 0;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+	border-radius: 2px;
+	*zoom: 1;
+}
+
+.WB_innerwrap {
+	padding: 16px;
+}
+
+.WB_licence .private_cont {
+	padding: 0px 22px;
+	padding-bottom: 20px;
+}
+
+.WB_licence .private_cont h2 {
+	width: 668px;
+	margin-left: -22px;
+	border-color: #d9d9d9;
+	font-size: 22px;
+	line-height: 1.5;
+	font-weight: normal;
+}
+
+.WB_licence .private_cont h3 {
+	font-size: 14px;
+	text-align: left;
+	line-height: 1.8;
+	letter-spacing: 1.5px;
+	font-weight: bold;
+	margin-top: 40px;
+}
+
+.WB_licence .private_cont p {
+	font-size: 14px;
+	text-align: left;
+	line-height: 1.8;
+	letter-spacing: 1.5px;
+}
+
+.W_fb {
+	font-weight: 700;
+}
+
+.WB_licence .private_cont h3 {
+	font-size: 14px;
+	text-align: left;
+	line-height: 1.8;
+	letter-spacing: 1.5px;
+	font-weight: bold;
+	margin-top: 40px;
 }

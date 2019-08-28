@@ -29,6 +29,9 @@ $(".login_phone_num").bind("blur", function(dom) {
 	if (!isPoneAvailable(current_value)) {
 		//改变样式
 		$(target).parent().parent().addClass("null_input");
+	}else{
+		//改变样式
+		$(target).parent().parent().removeClass("null_input");
 	}
 })
 
@@ -83,28 +86,48 @@ function send_sms_code(phoneNumber, codeType) {
 		success: function(res) {
 			console.log("res------", res)
 			if (res.state == 200) {
-				if (res.data.showapi_res_body.successCounts == 1) {
-					layer.ready(function() {
-						layer.msg("验证码发送成功", {
-							icon: 1,
-							time: 1000
-						}, function() {
-							if (codeType == "register") {
-								curCount = count;
-								// 设置button效果，开始计时
-								$(".getIdentityBtn_register").attr("disabled", true); //设置按钮为禁用状态
-								$(".getIdentityBtn_register").text(curCount + "秒后重获"); //更改按钮文字
-								InterValObj = window.setInterval(SetRemainTime, 1000); // 启动计时器timer处理函数，1秒执行一次
-							} else if (codeType == "login") {
-								curCount_login = count_login;
-								// 设置button效果，开始计时
-								$(".getIdentityBtn_login").attr("disabled", true); //设置按钮为禁用状态
-								$(".getIdentityBtn_login").text(curCount_login + "秒后重获"); //更改按钮文字
-								InterValObj_login = window.setInterval(SetRemainTime_login, 1000); // 启动计时器timer处理函数，1秒执行一次
-							}
-						});
-					})
-				}
+				layer.ready(function() {
+					layer.msg("验证码发送成功", {
+						icon: 1,
+						time: 1000
+					}, function() {
+						if (codeType == "register") {
+							curCount = count;
+							// 设置button效果，开始计时
+							$(".getIdentityBtn_register").attr("disabled", true); //设置按钮为禁用状态
+							$(".getIdentityBtn_register").text(curCount + "秒后重获"); //更改按钮文字
+							InterValObj = window.setInterval(SetRemainTime, 1000); // 启动计时器timer处理函数，1秒执行一次
+						} else if (codeType == "login") {
+							curCount_login = count_login;
+							// 设置button效果，开始计时
+							$(".getIdentityBtn_login").attr("disabled", true); //设置按钮为禁用状态
+							$(".getIdentityBtn_login").text(curCount_login + "秒后重获"); //更改按钮文字
+							InterValObj_login = window.setInterval(SetRemainTime_login, 1000); // 启动计时器timer处理函数，1秒执行一次
+						}
+					});
+				})
+				// if (res.data.showapi_res_body.successCounts == 1) {
+				// 	layer.ready(function() {
+				// 		layer.msg("验证码发送成功", {
+				// 			icon: 1,
+				// 			time: 1000
+				// 		}, function() {
+				// 			if (codeType == "register") {
+				// 				curCount = count;
+				// 				// 设置button效果，开始计时
+				// 				$(".getIdentityBtn_register").attr("disabled", true); //设置按钮为禁用状态
+				// 				$(".getIdentityBtn_register").text(curCount + "秒后重获"); //更改按钮文字
+				// 				InterValObj = window.setInterval(SetRemainTime, 1000); // 启动计时器timer处理函数，1秒执行一次
+				// 			} else if (codeType == "login") {
+				// 				curCount_login = count_login;
+				// 				// 设置button效果，开始计时
+				// 				$(".getIdentityBtn_login").attr("disabled", true); //设置按钮为禁用状态
+				// 				$(".getIdentityBtn_login").text(curCount_login + "秒后重获"); //更改按钮文字
+				// 				InterValObj_login = window.setInterval(SetRemainTime_login, 1000); // 启动计时器timer处理函数，1秒执行一次
+				// 			}
+				// 		});
+				// 	})
+				// }
 			} else if (res.state == 500) {
 				layer.ready(function() {
 					layer.msg(res.message, {
