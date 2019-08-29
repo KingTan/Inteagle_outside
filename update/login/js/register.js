@@ -160,7 +160,7 @@ $(".registerBtn").bind("click", function(dom) {
 				layer.ready(function() {
 					layer.msg(res.message, {
 						icon: 2,
-						time: 1000
+						time: 3000
 					}, function() {});
 				})
 			}

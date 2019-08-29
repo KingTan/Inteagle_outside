@@ -11,7 +11,7 @@ $(function() {
 		//启动定时器 每一小时请求一次天气数据
 		var intervalId = window.setInterval(function() {
 			getWeatherInfo(lat_local, lng_local);
-		}, 1000 * 60 * 60);
+		}, 3000 * 60 * 60);
 	} else {
 		//通过城市名查询天气
 		getWeatherByCityName();

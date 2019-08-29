@@ -6,12 +6,32 @@ var element;
  * 页面加载事件
  */
 $(function() {
+	//验证是否登录
+	check_is_login();
+
 	//初始化layui组件
 	layui.use(['element', 'form'], function() {
 		element = layui.element;
 		layform = layui;
-	});	
+	});
 })
+
+/**
+ * 验证是否登录
+ */
+function check_is_login() {
+	var session_login_user = sessionStorage.getItem("LoginUserInfo");
+	if (session_login_user != null && session_login_user != undefined && session_login_user != "") {
+		var loginUser = JSON.parse(session_login_user);
+		//用户名
+		$(".loginUserName").text(loginUser.userName);
+		//头像
+		$(".headShotIcon").attr("src",loginUser.headPortrait);
+	} else {
+		window.location.href = "../login/login.html";
+	}
+}
+
 
 /**
  * 基坑监测 表格弹窗
@@ -21,9 +41,9 @@ $(function() {
  * @param {Object} checked_time
  * 显示深层水平位移 charts 表格弹窗
  */
-function openDeepCheckCharts(checked_id,checked_time){
+function openDeepCheckCharts(checked_id, checked_time) {
 	var html = document.getElementById("checkTimeChartsModal").innerHTML;
-	html=html.replace("[checked_id]", checked_id);
+	html = html.replace("[checked_id]", checked_id);
 	//页面层-自定义
 	layer.open({
 		type: 1,
@@ -42,7 +62,7 @@ function openDeepCheckCharts(checked_id,checked_time){
 			//热力图
 			drawHeatMapX_checked();
 			drawHeatMapY_checked();
-			
+
 			//监听趋势图类型下拉框改变事件
 			layui.use('form', function() {
 				var charts_form = layui.form;
@@ -50,25 +70,25 @@ function openDeepCheckCharts(checked_id,checked_time){
 					var value = data.value;
 					if (value == 1) {
 						//隐藏热力图
-						$(".heatMapArea").css("visibility","hidden");
+						$(".heatMapArea").css("visibility", "hidden");
 						//显示折线图
 						$("#checkedBigCharts").fadeIn();
 						//绘制深度水平位移 默认折线图charts
 						drawChecekedCharts("checkedBigCharts");
-			
+
 					} else if (value == 2) {
 						//隐藏折线图
 						$("#checkedBigCharts").fadeOut();
 						//显示热力图
-						$(".heatMapArea").css("visibility","visible");
+						$(".heatMapArea").css("visibility", "visible");
 						//绘制热力图
 						drawHeatMapX_checked();
 						drawHeatMapY_checked();
 					}
 				})
 			})
-			
-			
+
+
 		}
 	});
 }
@@ -155,15 +175,15 @@ $(".navList ul li dl dd").bind("click", function(dom) {
 	var checkde_index = dom.currentTarget.dataset.index;
 	//根据下标改变Iframe路径
 	changeIframePath(checkde_index);
-	
+
 	//当前节点
-	var target=dom.currentTarget;
-	
+	var target = dom.currentTarget;
+
 	//移除所有二级菜单的选中样式
 	$(".navList ul li dl dd").removeClass("check_nav");
 	//当前节点添加选中样式
 	$(target).addClass("check_nav");
-	
+
 	//移除所有一级菜单的选中样式
 	$(".navList ul li a").removeClass("check_nav");
 	//修改二级菜单上一级菜单的样式

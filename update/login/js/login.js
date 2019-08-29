@@ -106,32 +106,10 @@ function send_sms_code(phoneNumber, codeType) {
 						}
 					});
 				})
-				// if (res.data.showapi_res_body.successCounts == 1) {
-				// 	layer.ready(function() {
-				// 		layer.msg("验证码发送成功", {
-				// 			icon: 1,
-				// 			time: 1000
-				// 		}, function() {
-				// 			if (codeType == "register") {
-				// 				curCount = count;
-				// 				// 设置button效果，开始计时
-				// 				$(".getIdentityBtn_register").attr("disabled", true); //设置按钮为禁用状态
-				// 				$(".getIdentityBtn_register").text(curCount + "秒后重获"); //更改按钮文字
-				// 				InterValObj = window.setInterval(SetRemainTime, 1000); // 启动计时器timer处理函数，1秒执行一次
-				// 			} else if (codeType == "login") {
-				// 				curCount_login = count_login;
-				// 				// 设置button效果，开始计时
-				// 				$(".getIdentityBtn_login").attr("disabled", true); //设置按钮为禁用状态
-				// 				$(".getIdentityBtn_login").text(curCount_login + "秒后重获"); //更改按钮文字
-				// 				InterValObj_login = window.setInterval(SetRemainTime_login, 1000); // 启动计时器timer处理函数，1秒执行一次
-				// 			}
-				// 		});
-				// 	})
-				// }
 			} else if (res.state == 500) {
 				layer.ready(function() {
 					layer.msg(res.message, {
-						icon: 1,
+						icon: 2,
 						time: 1000
 					}, function() {
 						$(".phoneNumber").focus();
@@ -348,8 +326,6 @@ function login(searchParam, pwd) {
 				//保存当前登录用户信息
 				sessionStorage.setItem("LoginUserInfo", JSON.stringify(res.data));
 
-				console.log("is_checkbox_checked------------", is_checkbox_checked);
-
 				//判断用户是否选择 记住密码
 				if (is_checkbox_checked == true) {
 					//登录名 密码存到cookie中 时效1天
@@ -362,7 +338,6 @@ function login(searchParam, pwd) {
 					delCookie("loginPassWord");
 					delCookie("remeberPass");
 				}
-
 
 				//跳转到index界面
 				layer.ready(function() {

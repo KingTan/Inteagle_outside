@@ -61,15 +61,6 @@ a:hover {
 	padding-left: 1.25rem;
 }
 
-.topRightText {
-	margin-left: 0.625rem;
-	font-family: AdobeHeitiStd-Regular;
-	font-size: 16px;
-	font-weight: normal;
-	font-stretch: normal;
-	letter-spacing: 0px;
-}
-
 .topRightText:hover {
 	cursor: pointer;
 	/* text-decoration: underline; */
@@ -559,11 +550,16 @@ a:hover {
 	color: #000000;
 }
 
-.layui-input, .layui-select, .layui-textarea{
+.layui-input,
+.layui-select,
+.layui-textarea {
 	background: transparent;
 	color: #FFFFFF;
 }
 
+.headShotIcon {
+	width: 100%;
+}
 
 @media only screen and (max-width: 1400px) {
 	.singleWarning {
@@ -614,6 +610,19 @@ a:hover {
 		margin: 0px auto;
 		margin-top: 5%;
 		justify-content: space-around;
+	}
+
+	.topRightText {
+		margin-left: 0.625rem;
+		font-family: AdobeHeitiStd-Regular;
+		font-size: 14px;
+		font-weight: normal;
+		font-stretch: normal;
+		letter-spacing: 0px;
+	}
+
+	.headIconArea {
+		width: 25%;
 	}
 
 }
@@ -668,5 +677,18 @@ a:hover {
 
 	.speedSetInput {
 		margin-left: 0.3125rem;
+	}
+
+	.topRightText {
+		margin-left: 0.625rem;
+		font-family: AdobeHeitiStd-Regular;
+		font-size: 16px;
+		font-weight: normal;
+		font-stretch: normal;
+		letter-spacing: 0px;
+	}
+
+	.headIconArea {
+		width: 35%;
 	}
 }

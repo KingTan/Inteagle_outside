@@ -18,23 +18,23 @@ var option = {
 		center: ['45%', '50%'],
 		data: [{
 				value: 335,
-				name: '一线工人'
+				name: '一线工人 ——' + 335 + "人"
 			},
 			{
 				value: 310,
-				name: '管理人员'
+				name: '管理人员 ——' + 310 + "人"
 			},
 			{
 				value: 234,
-				name: '塔吊司机'
+				name: '塔吊司机 ——' + 234 + "人"
 			},
 			{
 				value: 135,
-				name: '塔机司机'
+				name: '塔机司机 ——' + 135 + "人"
 			},
 			{
 				value: 1548,
-				name: '后勤人员'
+				name: '后勤人员\n' + 1548 + "人",
 			}
 		],
 		itemStyle: {

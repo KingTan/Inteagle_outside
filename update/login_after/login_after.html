@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>选择项目页面</title>
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<link href="../common/layui/css/layui.css" rel="stylesheet" media="all" />
+		<link href="../common/css/swiper.min.css" rel="stylesheet" />
+		<link href="../common/css/common.css" rel="stylesheet" />
+		<link href="css/login_after.css" rel="stylesheet" media="screen" />
+		<link rel="shortcut icon" href="../common/img/inteagle_logo.ico">
+	</head>
+	<body>
+		<div class="backImage">
+			<img src="img/back_pic.jpg" class="backImagePic" />
+		</div>
+		<!-- 标题Logo -->
+		<div class="middileLogotextArea"></div>
+		<!-- 用户信息 -->
+		<div class="row topHead">
+			<div class="row rightOptionArea">
+				<div class="row singleRightOptionArea">
+					<div class="headIcon">
+						<img src="img/bangzhu.png" class="topIcon" />
+					</div>
+					<div class="topRightText">帮助</div>
+				</div>
+				<div class="row singleRightOptionArea">
+					<div class="headIcon">
+						<img src="img/tongzhi.png" class="topIcon" />
+					</div>
+					<div class="topRightText">消息</div>
+					<div class="msgCount">1</div>
+				</div>
+				<div class="row singleRightOptionArea">
+					<div class="headIcon headIconArea">
+						<img src="img/headIcon.png" class="topIcon headShotIcon" />
+					</div>
+					<div class="topRightText loginUserName">吴大放</div>
+				</div>
+			</div>
+		</div>
+		<div class="row middleArea" style="display: none;">
+			<div class="column left_part">
+				<div class="single_box">
+					<div class="top_back">
+						<img src="img/xingzhuang.png" class="left_icon" />
+					</div>
+					<div class="bottom_button">
+						<button type="button" class="layui-btn layui-btn-normal join_btn">加入已有项目</button>
+					</div>
+				</div>
+				<div class="row left_bottom">
+					<div class="left_input">
+						<!-- 搜索框 -->
+						<i class="icon-search"></i>
+						<div class="layui-input-inline">
+							<input type="text" name="project_code" class="project_code" placeholder="请输入工地编码" />
+						</div>
+					</div>
+					<div class="right_button">
+						<button type="button" class="layui-btn layui-btn-normal enter_btn">进入</button>
+					</div>
+				</div>
+			</div>
+			<div class="right_part">
+				<div class="single_box">
+					<div class="top_back">
+						<img src="img/jianzhuxinhao.png" class="right_icon" />
+					</div>
+					<div class="bottom_button">
+						<button type="button" class="layui-btn layui-btn-normal join_btn">创建新项目</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 创建项目弹出层 -->
+		<div class="add_project_Modal">
+			<div class="leftTopTitleArea">
+				<div class="boxTitle">创建项目</div>
+			</div>
+			<div class="bottom_form">
+				<form class="layui-form layui-form-pane" action="">
+					
+					<div class="row single_input">
+						<div class="row single_half_input">
+							<span class="must_input">*</span>
+							<div class="left_title">项目名称</div>
+							<div class="middle_line"></div>
+							<div class="right_value">
+								<input type="text" name="project_name" autocomplete="off" class="project_name" placeholder="请填写项目名称" />
+							</div>
+						</div>
+						<div class="row single_half_input">
+							<span class="must_input">*</span>
+							<div class="left_title">所属区域</div>
+							<div class="middle_line"></div>
+							<div class="right_value">
+								<select name="quiz1">
+									<option value="">请选择省</option>
+									<option value="浙江" selected="">浙江省</option>
+									<option value="你的工号">江西省</option>
+									<option value="你最喜欢的老师">福建省</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row single_input long_box">
+						<div class="row single_long_input">
+							<span class="must_input">*</span>
+							<div class="left_title">报建地址</div>
+							<div class="middle_line"></div>
+							<div class="right_value">
+								<input type="text" name="project_name" autocomplete="off" class="project_name" placeholder="请填写报建地址" />
+							</div>
+						</div>
+					</div>
+					
+					<div class="row single_input long_box">
+						<div class="row single_long_input">
+							<span class="must_input">*</span>
+							<div class="left_title">建设单位</div>
+							<div class="middle_line"></div>
+							<div class="right_value">
+								<input type="text" name="title" autocomplete="off" placeholder="请填写建设单位">
+							</div>
+						</div>
+					</div>
+					
+					<div class="row single_input">
+						<div class="row single_half_input">
+							<span class="must_input">*</span>
+							<div class="left_title">计划总投资</div>
+							<div class="middle_line"></div>
+							<div class="right_value">
+								<input type="text" name="project_name" autocomplete="off" class="project_name" placeholder="请填写项目名称" />
+							</div>
+						</div>
+						<div class="row single_half_input">
+							<span class="must_input">*</span>
+							<div class="left_title">报建时间</div>
+							<div class="middle_line"></div>
+							<div class="right_value">
+								<input type="text" name="project_name" autocomplete="off" class="project_name" placeholder="请选择时间" />
+							</div>
+						</div>
+					</div>
+					<div class="row single_input">
+						<div class="row single_half_input">
+							<span class="must_input">*</span>
+							<div class="left_title">是否已开工</div>
+							<div class="middle_line"></div>
+							<div class="right_value">
+								<select name="quiz1">
+									<option value="-1">是/否</option>
+									<option value="1">是</option>
+									<option value="0">否</option>
+								</select>
+							</div>
+						</div>
+						<div class="row single_half_input">
+							<span class="must_input">*</span>
+							<div class="left_title">开工日期</div>
+							<div class="middle_line"></div>
+							<div class="right_value">
+								<input type="text" name="project_name" autocomplete="off" class="project_name" placeholder="请选择日期" />
+							</div>
+						</div>
+					</div>
+					
+					<div class="row single_input long_box">
+						<div class="row single_long_input">
+							<span class="must_input">*</span>
+							<div class="left_title">工程名称</div>
+							<div class="middle_line"></div>
+							<div class="right_value">
+								<input type="text" name="title" autocomplete="off" placeholder="请填写工程名称">
+							</div>
+						</div>
+					</div>
+					
+					<div class="row single_input">
+						<div class="row single_half_input">
+							<span class="must_input">*</span>
+							<div class="left_title">工程地址</div>
+							<div class="middle_line"></div>
+							<div class="right_value">
+								<input type="text" name="project_name" autocomplete="off" class="project_name" placeholder="请填写项目名称" />
+							</div>
+						</div>
+						<div class="row single_half_input">
+							<span class="must_input">*</span>
+							<div class="left_title">开工日期</div>
+							<div class="middle_line"></div>
+							<div class="right_value">
+								<input type="text" name="project_name" autocomplete="off" class="project_name" placeholder="请填写项目名称" />
+							</div>
+						</div>
+					</div>
+					
+					<div class="row single_input long_box">
+						<div class="row single_long_input">
+							<span class="must_input">*</span>
+							<div class="left_title">详细地址</div>
+							<div class="middle_line"></div>
+							<div class="right_value">
+								<input type="text" name="title" autocomplete="off" placeholder="请填写工程名称">
+							</div>
+						</div>
+					</div>
+					
+					<div class="row single_input">
+						<div class="row single_half_input">
+							<span class="must_input">*</span>
+							<div class="left_title">项目经度</div>
+							<div class="middle_line"></div>
+							<div class="right_value">
+								<input type="text" name="project_name" autocomplete="off" class="project_name" placeholder="请填写项目经度" />
+							</div>
+						</div>
+						<div class="row single_half_input">
+							<span class="must_input">*</span>
+							<div class="left_title">项目纬度</div>
+							<div class="middle_line"></div>
+							<div class="right_value">
+								<input type="text" name="project_name" autocomplete="off" class="project_name" placeholder="请填写项目纬度" />
+							</div>
+						</div>
+					</div>
+					
+					<div class="row single_input">
+						<div class="row single_half_input">
+							<span class="must_input">*</span>
+							<div class="left_title">市管项目</div>
+							<div class="middle_line"></div>
+							<div class="right_value">
+								<select name="quiz1">
+									<option value="">请选择省</option>
+									<option value="浙江" selected="">浙江省</option>
+									<option value="你的工号">江西省</option>
+									<option value="你最喜欢的老师">福建省</option>
+								</select>
+							</div>
+						</div>
+						<div class="row single_half_input">
+							<span class="must_input">*</span>
+							<div class="left_title">区管项目</div>
+							<div class="middle_line"></div>
+							<div class="right_value">
+								<select name="quiz1">
+									<option value="">请选择省</option>
+									<option value="浙江" selected="">浙江省</option>
+									<option value="你的工号">江西省</option>
+									<option value="你最喜欢的老师">福建省</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row single_input">
+						<div class="row single_half_input">
+							<span class="must_input">*</span>
+							<div class="left_title">杠线面积</div>
+							<div class="middle_line"></div>
+							<div class="right_value">
+								<input type="text" name="project_name" autocomplete="off" class="project_name" placeholder="请填写项目经度" />
+							</div>
+						</div>
+						<div class="row single_half_input">
+							<span class="must_input">*</span>
+							<div class="left_title">施工许可批准</div>
+							<div class="middle_line"></div>
+							<div class="right_value">
+								<input type="text" name="project_name" autocomplete="off" class="project_name" placeholder="请填写项目纬度" />
+							</div>
+						</div>
+					</div>
+					
+					<div class="row single_input long_box">
+						<div class="row single_long_input">
+							<span class="must_input">*</span>
+							<div class="left_title">设计单位</div>
+							<div class="middle_line"></div>
+							<div class="right_value">
+								<input type="text" name="title" autocomplete="off" placeholder="请填写单位名称">
+							</div>
+						</div>
+					</div>
+					
+					<div class="row single_input long_box">
+						<div class="row single_long_input">
+							<span class="must_input">*</span>
+							<div class="left_title">质检单位</div>
+							<div class="middle_line"></div>
+							<div class="right_value">
+								<input type="text" name="title" autocomplete="off" placeholder="请填写单位名称">
+							</div>
+						</div>
+					</div>
+					
+					<div class="row single_input long_box">
+						<div class="row single_long_input">
+							<span class="must_input">*</span>
+							<div class="left_title">安监单位</div>
+							<div class="middle_line"></div>
+							<div class="right_value">
+								<input type="text" name="title" autocomplete="off" placeholder="请填写单位名称">
+							</div>
+						</div>
+					</div>
+					
+					<div class="row single_input">
+						<div class="row single_half_input">
+							<span class="must_input">*</span>
+							<div class="left_title">联系人姓名</div>
+							<div class="middle_line"></div>
+							<div class="right_value">
+								<input type="text" name="project_name" autocomplete="off" class="project_name"  />
+							</div>
+						</div>
+						<div class="row single_half_input">
+							<span class="must_input">*</span>
+							<div class="left_title">联系人职务</div>
+							<div class="middle_line"></div>
+							<div class="right_value">
+								<input type="text" name="project_name" autocomplete="off" class="project_name"  />
+							</div>
+						</div>
+					</div>
+					
+					<div class="row single_input">
+						<div class="row single_half_input">
+							<span class="must_input">*</span>
+							<div class="left_title">联系人手机</div>
+							<div class="middle_line"></div>
+							<div class="right_value">
+								<input type="text" name="project_name" autocomplete="off" class="project_name"  />
+							</div>
+						</div>
+						<div class="row single_half_input">
+							<span class="must_input">*</span>
+							<div class="left_title">联系人邮箱</div>
+							<div class="middle_line"></div>
+							<div class="right_value">
+								<input type="text" name="project_name" autocomplete="off" class="project_name"  />
+							</div>
+						</div>
+					</div>
+					
+					<div class="row single_input long_box">
+						<div class="row single_long_input">
+							<span class="must_input">*</span>
+							<div class="left_title">申请表扫描件</div>
+							<div class="middle_line"></div>
+							<div class="right_value">
+								<input type="file" name="title" autocomplete="off" placeholder="点击上传">
+							</div>
+						</div>
+					</div>
+					
+				</form>
+			</div>
+		</div>
+
+
+
+		<!--底部备案信息区域  -->
+		<div class="bottomArea">
+			<div class="recordText">
+				<span>©2019版权所有 inteagle.<a href="http://beian.miit.gov.cn" target="_blank">粤ICP备19045418号-1</a></span>
+			</div>
+		</div>
+		<script src="../common/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+		<script src="../common/layui/layui.js" type="text/javascript"></script>
+		<script src="../common/js/common.js" type="text/javascript"></script>
+		<script src="js/login_after.js" type="text/javascript"></script>
+	</body>
+</html>
