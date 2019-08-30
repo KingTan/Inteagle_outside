@@ -137,14 +137,14 @@ function onSDKLoadSucceeded(viewMetaData) {
 		//http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/cexie_normal.png
 		//https://www.inteagle.com.cn/tag/cexie_normal.png
 		var pic_path =
-			"http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/cexie_normal.png";
+			"https://www.inteagle.com.cn/tag/cexie_normal.png";
 		var tag_type = "测斜仪点位";
 
 		//位移管
 		//http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/weiyi_normal.png";
 		//https://www.inteagle.com.cn/tag/weiyi_normal.png
 		var wy_pic_path =
-			"http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/weiyi_normal.png";
+			"https://www.inteagle.com.cn/tag/weiyi_normal.png";
 		var wy_tag_type = "位移管点位";
 
 		for (var i = 0; i < tag_position_array.length; i++) {
@@ -184,13 +184,13 @@ function onSDKLoadSucceeded(viewMetaData) {
 		};
 		add_array.push(singleObj);
 
-		console.log("add_array--------------------", add_array);
+		//console.log("add_array--------------------", add_array);
 
 		var pic_path =
 			"http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/cexie_normal.png";
 		var tag_type = "测斜仪点位";
 		//点击添加标签
-		add3DMarker(objectData.worldPosition, pic_path, tag_type);
+		//add3DMarker(objectData.worldPosition, pic_path, tag_type);
 
 		var objectId = objectData.objectId;
 		if (objectId == "nd76a5a636-207e-4295-8be9-3fce014fd69d") {
@@ -337,7 +337,7 @@ function add3DMarker(position, pic_path, tag_type) {
 		var check_tag_id = item.position.id;
 
 		//修改父页面Iframe的路径
-		$('#mainFrame', window.parent.document).attr("src", "http://127.0.0.1:8848/Inteagle_outside/update/foundation/foundation_charts.html?id=" + check_tag_id +
+		$('#mainFrame', window.parent.document).attr("src", "https://www.inteagle.com.cn/update/foundation/foundation_charts.html?id=" + check_tag_id +
 			"&router=foundation");
 			
 			
