@@ -87,8 +87,6 @@ function openDeepCheckCharts(checked_id, checked_time) {
 					}
 				})
 			})
-
-
 		}
 	});
 }

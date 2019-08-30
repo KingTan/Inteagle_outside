@@ -8,7 +8,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
 		<meta http-equiv="Cache-Control" content="no-siteapp" />
 		<link href="../common/layui/css/layui.css" rel="stylesheet" media="all" />
-		<link href="../common/css/swiper.min.css" rel="stylesheet" />
+		<link href="../common/css/animate.min.css" rel="stylesheet" />
 		<link href="../common/css/common.css" rel="stylesheet" />
 		<link href="css/login_after.css" rel="stylesheet" media="screen" />
 		<link rel="shortcut icon" href="../common/img/inteagle_logo.ico">
@@ -43,8 +43,19 @@
 				</div>
 			</div>
 		</div>
-		<div class="row middleArea" style="display: none;">
-			<div class="column left_part">
+
+		<div class="row middleArea">
+			<div class="right_part animated bounce">
+				<div class="single_box">
+					<div class="top_back">
+						<img src="img/jianzhuxinhao.png" class="right_icon" />
+					</div>
+					<div class="bottom_button">
+						<button type="button" class="layui-btn layui-btn-normal create_new_project_btn">创建新项目</button>
+					</div>
+				</div>
+			</div>
+			<div class="column left_part animated bounce">
 				<div class="single_box">
 					<div class="top_back">
 						<img src="img/xingzhuang.png" class="left_icon" />
@@ -66,26 +77,18 @@
 					</div>
 				</div>
 			</div>
-			<div class="right_part">
-				<div class="single_box">
-					<div class="top_back">
-						<img src="img/jianzhuxinhao.png" class="right_icon" />
-					</div>
-					<div class="bottom_button">
-						<button type="button" class="layui-btn layui-btn-normal join_btn">创建新项目</button>
-					</div>
-				</div>
-			</div>
-		</div>
 
+		</div>
 		<!-- 创建项目弹出层 -->
-		<div class="add_project_Modal">
+		<div class="add_project_Modal animated" style="display: none;" >
+			<div class="close_btn_area">
+				<img src="img/close_1.png" class="close_btn" />
+			</div>
 			<div class="leftTopTitleArea">
 				<div class="boxTitle">创建项目</div>
 			</div>
 			<div class="bottom_form">
 				<form class="layui-form layui-form-pane" action="">
-					
 					<div class="row single_input">
 						<div class="row single_half_input">
 							<span class="must_input">*</span>
@@ -102,14 +105,14 @@
 							<div class="right_value">
 								<select name="quiz1">
 									<option value="">请选择省</option>
-									<option value="浙江" selected="">浙江省</option>
+									<option value="浙江">浙江省</option>
 									<option value="你的工号">江西省</option>
 									<option value="你最喜欢的老师">福建省</option>
 								</select>
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="row single_input long_box">
 						<div class="row single_long_input">
 							<span class="must_input">*</span>
@@ -120,7 +123,7 @@
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="row single_input long_box">
 						<div class="row single_long_input">
 							<span class="must_input">*</span>
@@ -131,22 +134,23 @@
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="row single_input">
 						<div class="row single_half_input">
-							<span class="must_input">*</span>
+							<!-- <span class="must_input">*</span> -->
 							<div class="left_title">计划总投资</div>
 							<div class="middle_line"></div>
-							<div class="right_value">
-								<input type="text" name="project_name" autocomplete="off" class="project_name" placeholder="请填写项目名称" />
+							<div class="row right_value align_item">
+								<input type="text" name="project_name" autocomplete="off" class="project_name" />
+								<label class="layui-form-label investmentText">万元</label>
 							</div>
 						</div>
 						<div class="row single_half_input">
-							<span class="must_input">*</span>
+							<!-- <span class="must_input">*</span> -->
 							<div class="left_title">报建时间</div>
 							<div class="middle_line"></div>
 							<div class="right_value">
-								<input type="text" name="project_name" autocomplete="off" class="project_name" placeholder="请选择时间" />
+								<input type="text" name="establishTime" autocomplete="off" id="establishTime" placeholder="请选择时间" />
 							</div>
 						</div>
 					</div>
@@ -157,22 +161,22 @@
 							<div class="middle_line"></div>
 							<div class="right_value">
 								<select name="quiz1">
-									<option value="-1">是/否</option>
+									<option value="">是/否</option>
 									<option value="1">是</option>
 									<option value="0">否</option>
 								</select>
 							</div>
 						</div>
 						<div class="row single_half_input">
-							<span class="must_input">*</span>
+							<!-- <span class="must_input">*</span> -->
 							<div class="left_title">开工日期</div>
 							<div class="middle_line"></div>
 							<div class="right_value">
-								<input type="text" name="project_name" autocomplete="off" class="project_name" placeholder="请选择日期" />
+								<input type="text" name="commenceTime" autocomplete="off" id="commenceTime" placeholder="请选择日期" />
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="row single_input long_box">
 						<div class="row single_long_input">
 							<span class="must_input">*</span>
@@ -183,26 +187,34 @@
 							</div>
 						</div>
 					</div>
-					
-					<div class="row single_input">
-						<div class="row single_half_input">
+
+					<div class="row single_input third_box_area" class="layui-form-item" id="area-picker">
+						<div class="row single_third_input first_box">
 							<span class="must_input">*</span>
 							<div class="left_title">工程地址</div>
 							<div class="middle_line"></div>
-							<div class="right_value">
-								<input type="text" name="project_name" autocomplete="off" class="project_name" placeholder="请填写项目名称" />
+							<div class="right_value ">
+								<select name="province" class="province-selector" data-value="广东省" lay-filter="province-1">
+									<option value="">请选择省</option>
+								</select>
 							</div>
 						</div>
-						<div class="row single_half_input">
-							<span class="must_input">*</span>
-							<div class="left_title">开工日期</div>
-							<div class="middle_line"></div>
-							<div class="right_value">
-								<input type="text" name="project_name" autocomplete="off" class="project_name" placeholder="请填写项目名称" />
+						<div class="row single_third_input">
+							<div class="right_value ">
+								<select name="city" class="city-selector" data-value="深圳市" lay-filter="city-1">
+									<option value="">请选择市</option>
+								</select>
+							</div>
+						</div>
+						<div class="row single_third_input">
+							<div class="right_value ">
+								<select name="county" class="county-selector" data-value="龙岗区" lay-filter="county-1">
+									<option value="">请选择县/区</option>
+								</select>
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="row single_input long_box">
 						<div class="row single_long_input">
 							<span class="must_input">*</span>
@@ -213,7 +225,7 @@
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="row single_input">
 						<div class="row single_half_input">
 							<span class="must_input">*</span>
@@ -232,7 +244,7 @@
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="row single_input">
 						<div class="row single_half_input">
 							<span class="must_input">*</span>
@@ -241,7 +253,7 @@
 							<div class="right_value">
 								<select name="quiz1">
 									<option value="">请选择省</option>
-									<option value="浙江" selected="">浙江省</option>
+									<option value="浙江">浙江省</option>
 									<option value="你的工号">江西省</option>
 									<option value="你最喜欢的老师">福建省</option>
 								</select>
@@ -254,33 +266,34 @@
 							<div class="right_value">
 								<select name="quiz1">
 									<option value="">请选择省</option>
-									<option value="浙江" selected="">浙江省</option>
+									<option value="浙江">浙江省</option>
 									<option value="你的工号">江西省</option>
 									<option value="你最喜欢的老师">福建省</option>
 								</select>
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="row single_input">
 						<div class="row single_half_input">
-							<span class="must_input">*</span>
+							<!-- <span class="must_input">*</span> -->
 							<div class="left_title">杠线面积</div>
 							<div class="middle_line"></div>
-							<div class="right_value">
-								<input type="text" name="project_name" autocomplete="off" class="project_name" placeholder="请填写项目经度" />
+							<div class="row right_value align_item">
+								<input type="text" name="project_name" autocomplete="off" placeholder="0" class="project_name" />
+								<label class="layui-form-label investmentText">平米</label>
 							</div>
 						</div>
 						<div class="row single_half_input">
-							<span class="must_input">*</span>
+							<!-- <span class="must_input">*</span> -->
 							<div class="left_title">施工许可批准</div>
 							<div class="middle_line"></div>
 							<div class="right_value">
-								<input type="text" name="project_name" autocomplete="off" class="project_name" placeholder="请填写项目纬度" />
+								<input type="text" name="project_name" autocomplete="off" class="project_name" />
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="row single_input long_box">
 						<div class="row single_long_input">
 							<span class="must_input">*</span>
@@ -291,10 +304,10 @@
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="row single_input long_box">
 						<div class="row single_long_input">
-							<span class="must_input">*</span>
+							<!-- <span class="must_input">*</span> -->
 							<div class="left_title">质检单位</div>
 							<div class="middle_line"></div>
 							<div class="right_value">
@@ -302,10 +315,10 @@
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="row single_input long_box">
 						<div class="row single_long_input">
-							<span class="must_input">*</span>
+							<!-- <span class="must_input">*</span> -->
 							<div class="left_title">安监单位</div>
 							<div class="middle_line"></div>
 							<div class="right_value">
@@ -313,14 +326,14 @@
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="row single_input">
 						<div class="row single_half_input">
 							<span class="must_input">*</span>
 							<div class="left_title">联系人姓名</div>
 							<div class="middle_line"></div>
 							<div class="right_value">
-								<input type="text" name="project_name" autocomplete="off" class="project_name"  />
+								<input type="text" name="project_name" autocomplete="off" class="project_name" />
 							</div>
 						</div>
 						<div class="row single_half_input">
@@ -328,18 +341,18 @@
 							<div class="left_title">联系人职务</div>
 							<div class="middle_line"></div>
 							<div class="right_value">
-								<input type="text" name="project_name" autocomplete="off" class="project_name"  />
+								<input type="text" name="project_name" autocomplete="off" class="project_name" />
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="row single_input">
 						<div class="row single_half_input">
 							<span class="must_input">*</span>
 							<div class="left_title">联系人手机</div>
 							<div class="middle_line"></div>
 							<div class="right_value">
-								<input type="text" name="project_name" autocomplete="off" class="project_name"  />
+								<input type="text" name="project_name" autocomplete="off" class="project_name" />
 							</div>
 						</div>
 						<div class="row single_half_input">
@@ -347,11 +360,10 @@
 							<div class="left_title">联系人邮箱</div>
 							<div class="middle_line"></div>
 							<div class="right_value">
-								<input type="text" name="project_name" autocomplete="off" class="project_name"  />
+								<input type="text" name="project_name" autocomplete="off" class="project_name" />
 							</div>
 						</div>
 					</div>
-					
 					<div class="row single_input long_box">
 						<div class="row single_long_input">
 							<span class="must_input">*</span>
@@ -362,13 +374,17 @@
 							</div>
 						</div>
 					</div>
-					
+					<div class="row single_input">
+						<div class="row single_half_btn light_btn">
+							<button type="button" class="layui-btn layui-btn-normal create_btn">创建</button>
+						</div>
+						<div class="row single_half_btn normal_btn">
+							<button type="button" class="layui-btn layui-btn-normal reset_btn">重置</button>
+						</div>
+					</div>
 				</form>
 			</div>
 		</div>
-
-
-
 		<!--底部备案信息区域  -->
 		<div class="bottomArea">
 			<div class="recordText">
@@ -379,5 +395,302 @@
 		<script src="../common/layui/layui.js" type="text/javascript"></script>
 		<script src="../common/js/common.js" type="text/javascript"></script>
 		<script src="js/login_after.js" type="text/javascript"></script>
+		<script type="text/template" id="create_Modal">
+			<!-- 创建项目弹出层 -->
+			<div class="add_project_Modal">
+				<div class="leftTopTitleArea">
+					<div class="boxTitle">创建项目</div>
+				</div>
+				<div class="bottom_form">
+					<form class="layui-form layui-form-pane" action="">
+						<div class="row single_input">
+							<div class="row single_half_input">
+								<span class="must_input">*</span>
+								<div class="left_title">项目名称</div>
+								<div class="middle_line"></div>
+								<div class="right_value">
+									<input type="text" name="project_name" autocomplete="off" class="project_name" placeholder="请填写项目名称" />
+								</div>
+							</div>
+							<div class="row single_half_input">
+								<span class="must_input">*</span>
+								<div class="left_title">所属区域</div>
+								<div class="middle_line"></div>
+								<div class="right_value">
+									<select name="quiz1">
+										<option value="">请选择省</option>
+										<option value="浙江">浙江省</option>
+										<option value="你的工号">江西省</option>
+										<option value="你最喜欢的老师">福建省</option>
+									</select>
+								</div>
+							</div>
+						</div>
+			
+						<div class="row single_input long_box">
+							<div class="row single_long_input">
+								<span class="must_input">*</span>
+								<div class="left_title">报建地址</div>
+								<div class="middle_line"></div>
+								<div class="right_value">
+									<input type="text" name="project_name" autocomplete="off" class="project_name" placeholder="请填写报建地址" />
+								</div>
+							</div>
+						</div>
+			
+						<div class="row single_input long_box">
+							<div class="row single_long_input">
+								<span class="must_input">*</span>
+								<div class="left_title">建设单位</div>
+								<div class="middle_line"></div>
+								<div class="right_value">
+									<input type="text" name="title" autocomplete="off" placeholder="请填写建设单位">
+								</div>
+							</div>
+						</div>
+			
+						<div class="row single_input">
+							<div class="row single_half_input">
+								<!-- <span class="must_input">*</span> -->
+								<div class="left_title">计划总投资</div>
+								<div class="middle_line"></div>
+								<div class="row right_value align_item">
+									<input type="text" name="project_name" autocomplete="off" class="project_name"  />
+									<label class="layui-form-label investmentText">万元</label>
+								</div>
+							</div>
+							<div class="row single_half_input">
+								<span class="must_input">*</span>
+								<div class="left_title">报建时间</div>
+								<div class="middle_line"></div>
+								<div class="right_value">
+									<input type="text" name="establishTime" autocomplete="off" id="establishTime" placeholder="请选择时间" />
+								</div>
+							</div>
+						</div>
+						<div class="row single_input">
+							<div class="row single_half_input">
+								<span class="must_input">*</span>
+								<div class="left_title">是否已开工</div>
+								<div class="middle_line"></div>
+								<div class="right_value">
+									<select name="quiz1">
+										<option value="">是/否</option>
+										<option value="1">是</option>
+										<option value="0">否</option>
+									</select>
+								</div>
+							</div>
+							<div class="row single_half_input">
+								<span class="must_input">*</span>
+								<div class="left_title">开工日期</div>
+								<div class="middle_line"></div>
+								<div class="right_value">
+									<input type="text" name="commenceTime" autocomplete="off" id="commenceTime" placeholder="请选择日期" />
+								</div>
+							</div>
+						</div>
+			
+						<div class="row single_input long_box">
+							<div class="row single_long_input">
+								<span class="must_input">*</span>
+								<div class="left_title">工程名称</div>
+								<div class="middle_line"></div>
+								<div class="right_value">
+									<input type="text" name="title" autocomplete="off" placeholder="请填写工程名称">
+								</div>
+							</div>
+						</div>
+						
+						<div class="row single_input third_box_area" class="layui-form-item" id="area-picker">
+							<div class="row single_third_input first_box">
+								<span class="must_input">*</span>
+								<div class="left_title">工程地址</div>
+								<div class="middle_line"></div>
+								<div class="right_value ">
+									<select name="province" class="province-selector" data-value="广东省" lay-filter="province-1">
+										<option value="">请选择省</option>
+									</select>
+								</div>
+							</div>
+							<div class="row single_third_input">
+								<div class="right_value ">
+									<select name="city" class="city-selector" data-value="深圳市" lay-filter="city-1">
+										<option value="">请选择市</option>
+									</select>
+								</div>
+							</div>
+							<div class="row single_third_input">
+								<div class="right_value ">
+									<select name="county" class="county-selector" data-value="龙岗区" lay-filter="county-1">
+										<option value="">请选择县/区</option>
+									</select>
+								</div>
+							</div>
+						</div>
+			
+						<div class="row single_input long_box">
+							<div class="row single_long_input">
+								<span class="must_input">*</span>
+								<div class="left_title">详细地址</div>
+								<div class="middle_line"></div>
+								<div class="right_value">
+									<input type="text" name="title" autocomplete="off" placeholder="请填写工程名称">
+								</div>
+							</div>
+						</div>
+			
+						<div class="row single_input">
+							<div class="row single_half_input">
+								<span class="must_input">*</span>
+								<div class="left_title">项目经度</div>
+								<div class="middle_line"></div>
+								<div class="right_value">
+									<input type="text" name="project_name" autocomplete="off" class="project_name" placeholder="请填写项目经度" />
+								</div>
+							</div>
+							<div class="row single_half_input">
+								<span class="must_input">*</span>
+								<div class="left_title">项目纬度</div>
+								<div class="middle_line"></div>
+								<div class="right_value">
+									<input type="text" name="project_name" autocomplete="off" class="project_name" placeholder="请填写项目纬度" />
+								</div>
+							</div>
+						</div>
+			
+						<div class="row single_input">
+							<div class="row single_half_input">
+								<span class="must_input">*</span>
+								<div class="left_title">市管项目</div>
+								<div class="middle_line"></div>
+								<div class="right_value">
+									<select name="quiz1">
+										<option value="">请选择省</option>
+										<option value="浙江">浙江省</option>
+										<option value="你的工号">江西省</option>
+										<option value="你最喜欢的老师">福建省</option>
+									</select>
+								</div>
+							</div>
+							<div class="row single_half_input">
+								<span class="must_input">*</span>
+								<div class="left_title">区管项目</div>
+								<div class="middle_line"></div>
+								<div class="right_value">
+									<select name="quiz1">
+										<option value="">请选择省</option>
+										<option value="浙江">浙江省</option>
+										<option value="你的工号">江西省</option>
+										<option value="你最喜欢的老师">福建省</option>
+									</select>
+								</div>
+							</div>
+						</div>
+			
+						<div class="row single_input">
+							<div class="row single_half_input">
+								<span class="must_input">*</span>
+								<div class="left_title">杠线面积</div>
+								<div class="middle_line"></div>
+								<div class="row right_value align_item">
+									<input type="text" name="project_name" autocomplete="off" placeholder="0" class="project_name"  />
+									<label class="layui-form-label investmentText">平米</label>
+								</div>
+							</div>
+							<div class="row single_half_input">
+								<span class="must_input">*</span>
+								<div class="left_title">施工许可批准</div>
+								<div class="middle_line"></div>
+								<div class="right_value">
+									<input type="text" name="project_name" autocomplete="off" class="project_name"  />
+								</div>
+							</div>
+						</div>
+			
+						<div class="row single_input long_box">
+							<div class="row single_long_input">
+								<span class="must_input">*</span>
+								<div class="left_title">设计单位</div>
+								<div class="middle_line"></div>
+								<div class="right_value">
+									<input type="text" name="title" autocomplete="off" placeholder="请填写单位名称">
+								</div>
+							</div>
+						</div>
+			
+						<div class="row single_input long_box">
+							<div class="row single_long_input">
+								<span class="must_input">*</span>
+								<div class="left_title">质检单位</div>
+								<div class="middle_line"></div>
+								<div class="right_value">
+									<input type="text" name="title" autocomplete="off" placeholder="请填写单位名称">
+								</div>
+							</div>
+						</div>
+			
+						<div class="row single_input long_box">
+							<div class="row single_long_input">
+								<span class="must_input">*</span>
+								<div class="left_title">安监单位</div>
+								<div class="middle_line"></div>
+								<div class="right_value">
+									<input type="text" name="title" autocomplete="off" placeholder="请填写单位名称">
+								</div>
+							</div>
+						</div>
+			
+						<div class="row single_input">
+							<div class="row single_half_input">
+								<span class="must_input">*</span>
+								<div class="left_title">联系人姓名</div>
+								<div class="middle_line"></div>
+								<div class="right_value">
+									<input type="text" name="project_name" autocomplete="off" class="project_name" />
+								</div>
+							</div>
+							<div class="row single_half_input">
+								<span class="must_input">*</span>
+								<div class="left_title">联系人职务</div>
+								<div class="middle_line"></div>
+								<div class="right_value">
+									<input type="text" name="project_name" autocomplete="off" class="project_name" />
+								</div>
+							</div>
+						</div>
+			
+						<div class="row single_input">
+							<div class="row single_half_input">
+								<span class="must_input">*</span>
+								<div class="left_title">联系人手机</div>
+								<div class="middle_line"></div>
+								<div class="right_value">
+									<input type="text" name="project_name" autocomplete="off" class="project_name" />
+								</div>
+							</div>
+							<div class="row single_half_input">
+								<span class="must_input">*</span>
+								<div class="left_title">联系人邮箱</div>
+								<div class="middle_line"></div>
+								<div class="right_value">
+									<input type="text" name="project_name" autocomplete="off" class="project_name" />
+								</div>
+							</div>
+						</div>
+						<div class="row single_input long_box">
+							<div class="row single_long_input">
+								<span class="must_input">*</span>
+								<div class="left_title">申请表扫描件</div>
+								<div class="middle_line"></div>
+								<div class="right_value">
+									<input type="file" name="title" autocomplete="off" placeholder="点击上传">
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</script>
 	</body>
 </html>

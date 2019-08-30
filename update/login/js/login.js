@@ -18,8 +18,6 @@ $(function() {
 	checkCookieLoginInfo();
 })
 
-
-
 /**
  * 验证码登录(手机号输入框失焦事件)
  */
@@ -252,7 +250,7 @@ function loginByIndentityCode(phoneNumber, indentityCode) {
 						icon: 1,
 						time: 1000
 					}, function() {
-						window.location.href = "../index/index.html";
+						window.location.href = "../login_after/login_after.html";
 					});
 				})
 			}
@@ -345,7 +343,7 @@ function login(searchParam, pwd) {
 						icon: 1,
 						time: 1000
 					}, function() {
-						window.location.href = "../index/index.html";
+						window.location.href = "../login_after/login_after.html";
 					});
 				})
 			}

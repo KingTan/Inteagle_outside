@@ -15,26 +15,34 @@ var option = {
 		name: getNowFormatDate(),
 		type: 'pie',
 		radius: '55%',
-		center: ['45%', '50%'],
+		center: ['50%', '50%'],
+		label: {
+			normal: {
+				textStyle: {
+					fontWeight: 'normal',
+					fontSize: 15
+				}
+			}
+		},
+		legendHoverLink: true,
 		data: [{
 				value: 335,
-				name: '一线工人---' + 335 + "人"
+				name: '项目登记人数 \n' + 335 + "人",
+				nameStyle: {
+					size: 15
+				}
 			},
 			{
 				value: 310,
-				name: '管理人员' + 310 + "人"
+				name: '管理人员 \n' + 310 + "人"
 			},
 			{
 				value: 234,
-				name: '塔吊司机' + 234 + "人"
+				name: '来访人员 \n' + 234 + "人"
 			},
 			{
 				value: 135,
-				name: '塔机司机' + 135 + "人"
-			},
-			{
-				value: 1548,
-				name: '后勤人员' + 1548 + "人"
+				name: '施工人员 \n' + 135 + "人"
 			}
 		],
 		itemStyle: {

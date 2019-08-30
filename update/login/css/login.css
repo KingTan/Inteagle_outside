@@ -13,6 +13,17 @@
 	position: relative;
 }
 
+.notice_text {
+	font-size: 10px;
+	color: purple;
+	margin-top: 5px;
+	margin-left: 11px;
+}
+
+.notice_icon {
+	color: orangered;
+}
+
 @media only screen and (max-width: 1400px) {
 	.login_box_area {
 		position: absolute;
@@ -58,7 +69,7 @@
 		top: 25%;
 		right: 10%;
 		width: 25%;
-		height: 66%;
+		height: 70%;
 		border: none;
 		border-radius: 0.875rem;
 		background-color: rgba(255, 255, 255, 0.6);
@@ -67,7 +78,7 @@
 
 	.single_box_register {
 		width: 80%;
-		height: 90%;
+		height: 95%;
 		margin: 0px auto;
 		margin-top: 5%;
 	}
@@ -84,6 +95,38 @@
 		opacity: 0.8;
 	}
 
+	.identityCode_area {
+		width: 100%;
+		height: 30%;
+		margin-top: 7%;
+		justify-content: space-between;
+	}
+
+	.agreement_area {
+		width: 80%;
+		margin: 0px auto;
+		margin-top: 7%;
+		color: #FFFFFF;
+		font-size: 13px;
+	}
+
+	.register_btn_area {
+		width: 100%;
+		height: 30%;
+		margin-top: 7%;
+	}
+
+	.singleInput {
+		width: 100%;
+		height: 30%;
+		position: relative;
+		margin-top: 7%;
+		align-items: center;
+		background-color: #7E7F7F;
+		color: #FFFFFF;
+		font-size: 13px;
+		border: 1px solid #7E7F7F;
+	}
 }
 
 @media only screen and (min-width: 1400px) {
@@ -156,6 +199,39 @@
 		background-color: rgba(255, 255, 255, 0.6);
 		opacity: 0.8;
 	}
+
+	.identityCode_area {
+		width: 100%;
+		height: 7%;
+		margin-top: 7%;
+		justify-content: space-between;
+	}
+
+	.agreement_area {
+		width: 65%;
+		margin: 0px auto;
+		margin-top: 7%;
+		color: #FFFFFF;
+		font-size: 13px;
+	}
+
+	.register_btn_area {
+		width: 100%;
+		height: 7%;
+		margin-top: 7%;
+	}
+
+	.singleInput {
+		width: 100%;
+		height: 7%;
+		position: relative;
+		margin-top: 7%;
+		align-items: center;
+		background-color: #7E7F7F;
+		color: #FFFFFF;
+		font-size: 13px;
+		border: 1px solid #7E7F7F;
+	}
 }
 
 .single_box {
@@ -221,7 +297,7 @@
  * 消除webkit内核浏览器 input框样式
  */
 input:-webkit-autofill {
-	-webkit-box-shadow: 0 0 0px 1000px  #7E7F7F inset;
+	-webkit-box-shadow: 0 0 0px 1000px #7E7F7F inset;
 	-webkit-text-fill-color: rgb(255, 255, 255);
 }
 
@@ -318,21 +394,6 @@ input:-ms-input-placeholder {
 	color: #000000;
 }
 
-.singleInput {
-	width: 100%;
-	height: 7%;
-	position: relative;
-	margin-top: 7%;
-	align-items: center;
-	background-color: #7E7F7F;
-	color: #FFFFFF;
-	font-size: 13px;
-	border: 1px solid #7E7F7F;
-}
-
-
-
-
 .left_input_text {
 	width: 25%;
 	text-align: center;
@@ -355,12 +416,7 @@ input:-ms-input-placeholder {
 	outline: none;
 }
 
-.identityCode_area {
-	width: 100%;
-	height: 7%;
-	margin-top: 7%;
-	justify-content: space-between;
-}
+
 
 .identityCode_area_sec {
 	width: 100%;
@@ -401,13 +457,7 @@ input:-ms-input-placeholder {
 	color: #FFFFFF !important;
 }
 
-.agreement_area {
-	width: 65%;
-	margin: 0px auto;
-	margin-top: 7%;
-	color: #FFFFFF;
-	font-size: 13px;
-}
+
 
 .agreement_area a {
 	color: #FFFFFF;
@@ -420,12 +470,6 @@ input:-ms-input-placeholder {
 
 .register_option_area a:hover {
 	color: #000000;
-}
-
-.register_btn_area {
-	width: 100%;
-	height: 7%;
-	margin-top: 7%;
 }
 
 .registerBtn {

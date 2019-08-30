@@ -1,4 +1,11 @@
 /**
+ * 输入密码输入框聚焦事件
+ */
+$(".loginPwdValue").bind("focus", function(dom) {
+	$(".notice_text").show();
+})
+
+/**
  * 输入框失焦事件
  */
 $(".right_input_area input").bind("blur", function(dom) {
@@ -31,6 +38,12 @@ $(".right_input_area input").bind("blur", function(dom) {
 				};
 				break;
 			case "loginPwdValue":
+				if (checkPwd(current_value)) {
+					$(".notice_text").hide();
+				} else {
+					//改变样式
+					$(target).parent().parent().addClass("null_input");
+				}
 				break;
 			case "loginPwdValue_again":
 				if (!check_pwd_again(current_value)) {
@@ -41,6 +54,20 @@ $(".right_input_area input").bind("blur", function(dom) {
 		}
 	}
 })
+
+/**
+ * @param {Object} pwd
+ * 验证密码格式 6-16位数字、字母、符号
+ */
+function checkPwd(pwd) {
+	var reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/
+	var re = new RegExp(reg)
+	if (re.test(pwd)) {
+		return true;
+	} else {
+		return false;
+	}
+}
 
 /**
  * 验证码输入框失焦事件
