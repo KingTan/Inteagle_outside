@@ -65,9 +65,12 @@ $(".next_step_btn").bind("click", function() {
 	//验证密码格式
 	if (checkPwd(setPwd)) {
 		if (checkUpdatePwd()) {
-			
 			//MD5加密
 			setPwd=hex_md5(setPwd);
+			
+			console.log("change_pwd_phone------",change_pwd_phone);
+			console.log("change_pwd_idenitity_code------",change_pwd_idenitity_code);
+			
 			
 			//修改密码
 			$.ajax({
@@ -452,7 +455,7 @@ function loginByIndentityCode(phoneNumber, indentityCode, type) {
 				} else if (res.state == 200) {
 					showChanegPwdBox();
 					change_pwd_phone = phoneNumber;
-					change_pwd_idenitity_ceode = indentityCode;
+					change_pwd_idenitity_code = indentityCode;
 				}
 			},
 			error: function(badRes) {}
