@@ -1,6 +1,5 @@
 //是否勾选记住密码
 var is_checkbox_checked = false;
-
 var InterValObj; //timer变量，控制时间
 var count = 60; //间隔函数，1秒执行
 var curCount; //当前剩余秒数
@@ -9,6 +8,8 @@ var InterValObj_login; //timer变量，控制时间
 var count_login = 60; //间隔函数，1秒执行
 var curCount_login; //当前剩余秒数
 
+var change_pwd_phone; //修改密码手机号
+var change_pwd_idenitity_code; //修改密码验证码
 
 /**
  * 页面加载事件
@@ -19,6 +20,155 @@ $(function() {
 })
 
 /**
+ * 点击忘记密码
+ */
+$(".forgetPwd_text").bind("click", function(dom) {
+	//调用短信登录事件
+	$(".identityCode_text").click();
+	//修改按钮里面的内容
+	$(".loginBtn_identity").text("下一步");
+	$(".loginBtn_identity").attr("data-index", "forget");
+})
+
+/**
+ * 点击下一步修改密码
+ */
+$(".next_step_btn").bind("click", function() {
+	var setPwd = $(".setPwd").val();
+	var setPwdAgain = $(".setPwdAgain").val();
+	if (setPwd == null || setPwd == "" || setPwd == undefined) {
+		layer.ready(function() {
+			layer.msg("请输入密码", {
+				icon: 2,
+				time: 1000
+			}, function() {
+				$(".setPwd").focus();
+				//改变样式
+				$(".setPwd").parent().parent().addClass("null_input");
+			});
+		})
+		return;
+	}
+	if (setPwdAgain == null || setPwdAgain == "" || setPwdAgain == undefined) {
+		layer.ready(function() {
+			layer.msg("请输入确认密码", {
+				icon: 2,
+				time: 1000
+			}, function() {
+				$(".setPwdAgain").focus();
+				//改变样式
+				$(".setPwdAgain").parent().parent().addClass("null_input");
+			});
+		})
+		return;
+	}
+	//验证密码格式
+	if (checkPwd(setPwd)) {
+		if (checkUpdatePwd()) {
+			
+			//MD5加密
+			setPwd=hex_md5(setPwd);
+			
+			//修改密码
+			$.ajax({
+				url: PATH + "userInfo/updatePwdByIdentityCode",
+				type: "post",
+				data: {
+					"phone": change_pwd_phone,
+					"newPwd": setPwd,
+					"identityCode": change_pwd_idenitity_code
+				},
+				success: function(res) {
+					console.log("res", res);
+					if (res.state == 500) {
+						layer.ready(function() {
+							layer.msg(res.message, {
+								icon: 2,
+								time: 1000
+							}, function() {});
+						})
+					} else if (res.state == 200) {
+						$(".front_box").fadeOut();
+						$(".sec_box").fadeIn();
+					}
+				},
+				error: function(badRes) {}
+			});
+		} else {
+			layer.ready(function() {
+				layer.msg("两次密码不一致", {
+					icon: 2,
+					time: 1000
+				}, function() {
+					$(".setPwdAgain").focus();
+					//改变样式
+					$(".setPwdAgain").parent().parent().addClass("null_input");
+				});
+			})
+		}
+	} else {
+		layer.ready(function() {
+			layer.msg("密码格式不正确", {
+				icon: 2,
+				time: 1000
+			}, function() {
+				$(".setPwd").focus();
+			});
+		})
+	};
+
+
+})
+
+/**
+ * 验证两次密码是否一致
+ */
+function checkUpdatePwd() {
+	var setPwd = $(".setPwd").val();
+	var setPwdAgain = $(".setPwdAgain").val();
+	if (setPwd == setPwdAgain) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+$(".setPwd").bind("focus", function() {
+	$(".notice_text_update").show();
+})
+$(".setPwd").bind("blur", function() {
+	var setPwd = $(".setPwd").val();
+	if (checkPwd(setPwd)) {
+		$(".notice_text_update").hide();
+		//改变样式
+		$(".setPwd").parent().parent().removeClass("null_input");
+	} else {
+		$(".notice_text_update").show();
+		//改变样式
+		$(".setPwd").parent().parent().addClass("null_input");
+	}
+})
+$(".setPwdAgain").bind("blur", function() {
+	//改变样式
+	$(".setPwdAgain").parent().parent().removeClass("null_input");
+})
+
+
+/**
+ * @param {Object} pwd
+ * 验证密码格式 6-16位数字、字母、符号
+ */
+function checkPwd(pwd) {
+	var reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/
+	var re = new RegExp(reg)
+	if (re.test(pwd)) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+/**
  * 验证码登录(手机号输入框失焦事件)
  */
 $(".login_phone_num").bind("blur", function(dom) {
@@ -27,7 +177,7 @@ $(".login_phone_num").bind("blur", function(dom) {
 	if (!isPoneAvailable(current_value)) {
 		//改变样式
 		$(target).parent().parent().addClass("null_input");
-	}else{
+	} else {
 		//改变样式
 		$(target).parent().parent().removeClass("null_input");
 	}
@@ -37,6 +187,8 @@ $(".login_phone_num").bind("blur", function(dom) {
  * 发送验证码(验证码登录)
  */
 $(".getIdentityBtn_login").bind("click", function() {
+	//当前入口
+	var currentIndex = $(".loginBtn_identity").attr("data-index");
 	//登陆手机号
 	var login_phone = $(".login_phone_num").val().trim();
 	if (!notNull(login_phone)) {
@@ -52,8 +204,13 @@ $(".getIdentityBtn_login").bind("click", function() {
 	} else {
 		//验证手机号格式
 		if (isPoneAvailable(login_phone)) {
-			//发送验证码--登陆验证码
-			send_sms_code(login_phone, "login");
+			if (currentIndex == "forget") {
+				//发送验证码--忘记密码验证码
+				send_sms_code(login_phone, "forget");
+			} else if (currentIndex == "login") {
+				//发送验证码--登陆验证码
+				send_sms_code(login_phone, "login");
+			}
 		} else {
 			layer.ready(function() {
 				layer.msg("手机号码格式不正确", {
@@ -192,7 +349,9 @@ $('.login_box_area').bind('keyup', function(event) {
 /**
  * 点击登录(验证码登录)
  */
-$(".loginBtn_identity").bind("click",function(){
+$(".loginBtn_identity").bind("click", function(dom) {
+	//获取点击按钮的入口
+	var curren_index = dom.currentTarget.dataset.index;
 	//手机号
 	var phoneNumber = $(".login_phone_num").val().trim();
 	//验证码
@@ -215,8 +374,19 @@ $(".loginBtn_identity").bind("click",function(){
 		})
 		return;
 	}
-	//执行登录
-	loginByIndentityCode(phoneNumber, identityCode);
+
+	if (!isPoneAvailable(phoneNumber)) {
+		layer.ready(function() {
+			layer.msg("手机号码格式不正确", {
+				icon: 2,
+				time: 1000
+			}, function() {
+				$(".login_phone_num").focus();
+			});
+		})
+		return;
+	}
+	loginByIndentityCode(phoneNumber, identityCode, curren_index);
 })
 
 /**
@@ -224,39 +394,70 @@ $(".loginBtn_identity").bind("click",function(){
  * @param {Object} indentityCode
  * 执行登录(验证码登录)
  */
-function loginByIndentityCode(phoneNumber, indentityCode) {
-	$.ajax({
-		url: PATH + "userInfo/loginByIdentityCode",
-		type: "post",
-		data: {
-			"phoneNumber": phoneNumber,
-			"identityCode": indentityCode
-		},
-		success: function(res) {
-			console.log("res", res);
-			if (res.state == 500) {
-				layer.ready(function() {
-					layer.msg(res.message, {
-						icon: 2,
-						time: 1000
-					}, function() {});
-				})
-			} else if (res.state == 200) {
-				//保存当前登录用户信息
-				sessionStorage.setItem("LoginUserInfo", JSON.stringify(res.data));
-				//跳转到index界面
-				layer.ready(function() {
-					layer.msg("登录成功", {
-						icon: 1,
-						time: 1000
-					}, function() {
-						window.location.href = "../login_after/login_after.html";
-					});
-				})
-			}
-		},
-		error: function(badRes) {}
-	});
+function loginByIndentityCode(phoneNumber, indentityCode, type) {
+
+	if (type == "login") {
+		//执行登录
+		$.ajax({
+			url: PATH + "userInfo/loginByIdentityCode",
+			type: "post",
+			data: {
+				"phoneNumber": phoneNumber,
+				"identityCode": indentityCode
+			},
+			success: function(res) {
+				console.log("res", res);
+				if (res.state == 500) {
+					layer.ready(function() {
+						layer.msg(res.message, {
+							icon: 2,
+							time: 1000
+						}, function() {});
+					})
+				} else if (res.state == 200) {
+					//保存当前登录用户信息
+					sessionStorage.setItem("LoginUserInfo", JSON.stringify(res.data));
+					//跳转到index界面
+					layer.ready(function() {
+						layer.msg("登录成功", {
+							icon: 1,
+							time: 1000
+						}, function() {
+							window.location.href = "../login_after/login_after.html";
+						});
+					})
+				}
+			},
+			error: function(badRes) {}
+		});
+	} else if (type == "forget") {
+		//执行效验 验证码
+		$.ajax({
+			url: PATH + "sms/ValidateCode",
+			type: "post",
+			data: {
+				"phone": phoneNumber,
+				"identityCode": indentityCode,
+				"codeType": type
+			},
+			success: function(res) {
+				console.log("res", res);
+				if (res.state == 500) {
+					layer.ready(function() {
+						layer.msg(res.message, {
+							icon: 2,
+							time: 1000
+						}, function() {});
+					})
+				} else if (res.state == 200) {
+					showChanegPwdBox();
+					change_pwd_phone = phoneNumber;
+					change_pwd_idenitity_ceode = indentityCode;
+				}
+			},
+			error: function(badRes) {}
+		});
+	}
 }
 
 
@@ -352,6 +553,19 @@ function login(searchParam, pwd) {
 	});
 }
 
+/**
+ * 显示修改密码框
+ */
+function showChanegPwdBox() {
+	//隐藏登录框
+	$(".login_box_area").fadeOut();
+	//隐藏验证码登录框
+	$(".identityCode_box").fadeOut();
+	//显示注册框
+	$(".register_box_area").fadeOut();
+	//隐藏修改密码
+	$(".updatePwd_box").fadeIn();
+}
 
 
 /**
@@ -362,6 +576,8 @@ $(".register_text").on("click", function() {
 	$(".login_box_area").fadeOut();
 	//隐藏验证码登录框
 	$(".identityCode_box").fadeOut();
+	//隐藏修改密码
+	$(".updatePwd_box").fadeOut();
 	//显示注册框
 	$(".register_box_area").fadeIn();
 })
@@ -373,6 +589,8 @@ $(".return_login").on("click", function() {
 	$(".register_box_area").fadeOut();
 	//隐藏验证码登录框
 	$(".identityCode_box").fadeOut();
+	//隐藏修改密码
+	$(".updatePwd_box").fadeOut();
 	//显示登录框
 	$(".login_box_area").fadeIn();
 })
@@ -384,6 +602,11 @@ $(".identityCode_text").on("click", function() {
 	$(".register_box_area").fadeOut();
 	//隐藏验证码登录框
 	$(".login_box_area").fadeOut();
+	//隐藏修改密码
+	$(".updatePwd_box").fadeOut();
 	//显示登录框
 	$(".identityCode_box").fadeIn();
+	//修改按钮里面的内容
+	$(".loginBtn_identity").text("登录");
+	$(".loginBtn_identity").attr("data-index", "login");
 })

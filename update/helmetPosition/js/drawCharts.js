@@ -19,9 +19,20 @@ var option = {
 		label: {
 			normal: {
 				textStyle: {
+					color: '#FFFFFF',
 					fontWeight: 'normal',
 					fontSize: 15
 				}
+			}
+		},
+		labelLine: {
+			normal: {
+				lineStyle: {
+					color: '#014A7E'
+				},
+				smooth: 0.2,
+				length: 10,
+				length2: 20
 			}
 		},
 		legendHoverLink: true,

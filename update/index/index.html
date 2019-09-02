@@ -37,7 +37,7 @@
 				</div>
 				<div class="row singleRightOptionArea">
 					<div class="headIcon headIconArea">
-						<img src="" class="topIcon headShotIcon" />
+						<img src="https://www.inteagle.com.cn/tag/default_icon.png" class="topIcon headShotIcon" />
 					</div>
 					<div class="topRightText loginUserName"></div>
 				</div>
@@ -134,11 +134,112 @@
 				</ul>
 			</div>
 		</div>
-
+		<!-- 蒙层 -->
+		<div class="black_Modal" style="display: none;"></div>
+		<!-- 电子围栏弹窗 -->
+		<div class="electronic_fence_Modal" style="display: none;">
+			<div class="close_btn_area">
+				<img src="img/close_1.png" class="close_fence_btn" />
+			</div>
+			<div class="box_title">电子围栏</div>
+			<div class="column modal_middle_area">
+				<form class="layui-form layui-form-pane" action="">
+					<div class="row single_row_input">
+						<div class="row single_input_box">
+							<div class="left_title">人员类别</div>
+							<div class="middle_line"></div>
+							<div class="right_value">
+								<select name="quiz1">
+									<option value="">请选择人员类别</option>
+									<option value="1">施工人员</option>
+									<option value="2">管理人员</option>
+								</select>
+							</div>
+						</div>
+						<div class="row single_input_box">
+							<div class="left_title">活动区域</div>
+							<div class="middle_line"></div>
+							<div class="right_value">
+								<select name="quiz1">
+									<option value="">请选择活动区域</option>
+									<option value="1">施工区域</option>
+									<option value="2">办公区域</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="row single_row_input_sec">
+						<div class="row left_part">
+							<div class="row_title">活动时间</div>
+							<div class="row single_input_box_sec first_left">
+								<div class="right_value">
+									<i class="time_picker_area"></i>
+									<input type="text" name="active_begin_time" autocomplete="off" id="active_begin_time" placeholder="请选择时间" />
+								</div>
+							</div>
+						</div>
+						<div class="middle_part_line"></div>
+						<div class="row single_input_box_sec">
+							<div class="right_value">
+								<i class="time_picker_area"></i>
+								<input type="text" name="active_end_time" autocomplete="off" id="active_end_time" placeholder="请选择时间" />
+							</div>
+						</div>
+					</div>
+					<div class="row single_row_input button_box">
+						<div class="row single_half_btn light_btn">
+							<button type="button" class="layui-btn layui-btn-normal create_btn">创建</button>
+						</div>
+						<div class="row single_half_btn normal_btn">
+							<button type="button" class="layui-btn layui-btn-normal reset_btn">重置</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="column bottom_box">
+				<div class="row single_bottom_first">
+					<div class="bottom_left_title blue_title">人员类别</div>
+					<div class="bottom_middle_title blue_title">活动区域</div>
+					<div class="bottom_right_title blue_title">时间段</div>
+				</div>
+				<div class="row single_bottom_normal bottom_marginTop">
+					<div class="bottom_left_title">施工人员</div>
+					<div class="bottom_middle_title">
+						<ul>
+							<li>施工区域</li>
+							<li>办公区域</li>
+						</ul>
+					</div>
+					<div class="bottom_right_title">
+						<ul>
+							<li>06:00 —— 12:00</li>
+							<li>06:00 —— 12:00</li>
+						</ul>
+					</div>
+				</div>
+				<div class="row single_bottom_normal bottom_marginTop">
+					<div class="bottom_left_title">管理人员</div>
+					<div class="bottom_middle_title">
+						<ul>
+							<li>施工区域</li>
+							<li>办公区域</li>
+						</ul>
+					</div>
+					<div class="bottom_right_title">
+						<ul>
+							<li>06:00 —— 12:00</li>
+							<li>06:00 —— 12:00</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 		<!-- 底部Iframe -->
 		<div class="mainBody">
-			<iframe src="../helmetPosition/helmetPostion.html" id="mainFrame" class="mainFrame" name='iframe' frameborder="0"></iframe>
+			<iframe src="curPage.html" id="mainFrame" class="mainFrame" name='iframe' frameborder="0"></iframe>
 		</div>
+
 		<!--底部备案信息区域  -->
 		<div class="bottomArea">
 			<div class="recordText">

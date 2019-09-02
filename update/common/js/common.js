@@ -17,10 +17,10 @@ layui.use(['layer', 'laydate', 'form'], function() {
 var isBigScreen;
 
 // 本地服务器地址
-// const PATH = "http://127.0.0.1:8080/";
+const PATH = "http://127.0.0.1:8080/";
 
 //服务器地址
-const PATH = "https://www.inteagle.com.cn/Inteagle_java/";
+// const PATH = "https://www.inteagle.com.cn/Inteagle_java/";
 
 
 $(function() {

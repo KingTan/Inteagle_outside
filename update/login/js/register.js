@@ -56,20 +56,6 @@ $(".right_input_area input").bind("blur", function(dom) {
 })
 
 /**
- * @param {Object} pwd
- * 验证密码格式 6-16位数字、字母、符号
- */
-function checkPwd(pwd) {
-	var reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/
-	var re = new RegExp(reg)
-	if (re.test(pwd)) {
-		return true;
-	} else {
-		return false;
-	}
-}
-
-/**
  * 验证码输入框失焦事件
  */
 $(".identity_value_register").bind("blur", function(dom) {
@@ -164,7 +150,7 @@ $(".registerBtn").bind("click", function(dom) {
 		contentType: false, // 告诉jQuery不要去设置Content-Type请求头
 		processData: false, // 告诉jQuery不要去处理发送的数据
 		success: function(res) {
-			console.log(res);
+			console.log("注册返回数据------", res);
 			if (res.state == 200) {
 				layer.ready(function() {
 					layer.msg("注册成功！", {
@@ -181,6 +167,16 @@ $(".registerBtn").bind("click", function(dom) {
 						$(".identityCode_box").fadeOut();
 						//显示登录框
 						$(".login_box_area").fadeIn();
+
+						//清空按钮计时器
+						window.clearInterval(InterValObj_login); // 停止计时器
+						$(".getIdentityBtn_login").attr("disabled", false); //移除禁用状态改为可用
+						$(".getIdentityBtn_login").text("获取验证码");
+						window.clearInterval(InterValObj); // 停止计时器
+						$(".getIdentityBtn_register").attr("disabled", false); //移除禁用状态改为可用
+						$(".getIdentityBtn_register").text("获取验证码");
+
+
 					});
 				})
 			} else if (res.state == 500) {

@@ -47,7 +47,11 @@
 						<button type="button" class="layui-btn layui-btn-normal loginBtn">登录</button>
 					</div>
 					<div class="row option_area">
-						<div class="left_option optionText register_text">注册账号</div>
+						<div class="row left_option">
+							<span class="register_text optionText">注册账号</span>
+							<div class="middleLine">|</div>
+							<span class="forgetPwd_text optionText">忘记密码</span>
+						</div>
 						<div class="right_option optionText identityCode_text">短信登录</div>
 					</div>
 				</div>
@@ -128,7 +132,7 @@
 						</div>
 					</div>
 					<div class="login_btn_area">
-						<button type="button" class="layui-btn layui-btn-normal loginBtn_identity">登录</button>
+						<button type="button" data-index="login" class="layui-btn layui-btn-normal loginBtn_identity">登录</button>
 					</div>
 					<div class="row option_area">
 						<div class="left_option optionText register_text">注册账号</div>
@@ -136,6 +140,47 @@
 					</div>
 				</div>
 			</div>
+
+			<!--两次密码输入框  -->
+			<div class="updatePwd_box" style="display: none;">
+				<div class="column single_box front_box" >
+					<div class="row single_input_change">
+						<div class="left_text">设置密码</div>
+						<div class="right_value">
+							<input type="password" name="setPwd" autocompleted="off" class="setPwd" />
+						</div>
+					</div>
+					<!-- 提示文字 -->
+					<div class="notice_text_update" style="display: none;"><span class="notice_icon">*</span>
+						请输入6-16位数字、字母或常用符号，字母区分大小写</div>
+					<div class="row single_input_change secTop">
+						<div class="left_text">确认密码</div>
+						<div class="right_value">
+							<input type="password" name="setPwdAgain" autocompleted="off" class="setPwdAgain" />
+						</div>
+					</div>
+					<div class="login_btn_area">
+						<button type="button" data-index="login" class="layui-btn layui-btn-normal next_step_btn">下一步</button>
+					</div>
+					<div class="row option_area">
+						<div class="left_option optionText register_text">注册账号</div>
+						<div class="right_option optionText return_login">密码登录</div>
+					</div>
+				</div>
+				<div class="column single_box sec_box" style="display: none;">
+					<div class="top_text_area">
+						<div class="top_text">您已经成功设置密码，请使用新密码登录</div>
+					</div>
+					<div class="login_btn_area">
+						<button type="button" data-index="login" class="layui-btn layui-btn-normal return_login black_btn">马上登录</button>
+					</div>
+					<div class="row option_area">
+						<div class="left_option optionText register_text">注册账号</div>
+						<div class="right_option optionText return_login">密码登录</div>
+					</div>
+				</div>
+			</div>
+
 		</div>
 		<script src="../common/js/jquery-3.2.1.min.js" type="text/javascript"></script>
 		<script src="../common/layui/layui.js" type="text/javascript"></script>

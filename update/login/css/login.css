@@ -20,6 +20,13 @@
 	margin-left: 11px;
 }
 
+.notice_text_update {
+	font-size: 10px;
+	color: purple;
+	margin-top: 5px;
+	margin-left: 11px;
+}
+
 .notice_icon {
 	color: orangered;
 }
@@ -127,6 +134,18 @@
 		font-size: 13px;
 		border: 1px solid #7E7F7F;
 	}
+
+	.updatePwd_box {
+		position: absolute;
+		top: 25%;
+		right: 10%;
+		width: 25%;
+		height: 50%;
+		border: 1px solid white;
+		border-radius: 0.875rem;
+		background-color: rgba(255, 255, 255, 0.6);
+		opacity: 0.8;
+	}
 }
 
 @media only screen and (min-width: 1400px) {
@@ -141,6 +160,19 @@
 		background-color: rgba(255, 255, 255, 0.6);
 		opacity: 0.8;
 	}
+
+	.updatePwd_box {
+		position: absolute;
+		top: 25%;
+		right: 13%;
+		width: 20%;
+		height: 35%;
+		border: none;
+		border-radius: 0.875rem;
+		background-color: rgba(255, 255, 255, 0.6);
+		opacity: 0.8;
+	}
+
 
 	.loginParam_icon {
 		background: url(../img/yonghuming.png) no-repeat;
@@ -258,6 +290,33 @@
 	height: 15%;
 	position: relative;
 	border: 1px solid #7E7F7F;
+}
+
+.single_input_change {
+	width: 100%;
+	height: 15%;
+	position: relative;
+	border: 1px solid #7E7F7F;
+	align-items: center;
+	background-color: #7E7F7F !important;
+	color: rgb(255, 255, 255) !important;
+	outline: none;
+}
+
+.single_input_change .right_value {
+	width: 60%;
+	margin-left: 5%;
+}
+
+.single_input_change .right_value input {
+	background-color: #7E7F7F !important;
+	color: rgb(255, 255, 255) !important;
+	border: none;
+	outline: none;
+}
+
+.single_input_change .left_text {
+	margin-left: 10%;
 }
 
 .pwdArea {
@@ -388,6 +447,32 @@ input:-ms-input-placeholder {
 	height: 100%;
 	line-height: 100%;
 }
+
+.next_step_btn {
+	height: 100%;
+	line-height: 100%;
+	width: 100%;
+	background-color: rgb(0, 0, 0);
+	opacity: 0.5;
+}
+.black_btn{
+	height: 100%;
+	line-height: 100%;
+	width: 100%;
+	background-color: rgb(0, 0, 0);
+	opacity: 0.5;
+}
+
+.next_step_btn_text {
+	height: 100%;
+	line-height: 100%;
+	width: 100%;
+	background-color: rgb(0, 0, 0);
+	opacity: 0.161;
+	color: #FFF9EC;
+}
+
+
 
 .optionText:hover {
 	cursor: pointer;
@@ -559,4 +644,25 @@ input:-ms-input-placeholder {
 	letter-spacing: 1.5px;
 	font-weight: bold;
 	margin-top: 40px;
+}
+
+.left_option {
+	width: 45%;
+	justify-content: space-between;
+}
+
+.secTop {
+	margin-top: 10%;
+}
+
+.top_text {
+	color: #FFFFFF;
+	margin-top: 3%;
+}
+
+.top_text_area {
+	width: 100%;
+	height: 15%;
+	background-color: #848C91;
+	text-align: center;
 }

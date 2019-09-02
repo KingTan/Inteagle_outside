@@ -1,7 +1,3 @@
-//layui form组件
-var layform;
-var element;
-
 /**
  * 页面加载事件
  */
@@ -10,10 +6,38 @@ $(function() {
 	check_is_login();
 
 	//初始化layui组件
-	layui.use(['element', 'form'], function() {
-		element = layui.element;
-		layform = layui;
+	layui.use(['element', 'form', 'laydate'], function() {
+		var laydate = layui.laydate,
+			element = layui.element,
+			layform = layui.form;
+		laydate.render({
+			elem: "#active_begin_time",
+			type: "time",
+			format: "H时m分s秒"
+		});
+		laydate.render({
+			elem: "#active_end_time",
+			type: "time",
+			format: "H时m分s秒"
+		});
 	});
+})
+
+
+/**
+ * 显示电子围栏弹窗
+ */
+function showElectricFenceModal() {
+	$(".black_Modal").show();
+	$(".electronic_fence_Modal").show(200);
+}
+
+/**
+ * 关闭电子围栏弹窗
+ */
+$(".close_fence_btn").bind("click", function() {
+	$(".black_Modal").hide();
+	$(".electronic_fence_Modal").hide(200);
 })
 
 /**
@@ -26,7 +50,7 @@ function check_is_login() {
 		//用户名
 		$(".loginUserName").text(loginUser.userName);
 		//头像
-		$(".headShotIcon").attr("src",loginUser.headPortrait);
+		$(".headShotIcon").attr("src", loginUser.headPortrait);
 	} else {
 		window.location.href = "../login/login.html";
 	}

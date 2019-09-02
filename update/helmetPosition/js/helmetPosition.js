@@ -1,6 +1,10 @@
-$(function(){
-	//结束页面加载图标
-	$(".loading").fadeOut();
-	//显示内容
-	$(".foundation").css("visibility","visible");
+$(function() {
+})
+
+/**
+ * 点击电子围栏事件
+ */
+$(".electricFenceText").bind("click",function(dom){
+	//调用父页面的方法
+	window.parent.showElectricFenceModal();
 })

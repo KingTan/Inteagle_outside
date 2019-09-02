@@ -261,12 +261,16 @@ input:-ms-input-placeholder {
 	color: #FFFFFF !important;
 }
 
-.export_area {
-	width: 10%;
-	color: #81C8E7;
-	align-items: center;
+.right_option_area{
 	position: absolute;
 	right: 2%;
+	width: 15%;
+}
+
+.export_area {
+	width: 80%;
+	color: #81C8E7;
+	align-items: center;
 	font-size: 16px;
 }
 
@@ -276,6 +280,11 @@ input:-ms-input-placeholder {
 
 .export_text {
 	margin-left: 5%;
+}
+
+.export_text:hover {
+	cursor: pointer;
+	text-decoration: underline;
 }
 
 
