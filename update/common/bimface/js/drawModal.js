@@ -70,8 +70,7 @@ function onSDKLoadSucceeded(viewMetaData) {
 	
 	//鼠标单击事件
 	viewer.addEventListener(Glodon.Bimface.Viewer.Viewer3DEvent.MouseClicked, function(objectData) {
-		console.log("点击模型");
-		console.log(viewer.getCameraStatus());
+		console.log("当前点击模型对象-------",objectData);
 	});
 }
 
@@ -80,7 +79,7 @@ function load(x,y,z) {
 	//目前仅支持3ds外部构件
 	//https://www.inteagle.com.cn/update/common/bimface/3ds/smallBall.3ds
 	//http://127.0.0.1:8848/Inteagle_outside/update/common/bimface/3ds/smallBall.3ds
-	loadExternalComponent("http://127.0.0.1:8848/Inteagle_outside/update/common/bimface/3ds/smallBall.3ds", function(object) {
+	loadExternalComponent("https://www.inteagle.com.cn/update/common/bimface/3ds/smallBall.3ds", function(object) {
 		// 添加外部构件，命名为"ball_1"和"ball_2"
 		addExternalObject(viewer, "ball_1", object);
 

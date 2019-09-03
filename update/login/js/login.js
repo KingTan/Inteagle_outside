@@ -1,5 +1,6 @@
 //是否勾选记住密码
 var is_checkbox_checked = false;
+
 var InterValObj; //timer变量，控制时间
 var count = 60; //间隔函数，1秒执行
 var curCount; //当前剩余秒数
@@ -7,6 +8,10 @@ var curCount; //当前剩余秒数
 var InterValObj_login; //timer变量，控制时间
 var count_login = 60; //间隔函数，1秒执行
 var curCount_login; //当前剩余秒数
+
+var InterValObj_forget; //timer变量，控制时间
+var count_forget = 60; //间隔函数，1秒执行
+var curCount_forget; //当前剩余秒数
 
 var change_pwd_phone; //修改密码手机号
 var change_pwd_idenitity_code; //修改密码验证码
@@ -28,6 +33,10 @@ $(".forgetPwd_text").bind("click", function(dom) {
 	//修改按钮里面的内容
 	$(".loginBtn_identity").text("下一步");
 	$(".loginBtn_identity").attr("data-index", "forget");
+	//隐藏短信验证码登录 获取验证码按钮
+	$(".getIdentityBtn_login").hide();
+	//显示忘记密码 验证码按钮
+	$(".getIdentityBtn_forget").show();
 })
 
 /**
@@ -66,12 +75,8 @@ $(".next_step_btn").bind("click", function() {
 	if (checkPwd(setPwd)) {
 		if (checkUpdatePwd()) {
 			//MD5加密
-			setPwd=hex_md5(setPwd);
-			
-			console.log("change_pwd_phone------",change_pwd_phone);
-			console.log("change_pwd_idenitity_code------",change_pwd_idenitity_code);
-			
-			
+			setPwd = hex_md5(setPwd);
+
 			//修改密码
 			$.ajax({
 				url: PATH + "userInfo/updatePwdByIdentityCode",
@@ -187,9 +192,45 @@ $(".login_phone_num").bind("blur", function(dom) {
 })
 
 /**
+ * @param {Object} phone
+ * 通过手机号查询当前用户
+ */
+function getCurrentUser(phone) {
+	$.ajax({
+		url: PATH + "userInfo/getUserByPhone",
+		type: "post",
+		data: {
+			"phoneNumber": phone
+		},
+		success: function(res) {
+			// console.log("res------", res)
+			if (res.state == 200) {
+				//当前修改用户 用户名
+				$(".forget_user_name").text(res.data.userName);
+
+			} else if (res.state == 500) {
+				layer.ready(function() {
+					layer.msg(res.message, {
+						icon: 2,
+						time: 1000
+					}, function() {
+						$(".phoneNumber").focus();
+					});
+				})
+			}
+		},
+		error: function(badRes) {
+			console.log("根据手机号查询当前用户失败....----" + badRes);
+		}
+	});
+}
+
+
+
+/**
  * 发送验证码(验证码登录)
  */
-$(".getIdentityBtn_login").bind("click", function() {
+function sendSmsCodeMethod() {
 	//当前入口
 	var currentIndex = $(".loginBtn_identity").attr("data-index");
 	//登陆手机号
@@ -225,7 +266,8 @@ $(".getIdentityBtn_login").bind("click", function() {
 			})
 		}
 	}
-})
+}
+
 /**
  * 发送验证码
  * @param {Object} phoneNumber 手机号
@@ -261,6 +303,12 @@ function send_sms_code(phoneNumber, codeType) {
 							$(".getIdentityBtn_login").attr("disabled", true); //设置按钮为禁用状态
 							$(".getIdentityBtn_login").text(curCount_login + "秒后重获"); //更改按钮文字
 							InterValObj_login = window.setInterval(SetRemainTime_login, 1000); // 启动计时器timer处理函数，1秒执行一次
+						} else if (codeType == "forget") {
+							curCount_forget = count_forget;
+							// 设置button效果，开始计时
+							$(".getIdentityBtn_forget").attr("disabled", true); //设置按钮为禁用状态
+							$(".getIdentityBtn_forget").text(curCount_forget + "秒后重获"); //更改按钮文字
+							InterValObj_forget = window.setInterval(SetRemainTime_forget, 1000); // 启动计时器timer处理函数，1秒执行一次
 						}
 					});
 				})
@@ -282,6 +330,7 @@ function send_sms_code(phoneNumber, codeType) {
 }
 
 //timer处理函数
+//注册账号验证码计时器
 function SetRemainTime() {
 	if (curCount == 0) { //超时重新获取验证码
 		window.clearInterval(InterValObj); // 停止计时器
@@ -293,6 +342,7 @@ function SetRemainTime() {
 	}
 }
 
+//验证码登录验证码计时器
 function SetRemainTime_login() {
 	if (curCount_login == 0) { //超时重新获取验证码
 		window.clearInterval(InterValObj_login); // 停止计时器
@@ -303,6 +353,19 @@ function SetRemainTime_login() {
 		$(".getIdentityBtn_login").text(curCount_login + "秒后重获");
 	}
 }
+
+//忘记密码验证码计时器
+function SetRemainTime_forget() {
+	if (curCount_forget == 0) { //超时重新获取验证码
+		window.clearInterval(InterValObj_forget); // 停止计时器
+		$(".getIdentityBtn_forget").attr("disabled", false); //移除禁用状态改为可用
+		$(".getIdentityBtn_forget").text("重获验证码");
+	} else {
+		curCount_forget--;
+		$(".getIdentityBtn_forget").text(curCount_forget + "秒后重获");
+	}
+}
+
 
 
 // 判断是否为手机号
@@ -456,6 +519,7 @@ function loginByIndentityCode(phoneNumber, indentityCode, type) {
 					showChanegPwdBox();
 					change_pwd_phone = phoneNumber;
 					change_pwd_idenitity_code = indentityCode;
+					getCurrentUser(change_pwd_phone);
 				}
 			},
 			error: function(badRes) {}
@@ -612,4 +676,8 @@ $(".identityCode_text").on("click", function() {
 	//修改按钮里面的内容
 	$(".loginBtn_identity").text("登录");
 	$(".loginBtn_identity").attr("data-index", "login");
+	//隐藏短信验证码登录 获取验证码按钮
+	$(".getIdentityBtn_login").show();
+	//显示忘记密码 验证码按钮
+	$(".getIdentityBtn_forget").hide();
 })

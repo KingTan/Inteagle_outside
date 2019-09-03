@@ -455,7 +455,8 @@ input:-ms-input-placeholder {
 	background-color: rgb(0, 0, 0);
 	opacity: 0.5;
 }
-.black_btn{
+
+.black_btn {
 	height: 100%;
 	line-height: 100%;
 	width: 100%;
@@ -665,4 +666,11 @@ input:-ms-input-placeholder {
 	height: 15%;
 	background-color: #848C91;
 	text-align: center;
+}
+
+.curren_user {
+	width: 80%;
+	position: absolute;
+	margin-left: 20%;
+	margin-top: 7%;
 }

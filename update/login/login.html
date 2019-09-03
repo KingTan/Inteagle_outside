@@ -128,7 +128,8 @@
 							<input class="identity_value" type="text" autocompleted="off" placeholder="请输入验证码" />
 						</div>
 						<div class="get_identity_btn">
-							<button type="button" class="layui-btn layui-btn-normal getIdentityBtn getIdentityBtn_login">获取验证码</button>
+							<button type="button" class="layui-btn layui-btn-normal getIdentityBtn getIdentityBtn_login" onclick="sendSmsCodeMethod()">获取验证码</button>
+							<button type="button" class="layui-btn layui-btn-normal getIdentityBtn getIdentityBtn_forget" style="display: none;" onclick="sendSmsCodeMethod()">获取验证码</button>
 						</div>
 					</div>
 					<div class="login_btn_area">
@@ -143,6 +144,7 @@
 
 			<!--两次密码输入框  -->
 			<div class="updatePwd_box" style="display: none;">
+				<div class="curren_user">您正在找回的账号是:<span class="forget_user_name"></span></div>
 				<div class="column single_box front_box" >
 					<div class="row single_input_change">
 						<div class="left_text">设置密码</div>
