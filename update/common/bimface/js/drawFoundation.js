@@ -137,14 +137,14 @@ function onSDKLoadSucceeded(viewMetaData) {
 		//http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/cexie_normal.png
 		//https://www.inteagle.com.cn/tag/cexie_normal.png
 		var pic_path =
-			"http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/cexie_normal.png";
+			"https://www.inteagle.com.cn/tag/cexie_normal.png";
 		var tag_type = "测斜仪点位";
 
 		//位移管
 		//http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/weiyi_normal.png;
 		//https://www.inteagle.com.cn/tag/weiyi_normal.png
 		var wy_pic_path =
-			"http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/weiyi_normal.png";
+			"https://www.inteagle.com.cn/tag/weiyi_normal.png";
 		var wy_tag_type = "位移管点位";
 
 		for (var i = 0; i < tag_position_array.length; i++) {
@@ -338,7 +338,7 @@ function add3DMarker(position, pic_path, tag_type) {
 		//https://www.inteagle.com.cn/update/foundation/foundation_charts.html
 		//http://127.0.0.1:8848/Inteagle_outside/update/foundation/foundation_charts.html
 		//修改父页面Iframe的路径
-		$('#mainFrame', window.parent.document).attr("src", "http://127.0.0.1:8848/Inteagle_outside/update/foundation/foundation_charts.html?id=" + check_tag_id +
+		$('#mainFrame', window.parent.document).attr("src", "https://www.inteagle.com.cn/update/foundation/foundation_charts.html?id=" + check_tag_id +
 			"&router=foundation");
 
 		//跳转到对应圆点的 图表页面
