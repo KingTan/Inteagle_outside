@@ -294,9 +294,11 @@ function changeIframePath(checkde_index) {
 			break;
 		case "9-1":
 			//基本信息
+			iframePath = "../systemManagement/basicInfo.html";
 			break;
 		case "9-2":
 			//账号安全
+			iframePath = "../systemManagement/saftyCount.html";
 			break;
 	}
 	if (iframePath != "" && iframePath != undefined) {
