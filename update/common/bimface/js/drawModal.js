@@ -7,7 +7,7 @@ $.ajax({
 	type: "post",
 	async: false,
 	data: {
-		fileId: "1676303313388992"
+		fileId: "1686740782613984"
 	},
 	success: function(res) {
 		console.log("res", res);
@@ -21,21 +21,21 @@ $.ajax({
 });
 
 //基坑内圈模型对象ID数组
-var foundation_obejct_id_array = ["nd5f4a8ac2-3164-4d10-a417-5ef18773ecb5", "nd66a950a4-99ee-4587-8351-93e9ec1c9f2b",
-	"nd22cbee7d-57ab-4364-969d-64704abafdf8", "nd4062c6f7-1a63-4da2-a0e7-793d45e9160f",
-	"nd4402d36e-16f1-4e76-87c0-10fd267ed10c", "nd5b3ae791-ef7a-4f4b-8b9c-c7f30cf236f4",
-	"nd3b4db4c2-4173-4472-b046-1a84a1522971", "ndd11d03a6-49c6-4a7f-b86e-87bb93bd7eb3",
-	"nd15e1bf6e-96ae-4dbb-b18b-9be81eb43a68", "nd7e3eead9-da50-43d3-9a9d-5cdabede4c1c",
-	"nd1391bc12-8a54-4680-9b94-c5cdeab9590e", "nd1c078e2a-1e3d-454a-bf25-252ace5508b6",
-	"nd66b282af-d17d-495b-b0e0-2c004d1c58b0", "nddca8a2dc-7568-435a-b698-1fed2184a0ba",
-	"nd56236851-22b7-4026-9b05-a77282885310", "ndae63c5e1-864d-44ce-b0bc-208b91ae6730",
-	"ndc7697ff8-91dc-49f7-ab4c-897eba37caa6", "nda9472191-4c13-4ff1-b654-a9f5fb87894a",
-	"nd497b571e-bd94-4d33-a410-2ce1465cd8f0"
+var foundation_obejct_id_array = ["nd79c15f88-3894-40da-a2a9-0b0b1bcf93a3", "nd1a0b571b-5592-4f8b-bbdb-a305cf5494f1",
+	"nd5386648f-31cf-4ac1-aea4-ea2d9f7331e4", "nd240da3a0-545e-476b-882a-8b45c8aa41f3",
+	"ndd25167cc-fea2-4c2a-8ed6-c45fee6ae168", "nd7e25d779-bcf3-4c67-9d58-709d23043ae0",
+	"nd6e4cb6b6-5854-40a4-97d0-13b22f68a2d3", "nd7b207f2a-c0ac-4364-aed6-d3d82b3f3d23",
+	"nda1306117-137d-448a-82b6-ce7d5dcf0f20", "ndc354828a-61c6-4c6a-9ac4-58a338bd879c",
+	"nda632eb0d-d158-4ffc-9584-00afb8025ab8", "nd5743553f-7ef8-46c3-af78-75267935b6aa",
+	"nd230f8372-07c3-4976-9136-74ab72a61a87", "nd425dd224-8806-4d37-8cfc-88b5a25c095a",
+	"nd98bb6baa-3121-46d4-9217-3311e5be590e", "nd7d146cd0-60a4-4b10-9377-90baab96968d",
+	"nd1027b73f-e681-41ea-a73d-9243ae217d16", "nd53240d52-68bb-4c96-a916-3ab1e13578ec",
+	"nd65f77871-e89b-4191-a027-7502e1456133"
 ];
 
 //房子模型对象ID数组
-var house_object_id_array = ["nd97c70b83-2b26-4ea7-a325-5d808035ec6a", "nde4a4c681-d965-4eb2-8420-ff415ccbbf01",
-	"ndbffec4f7-3461-4dd0-9840-8245b3a4e676"
+var house_object_id_array = ["ndbb87e0e7-da76-411f-a456-0ded9d89b6b9", "ndb1190b6e-0381-461a-873e-8ba4533499f5",
+	"nd71e0b98d-323b-45a6-b5e0-3d1d58944650"
 ];
 
 var viewer, animationId, viewAdded = false;
@@ -63,12 +63,8 @@ function onSDKLoadSucceeded(viewMetaData) {
 		//显示内容
 		$(".foundation").css("visibility", "visible");
 
-		// //更改背景色
-		// solidBackgroundColor(viewer);
-		// //构件着色
-		// var id_array=["nd16aa0a21-5f91-45d9-8336-8bccbbbd1951"];
-		// overrideComponents(viewer,id_array,"#38D5BE");
-
+		//更改背景色
+		solidBackgroundColor(viewer);
 		// 更改初始视角
 		changeViewSite(viewer);
 		//加载小球
@@ -77,17 +73,24 @@ function onSDKLoadSucceeded(viewMetaData) {
 
 	//鼠标单击事件
 	viewer.addEventListener(Glodon.Bimface.Viewer.Viewer3DEvent.MouseClicked, function(objectData) {
+
+		//当前视口状态
+		//viewer.getCameraStatus() 
 		console.log("当前点击模型对象-------", objectData);
 		var current_object_id = objectData.objectId;
+
+		//全部构件恢复到原来颜色
+		viewer.clearOverrideColorComponents();
 		if (foundation_obejct_id_array.includes(current_object_id)) {
-			//基坑内圈模型对象
-			//更改颜色
+			//基坑内圈模型对象 更改颜色
 			overrideComponents(viewer, foundation_obejct_id_array, "#38D5BE");
 		} else if (house_object_id_array.includes(current_object_id)) {
-			//房子模型对象
-			//更改颜色
-			overrideComponents(viewer, house_object_id_array, "#7CAD7A");
+			//清除选中状态
+			viewer.clearSelectedComponents();
+			//房子模型对象 更改颜色
+			overrideComponents(viewer, house_object_id_array, "#DC143C");
 		}
+
 	});
 }
 /**
@@ -145,7 +148,7 @@ function overrideComponents(viewer3D, idArray, choose_color) {
  * @param {Object} blink_color 闪烁颜色
  * @param {Object} blink_time 闪烁频率 ms
  */
-function setBlinkColor(viewer3D,obejctIdArray,blink_color,blink_time) {
+function setBlinkColor(viewer3D, obejctIdArray, blink_color, blink_time) {
 	viewer3D.enableBlinkComponents(true)
 	viewer3D.addBlinkComponentsById(obejctIdArray);
 	viewer3D.setBlinkColor(new Glodon.Web.Graphics.Color(blink_color, 0.8))
@@ -162,11 +165,11 @@ function clearAllBlinkComponents(viewer3D) {
 }
 
 //加载外部构件
-function load(x, y, z) {
+function load() {
 	//目前仅支持3ds外部构件
 	//https://www.inteagle.com.cn/update/common/bimface/3ds/smallBall.3ds
 	//http://127.0.0.1:8848/Inteagle_outside/update/common/bimface/3ds/smallBall.3ds
-	loadExternalComponent("https://www.inteagle.com.cn/update/common/bimface/3ds/smallBall.3ds", function(
+	loadExternalComponent("http://127.0.0.1:8848/Inteagle_outside/update/common/bimface/3ds/smallBall.3ds", function(
 		object) {
 		// 添加外部构件，命名为"ball_1"和"ball_2"
 		addExternalObject(viewer, "ball_1", object);
@@ -174,11 +177,15 @@ function load(x, y, z) {
 		// 调整构件位置
 		var tempQuaternion = new THREE.Quaternion();
 		tempQuaternion.setFromAxisAngle(new THREE.Vector3(0.0, 0.0, 1.0), 4.6);
-		setTransform("ball_1", new THREE.Vector3(x, y, z), new THREE.Vector3(1, 1, 1), tempQuaternion);
-		setTransform("ball_2", new THREE.Vector3(120, 200, 20), new THREE.Vector3(1, 1, 1));
+		setTransform("ball_1", new THREE.Vector3(50, 100, -50), new THREE.Vector3(1, 1, 1), tempQuaternion);
+		setTransform("ball_2", new THREE.Vector3(120, 200, -50), new THREE.Vector3(1, 1, 1));
 		console.log("加载外部构件...");
 		// 更新相机视角
 		viewer.render();
+		
+		// var test_array=["ball_1","ndb1190b6e-0381-461a-873e-8ba4533499f5"];
+		// //构件闪烁
+		// setBlinkColor(viewer, test_array, "#DC143C", 200);
 	});
 }
 
@@ -188,12 +195,34 @@ function onSDKLoadFailed(error) {
 }
 
 // 轨迹模拟
-function animation(x, y, z) {
+function animation(x, y, z, id) {
 	if (viewAdded) {
-		var position1 = new THREE.Vector3(x, y, z);
-		setTransform("ball_1", position1);
+		if (id == "a") {
+			var position_a = new THREE.Vector3(x, y, z);
+			setTransform("ball_1", position_a);
+		} else if (id == "b") {
+			var position_b = new THREE.Vector3(x, y, z);
+			setTransform("ball_2", position_b);
+		}
 		viewer.render();
 	}
+	var bink_array = [];
+	for (var i = 0; i < foundation_obejct_id_array.length; i++) {
+		//计算控件之间的最小距离
+		var distance_ball_a = viewer.getMinimumComponentDistanceById("ball_1", foundation_obejct_id_array[i]);
+		var distance_ball_b = viewer.getMinimumComponentDistanceById("ball_2", foundation_obejct_id_array[i]);
+		if (distance_ball_a.minDistance == 0||distance_ball_b.minDistance == 0) {
+			bink_array.push(foundation_obejct_id_array[i]);
+		} 
+	}
+	if (bink_array.length != 0) {
+		//构件闪烁
+		setBlinkColor(viewer, bink_array, "#DC143C", 200);
+	}else{
+		//清除闪烁
+		clearAllBlinkComponents(viewer);
+	}
+	
 }
 
 
