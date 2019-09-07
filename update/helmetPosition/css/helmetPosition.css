@@ -261,12 +261,6 @@ input:-ms-input-placeholder {
 	color: #FFFFFF !important;
 }
 
-.right_option_area{
-	position: absolute;
-	right: 2%;
-	width: 15%;
-}
-
 .export_area {
 	width: 80%;
 	color: #81C8E7;
@@ -359,6 +353,11 @@ input:-ms-input-placeholder {
 		top: 4px;
 		left: 32%;
 	}
+	.right_option_area{
+		position: absolute;
+		right: 0%;
+		width: 10%;
+	}
 }
 
 @media only screen and (min-width: 1400px) {
@@ -427,5 +426,10 @@ input:-ms-input-placeholder {
 		position: absolute;
 		top: 4px;
 		left: 35%;
+	}
+	.right_option_area{
+		position: absolute;
+		right: 0%;
+		width: 9%;
 	}
 }

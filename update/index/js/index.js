@@ -117,38 +117,69 @@ function openDeepCheckCharts(checked_id, checked_time) {
 
 
 /**
+ * 运行时间弹窗--点击立即运行按钮事件
+ */
+$(".run_btn").bind("click",function(dom){
+	//修改电机状态
+	$(".device_status").text("运行中");
+})
+
+
+/**
+ * 关闭运行时间弹窗
+ */
+$(".close_runTime").bind("click",function(dom){
+	//关闭蒙层
+	$(".black_Modal").hide();
+	//移除动画
+	$("new_runTimeModal").removeClass("fadeInLeft");
+	//添加动画
+	$(".new_runTimeModal").addClass("fadeOutLeft");
+})
+
+
+/**
  * 运行时间弹窗
  */
 function runtimeSetModal() {
-	var html = document.getElementById("runtimeSetModal").innerHTML;
-	var width;
-	var height;
-	if (isBigScreen) {
-		width = "35%";
-		height = "25%";
-	} else {
-		width = "45%";
-		height = "30%";
-	}
-
-	//页面层-自定义
-	layer.open({
-		type: 1,
-		title: false,
-		closeBtn: 2,
-		area: [width, height],
-		shadeClose: true,
-		scrollbar: true,
-		resize: false,
-		content: html,
-		success: function() {
-			//初始化 from 对象
-			layui.use('form', function() {
-				layform = layui.form;
-				layform.render();
-			})
-		}
-	});
+	//显示蒙层
+	$(".black_Modal").show();
+	//显示弹窗
+	$(".new_runTimeModal").show();
+	//移除动画
+	$(".new_runTimeModal").removeClass("fadeOutLeft");
+	//添加动画
+	$(".new_runTimeModal").addClass("fadeInLeft");
+	
+// 	var html = document.getElementById("runtimeSetModal").innerHTML;
+// 	var width;
+// 	var height;
+// 	if (isBigScreen) {
+// 		width = "35%";
+// 		height = "25%";
+// 	} else {
+// 		width = "45%";
+// 		height = "30%";
+// 	}
+// 
+// 	//页面层-自定义
+// 	layer.open({
+// 		type: 1,
+// 		title: false,
+// 		closeBtn: 2,
+// 		area: [width, height],
+// 		shadeClose: true,
+// 		scrollbar: true,
+// 		resize: false,
+// 		content: html,
+// 		success: function() {
+// 			//初始化 from 对象
+// 			layui.use('form', function() {
+// 				layform = layui.form;
+// 				layform.render();
+// 			})
+// 		}
+// 	});
 }
 
 

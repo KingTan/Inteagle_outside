@@ -137,14 +137,14 @@ function onSDKLoadSucceeded(viewMetaData) {
 		//http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/cexie_normal.png
 		//https://www.inteagle.com.cn/tag/cexie_normal.png
 		var pic_path =
-			"https://www.inteagle.com.cn/tag/cexie_normal.png";
+			"http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/cexie_normal.png";
 		var tag_type = "测斜仪点位";
 
 		//位移管
-		//http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/weiyi_normal.png;
+		//http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/weiyi_normal.png
 		//https://www.inteagle.com.cn/tag/weiyi_normal.png
 		var wy_pic_path =
-			"https://www.inteagle.com.cn/tag/weiyi_normal.png";
+			"http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/weiyi_normal.png";
 		var wy_tag_type = "位移管点位";
 
 		for (var i = 0; i < tag_position_array.length; i++) {
@@ -165,7 +165,6 @@ function onSDKLoadSucceeded(viewMetaData) {
 	});
 
 	var add_array = [];
-
 	var add_id = 0;
 
 	//鼠标单击事件
@@ -182,9 +181,7 @@ function onSDKLoadSucceeded(viewMetaData) {
 			"z": objectData.worldPosition.z
 		};
 		add_array.push(singleObj);
-
 		//console.log("add_array--------------------", add_array);
-
 		var pic_path =
 			"http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/cexie_normal.png";
 		var tag_type = "测斜仪点位";
@@ -202,31 +199,6 @@ function onSDKLoadSucceeded(viewMetaData) {
 
 }
 
-
-//加载外部构件
-function load(x, y, z) {
-	//目前仅支持3ds外部构件
-	loadExternalComponent("js/bimface/3ds/smallBall.3ds", function(object) {
-		// 添加外部构件，命名为"ball_1"和"ball_2"
-		addExternalObject(viewer, "ball_1", object);
-
-		addExternalObject(viewer, "ball_2", object.clone());
-
-		// 调整构件位置
-		var tempQuaternion = new THREE.Quaternion();
-		tempQuaternion.setFromAxisAngle(new THREE.Vector3(0.0, 0.0, 1.0), 4.6);
-
-		setTransform("ball_1", new THREE.Vector3(-135.60315730639525, -94.53001443728878, -54.178654376890556), new THREE.Vector3(
-			0.05, 0.05, 0.05), tempQuaternion);
-
-		setTransform("ball_2", new THREE.Vector3(120, 200, 20), new THREE.Vector3(0.2, 0.2, 0.2));
-
-		console.log("加载外部构件...");
-
-		// 更新相机视角
-		viewer.render();
-	});
-}
 
 // 加载失败回调函数
 function onSDKLoadFailed(error) {
@@ -338,7 +310,7 @@ function add3DMarker(position, pic_path, tag_type) {
 		//https://www.inteagle.com.cn/update/foundation/foundation_charts.html
 		//http://127.0.0.1:8848/Inteagle_outside/update/foundation/foundation_charts.html
 		//修改父页面Iframe的路径
-		$('#mainFrame', window.parent.document).attr("src", "https://www.inteagle.com.cn/update/foundation/foundation_charts.html?id=" + check_tag_id +
+		$('#mainFrame', window.parent.document).attr("src", "http://127.0.0.1:8848/Inteagle_outside/update/foundation/foundation_charts.html?id=" + check_tag_id +
 			"&router=foundation");
 
 		//跳转到对应圆点的 图表页面
