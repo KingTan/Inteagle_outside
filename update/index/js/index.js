@@ -28,34 +28,29 @@ $(function() {
  * 显示电子围栏弹窗
  */
 function showElectricFenceModal() {
+	//显示蒙层
 	$(".black_Modal").show();
-	$(".electronic_fence_Modal").show(200);
+	//显示弹窗
+	$(".electronic_fence_Modal").show();
+	//移除动画
+	$(".electronic_fence_Modal").removeClass("fadeOutLeft");
+	//添加动画
+	$(".electronic_fence_Modal").addClass("fadeInLeft");
 }
 
 /**
  * 关闭电子围栏弹窗
  */
 $(".close_fence_btn").bind("click", function() {
+	//关闭蒙层
 	$(".black_Modal").hide();
-	$(".electronic_fence_Modal").hide(200);
+	//显示弹窗
+	$(".electronic_fence_Modal").hide();
+	//移除动画
+	$("electronic_fence_Modal").removeClass("fadeInLeft");
+	//添加动画
+	$(".electronic_fence_Modal").addClass("fadeOutLeft");
 })
-
-/**
- * 验证是否登录
- */
-function check_is_login() {
-	var session_login_user = sessionStorage.getItem("LoginUserInfo");
-	if (session_login_user != null && session_login_user != undefined && session_login_user != "") {
-		var loginUser = JSON.parse(session_login_user);
-		//用户名
-		$(".loginUserName").text(loginUser.userName);
-		//头像
-		$(".headShotIcon").attr("src", loginUser.headPortrait);
-	} else {
-		window.location.href = "../login/login.html";
-	}
-}
-
 
 /**
  * 基坑监测 表格弹窗
@@ -117,20 +112,91 @@ function openDeepCheckCharts(checked_id, checked_time) {
 
 
 /**
+ * 电机运行时间-创建事件
+ */
+$(".create_runtime_btn").bind("click", function() {
+	//目标运行时间
+	var target_time = $(".target_time").val();
+	//目标运行间隔
+	var target_period = $(".target_period").val();
+
+	if (!notNull(target_time)) {
+		layer.ready(function() {
+			layer.msg("请输入目标运行时间", {
+				icon: 2,
+				time: 1000
+			}, function() {
+				$(".target_time").focus();
+			});
+		})
+		return;
+	}
+	if (!notNull(target_period)) {
+		layer.ready(function() {
+			layer.msg("请输入目标运行间隔", {
+				icon: 2,
+				time: 1000
+			}, function() {
+				$(".target_period").focus();
+			});
+		})
+		return;
+	}
+	layer.ready(function() {
+		layer.msg("创建成功", {
+			icon: 1,
+			time: 1000
+		}, function() {
+			//清空输入框的值
+			$(".target_time").val("");
+			$(".target_period").val("");
+			//调用关闭事件
+			$(".close_runTime").click();
+		});
+	})
+})
+/**
+ * 电机运行时间弹窗-重置事件
+ */
+$(".reset_runtime_btn").bind("click", function() {
+	//清空输入框的值
+	$(".target_time").val("");
+	$(".target_period").val("");
+})
+
+/**
  * 运行时间弹窗--点击立即运行按钮事件
  */
-$(".run_btn").bind("click",function(dom){
+$(".run_btn").bind("click", function(dom) {
 	//修改电机状态
 	$(".device_status").text("运行中");
 })
+
+/**
+ * @param {Object} id
+ * 修改运行时间ID的值
+ */
+function change_runtime_id(id) {
+	$(".device_id").text(id);
+}
+
+/**
+ * @param {Object} id
+ * 修改电机的运行状态
+ */
+function change_runtime_status(id) {
+	$(".device_status").text("正在等待");
+}
 
 
 /**
  * 关闭运行时间弹窗
  */
-$(".close_runTime").bind("click",function(dom){
+$(".close_runTime").bind("click", function(dom) {
 	//关闭蒙层
 	$(".black_Modal").hide();
+	//显示弹窗
+	$(".new_runTimeModal").hide();
 	//移除动画
 	$("new_runTimeModal").removeClass("fadeInLeft");
 	//添加动画
@@ -150,36 +216,6 @@ function runtimeSetModal() {
 	$(".new_runTimeModal").removeClass("fadeOutLeft");
 	//添加动画
 	$(".new_runTimeModal").addClass("fadeInLeft");
-	
-// 	var html = document.getElementById("runtimeSetModal").innerHTML;
-// 	var width;
-// 	var height;
-// 	if (isBigScreen) {
-// 		width = "35%";
-// 		height = "25%";
-// 	} else {
-// 		width = "45%";
-// 		height = "30%";
-// 	}
-// 
-// 	//页面层-自定义
-// 	layer.open({
-// 		type: 1,
-// 		title: false,
-// 		closeBtn: 2,
-// 		area: [width, height],
-// 		shadeClose: true,
-// 		scrollbar: true,
-// 		resize: false,
-// 		content: html,
-// 		success: function() {
-// 			//初始化 from 对象
-// 			layui.use('form', function() {
-// 				layform = layui.form;
-// 				layform.render();
-// 			})
-// 		}
-// 	});
 }
 
 
@@ -260,8 +296,21 @@ $(".navList ul li").bind("click", function(dom) {
 	// dom.currentTarget.className="check_nav";
 
 })
-
-
+/**
+ * 验证是否登录
+ */
+function check_is_login() {
+	var session_login_user = sessionStorage.getItem("LoginUserInfo");
+	if (session_login_user != null && session_login_user != undefined && session_login_user != "") {
+		var loginUser = JSON.parse(session_login_user);
+		//用户名
+		$(".loginUserName").text(loginUser.userName);
+		//头像
+		$(".headShotIcon").attr("src", loginUser.headPortrait);
+	} else {
+		window.location.href = "../login/login.html";
+	}
+}
 /**
  * @param {Object} checkde_index
  *  改变iframe路径

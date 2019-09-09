@@ -141,6 +141,9 @@ function checkUpdatePwd() {
 	}
 }
 
+/**
+ * 设置密码输入框事件
+ */
 $(".setPwd").bind("focus", function() {
 	$(".notice_text_update").show();
 })

@@ -159,7 +159,7 @@
 			<div class="column new_bottom_area">
 				<div class="row new_single_row">
 					<div class="new_left_text">
-						ID:<span class="device_id">01</span>电机状态:<span class="device_status">正在等待</span>
+						ID:<span class="device_id">1</span>电机状态:<span class="device_status">正在等待</span>
 					</div>
 					<div class="device_rule">每间隔60分钟，运行10分钟</div>
 					<div class="right_now_run">
@@ -171,7 +171,7 @@
 						<div class="time_text">目标(分钟)</div>
 						<div class="row single_time_input">
 							<div class="new_input_area">
-								<input class="name" type="number" min="0"/>
+								<input  type="number" min="0" class="target_time"/>
 							</div>
 							<div class="middleLine">|</div>
 							<div class="lefttextArea">
@@ -183,7 +183,7 @@
 						<div class="time_text">频率(间隔)</div>
 						<div class="row single_time_input">
 							<div class="new_input_area">
-								<input class="name" type="number" min="0"/>
+								<input type="number" min="0" class="target_period"/>
 							</div>
 							<div class="middleLine">|</div>
 							<div class="lefttextArea">
@@ -194,17 +194,17 @@
 				</div>
 				<div class="row new_bottom_btn">
 					<div class="single_btn create_area">
-						<button type="button" class="layui-btn layui-btn-normal create_btn">创建</button>
+						<button type="button" class="layui-btn layui-btn-normal create_runtime_btn">创建</button>
 					</div>
 					<div class="single_btn reset_area">
-						<button type="button" class="layui-btn layui-btn-normal reset_btn">重置</button>
+						<button type="button" class="layui-btn layui-btn-normal reset_runtime_btn">重置</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	
 		<!-- 电子围栏弹窗 -->
-		<div class="electronic_fence_Modal" style="display: none;">
+		<div class="electronic_fence_Modal animated" style="display: none;">
 			<div class="close_btn_area">
 				<img src="img/close_1.png" class="close_fence_btn" />
 			</div>
@@ -370,42 +370,6 @@
 					</div>
 				</div>
 				<div class="row speedBtnGroup ">
-					<button type="button" class="layui-btn layui-btn-normal confirmBtn">确认</button>
-					<button type="button" class="layui-btn layui-btn-normal resetBtnSec">重置</button>
-				</div>
-			</div>
-		</script>
-		<!--运行时间设置  -->
-		<script type="text/template" id="runtimeSetModal">
-			<div class="runScheduleArea">
-				<div class="titleTextArea">运行时间设置</div>
-				<div class="row scheduleList">
-					<div class="row runtimeSet">
-						<div class="leftTextStr">目标(分钟)</div>
-						<div class="row runtimeSetInput">
-							<div class="inputArea">
-								<input class="name" type="number" min="0"/>
-							</div>
-							<div class="middleLine">|</div>
-							<div class="lefttextArea">
-								<span class="leftText">分钟/次</span>
-							</div>
-						</div>
-					</div>
-					<div class="row runtimeSetSec">
-						<div class="leftTextStr">频率(间隔)</div>
-						<div class="row runtimeSetInput">
-							<div class="inputArea">
-								<input class="name" type="number" min="0"/>
-							</div>
-							<div class="middleLine">|</div>
-							<div class="lefttextArea">
-								<span class="leftText">分钟/次</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row btnGroup">
 					<button type="button" class="layui-btn layui-btn-normal confirmBtn">确认</button>
 					<button type="button" class="layui-btn layui-btn-normal resetBtnSec">重置</button>
 				</div>

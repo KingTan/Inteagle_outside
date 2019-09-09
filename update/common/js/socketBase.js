@@ -55,7 +55,7 @@ socketEntity
 	//添加接收信息后的输出方法
 	.addSocketMethod("writeScreen", null)
 	//是否主动关闭
-	.addSocketMethod("isInitiative", true)
+	.addSocketMethod("isInitiative", false)
 	//添加webscket对象
 	.addSocketMethod("ws", null)
 	.addSocketMethod("onlineTodo", null)

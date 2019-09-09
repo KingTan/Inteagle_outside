@@ -2,8 +2,10 @@ var id = getParam("id");
 if (id != null) {
 	//当前选中设备id
 	$(".checked_id").text(id);
+	//调用父页面方法、修改运行时间弹窗的ID值
+	window.parent.change_runtime_id(id);
 } else {
-	id = "001";
+	id = "1";
 }
 
 //时间选择器选择的时间
@@ -25,6 +27,7 @@ $(function() {
 	inintialEcharts('bigCharts', id, null, true);
 
 })
+
 
 //监听趋势图类型下拉框改变事件
 layui.use('form', function() {
@@ -51,8 +54,6 @@ layui.use('form', function() {
 	})
 })
 
-
-
 /**
  * @param {Object} index
  * 点击工具栏(报警值、运行时间、导出报表)
@@ -69,11 +70,11 @@ $(".optionText").bind("click", function(dom) {
 			parent.runtimeSetModal();
 			break;
 		case "2":
+			//导出报表
+			export_foundation_data(id);
 			break;
 	}
 })
-
-
 /**
  * 左边菜单栏点击事件
  */
@@ -144,7 +145,7 @@ function initialLayDate() {
 			}
 		});
 	})
-	
+
 }
 /**
  * 点击查询按钮
@@ -157,6 +158,23 @@ $("#check_chart_btn").bind("click", function(dom) {
 		layer.msg("请选择时间")
 	}
 })
+
+/**
+ * @param {Object} dom
+ * 右边按钮点击事件
+ */
+function clickFounBtn(e) {
+	//当前点击电机的下标
+	var data_index = $(e).attr("data-index");
+	id = data_index;
+	$(".checked_id").text(data_index);
+	//调用父页面方法、修改运行时间弹窗的ID值
+	window.parent.change_runtime_id(data_index);
+	//修改电机运行状态
+	window.parent.change_runtime_status(data_index);
+}
+
+
 /**
  * 初始化右边按钮组
  */
@@ -189,14 +207,10 @@ function intialBtnGroup(order) {
 			btnList.push(btnObj);
 		}
 	}
-
 	btnList = orderList.concat(btnList);
-
 	//清空元素
 	$(".deviceListArea").html("");
-
 	var shtml = "<div class='layui-btn-container'>";
-
 	for (var i = 0; i < btnList.length; i++) {
 		if (i % 5 == 0 && i != 0) {
 			shtml += "</div><div class='layui-btn-container'>";
@@ -205,23 +219,25 @@ function intialBtnGroup(order) {
 		switch (btnList[i].status) {
 			//报警
 			case "warning":
-				shtml += "<button class='layui-btn sos_btn' type='button' data-index=" + btnList[i].id +
-					"onclick='clickFounBtn(this)'>" + btnList[i].id + "</button>";
+				shtml += "<button class='layui-btn sos_btn' type='button' onclick='clickFounBtn(this)' data-index=" + btnList[i].id +
+					">" + btnList[i].id + "</button>";
 				break;
 				//正常
 			case "normal":
-				shtml += "<button class='layui-btn' type='button' data-index=" + btnList[i].id +
-					"onclick='clickFounBtn(this)'>" + btnList[i].id + "</button>";
+				shtml += "<button class='layui-btn' type='button' onclick='clickFounBtn(this)'  data-index=" + btnList[i].id +
+					">" + btnList[i].id + "</button>";
 				break;
 				//故障
 			case "error":
-				shtml += "<button class='layui-btn error_btn' type='button' data-index=" + btnList[i].id +
-					"onclick='clickFounBtn(this)'>" + btnList[i].id + "</button>";
+				shtml += "<button class='layui-btn error_btn' onclick='clickFounBtn(this)'  type='button' data-index=" + btnList[i]
+					.id +
+					">" + btnList[i].id + "</button>";
 				break;
 				//预警	
 			case "warning_header":
-				shtml += "<button class='layui-btn warning_btn' type='button' data-index=" + btnList[i].id +
-					"onclick='clickFounBtn(this)'>" + btnList[i].id + "</button>";
+				shtml += "<button class='layui-btn warning_btn' onclick='clickFounBtn(this)'  type='button' data-index=" + btnList[
+						i].id +
+					">" + btnList[i].id + "</button>";
 				break;
 		}
 	}
