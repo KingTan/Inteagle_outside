@@ -58,7 +58,7 @@ $(".leftBottomList ul li").bind("click", function(dom) {
 	// var iframePath = 
 	//修改父页面Iframe的路径
 	$('#mainFrame', window.parent.document).attr("src",
-		"https://www.inteagle.com.cn/update/foundation/foundation_charts.html");
+		"http://127.0.0.1:8848/Inteagle_outside/update/foundation/foundation_charts.html");
 	//https://www.inteagle.com.cn/update/foundation/foundation_charts.html
 	//http://127.0.0.1:8848/Inteagle_outside/update/foundation/foundation_charts.html
 	// switch (checkde_index) {

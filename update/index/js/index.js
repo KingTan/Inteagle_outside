@@ -223,25 +223,30 @@ function runtimeSetModal() {
  * 报警值弹窗
  */
 function showWarnValModal() {
-	var html = document.getElementById("warnValModal").innerHTML;
-	//页面层-自定义
-	layer.open({
-		type: 1,
-		title: false,
-		closeBtn: 2,
-		area: ['35%', '50%'],
-		shadeClose: true,
-		scrollbar: true,
-		resize: false,
-		content: html,
-		success: function() {
-			//初始化 from 对象
-			layui.use('form', function() {
-				layform = layui.form;
-				layform.render();
-			})
-		}
-	});
+	
+	
+	
+	
+	
+	// var html = document.getElementById("warnValModal").innerHTML;
+	// //页面层-自定义
+	// layer.open({
+	// 	type: 1,
+	// 	title: false,
+	// 	closeBtn: 2,
+	// 	area: ['35%', '50%'],
+	// 	shadeClose: true,
+	// 	scrollbar: true,
+	// 	resize: false,
+	// 	content: html,
+	// 	success: function() {
+	// 		//初始化 from 对象
+	// 		layui.use('form', function() {
+	// 			layform = layui.form;
+	// 			layform.render();
+	// 		})
+	// 	}
+	// });
 }
 
 

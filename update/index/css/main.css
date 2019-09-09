@@ -195,7 +195,7 @@ a:hover {
 }
 
 .rightOptionList ul li:nth-child(1) {
-	width: 12%;
+	width: 13%;
 }
 
 .rightOptionList ul li:nth-child(2) {
@@ -311,13 +311,6 @@ a:hover {
 	color: rgba(53, 78, 101, 1);
 }
 
-.inputArea input {
-	width: 88%;
-	height: 100%;
-	font-size: 0.9375rem;
-	background: rgba(249, 249, 249, 1) !important;
-}
-
 /**
  *  修改google浏览器，默认的聚焦黄色背景为白色
  */
@@ -332,6 +325,7 @@ a:hover {
 	outline-width: 0px;
 	border: none;
 	border-style: none;
+	background-color: transparent;
 }
 
 .inputArea input::-webkit-input-placeholder {
@@ -357,8 +351,9 @@ a:hover {
 }
 
 .warningArea input {
-	width: 100%;
-	text-indent: 1em;
+	width: 80%;
+	margin-left: 12%;
+	color: #FFFFFF;
 }
 
 .warningLine {
@@ -448,15 +443,6 @@ a:hover {
 	align-items: center;
 }
 
-.runtimeSetInput {
-	width: 11.8125rem;
-	height: 2.25rem;
-	line-height: 2.25rem;
-	background: rgba(249, 249, 249, 1);
-	border-radius: 0.125rem;
-	border: 1px solid rgba(221, 221, 221, 1);
-}
-
 .runtimeSetSec {
 	align-items: center;
 	margin-left: 2.625rem;
@@ -471,10 +457,6 @@ a:hover {
 
 .leftTextStr {
 	width: 30%;
-}
-
-.runtimeSetInput .inputArea input {
-	text-indent: 1em;
 }
 
 .bottomMiddleArea {
@@ -943,6 +925,13 @@ select {
 	justify-content: space-between;
 }
 
+.new_waning_btn {
+	height: 12%;
+	width: 100%;
+	margin-top: 10%;
+	justify-content: space-around;
+}
+
 .create_area {
 	width: 45%;
 	height: 100%;
@@ -984,21 +973,84 @@ select {
 	color: #000000;
 }
 
+.single_modal_box {
+	width: 100%;
+	border-bottom: 1px solid #014C86;
+	height: 35%;
+	color: #FFFFFF;
+	padding-bottom: 5%;
+	justify-content: space-between;
+}
+
+.single_warning_row {
+	width: 100%;
+	justify-content: space-around;
+}
+
+.single_warning_row form {
+	width: 100%;
+	height: 100%;
+}
+
+.runtimeSetInput {
+	height: 3rem;
+	line-height: 3rem;
+	background-color: transparent;
+	background-image: url(../img/btn_box.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+.top_title {
+	width: 50%;
+	margin-left: 25%;
+	color: #02FFE7;
+}
+
+.layui-form-radio,
+.layui-form-radio * {
+	color: #FFFFFF;
+}
+
+.singleContent {
+	align-items: center;
+	width: 75%;
+	justify-content: space-around;
+	margin: 0px auto;
+}
+
+.singleContent .layui-input-block {
+	margin-left: 0px;
+}
+
+.layui-form-radio>i {
+	color: #057BFF;
+}
+
+.layui-form-radio>i:hover,
+.layui-form-radioed>i {
+	color: #02FFE7;
+}
+
+.big_box {
+	position: absolute;
+	width: 80%;
+	height: 80%;
+	margin-top: 10%;
+	margin-left: 11%;
+}
+
+.bottom_single_box {
+	margin-top: 5%;
+	height: 20%;
+	justify-content: space-between;
+}
 
 @media only screen and (max-width: 1400px) {
 	.singleWarning {
 		width: 60%;
 		margin: 0px auto;
 		margin-top: 1%;
-	}
-
-	.runtimeSetInput {
-		width: 11.8125rem;
-		height: 2.25rem;
-		line-height: 2.25rem;
-		background: rgba(249, 249, 249, 1);
-		border-radius: 0.125rem;
-		border: 1px solid rgba(221, 221, 221, 1);
 	}
 
 	.runtimeSetInput .middleLine {
@@ -1018,14 +1070,6 @@ select {
 
 	.waringContent {
 		margin-top: 0.2625rem;
-	}
-
-	.radioArray {
-		width: 55%;
-	}
-
-	.layui-input-block {
-		margin-left: 0px;
 	}
 
 	.speedBtnGroup {
@@ -1089,6 +1133,25 @@ select {
 		margin-top: 3%;
 		align-items: center;
 	}
+
+	.new_warningModal {
+		width: 40%;
+		height: 65vh;
+		position: relative;
+		margin: 0px auto;
+		margin-top: 6%;
+		background-image: url(../img/warning_box.png);
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+		z-index: 9
+	}
+
+	.new_warningModal .new_title_area {
+		position: absolute;
+		margin-top: 1%;
+		margin-left: 8%;
+		font-size: 11px;
+	}
 }
 
 @media only screen and (min-width: 1400px) {
@@ -1096,16 +1159,6 @@ select {
 		width: 60%;
 		margin: 0px auto;
 		margin-top: 5%;
-	}
-
-	.runtimeSetInput {
-		width: 11.8125rem;
-		height: 2.25rem;
-		line-height: 2.25rem;
-		margin-left: 1.875rem;
-		background: rgba(249, 249, 249, 1);
-		border-radius: 0.125rem;
-		border: 1px solid rgba(221, 221, 221, 1);
 	}
 
 	.runtimeSetInput .middleLine {
@@ -1127,9 +1180,6 @@ select {
 		margin-top: 1.5625rem;
 	}
 
-	.radioArray {
-		margin-left: 2.25rem !important;
-	}
 
 	.speedBtnGroup {
 		width: 80%;
@@ -1190,5 +1240,23 @@ select {
 		margin: 0px auto;
 		margin-top: 3%;
 		align-items: center;
+	}
+
+	.new_warningModal {
+		width: 35%;
+		height: 60vh;
+		position: relative;
+		margin: 0px auto;
+		margin-top: 6%;
+		background-image: url(../img/warning_box.png);
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+		z-index: 9
+	}
+
+	.new_warningModal .new_title_area {
+		position: absolute;
+		margin-top: 2%;
+		margin-left: 9%;
 	}
 }
