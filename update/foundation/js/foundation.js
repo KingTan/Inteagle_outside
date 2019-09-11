@@ -45,7 +45,7 @@ function export_foundation_data(id) {
 	input1.attr("value", formData);
 	form.append(input1);
 	form.submit(); //表单提交即可下载！
-	
+
 }
 
 /**

@@ -1,29 +1,21 @@
 /**
- * 页面加载事件
- */
-$(function() {
-
-})
-
-
-/**
  * 导出所有数据excel
  */
 $(".exportBtn").bind("click", function(dom) {
 	//导出excel
-	window.location.href = "https://www.inteagle.com.cn/Inteagle_java/exportHelmetSensorData";
+	window.location.href = "https://www.inteagle.com.cn/Inteagle_java/exportHelmetPositionData";
 })
 
 // 本地路径
-// http://127.0.0.1:8080/layuiTableData
+// http://192.168.1.79:8080/getHelmetData
 // 服务器路径
-// https://www.inteagle.com.cn/Inteagle_java/layuiTableData
+// https://www.inteagle.com.cn/Inteagle_java/getHelmetData
 
 layui.use('table', function() {
 	var table = layui.table;
 	table.render({
-		elem: '#test',
-		url: 'https://www.inteagle.com.cn/Inteagle_java/layuiTableData',
+		elem: '#demo',
+		url: 'https://www.inteagle.com.cn/Inteagle_java/getHelmetData',
 		parseData: function(res) { //res 即为原始返回的数据
 			console.log(res);
 			return {
@@ -41,24 +33,28 @@ layui.use('table', function() {
 		cols: [
 			[{
 				field: 'id',
-				width: '20%',
+				width: '16%',
 				title: '设备ID',
 				sort: true
 			}, {
-				field: 'vol',
-				width: '20%',
-				title: '电压'
+				field: 'camera_id',
+				width: '16%',
+				title: '相机ID'
 			}, {
-				field: 'temp',
-				width: '20%',
-				title: '温度'
+				field: 'x',
+				width: '16%',
+				title: 'x_Data'
 			}, {
-				field: 'helmet_on',
-				width: '20%',
-				title: '是否戴帽'
+				field: 'y',
+				width: '16%',
+				title: 'y_Data'
 			}, {
-				field: 'inDate',
-				width: '20%',
+				field: 't',
+				width: '16%',
+				title: 't_Data'
+			}, {
+				field: 'createTime',
+				width: '21%',
 				title: '创建时间'
 			}]
 		],

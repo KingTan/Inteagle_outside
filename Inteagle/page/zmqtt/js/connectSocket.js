@@ -4,7 +4,7 @@ var socket;
 const wsServer = "ws://localhost:8080/netSocket/" + userId;
 
 // 服务器socket路径
-// const wsServer = "wss://www.inteagle.com.cn/Inteagle_java/netSocket/"+ userId;
+//const wsServer = "wss://www.inteagle.com.cn/Inteagle_java/netSocket/"+ userId;
 
 if (typeof(WebSocket) == "undefined") {
 	console.log("您的浏览器不支持WebSocket");

@@ -78,29 +78,6 @@ function getWeatherInfo(lat, lng) {
 			console.log(badRes);
 		}
 	});
-
-	// $.ajax({
-	// 	url: PATH + "weather/getAreaIdByAreaName",
-	// 	type: "post",
-	// 	async: true,
-	// 	data: {
-	// 		"areaName": cityName
-	// 	},
-	// 	success: function(res) {
-	// 		console.log("res", res);
-	// 		if (res.state == 200) {
-	// 			var areaId = res.data.showapi_res_body.list[0].areaid;
-	// 			console.log("areaId---------", areaId);
-	// 			if (areaId != null && areaId != undefined && areaId != "") {
-	// 			}
-	// 		} else if (res.state == 500) {
-	// 			console.log("根据城市名查询城市ID失败...")
-	// 		}
-	// 	},
-	// 	error: function(badRes) {
-	// 		console.log(badRes);
-	// 	}
-	// });
 }
 
 

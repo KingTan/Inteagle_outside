@@ -42,14 +42,17 @@ function showElectricFenceModal() {
  * 关闭电子围栏弹窗
  */
 $(".close_fence_btn").bind("click", function() {
-	//关闭蒙层
-	$(".black_Modal").hide();
-	//显示弹窗
-	$(".electronic_fence_Modal").hide();
 	//移除动画
-	$("electronic_fence_Modal").removeClass("fadeInLeft");
+	$(".electronic_fence_Modal").removeClass("fadeInLeft");
 	//添加动画
 	$(".electronic_fence_Modal").addClass("fadeOutLeft");
+	//显示弹窗
+	$(".electronic_fence_Modal").hide(500);
+	//弹窗隐藏完全之后执行的事件
+	$(".electronic_fence_Modal").promise().done(function(arg){
+		//关闭蒙层
+		$(".black_Modal").hide();
+	})
 })
 
 /**
@@ -193,16 +196,18 @@ function change_runtime_status(id) {
  * 关闭运行时间弹窗
  */
 $(".close_runTime").bind("click", function(dom) {
-	//关闭蒙层
-	$(".black_Modal").hide();
-	//显示弹窗
-	$(".new_runTimeModal").hide();
 	//移除动画
-	$("new_runTimeModal").removeClass("fadeInLeft");
+	$(".new_runTimeModal").removeClass("fadeInLeft");
 	//添加动画
 	$(".new_runTimeModal").addClass("fadeOutLeft");
+	//显示弹窗
+	$(".new_runTimeModal").hide(500);
+	//弹窗隐藏完全之后执行的事件
+	$(".new_runTimeModal").promise().done(function(arg){
+		//关闭蒙层
+		$(".black_Modal").hide();
+	})
 })
-
 
 /**
  * 运行时间弹窗
@@ -223,32 +228,32 @@ function runtimeSetModal() {
  * 报警值弹窗
  */
 function showWarnValModal() {
-	
-	
-	
-	
-	
-	// var html = document.getElementById("warnValModal").innerHTML;
-	// //页面层-自定义
-	// layer.open({
-	// 	type: 1,
-	// 	title: false,
-	// 	closeBtn: 2,
-	// 	area: ['35%', '50%'],
-	// 	shadeClose: true,
-	// 	scrollbar: true,
-	// 	resize: false,
-	// 	content: html,
-	// 	success: function() {
-	// 		//初始化 from 对象
-	// 		layui.use('form', function() {
-	// 			layform = layui.form;
-	// 			layform.render();
-	// 		})
-	// 	}
-	// });
+	//显示蒙层
+	$(".black_Modal").show();
+	//显示弹窗
+	$(".new_warningModal").show();
+	//移除动画
+	$(".new_warningModal").removeClass("fadeOutLeft");
+	//添加动画
+	$(".new_warningModal").addClass("fadeInLeft");
 }
-
+/**
+ * 关闭设定报警值弹窗
+ */
+$(".close_warning").bind("click", function(dom) {
+	//移除动画
+	$(".new_warningModal").removeClass("fadeInLeft");
+	//添加动画
+	$(".new_warningModal").addClass("fadeOutLeft");
+	//显示弹窗
+	$(".new_warningModal").hide(500);
+	//弹窗隐藏完全之后执行的事件
+	$(".new_warningModal").promise().done(function(arg){
+		//关闭蒙层
+		$(".black_Modal").hide();
+	})
+	
+})
 
 
 /**

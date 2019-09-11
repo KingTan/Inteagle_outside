@@ -464,20 +464,25 @@ a:hover {
 	height: 100%;
 	position: relative;
 	background-color: #01347A;
-	/* background-image: url(../img/pure_back.jpg);
-	background-size: 100% 100%;
-	background-repeat: no-repeat; */
 }
 
 .rightPartArea {
 	position: absolute;
 	width: 25%;
 	right: 0;
-	justify-content: space-around;
 	top: 5%;
 	height: 5%;
+	justify-content: space-around;
+	align-items: center;
 	z-index: 9;
 }
+
+.time_chosen_area form .layui-input,
+.layui-select,
+.layui-textarea {
+	border: 1px solid white !important;
+}
+
 
 .time_chosen_area {
 	width: 30%;
@@ -1135,7 +1140,7 @@ select {
 	}
 
 	.new_warningModal {
-		width: 40%;
+		width: 45%;
 		height: 65vh;
 		position: relative;
 		margin: 0px auto;
@@ -1149,7 +1154,7 @@ select {
 	.new_warningModal .new_title_area {
 		position: absolute;
 		margin-top: 1%;
-		margin-left: 8%;
+		margin-left: 10%;
 		font-size: 11px;
 	}
 }
@@ -1257,6 +1262,6 @@ select {
 	.new_warningModal .new_title_area {
 		position: absolute;
 		margin-top: 2%;
-		margin-left: 9%;
+		margin-left: 10%;
 	}
 }
