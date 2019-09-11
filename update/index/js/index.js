@@ -3,7 +3,7 @@
  */
 $(function() {
 	//验证是否登录
-	check_is_login();
+	// check_is_login();
 
 	//初始化layui组件
 	layui.use(['element', 'form', 'laydate'], function() {
@@ -49,7 +49,7 @@ $(".close_fence_btn").bind("click", function() {
 	//显示弹窗
 	$(".electronic_fence_Modal").hide(500);
 	//弹窗隐藏完全之后执行的事件
-	$(".electronic_fence_Modal").promise().done(function(arg){
+	$(".electronic_fence_Modal").promise().done(function(arg) {
 		//关闭蒙层
 		$(".black_Modal").hide();
 	})
@@ -203,7 +203,7 @@ $(".close_runTime").bind("click", function(dom) {
 	//显示弹窗
 	$(".new_runTimeModal").hide(500);
 	//弹窗隐藏完全之后执行的事件
-	$(".new_runTimeModal").promise().done(function(arg){
+	$(".new_runTimeModal").promise().done(function(arg) {
 		//关闭蒙层
 		$(".black_Modal").hide();
 	})
@@ -248,11 +248,78 @@ $(".close_warning").bind("click", function(dom) {
 	//显示弹窗
 	$(".new_warningModal").hide(500);
 	//弹窗隐藏完全之后执行的事件
-	$(".new_warningModal").promise().done(function(arg){
+	$(".new_warningModal").promise().done(function(arg) {
 		//关闭蒙层
 		$(".black_Modal").hide();
 	})
+})
+/**
+ * 设定报警值
+ */
+$(".set_warning_btn").bind("click", function(dom) {
+	var pre_waring_value = $(".pre_waring_value").val();
+	var waring_value = $(".waring_value").val();
+	var speed_waring_value = $(".speed_waring_value").val();
 	
+	console.log("pre_waring_value-------",pre_waring_value);
+	console.log("waring_value---------",waring_value);
+	console.log("speed_waring_value-------",speed_waring_value);
+	
+	if (!notNull(pre_waring_value)) {
+		layer.ready(function() {
+			layer.msg("请输入预警值", {
+				icon: 2,
+				time: 1000
+			}, function() {
+				$(".pre_waring_value").focus();
+			});
+		})
+		return;
+	}
+	if (!notNull(waring_value)) {
+		layer.ready(function() {
+			layer.msg("请输入报警值", {
+				icon: 2,
+				time: 1000
+			}, function() {
+				$(".waring_value").focus();
+			});
+		})
+		return;
+	}
+	if (!notNull(speed_waring_value)) {
+		layer.ready(function() {
+			layer.msg("请输入速率报警值", {
+				icon: 2,
+				time: 1000
+			}, function() {
+				$(".speed_waring_value").focus();
+			});
+		})
+		return;
+	}
+	layer.ready(function() {
+		layer.msg("设定成功", {
+			icon: 1,
+			time: 1000
+		}, function() {
+			//清空输入框的值
+			$(".pre_waring_value").val("");
+			$(".waring_value").val("");
+			$(".speed_waring_value").val("");
+			//调用关闭事件
+			$(".close_warning").click();
+		});
+	})
+})
+/**
+ * 重置报警值
+ */
+$(".reset_warning_btn").bind("click", function(dom) {
+	//清空输入框的值
+	$(".pre_waring_value").val("");
+	$(".waring_value").val("");
+	$(".speed_waring_value").val("");
 })
 
 

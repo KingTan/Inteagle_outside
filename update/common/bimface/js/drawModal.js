@@ -21,18 +21,6 @@ $.ajax({
 });
 
 //基坑内圈模型对象ID数组
-// var foundation_obejct_id_array = ["nd79c15f88-3894-40da-a2a9-0b0b1bcf93a3", "nd1a0b571b-5592-4f8b-bbdb-a305cf5494f1",
-// 	"nd5386648f-31cf-4ac1-aea4-ea2d9f7331e4", "nd240da3a0-545e-476b-882a-8b45c8aa41f3",
-// 	"ndd25167cc-fea2-4c2a-8ed6-c45fee6ae168", "nd7e25d779-bcf3-4c67-9d58-709d23043ae0",
-// 	"nd6e4cb6b6-5854-40a4-97d0-13b22f68a2d3", "nd7b207f2a-c0ac-4364-aed6-d3d82b3f3d23",
-// 	"nda1306117-137d-448a-82b6-ce7d5dcf0f20", "ndc354828a-61c6-4c6a-9ac4-58a338bd879c",
-// 	"nda632eb0d-d158-4ffc-9584-00afb8025ab8", "nd5743553f-7ef8-46c3-af78-75267935b6aa",
-// 	"nd230f8372-07c3-4976-9136-74ab72a61a87", "nd425dd224-8806-4d37-8cfc-88b5a25c095a",
-// 	"nd98bb6baa-3121-46d4-9217-3311e5be590e", "nd7d146cd0-60a4-4b10-9377-90baab96968d",
-// 	"nd1027b73f-e681-41ea-a73d-9243ae217d16", "nd53240d52-68bb-4c96-a916-3ab1e13578ec",
-// 	"nd65f77871-e89b-4191-a027-7502e1456133"
-// ];
-
 var foundation_obejct_id_array = ["nd8e12f19d-04fb-4896-b91f-a89d2d613338", "nd0661f425-1761-42ae-88b0-9b465da7f9e6",
 	"nd7c51acdf-ea1f-40a3-a7ec-fac8d79dd21e"
 ];

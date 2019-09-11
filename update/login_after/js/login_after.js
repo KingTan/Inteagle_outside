@@ -56,9 +56,6 @@ $(".close_btn").bind("click", function(dom) {
 	$(".add_project_Modal").removeClass("fadeInLeft");
 	//添加动画
 	$(".add_project_Modal").addClass("fadeOutLeft");
-
-	//关闭弹窗
-	// $(".add_project_Modal").hide();
 })
 
 /**
