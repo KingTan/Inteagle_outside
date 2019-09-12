@@ -260,11 +260,11 @@ $(".set_warning_btn").bind("click", function(dom) {
 	var pre_waring_value = $(".pre_waring_value").val();
 	var waring_value = $(".waring_value").val();
 	var speed_waring_value = $(".speed_waring_value").val();
-	
-	console.log("pre_waring_value-------",pre_waring_value);
-	console.log("waring_value---------",waring_value);
-	console.log("speed_waring_value-------",speed_waring_value);
-	
+
+	console.log("pre_waring_value-------", pre_waring_value);
+	console.log("waring_value---------", waring_value);
+	console.log("speed_waring_value-------", speed_waring_value);
+
 	if (!notNull(pre_waring_value)) {
 		layer.ready(function() {
 			layer.msg("请输入预警值", {
@@ -445,12 +445,19 @@ function changeIframePath(checkde_index) {
 			break;
 		case "8-1":
 			//路由器
+			iframePath = "../deviceManagement/helmetManagement.html?path=router";
 			break;
 		case "8-2":
 			//摄像头
+			iframePath = "../deviceManagement/helmetManagement.html?path=camera";
 			break;
 		case "8-3":
 			//安全帽
+			iframePath = "../deviceManagement/helmetManagement.html?path=helmet";
+			break;
+		case "8-4":
+			//基坑电机
+			iframePath = "../deviceManagement/helmetManagement.html?path=electric";
 			break;
 		case "9-1":
 			//基本信息

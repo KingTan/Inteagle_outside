@@ -142,8 +142,8 @@
 }
 
 .leftTopTitleArea {
-	margin-left: 20%;
-	margin-top: 2%;
+	margin-left: 22%;
+	margin-top: 4%;
 }
 
 .leftBottomList {
@@ -390,7 +390,7 @@
 	color: #FFFFFF !important;
 }
 
-.laydate-btns-time{
+.laydate-btns-time {
 	visibility: hidden;
 }
 

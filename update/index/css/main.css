@@ -162,6 +162,11 @@ a:hover {
 	padding-bottom: 10px;
 }
 
+.paddingBottomTwoTen {
+	padding-bottom: 20px;
+}
+
+
 .bottomLine {
 	width: 70%;
 	margin: 0px auto;

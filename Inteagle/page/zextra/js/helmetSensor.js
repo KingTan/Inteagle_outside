@@ -33,6 +33,8 @@ layui.use('table', function() {
 				"data": res.data.list //解析数据列表
 			};
 		},
+		limit:10,
+		limits:10,
 		response: {
 			statusCode: 200, //重新规定成功的状态码为 200，table 组件默认为 0
 		},
