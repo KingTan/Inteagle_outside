@@ -7,7 +7,7 @@ $.ajax({
 	type: "post",
 	async: false,
 	data: {
-		fileId: "1687397527741920"
+		fileId: "1694602135356896"
 	},
 	success: function(res) {
 		console.log("res", res);
@@ -162,7 +162,7 @@ function load() {
 	//目前仅支持3ds外部构件
 	//https://www.inteagle.com.cn/update/common/bimface/3ds/smallBall.3ds
 	//http://127.0.0.1:8848/Inteagle_outside/update/common/bimface/3ds/smallBall.3ds
-	loadExternalComponent("http://127.0.0.1:8848/Inteagle_outside/update/common/bimface/3ds/smallBall.3ds", function(
+	loadExternalComponent("https://www.inteagle.com.cn/update/common/bimface/3ds/smallBall.3ds", function(
 		object) {
 		// 添加外部构件，命名为"ball_1"和"ball_2"
 		addExternalObject(viewer, "ball_1", object);
@@ -174,7 +174,7 @@ function load() {
 		setTransform("ball_2", new THREE.Vector3(120, 200, -50), new THREE.Vector3(1, 1, 1));
 		console.log("加载外部构件...");
 	
-		var test_array=["ball_1","nd076b7c0b-9145-454a-a2ac-2064071d0886"];
+		var test_array=["ball_1","ndf1393f5c-c81c-4286-8a68-eeb2ee2961f7"];
 		//构件闪烁
 		setBlinkColor(viewer, test_array, "#DC143C", 200);
 		

@@ -12,9 +12,7 @@ $(function() {
  * 点击进入按钮事件
  */
 $(".enter_btn").bind("click", function(dom) {
-
 	var projectCode = $(".project_code").val();
-
 	if (!notNull(projectCode)) {
 		layer.ready(function() {
 			layer.msg('请输入工地编码', {
@@ -26,7 +24,6 @@ $(".enter_btn").bind("click", function(dom) {
 		})
 		return;
 	}
-
 	//跳转至首页
 	window.location.href = "../index/index.html?code=" + projectCode;
 })

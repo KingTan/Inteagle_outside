@@ -353,7 +353,8 @@ input:-ms-input-placeholder {
 		top: 4px;
 		left: 32%;
 	}
-	.right_option_area{
+
+	.right_option_area {
 		position: absolute;
 		right: 0%;
 		width: 10%;
@@ -379,8 +380,8 @@ input:-ms-input-placeholder {
 	}
 
 	.leftTopTitleArea {
-		margin-left: 18%;
-		margin-top: 1.5%;
+		margin-left: 19%;
+		margin-top: 3%;
 	}
 
 	.numberValue {
@@ -427,9 +428,15 @@ input:-ms-input-placeholder {
 		top: 4px;
 		left: 35%;
 	}
-	.right_option_area{
+
+	.right_option_area {
 		position: absolute;
 		right: 0%;
 		width: 9%;
+	}
+
+	.electricTitle {
+		margin-top: 1.2%;
+		margin-left: 18%;
 	}
 }

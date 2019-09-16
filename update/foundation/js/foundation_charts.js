@@ -16,13 +16,10 @@ var checked_time = "";
  * 页面加载事件
  */
 $(function() {
-
 	//初始化右边设备ID集合
 	intialBtnGroup("normal_order");
-
 	//初始化时间选择器
 	initialLayDate();
-
 	//绘制深度水平位移 默认折线图charts
 	inintialEcharts('bigCharts', id, null, true);
 
@@ -79,7 +76,6 @@ $(".optionText").bind("click", function(dom) {
  * 左边菜单栏点击事件
  */
 $(".leftBottomList ul li").bind("click", function(dom) {
-	console.log(dom);
 	//清空其他的选中样式
 	$(".leftBottomList ul li").removeClass("checked_option");
 	$(".leftBottomList ul li").attr("data-checked", "false");
@@ -101,6 +97,7 @@ $(".leftBottomList ul li").bind("click", function(dom) {
 			break;
 		case "1":
 			//顶部水平位移
+			// draw_top_charts();
 			break;
 		case "2":
 			//顶部竖向位移

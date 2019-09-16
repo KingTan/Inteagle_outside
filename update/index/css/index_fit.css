@@ -110,190 +110,6 @@
 	width: 100%;
 }
 
-@media only screen and (max-width: 1400px) {
-	.leftTop ul li {
-		font-size: 13px;
-		line-height: 1rem;
-	}
-
-	.leftProjectText {
-		margin-left: 0.3125rem;
-		color: #a3a3a3;
-		font-size: 13px;
-	}
-
-	.stationText {
-		font-size: 13px;
-	}
-
-	.nowTemp {
-		font-size: 1.5875rem;
-	}
-
-	.leftTopTitleArea {
-		margin-left: 16%;
-		margin-top: 1%;
-	}
-
-	.middletitleArea {
-		margin-left: 7.6%;
-		margin-top: 0;
-	}
-
-	.rightTop {
-		width: 100%;
-		height: 42%;
-		/* border: 1px solid white; */
-		background-image: url(../img/5.png);
-		background-size: 100% 100%;
-		background-repeat: no-repeat;
-		margin-top: 5%;
-	}
-
-	.rightMiddle {
-		width: 100%;
-		height: 24%;
-		margin-top: 3%;
-		/* border: 1px solid white; */
-		background-image: url(../img/6.png);
-		background-size: 100% 100%;
-		background-repeat: no-repeat;
-	}
-
-	.rightTitleArea {
-		margin-left: 16%;
-		margin-top: 0%;
-	}
-
-	.weatherTitle {
-		margin-top: 3%;
-	}
-
-	.nextTwoDayWeather {
-		width: 55%;
-		font-size: 13px;
-	}
-
-	.threeWeahterArea {
-		height: 100%;
-		width: 50%;
-		justify-content: space-between;
-		font-size: 13px;
-	}
-
-	.safetyIcon {
-		width: 70%;
-	}
-
-	.dataIcon {
-		width: 70%;
-	}
-
-	.safetyCount {
-		font-size: 1.8rem;
-		font-family: FZDHTFW--GB1-0;
-		font-weight: normal;
-		color: rgba(255, 255, 255, 1);
-	}
-
-	.safeExamine {
-		margin-left: 10%;
-		justify-content: space-around;
-		align-items: center;
-	}
-
-	.rightProjectImage {
-		position: absolute;
-		right: 0;
-		top: -1.5625rem;
-		width: 45%;
-	}
-}
-
-@media only screen and (min-width: 1400px) {
-	.leftTop ul li {
-		font-size: 1rem;
-		line-height: 1.625rem;
-	}
-
-	.leftProjectText {
-		margin-left: 0.3125rem;
-		color: #a3a3a3;
-		font-size: 0.9375rem;
-	}
-
-	.nowTemp {
-		font-size: 2.1875rem;
-	}
-
-	.leftTopTitleArea {
-		margin-left: 18%;
-		margin-top: 2%;
-	}
-
-	.middletitleArea {
-		margin-left: 8.6%;
-		margin-top: 0.8%;
-	}
-
-	.rightTop {
-		width: 100%;
-		height: 32%;
-		/* border: 1px solid white; */
-		background-image: url(../img/5.png);
-		background-size: 100% 100%;
-		background-repeat: no-repeat;
-		margin-top: 5%;
-	}
-
-	.rightMiddle {
-		width: 100%;
-		height: 34%;
-		margin-top: 3%;
-		/* border: 1px solid white; */
-		background-image: url(../img/6.png);
-		background-size: 100% 100%;
-		background-repeat: no-repeat;
-	}
-
-	.rightTitleArea {
-		margin-left: 18%;
-		margin-top: 2%;
-	}
-
-	.nextTwoDayWeather {
-		width: 45%;
-		margin-left: 0.625rem;
-	}
-
-	.threeWeahterArea {
-		height: 100%;
-		width: 55%;
-		justify-content: space-between;
-	}
-
-	.safetyCount {
-		font-size: 2.5rem;
-		font-family: FZDHTFW--GB1-0;
-		font-weight: normal;
-		color: rgba(255, 255, 255, 1);
-	}
-
-	.safeExamine {
-		margin-left: 10%;
-		margin-top: 5%;
-		justify-content: space-around;
-		align-items: center;
-	}
-
-	.rightProjectImage {
-		position: absolute;
-		right: 0;
-		top: -1.5625rem;
-		width: 50%;
-	}
-}
-
 .middleText {
 	position: relative;
 	width: 90%;
@@ -553,4 +369,197 @@
 
 .weatherImg {
 	text-align: center;
+}
+
+@media only screen and (max-width: 1400px) {
+	.leftTop ul li {
+		font-size: 13px;
+		line-height: 1rem;
+	}
+
+	.leftProjectText {
+		margin-left: 0.3125rem;
+		color: #a3a3a3;
+		font-size: 13px;
+	}
+
+	.stationText {
+		font-size: 13px;
+	}
+
+	.nowTemp {
+		font-size: 1.5875rem;
+	}
+
+	.leftTopTitleArea {
+		margin-left: 16%;
+		margin-top: 1%;
+	}
+
+	.middletitleArea {
+		margin-left: 7.6%;
+		margin-top: 0;
+	}
+
+	.rightTop {
+		width: 100%;
+		height: 42%;
+		/* border: 1px solid white; */
+		background-image: url(../img/5.png);
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+		margin-top: 5%;
+	}
+
+	.rightMiddle {
+		width: 100%;
+		height: 24%;
+		margin-top: 3%;
+		/* border: 1px solid white; */
+		background-image: url(../img/6.png);
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+	}
+
+	.rightTitleArea {
+		margin-left: 16%;
+		margin-top: 0%;
+	}
+
+	.weatherTitle {
+		margin-top: 3%;
+	}
+
+	.nextTwoDayWeather {
+		width: 55%;
+		font-size: 13px;
+	}
+
+	.threeWeahterArea {
+		height: 100%;
+		width: 50%;
+		justify-content: space-between;
+		font-size: 13px;
+	}
+
+	.safetyIcon {
+		width: 70%;
+	}
+
+	.dataIcon {
+		width: 70%;
+	}
+
+	.safetyCount {
+		font-size: 1.8rem;
+		font-family: FZDHTFW--GB1-0;
+		font-weight: normal;
+		color: rgba(255, 255, 255, 1);
+	}
+
+	.safeExamine {
+		margin-left: 10%;
+		justify-content: space-around;
+		align-items: center;
+	}
+
+	.rightProjectImage {
+		position: absolute;
+		right: 0;
+		top: -1.5625rem;
+		width: 45%;
+	}
+}
+
+@media only screen and (min-width: 1400px) {
+	.leftTop ul li {
+		font-size: 1rem;
+		line-height: 1.625rem;
+	}
+
+	.leftProjectText {
+		margin-left: 0.3125rem;
+		color: #a3a3a3;
+		font-size: 0.9375rem;
+	}
+
+	.nowTemp {
+		font-size: 2.1875rem;
+	}
+
+	.leftTopTitleArea {
+		margin-left: 18%;
+		margin-top: 1.5%;
+	}
+
+	.middletitleArea {
+		margin-left: 8%;
+		margin-top: 0.6%;
+	}
+
+	.rightTop {
+		width: 100%;
+		height: 32%;
+		/* border: 1px solid white; */
+		background-image: url(../img/5.png);
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+		margin-top: 5%;
+	}
+
+	.rightMiddle {
+		width: 100%;
+		height: 34%;
+		margin-top: 3%;
+		/* border: 1px solid white; */
+		background-image: url(../img/6.png);
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+	}
+
+	.rightTitleArea {
+		margin-left: 18%;
+		margin-top: 2%;
+	}
+
+	.nextTwoDayWeather {
+		width: 45%;
+		margin-left: 0.625rem;
+	}
+
+	.threeWeahterArea {
+		height: 100%;
+		width: 55%;
+		justify-content: space-between;
+	}
+
+	.safetyCount {
+		font-size: 2.5rem;
+		font-family: FZDHTFW--GB1-0;
+		font-weight: normal;
+		color: rgba(255, 255, 255, 1);
+	}
+
+	.safeExamine {
+		margin-left: 10%;
+		margin-top: 5%;
+		justify-content: space-around;
+		align-items: center;
+	}
+
+	.rightProjectImage {
+		position: absolute;
+		right: 0;
+		top: -1.5625rem;
+		width: 50%;
+	}
+
+	.humanTitle {
+		margin-top: 3%;
+		margin-left: 19%;
+	}
+
+	.saftyTitle {
+		margin-top: 1.5%;
+	}
 }

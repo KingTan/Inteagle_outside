@@ -156,6 +156,10 @@
 .leftBottomList ul li {
 	width: 95%;
 	margin: 0px auto;
+	user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
 }
 
 .leftBottomList ul li:hover {
