@@ -1,16 +1,30 @@
+//深层水平位移初始数据
 var data_array=	[{"2019/8/8 08:00:00":[{"x":12,"y":20},{"x":24,"y":20},{"x":38,"y":30},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":12,"y":20},{"x":24,"y":20},{"x":38,"y":30},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":-17,"y":27}]},
 					{"2019/8/8 09:00:00":[{"x":22,"y":12},{"x":20,"y":12},{"x":28,"y":26},{"x":19,"y":32},{"x":12,"y":33},{"x":11,"y":12},{"x":12,"y":20},{"x":24,"y":20},{"x":38,"y":30},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":-17,"y":27}]},
 					{"2019/8/8 10:00:00":[{"x":32,"y":33},{"x":13,"y":22},{"x":16,"y":33},{"x":32,"y":14},{"x":42,"y":21},{"x":22,"y":32},{"x":12,"y":20},{"x":24,"y":20},{"x":38,"y":30},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":-17,"y":27}]},
 					{"2019/8/8 11:00:00":[{"x":15,"y":24},{"x":46,"y":35},{"x":34,"y":26},{"x":25,"y":28},{"x":23,"y":12},{"x":33,"y":43},{"x":12,"y":20},{"x":24,"y":20},{"x":38,"y":30},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":-17,"y":27}]},
 					{"2019/8/8 12:00:00":[{"x":23,"y":16},{"x":25,"y":38},{"x":25,"y":18},{"x":45,"y":36},{"x":12,"y":18},{"x":44,"y":23},{"x":12,"y":20},{"x":24,"y":20},{"x":38,"y":30},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":-17,"y":27}]},
 					{"2019/8/8 13:00:00":[{"x":24,"y":46},{"x":32,"y":25},{"x":27,"y":32},{"x":32,"y":32},{"x":34,"y":29},{"x":21,"y":12},{"x":12,"y":20},{"x":24,"y":20},{"x":38,"y":30},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":-17,"y":27}]}
-				];
+];
+				
+//顶部水平位移初始数据
+var top_data_array=[
+		{"2019/09/17 08:00:00":[{"x":10,"y":18}]},
+		{"2019/09/17 08:00:05":[{"x":15,"y":36}]},
+		{"2019/09/17 08:00:10":[{"x":20,"y":45}]},
+		{"2019/09/17 08:00:15":[{"x":25,"y":5}]},
+		{"2019/09/17 08:00:20":[{"x":10,"y":-20}]},
+		{"2019/09/17 08:00:25":[{"x":0,"y":-10}]},
+		{"2019/09/17 08:00:30":[{"x":-25,"y":5}]},
+		{"2019/09/17 08:00:35":[{"x":10,"y":-8}]}
+];				
+	
+				
 //当前选中的时间
 var current_check_time = "";
 
-//X轴显示的数据
+//X轴显示的数据(深层水平位移)
 var x_rate_data = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30];
-
 
 /**
  * @param {Object} single_x_data
@@ -37,9 +51,7 @@ function setSingleOption(single_x_data, single_y_data) {
 					var seriesName = param.seriesName; //图例名称
 					var value = param.value; //y轴值
 					var color = param.color; //图例颜色
-
 					xName = "当前深度:" + xName + "米";
-
 					if (i === 0) {
 						htmlStr += current_check_time + '<br/>'; //当前选中时间
 						htmlStr += xName + '<br/>'; // 当前深度
@@ -49,10 +61,8 @@ function setSingleOption(single_x_data, single_y_data) {
 					htmlStr +=
 						'<span style="margin-right:5px;display:inline-block;width:10px;height:10px;border-radius:5px;background-color:' +
 						color + ';"></span>';
-
 					//圆点后面显示的文本
 					htmlStr += seriesName + '：' + value;
-
 					htmlStr += '</div>';
 				}
 				return htmlStr;
@@ -481,248 +491,178 @@ function inintialEcharts(dom, id, data_single_array_all, showTimeLine) {
 }
 
 /**
- * 数据对比图 配置项
+ * 绘制顶部水平位移图表
  */
-function twoChartsOption() {
-	// 单个配置项
-	var singleOption = {
-		title: {
-			text: '深层水平位移',
+function draw_top_charts(top_data_single){
+	// 基于准备好的dom，初始化echarts实例
+	var myChart = echarts.init(document.getElementById("horizontal_charts"));
+	//横轴时间数据
+	var x_time_data=[];
+	//x轴数据
+	var x_rate_data=[];
+	//y轴数据
+	var y_rate_data=[];
+	if(top_data_single!=null&&top_data_single!=undefined){
+		top_data_array.push(top_data_single);
+	}
+	if(top_data_array.length>7){
+		//删除数组第一个元素
+		top_data_array.shift();
+	}
+	for(var i=0;i<top_data_array.length;i++){
+		var json_data = top_data_array[i]; 
+		for(var key in json_data){
+			x_time_data.push(key);
+			var single_json_data=json_data[key];
+			x_rate_data.push(single_json_data[0].x);
+			y_rate_data.push(single_json_data[0].y);
+		}
+	}
+	x_time_data=x_time_data.map(function(str){
+		return str.replace("2019/",'');
+	})
+	var option = {
+		color:['#D53A35','#FBE289'],
+	    title: {
+	        text: '顶部水平位移',
 			x: 'center',
 			textStyle: {
 				color: '#FFFFFF'
 			}
-		},
-		tooltip: {
-			trigger: 'axis',
-			formatter: function(params, ticket, callback) {
-				var htmlStr = '';
-				for (var i = 0; i < params.length; i++) {
-					var param = params[i];
-					var xName = param.name; //x轴的名称
-					var seriesName = param.seriesName; //图例名称
-					var value = param.value; //y轴值
-					var color = param.color; //图例颜色
-					xName = "当前深度:" + xName + "米";
-					if (i === 0) {
-						htmlStr += current_check_time + '<br/>'; //当前选中时间
-						htmlStr += xName + '<br/>'; // 当前深度
-					}
-					htmlStr += '<div>';
-					//为了保证和原来的效果一样，这里自己实现了一个点的效果
-					htmlStr +=
-						'<span style="margin-right:5px;display:inline-block;width:10px;height:10px;border-radius:5px;background-color:' +
-						color + ';"></span>';
-					//圆点后面显示的文本
-					htmlStr += seriesName + '：' + value;
-					htmlStr += '</div>';
-				}
-				return htmlStr;
-			}
-		},
-		legend: {
-			data: ['位移量', '位移量'],
-			x: 'left'
-		},
-		axisPointer: {
-			link: {
-				xAxisIndex: 'all'
-			}
-		},
-		grid: [{
-			left: 50,
-			right: 50,
-			height: '30%'
-		}, {
-			left: 50,
-			right: 50,
-			top: '55%',
-			height: '30%'
-		}],
-		xAxis: [{
-				type: 'category',
-				name: '深度(m)',
-				nameGap: 5,
-				nameTextStyle: {
-					color: '#FFFFFF'
-				},
-				boundaryGap: false,
-				axisLine: {
-					onZero: false,
-					lineStyle: {
-						type: 'solid',
-						color: '#FFFFFF'
-					}
-				},
-				data: x_rate_data
-			},
-			{
-				gridIndex: 1,
-				name: '深度(m)',
-				type: 'category',
-				nameGap: 5,
-				nameTextStyle: {
-					color: '#FFFFFF'
-				},
-				boundaryGap: false,
-				axisLine: {
-					onZero: false,
-					lineStyle: {
-						type: 'solid',
-						color: '#FFFFFF'
-					}
-				},
-				data: x_rate_data
-			}
-		],
-		yAxis: [{
-				name: 'x_位移量(mm)',
-				nameGap: 20,
-				nameTextStyle: {
-					color: '#FFFFFF'
-				},
-				type: 'value',
-				axisLine: {
-					lineStyle: {
-						color: '#FFFFFF'
-					}
-				},
-				max: 50,
-				min: -50
-			},
-			{
-				gridIndex: 1,
-				nameGap: 30,
-				name: 'y_位移量(mm)',
-				nameTextStyle: {
-					color: '#FFFFFF'
-				},
-				type: 'value',
-				axisLine: {
-					lineStyle: {
-						color: '#FFFFFF'
-					}
-				},
-				max: 50,
-				min: -50,
-				inverse: false
-			}
-		],
-		series: [{
-				name: 'x_位移量',
-				type: 'line',
-				symbolSize: 8,
-				hoverAnimation: true,
-				data: single_x_data,
-				itemStyle: {
-					normal: {
-						lineStyle: {
-							color: 'red'
-						}
-					}
-				}
-			},
-			{
-				name: 'y_位移量',
-				type: 'line',
-				xAxisIndex: 1,
-				yAxisIndex: 1,
-				symbolSize: 8,
-				hoverAnimation: true,
-				data: single_y_data,
-				itemStyle: {
-					normal: {
-						lineStyle: {
-							color: 'yellow'
-						}
-					}
-				}
-			}
-		]
-	};
-}
-
-/**
- * 当前选中时间-当前时间 数据对比图
- */
-function makeTwoCharts(dom, id, data_single_array_all, showTimeLine) {
-	// 基于准备好的dom，初始化echarts实例
-	var myChart = echarts.init(document.getElementById(dom));
-	//折线图
-	myChart.setOption(drawLineCharts(id, data_single_array_all, showTimeLine));
-}
-
-/**
- * 绘制顶部水平位移图表
- */
-function draw_top_charts(){
-	// 基于准备好的dom，初始化echarts实例
-	var myChart = echarts.init(document.getElementById("bigCharts"));
-	data = [["2000-06-05",116],["2000-06-06",129],["2000-06-07",135],["2000-06-08",86],["2000-06-09",73],["2000-06-10",85],["2000-06-11",73],["2000-06-12",68],["2000-06-13",92],["2000-06-14",130],["2000-06-15",245],["2000-06-16",139],["2000-06-17",115],["2000-06-18",111],["2000-06-19",309],["2000-06-20",206],["2000-06-21",137],["2000-06-22",128],["2000-06-23",85],["2000-06-24",94],["2000-06-25",71],["2000-06-26",106],["2000-06-27",84],["2000-06-28",93],["2000-06-29",85],["2000-06-30",73],["2000-07-01",83],["2000-07-02",125],["2000-07-03",107],["2000-07-04",82],["2000-07-05",44],["2000-07-06",72],["2000-07-07",106],["2000-07-08",107],["2000-07-09",66],["2000-07-10",91],["2000-07-11",92],["2000-07-12",113],["2000-07-13",107],["2000-07-14",131],["2000-07-15",111],["2000-07-16",64],["2000-07-17",69],["2000-07-18",88],["2000-07-19",77],["2000-07-20",83],["2000-07-21",111],["2000-07-22",57],["2000-07-23",55],["2000-07-24",60]];
-	var dateList = data.map(function (item) {
-	    return item[0];
-	});
-	var valueList = data.map(function (item) {
-	    return item[1];
-	});
-	var option = {
-	    // Make gradient line here
-	    visualMap: [{
-	        show: false,
-	        type: 'continuous',
-	        seriesIndex: 0,
-	        min: 0,
-	        max: 400
-	    }, {
-	        show: false,
-	        type: 'continuous',
-	        seriesIndex: 1,
-	        dimension: 0,
-	        min: 0,
-	        max: dateList.length - 1
-	    }],
-	    title: [{
-	        left: 'center',
-	        text: 'Gradient along the y axis'
-	    }, {
-	        top: '55%',
-	        left: 'center',
-	        text: 'Gradient along the x axis'
-	    }],
+	    },
 	    tooltip: {
 	        trigger: 'axis'
 	    },
-	    xAxis: [{
-	        data: dateList
-	    }, {
-	        data: dateList,
-	        gridIndex: 1
-	    }],
-	    yAxis: [{
-	        splitLine: {show: false}
-	    }, {
-	        splitLine: {show: false},
-	        gridIndex: 1
-	    }],
-	    grid: [{
-	        bottom: '60%'
-	    }, {
-	        top: '60%'
-	    }],
-	    series: [{
-	        type: 'line',
-	        showSymbol: false,
-	        data: valueList
-	    }, {
-	        type: 'line',
-	        showSymbol: false,
-	        data: valueList,
-	        xAxisIndex: 1,
-	        yAxisIndex: 1
-	    }]
+	    legend: {
+	        data:['x轴位移','y轴位移'],
+			top:'10%',
+			textStyle:{
+				color:"#FFFFFF"
+			}
+	    },
+		grid: [{
+			left: 50,
+			right: 50,
+			top:'20%',
+			height: '60%'
+		}],
+	    xAxis:  {
+	        type: 'category',
+	        boundaryGap: false,
+			axisLine: {
+				onZero: false,
+				lineStyle: {
+					type: 'solid',
+					color: '#FFFFFF'
+				}
+			},
+	        data: x_time_data
+	    },
+	    yAxis: {
+			name: '位移量(mm)',
+			nameGap: 20,
+			nameTextStyle: {
+				color: '#FFFFFF'
+			},
+	        type: 'value',
+			axisLine: {
+				lineStyle: {
+						color: '#FFFFFF'
+				}
+			},
+			max: 50,
+			min: -50
+	    },
+	    series: [
+	        {
+	            name:'x轴位移',
+	            type:'line',
+	            data:x_rate_data,
+				smooth:true,
+	            markPoint: {
+	                data: [
+	                    {type: 'max', name: '最大值'},
+	                    {type: 'min', name: '最小值'}
+	                ]
+	            },
+	        },
+	        {
+	            name:'y轴位移',
+	            type:'line',
+	            data:y_rate_data,
+				smooth:true,
+				markPoint: {
+				    data: [
+				        {type: 'max', name: '最大值'},
+				        {type: 'min', name: '最小值'}
+				    ]
+				},
+	        }
+	    ]
 	};
 	//折线图
 	myChart.setOption(option);
-	
 }
+
+/**
+ * 绘制顶部水平位移速率图表
+ */
+function draw_top_speed_charts(){
+	// 基于准备好的dom，初始化echarts实例
+	var myChart = echarts.init(document.getElementById("top_speed_charts"));
+	var	option = {
+	    color: ['#3398DB'],
+	    tooltip : {
+	        trigger: 'axis',
+	        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+	            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+	        }
+	    },
+	    grid: {
+	        left: '3%',
+	        right: '4%',
+	        bottom: '3%',
+	        containLabel: true
+	    },
+	    xAxis : [
+	        {
+	            type : 'category',
+	            data : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+	            axisTick: {
+	                alignWithLabel: true
+	            },
+				axisLine: {
+					onZero: false,
+					lineStyle: {
+						type: 'solid',
+						color: '#FFFFFF'
+					}
+				}
+	        }
+	    ],
+	    yAxis : [
+	        {
+	            type : 'value',
+				axisLine: {
+					onZero: false,
+					lineStyle: {
+						type: 'solid',
+						color: '#FFFFFF'
+					}
+				}
+	        }
+	    ],
+	    series : [
+	        {
+	            name:'直接访问',
+	            type:'bar',
+	            barWidth: '60%',
+	            data:[10, 52, 200, 334, 390, 330, 220]
+	        }
+	    ]
+	};
+	//折线图
+	myChart.setOption(option);
+}
+
 

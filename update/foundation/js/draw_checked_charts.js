@@ -4,13 +4,10 @@ var data_array = [{"2019/8/12 08:00:00":[{"x1":14,"y1":10,"x2":25,"y2":22},{"x1"
 				 {"x1":47,"y1":29,"x2":25,"y2":22},{"x1":27,"y1":21,"x2":25,"y2":21},{"x1":37,"y1":23,"x2":45,"y2":32},
 				 {"x1":7,"y1":39,"x2":25,"y2":32},{"x1":13,"y1":20,"x2":35,"y2":20},{"x1":47,"y1":24,"x2":35,"y2":22},
 				 {"x1":13,"y1":49,"x2":35,"y2":2},{"x1":15,"y1":25,"x2":45,"y2":19}]}];
-
 //X轴显示的数据
 var x_rate_data = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30];
-
 // 总时间数组
 var timeData = [];
-
 //总配置项数组
 var data_option = [];
 
@@ -33,14 +30,12 @@ for (var i = 0; i < data_array.length; i++) {
 		data_option.push(setSingleOption(single_x1_data, single_y1_data, single_x2_data, single_y2_data));
 	}
 }
-
 timeData = timeData.map(function(str) {
 	return str.replace('2019/', '');
 });
 
 //当前选中时间
 var current_check_time_old = timeData[timeData.length - 1];
-
 var option = {
 	baseOption: {
 		timeline: {
@@ -75,12 +70,15 @@ var option = {
 	options: data_option
 };
 
+/**
+ * @param {Object} dom
+ * 绘制弹出层对比图表
+ */
 function drawChecekedCharts(dom) {
 	// 基于准备好的dom，初始化echarts实例
 	var myChart = echarts.init(document.getElementById(dom));
 	myChart.setOption(option);
 }
-
 
 
 function setSingleOption(single_x1_data, single_y1_data, single_x2_data, single_y2_data) {
@@ -304,20 +302,15 @@ function setSingleOption(single_x1_data, single_y1_data, single_x2_data, single_
 function drawHeatMapX_checked() {
 	// 基于准备好的dom，初始化echarts实例
 	var myChart = echarts.init(document.getElementById("heat_x_checked"));
-	
 	//横轴 时间_天  纵轴 深度  值 速率
 	var x_data = ['0', '2', '4', '6', '8', '10', '12','14', '16', '18', '20', '22','24', '26', '28', '30'];
-	
 	var days = ['8-11'];
-	
 	var data = [[0,0,9],[0,1,3],[0,2,4],[0,3,1],[0,4,1],[0,5,6],[0,6,7],
 				[0,7,2],[0,8,5],[0,9,2],[0,10,4],[0,11,5],[0,12,9],[0,13,8],
 				[0,14,1],[0,15,8]];
-
 	data = data.map(function(item) {
 		return [item[1], item[0], item[2] || '-'];
 	});
-
 	var option = {
 		title: {
 			text: 'x轴',

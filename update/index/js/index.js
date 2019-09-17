@@ -3,7 +3,7 @@
  */
 $(function() {
 	//验证是否登录
-	check_is_login();
+	// check_is_login();
 
 	//初始化layui组件
 	layui.use(['element', 'form', 'laydate'], function() {

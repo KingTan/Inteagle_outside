@@ -30,23 +30,48 @@ $(function() {
 layui.use('form', function() {
 	var charts_form = layui.form;
 	charts_form.on('select(chartsType)', function(data) {
+		console.log("data---------",data);
 		var value = data.value;
-		if (value == 1) {
-			//隐藏热力图
-			$(".heatMapArea").css("visibility", "hidden");
-			//显示折线图
-			$("#bigCharts").fadeIn();
-			//绘制深度水平位移 默认折线图charts
-			inintialEcharts('bigCharts', id, null, true);
-
-		} else if (value == 2) {
-			//隐藏折线图
-			$("#bigCharts").fadeOut();
-			//显示热力图
-			$(".heatMapArea").css("visibility", "visible");
-			//绘制热力图
-			drawHeatMapX();
-			drawHeatMapY();
+		
+		var charts_type=data.elem.dataset.type;
+		console.log("charts_type----------------",charts_type);
+		
+		if(charts_type=="deep"){
+			//深层水平位移
+			if (value == 1) {
+				//隐藏热力图
+				$(".heatMapArea").css("visibility", "hidden");
+				//显示折线图
+				$("#bigCharts").fadeIn();
+				//绘制深度水平位移 默认折线图charts
+				inintialEcharts('bigCharts', id, null, true);
+			} else if (value == 2) {
+				//隐藏折线图
+				$("#bigCharts").fadeOut();
+				//显示热力图
+				$(".heatMapArea").css("visibility", "visible");
+				//绘制热力图
+				drawHeatMapX();
+				drawHeatMapY();
+			}
+		}else if(charts_type=="top_horizontal"){
+			//顶部水平位移
+			if (value == 1) {
+				//隐藏速率图
+				$(".top_heatMapArea").css("visibility", "hidden");
+				//显示位移图
+				$("#horizontal_charts").fadeIn();
+			} else if (value == 2) {
+				//隐藏位移图
+				$("#horizontal_charts").fadeOut();
+				//显示速率图
+				$(".top_heatMapArea").css("visibility", "visible");
+				//绘制速率图
+				$(".top_heatMapArea").promise().done(function(){
+					//绘制速率图
+					draw_top_speed_charts();
+				})
+			}
 		}
 	})
 })
@@ -72,6 +97,27 @@ $(".optionText").bind("click", function(dom) {
 			break;
 	}
 })
+
+/**
+ * @param {Object} id
+ * 导出基坑数据
+ */
+function export_foundation_data(id) {
+	var formData = new FormData();
+	formData.append("id", id);
+	let form = $("<form>"); //创建form标签
+	form.attr("style", "display:none");
+	form.attr("method", "post"); //设置请求方式
+	form.attr("action", PATH + "excel/exportFoundation", ); //action属性设置请求路径
+	$("body").append(form); //页面添加form标签
+	let input1 = $("<input>") //创建input标签
+	input1.attr("type", "hidden") //设置隐藏域
+	input1.attr("name", "data") //设置发送后台数据的参数名
+	input1.attr("value", formData);
+	form.append(input1);
+	form.submit(); //表单提交即可下载！
+}
+
 /**
  * 左边菜单栏点击事件
  */
@@ -89,15 +135,26 @@ $(".leftBottomList ul li").bind("click", function(dom) {
 	var checkde_index = dom.currentTarget.dataset.index;
 	//当前节点选中状态
 	var checked_status = dom.currentTarget.dataset.checked;
-
+	
+	//下拉框的图标类型
+	var select_dataSet;
+	
 	//切换 渲染不同的 charts图
 	switch (checkde_index) {
 		case "0":
 			//深层水平位移
+			select_dataSet="deep";
+			$(".top_horizontal_charts").css("visibility","hidden");
+			$(".deep_charts").show();
 			break;
 		case "1":
 			//顶部水平位移
-			// draw_top_charts();
+			select_dataSet="top_horizontal";
+			$(".deep_charts").hide();
+			$(".top_horizontal_charts").css("visibility","visible");
+			$(".top_horizontal_charts").promise().done(function(){
+				draw_top_charts();
+			})
 			break;
 		case "2":
 			//顶部竖向位移
@@ -109,7 +166,7 @@ $(".leftBottomList ul li").bind("click", function(dom) {
 			//周边管线沉降位移
 			break;
 	}
-
+	$("#select_charts_type").attr("data-type",select_dataSet);
 })
 
 /**
@@ -212,7 +269,6 @@ function intialBtnGroup(order) {
 		if (i % 5 == 0 && i != 0) {
 			shtml += "</div><div class='layui-btn-container'>";
 		}
-
 		switch (btnList[i].status) {
 			//报警
 			case "warning":
