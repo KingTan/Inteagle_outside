@@ -7,7 +7,7 @@ $.ajax({
 	type: "post",
 	async: false,
 	data: {
-		fileId: "1694602135356896"
+		fileId: "1696617468577248"
 	},
 	success: function(res) {
 		console.log("res", res);
@@ -162,7 +162,7 @@ function load() {
 	//目前仅支持3ds外部构件
 	//https://www.inteagle.com.cn/update/common/bimface/3ds/smallBall.3ds
 	//http://127.0.0.1:8848/Inteagle_outside/update/common/bimface/3ds/smallBall.3ds
-	loadExternalComponent("https://www.inteagle.com.cn/update/common/bimface/3ds/smallBall.3ds", function(
+	loadExternalComponent("http://127.0.0.1:8848/Inteagle_outside/update/common/bimface/3ds/smallBall.3ds", function(
 		object) {
 		// 添加外部构件，命名为"ball_1"和"ball_2"
 		addExternalObject(viewer, "ball_1", object);

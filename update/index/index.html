@@ -139,8 +139,8 @@
 		</div>
 
 		<!-- 底部Iframe -->
-		<div class="mainBody">
-			<iframe src="curPage.html" id="mainFrame" class="mainFrame" name='iframe' frameborder="0"></iframe>
+		<div class="mainBody" >
+			<iframe src="../helmetPosition/helmetPostion.html" id="mainFrame" class="mainFrame" name='iframe' frameborder="0"></iframe>
 		</div>
 
 		<!--底部备案信息区域  -->
@@ -151,6 +151,42 @@
 		</div>
 		<!-- 蒙层 -->
 		<div class="black_Modal" style="display: none;"></div>
+
+		<!-- 查看历史轨迹弹窗 -->
+		<div class="history_track_modal animated" style="display: none;">
+			<div class="close_btn_area track_close">
+				<img src="img/close_1.png" class="close_btn close_track_warning" />
+			</div>
+			<div class="new_title_area">查看历史轨迹</div>
+			<div class="column content_area">
+				<div class="row single_input_box_area">
+					<div class="box_title_text">安全帽id</div>
+					<div class="box_value">
+						<input type="text" name="helmet_id" class="helmet_id" />
+					</div>
+				</div>
+				<div class="row single_input_box_area">
+					<div class="box_title_text">选择时间段</div>
+					<div class="box_value">
+						<i class="time_picker_area"></i>
+						<input type="text" name="track_begin_time" autocomplete="off" id="track_begin_time_val" class="track_begin_time" />
+					</div>
+					<div class="box_apart_line">————</div>
+					<div class="box_value">
+						<i class="time_picker_area"></i>
+						<input type="text" name="track_end_time" autocomplete="off" id="track_end_time_val" class="track_end_time" />
+					</div>
+				</div>
+			</div>
+			<div class="row box_btn_area">
+				<div class="single_btn seatch_btn_area">
+					<button type="button" class="layui-btn layui-btn-normal see_track_btn">查看</button>
+				</div>
+				<div class="single_btn reset_btn_area">
+					<button type="button" class="layui-btn layui-btn-normal reset_track_btn">重置</button>
+				</div>
+			</div>
+		</div>
 
 		<!-- 报警值设置弹窗 -->
 		<div class="new_warningModal animated" style="display: none;">
@@ -229,7 +265,6 @@
 				</div>
 			</div>
 		</div>
-
 
 		<!-- 运行时间设置弹窗 -->
 		<div class="new_runTimeModal animated" style="display: none;">

@@ -6,7 +6,6 @@ var data_array=	[{"2019/8/8 08:00:00":[{"x":12,"y":20},{"x":24,"y":20},{"x":38,"
 					{"2019/8/8 12:00:00":[{"x":23,"y":16},{"x":25,"y":38},{"x":25,"y":18},{"x":45,"y":36},{"x":12,"y":18},{"x":44,"y":23},{"x":12,"y":20},{"x":24,"y":20},{"x":38,"y":30},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":-17,"y":27}]},
 					{"2019/8/8 13:00:00":[{"x":24,"y":46},{"x":32,"y":25},{"x":27,"y":32},{"x":32,"y":32},{"x":34,"y":29},{"x":21,"y":12},{"x":12,"y":20},{"x":24,"y":20},{"x":38,"y":30},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":21,"y":25},{"x":-17,"y":27},{"x":15,"y":36},{"x":-17,"y":27}]}
 ];
-				
 //顶部水平位移初始数据
 var top_data_array=[
 		{"2019/09/17 08:00:00":[{"x":10,"y":18}]},
@@ -17,9 +16,7 @@ var top_data_array=[
 		{"2019/09/17 08:00:25":[{"x":0,"y":-10}]},
 		{"2019/09/17 08:00:30":[{"x":-25,"y":5}]},
 		{"2019/09/17 08:00:35":[{"x":10,"y":-8}]}
-];				
-	
-				
+];
 //当前选中的时间
 var current_check_time = "";
 
@@ -161,6 +158,7 @@ function setSingleOption(single_x_data, single_y_data) {
 				type: 'line',
 				symbolSize: 8,
 				hoverAnimation: true,
+				smooth:true,
 				data: single_x_data,
 				itemStyle: {
 					normal: {
@@ -177,6 +175,7 @@ function setSingleOption(single_x_data, single_y_data) {
 				yAxisIndex: 1,
 				symbolSize: 8,
 				hoverAnimation: true,
+				smooth:true,
 				data: single_y_data,
 				itemStyle: {
 					normal: {
@@ -288,12 +287,27 @@ function drawHeatMapX() {
 	// 	}
 	// }
 	//横轴 时间_天  纵轴 深度  值 速率
-	var x_data = ['0', '2', '4', '6', '8', '10', '12','14', '16', '18', '20', '22','24', '26', '28', '30'];
+	var x_data = ['0', '2', '4', '6', '8', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30'];
 	var days = ['8-11'];
-	var data = [[0,0,9],[0,1,3],[0,2,4],[0,3,1],[0,4,1],[0,5,6],[0,6,7],
-				[0,7,2],[0,8,5],[0,9,2],[0,10,4],[0,11,5],[0,12,9],[0,13,8],
-				[0,14,1],[0,15,8]];
-				
+	var data = [
+		[0, 0, 9],
+		[0, 1, 3],
+		[0, 2, 4],
+		[0, 3, 1],
+		[0, 4, 1],
+		[0, 5, 6],
+		[0, 6, 7],
+		[0, 7, 2],
+		[0, 8, 5],
+		[0, 9, 2],
+		[0, 10, 4],
+		[0, 11, 5],
+		[0, 12, 9],
+		[0, 13, 8],
+		[0, 14, 1],
+		[0, 15, 8]
+	];
+
 	data = data.map(function(item) {
 		return [item[1], item[0], item[2] || '-'];
 	});
@@ -301,7 +315,7 @@ function drawHeatMapX() {
 		title: {
 			text: 'x轴',
 			x: 'center',
-			top:'20%',
+			top: '20%',
 			textStyle: {
 				color: '#FFFFFF'
 			}
@@ -394,11 +408,26 @@ function drawHeatMapY() {
 	// 		data.push(single_data);
 	// 	}
 	// }
-	var x_data = ['0', '2', '4', '6', '8', '10', '12','14', '16', '18', '20', '22','24', '26', '28', '30'];
+	var x_data = ['0', '2', '4', '6', '8', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30'];
 	var days = ['8-11'];
-	var data = [[0,0,9],[0,1,3],[0,2,4],[0,3,1],[0,4,1],[0,5,6],[0,6,7],
-				[0,7,2],[0,8,5],[0,9,2],[0,10,4],[0,11,5],[0,12,9],[0,13,8],
-				[0,14,1],[0,15,8]];
+	var data = [
+		[0, 0, 9],
+		[0, 1, 3],
+		[0, 2, 4],
+		[0, 3, 1],
+		[0, 4, 1],
+		[0, 5, 6],
+		[0, 6, 7],
+		[0, 7, 2],
+		[0, 8, 5],
+		[0, 9, 2],
+		[0, 10, 4],
+		[0, 11, 5],
+		[0, 12, 9],
+		[0, 13, 8],
+		[0, 14, 1],
+		[0, 15, 8]
+	];
 	data = data.map(function(item) {
 		return [item[1], item[0], item[2] || '-'];
 	});
@@ -425,7 +454,7 @@ function drawHeatMapY() {
 				var shtml = "时间:" + days[params.value[1]] + "<br/>";
 				shtml += "当前深度:" + params.name + "米<br/>";
 				shtml += "速率:" + params.value[2];
-		
+
 				return shtml;
 			}
 		},
@@ -493,62 +522,62 @@ function inintialEcharts(dom, id, data_single_array_all, showTimeLine) {
 /**
  * 绘制顶部水平位移图表
  */
-function draw_top_charts(top_data_single){
+function draw_top_charts(top_data_single) {
 	// 基于准备好的dom，初始化echarts实例
 	var myChart = echarts.init(document.getElementById("horizontal_charts"));
 	//横轴时间数据
-	var x_time_data=[];
+	var x_time_data = [];
 	//x轴数据
-	var x_rate_data=[];
+	var x_rate_data = [];
 	//y轴数据
-	var y_rate_data=[];
-	if(top_data_single!=null&&top_data_single!=undefined){
+	var y_rate_data = [];
+	if (top_data_single != null && top_data_single != undefined) {
 		top_data_array.push(top_data_single);
 	}
-	if(top_data_array.length>7){
+	if (top_data_array.length > 7) {
 		//删除数组第一个元素
 		top_data_array.shift();
 	}
-	for(var i=0;i<top_data_array.length;i++){
-		var json_data = top_data_array[i]; 
-		for(var key in json_data){
+	for (var i = 0; i < top_data_array.length; i++) {
+		var json_data = top_data_array[i];
+		for (var key in json_data) {
 			x_time_data.push(key);
-			var single_json_data=json_data[key];
+			var single_json_data = json_data[key];
 			x_rate_data.push(single_json_data[0].x);
 			y_rate_data.push(single_json_data[0].y);
 		}
 	}
-	x_time_data=x_time_data.map(function(str){
-		return str.replace("2019/",'');
+	x_time_data = x_time_data.map(function(str) {
+		return str.replace("2019/", '');
 	})
 	var option = {
-		color:['#D53A35','#FBE289'],
-	    title: {
-	        text: '顶部水平位移',
+		color: ['#D53A35', '#FBE289'],
+		title: {
+			text: '顶部水平位移',
 			x: 'center',
 			textStyle: {
 				color: '#FFFFFF'
 			}
-	    },
-	    tooltip: {
-	        trigger: 'axis'
-	    },
-	    legend: {
-	        data:['x轴位移','y轴位移'],
-			top:'10%',
-			textStyle:{
-				color:"#FFFFFF"
+		},
+		tooltip: {
+			trigger: 'axis'
+		},
+		legend: {
+			data: ['x轴位移', 'y轴位移'],
+			top: '10%',
+			textStyle: {
+				color: "#FFFFFF"
 			}
-	    },
+		},
 		grid: [{
 			left: 50,
 			right: 50,
-			top:'20%',
+			top: '20%',
 			height: '60%'
 		}],
-	    xAxis:  {
-	        type: 'category',
-	        boundaryGap: false,
+		xAxis: {
+			type: 'category',
+			boundaryGap: false,
 			axisLine: {
 				onZero: false,
 				lineStyle: {
@@ -556,49 +585,58 @@ function draw_top_charts(top_data_single){
 					color: '#FFFFFF'
 				}
 			},
-	        data: x_time_data
-	    },
-	    yAxis: {
+			data: x_time_data
+		},
+		yAxis: {
 			name: '位移量(mm)',
 			nameGap: 20,
 			nameTextStyle: {
 				color: '#FFFFFF'
 			},
-	        type: 'value',
+			type: 'value',
 			axisLine: {
 				lineStyle: {
-						color: '#FFFFFF'
+					color: '#FFFFFF'
 				}
 			},
 			max: 50,
 			min: -50
-	    },
-	    series: [
-	        {
-	            name:'x轴位移',
-	            type:'line',
-	            data:x_rate_data,
-				smooth:true,
-	            markPoint: {
-	                data: [
-	                    {type: 'max', name: '最大值'},
-	                    {type: 'min', name: '最小值'}
-	                ]
-	            },
-	        },
-	        {
-	            name:'y轴位移',
-	            type:'line',
-	            data:y_rate_data,
-				smooth:true,
+		},
+		series: [{
+				name: 'x轴位移',
+				type: 'line',
+				data: x_rate_data,
+				smooth: true,
 				markPoint: {
-				    data: [
-				        {type: 'max', name: '最大值'},
-				        {type: 'min', name: '最小值'}
-				    ]
+					data: [{
+							type: 'max',
+							name: '最大值'
+						},
+						{
+							type: 'min',
+							name: '最小值'
+						}
+					]
 				},
-	        }
-	    ]
+			},
+			{
+				name: 'y轴位移',
+				type: 'line',
+				data: y_rate_data,
+				smooth: true,
+				markPoint: {
+					data: [{
+							type: 'max',
+							name: '最大值'
+						},
+						{
+							type: 'min',
+							name: '最小值'
+						}
+					]
+				},
+			}
+		]
 	};
 	//折线图
 	myChart.setOption(option);
@@ -607,62 +645,64 @@ function draw_top_charts(top_data_single){
 /**
  * 绘制顶部水平位移速率图表
  */
-function draw_top_speed_charts(){
+function draw_top_speed_charts() {
 	// 基于准备好的dom，初始化echarts实例
 	var myChart = echarts.init(document.getElementById("top_speed_charts"));
-	var	option = {
-	    color: ['#3398DB'],
-	    tooltip : {
-	        trigger: 'axis',
-	        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-	            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-	        }
-	    },
-	    grid: {
-	        left: '3%',
-	        right: '4%',
-	        bottom: '3%',
-	        containLabel: true
-	    },
-	    xAxis : [
-	        {
-	            type : 'category',
-	            data : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-	            axisTick: {
-	                alignWithLabel: true
-	            },
-				axisLine: {
-					onZero: false,
-					lineStyle: {
-						type: 'solid',
-						color: '#FFFFFF'
-					}
+	
+	var x_time_date=["09/12","09/13","09/14","09/15","09/16","09/17","09/18"];
+	var speed_data=[10,15,20,15,10,5,3];
+	
+	var option = {
+		color: ['#3398DB'],
+		tooltip: {
+			trigger: 'axis',
+			axisPointer: { // 坐标轴指示器，坐标轴触发有效
+				type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+			}
+		},
+		grid: {
+			left: '3%',
+			right: '4%',
+			bottom: '3%',
+			containLabel: true
+		},
+		xAxis: [{
+			type: 'category',
+			data: x_time_date,
+			axisTick: {
+				alignWithLabel: true
+			},
+			axisLine: {
+				onZero: false,
+				lineStyle: {
+					type: 'solid',
+					color: '#FFFFFF'
 				}
-	        }
-	    ],
-	    yAxis : [
-	        {
-	            type : 'value',
-				axisLine: {
-					onZero: false,
-					lineStyle: {
-						type: 'solid',
-						color: '#FFFFFF'
-					}
+			}
+		}],
+		yAxis: [{
+			type: 'value',
+			axisLine: {
+				onZero: false,
+				lineStyle: {
+					type: 'solid',
+					color: '#FFFFFF'
 				}
-	        }
-	    ],
-	    series : [
-	        {
-	            name:'直接访问',
-	            type:'bar',
-	            barWidth: '60%',
-	            data:[10, 52, 200, 334, 390, 330, 220]
-	        }
-	    ]
+			}
+		}],
+		series: [{
+			name: '速率',
+			type: 'bar',
+			barWidth: '50%',
+			label: {
+			    normal: {
+			        show: true,
+			        position: 'inside'
+			    }
+			},
+			data: speed_data
+		}]
 	};
 	//折线图
 	myChart.setOption(option);
 }
-
-

@@ -616,7 +616,6 @@ a:hover {
 	background-repeat: no-repeat;
 }
 
-
 .single_input_box .right_value input,
 select {
 	width: 100%;
@@ -803,6 +802,10 @@ select {
 	position: absolute;
 	right: 1%;
 	top: 2%;
+}
+
+.track_close {
+	top: 4.5%;
 }
 
 .close_fence_btn {
@@ -1059,6 +1062,92 @@ select {
 .speed_unit {
 	margin-right: 10% !important;
 }
+
+.history_track_modal {
+	width: 45%;
+	height: 35vh;
+	position: relative;
+	margin: 0px auto;
+	margin-top: 10%;
+	background-image: url(../img/track_back.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	z-index: 9
+}
+
+.content_area {
+	width: 85%;
+	height: 40%;
+	position: absolute;
+	margin-left: 8%;
+	margin-top: 7%;
+	justify-content: space-between;
+}
+
+.box_btn_area {
+	width: 85%;
+	height: 15%;
+	position: absolute;
+	margin-left: 8%;
+	margin-top: 28%;
+	justify-content: space-between;
+}
+
+.single_btn {
+	width: 45%;
+	height: 100%;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+.single_btn .layui-btn{
+	height: 100%;
+	line-height: 100%;
+}
+
+.seatch_btn_area {
+	background-image: url(../img/light_btn_box.png);
+}
+
+.reset_btn_area {
+	background-image: url(../img/btn_box.png);
+}
+
+.single_input_box_area {
+	width: 100%;
+	height: 40%;
+	align-items: center;
+}
+
+.box_title_text {
+	width: 12%;
+}
+
+.box_value {
+	width: 35%;
+	height: 100%;
+	position: relative;
+	background-image: url(../img/track_box.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+.box_value input {
+	background: transparent;
+	height: 50%;
+	width: 85%;
+	margin-top: 5%;
+	margin-left: 10%;
+	border: none;
+	color: #FFFFFF;
+}
+
+.box_apart_line {
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+
 
 @media only screen and (max-width: 1400px) {
 	.singleWarning {

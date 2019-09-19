@@ -46,6 +46,13 @@
 				</div>
 
 				<div class="row right_option_area">
+					<!-- 查看人员历史轨迹 -->
+					<div class="row export_area">
+						<div class="icon_area">
+							<img src="img/editor.png" class="export_icon" />
+						</div>
+						<div class="export_text history_track">查看人员历史轨迹</div>
+					</div>
 					<!-- 电子围栏 -->
 					<div class="row export_area">
 						<div class="icon_area">
@@ -108,9 +115,9 @@
 					<!-- 左下 -->
 					<div class="bottomPositionArea">
 						<div class="leftTopTitleArea electricTitle">
-							<div class="boxTitle">电子围栏</div>
+							<div class="boxTitle">视频监控</div>
 						</div>
-
+						<div class="device_id_list"></div>
 					</div>
 				</div>
 				<!-- 右边区域 -->
@@ -122,6 +129,25 @@
 						<div class='model' id="domId"></div>
 					</div>
 					<div id="view"></div>
+
+					<!-- 进度条 -->
+					<div class="row progress_bar_area">
+						<div class="left_play_btn">
+							<img src="img/play_icon.png" class="playIcon" />
+						</div>
+						<div class="row bar_area">
+							<div class="left_begin_date">2019年9月19号 08:00:00</div>
+							<div class="progress">
+								<div class="progress_bg">
+									<div class="progress_bar"></div>
+								</div>
+								<div class="progress_btn"></div>
+								<!-- <div class="text">0%</div> -->
+							</div>
+							<div class="right_end_date">2019年9月19号 09:00:00</div>
+						</div>
+					</div>
+
 				</div>
 			</div>
 		</div>
@@ -143,8 +169,8 @@
 		<script src="../common/js/common.js" type="text/javascript"></script>
 		<script src="../common/js/echarts.min.js" type="text/javascript"></script>
 		<!-- BimFace JSSDK -->
-		<script src="../common/bimface/js/release.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../common/bimface/js/drawModal.js" type="text/javascript"></script>
+		<!-- <script src="../common/bimface/js/release.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../common/bimface/js/drawModal.js" type="text/javascript"></script> -->
 		<!-- WebSocket JS -->
 		<script src="../common/js/socketBase.js" type="text/javascript"></script>
 		<script src="../common/js/connectSocket.js" type="text/javascript"></script>

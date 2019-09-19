@@ -3,9 +3,14 @@
  */
 $(function() {
 	//验证是否登录
-	// check_is_login();
-
+	check_is_login();
 	//初始化layui组件
+	initital_lay();
+
+})
+
+//初始化layui组件
+function initital_lay() {
 	layui.use(['element', 'form', 'laydate'], function() {
 		var laydate = layui.laydate,
 			element = layui.element,
@@ -20,9 +25,108 @@ $(function() {
 			type: "time",
 			format: "H时m分s秒"
 		});
+		laydate.render({
+			elem: "#track_begin_time_val",
+			type: "datetime",
+			format: "yyyy年MM月dd日 H时m分s秒"
+		});
+		laydate.render({
+			elem: "#track_end_time_val",
+			type: "datetime",
+			format: "yyyy年MM月dd日 H时m分s秒"
+		});
 	});
+}
+
+/**
+ * 显示人员历史轨迹弹窗
+ */
+function showhisotryTrackModal() {
+	//显示蒙层
+	$(".black_Modal").show();
+	//显示弹窗
+	$(".history_track_modal").show();
+	//移除动画
+	$(".history_track_modal").removeClass("fadeOutLeft");
+	//添加动画
+	$(".history_track_modal").addClass("fadeInLeft");
+}
+/**
+ * 点击关闭历史轨迹弹窗
+ */
+$(".close_track_warning").bind("click", function(dom) {
+	//移除动画
+	$(".history_track_modal").removeClass("fadeInLeft");
+	//添加动画
+	$(".history_track_modal").addClass("fadeOutLeft");
+	//显示弹窗
+	$(".history_track_modal").hide(500);
+	//弹窗隐藏完全之后执行的事件
+	$(".history_track_modal").promise().done(function(arg) {
+		//关闭蒙层
+		$(".black_Modal").hide();
+	})
 })
 
+/**
+ * 历史轨迹点击查看
+ */
+$(".see_track_btn").bind("click",function(dom){
+	var helmet_id=$(".helmet_id").val();
+	var track_begin_time_val=$("#track_begin_time_val").val();
+	var track_end_time_val=$("#track_end_time_val").val();
+	if (!notNull(helmet_id)) {
+		layer.ready(function() {
+			layer.msg("请输入安全帽ID", {
+				icon: 2,
+				time: 1000
+			}, function() {
+				$(".helmet_id").focus();
+			});
+		})
+		return;
+	}
+	if (!notNull(track_begin_time_val)) {
+		layer.ready(function() {
+			layer.msg("请输入开始时间", {
+				icon: 2,
+				time: 1000
+			}, function() {
+				$(".track_begin_time_val").focus();
+			});
+		})
+		return;
+	}
+	if (!notNull(track_end_time_val)) {
+		layer.ready(function() {
+			layer.msg("请输入结束时间", {
+				icon: 2,
+				time: 1000
+			}, function() {
+				$(".track_end_time_val").focus();
+			});
+		})
+		return;
+	}
+	//关闭弹窗
+	$(".close_track_warning").click();
+	$(".close_track_warning").promise().done(function(){
+		//调用子页面的方法-显示进度条
+		//表示获取了嵌入在iframe中的子页面的window对象。  []将JQuery对象转成DOM对象，用DOM对象的contentWindow获取子页面window对象。
+		var childWindow = $("#mainFrame")[0].contentWindow;
+		//调用子页面中的subFunction方法。
+		childWindow.showProgressBar();  
+	})
+})
+
+/**
+ * 历史轨迹弹窗重置
+ */
+$(".reset_track_btn").bind("click",function(dom){
+	$(".helmet_id").val("");
+	$("#track_begin_time_val").val("");
+	$("#track_end_time_val").val("");
+})
 
 /**
  * 显示电子围栏弹窗
