@@ -1,3 +1,9 @@
+//进度条变量
+var tag = false,
+	ox = 0,
+	left = 0,
+	bgleft = 0,
+	bar_width = $(".progress").width();
 /**
  * 页面加载事件
  */
@@ -7,53 +13,8 @@ $(function() {
 	$(".loading").fadeOut();
 	//显示内容
 	$(".foundation").css("visibility", "visible");
-
 	//电子围栏设备集合
 	intialBtnGroup();
-
-	var tag = false,
-		ox = 0,
-		left = 0,
-		bgleft = 0,
-		bar_width=$(".progress").width();
-		
-	console.log("bar_width-------",bar_width);	
-	$('.progress_btn').mousedown(function(e) {
-		ox = e.pageX - left;
-		tag = true;
-	});
-	$(document).mouseup(function() {
-		tag = false;
-	});
-	$('.progress').mousemove(function(e) { //鼠标移动
-		if (tag) {
-			left = e.pageX - ox;
-			if (left <= 0) {
-				left = 0;
-			} else if (left > bar_width) {
-				left = bar_width;
-			}
-			$('.progress_btn').css('left', left);
-			$('.progress_bar').width(left);
-			$('.text').html(parseInt((left / bar_width) * bar_width) + '%');
-		}
-	});
-	$('.progress_bg').click(function(e) { //鼠标点击
-		if (!tag) {
-			bgleft = $('.progress_bg').offset().left;
-			left = e.pageX - bgleft;
-			if (left <= 0) {
-				left = 0;
-			} else if (left > bar_width) {
-				left = bar_width;
-			}
-			$('.progress_btn').css('left', left);
-			$('.progress_bar').animate({
-				width: left
-			}, bar_width);
-			$('.text').html(parseInt((left / bar_width) * 100) + '%');
-		}
-	});
 })
 // socket消息处理
 if (window.parent.webSocket != null) {
@@ -81,23 +42,145 @@ if (window.parent.webSocket != null) {
 }
 
 /**
+ * 进度条拖动、点击事件
+ * 
+ */
+$('.progress_btn').mousedown(function(e) {
+	ox = e.pageX - left;
+	tag = true;
+});
+$(document).mouseup(function() {
+	tag = false;
+});
+$('.progress').mousemove(function(e) { //鼠标移动
+	if (tag) {
+		left = e.pageX - ox;
+		if (left <= 0) {
+			left = 0;
+		} else if (left > bar_width) {
+			left = bar_width;
+		}
+		$('.progress_btn').css('left', left);
+		$('.progress_bar').width(left);
+		//百分比
+		var hundredPercent = parseInt((left / bar_width) * 100);
+		console.log("hundredPercent---------", hundredPercent);
+	}
+});
+$('.progress_bg').click(function(e) { //鼠标点击
+	if (!tag) {
+		bgleft = $('.progress_bg').offset().left;
+		left = e.pageX - bgleft;
+		if (left <= 0) {
+			left = 0;
+		} else if (left > bar_width) {
+			left = bar_width;
+		}
+		$('.progress_btn').css('left', left);
+		$('.progress_bar').animate({
+			width: left
+		}, bar_width);
+		//百分比
+		var hundredPercent = parseInt((left / bar_width) * 100);
+	}
+});
+
+/**
  * @param {Object} dataArray
  * 移动
  */
 function move_track(dataArray) {
-	for (var i = 0; i < dataArray.length; i++) {
-		var singleObject = dataArray[i];
-		animation(singleObject.x, singleObject.y, singleObject.t, singleObject.id);
-	}
+	/**
+	 * 这里涉及到JS的 setTimeOut与循环的闭包问题 ps还有作用域的问题
+	 */
+	(function() {
+		for (var i = 0; i < dataArray.length; i++) {
+			(function(ii) {
+				setTimeout(
+					function() {
+						$(".content").append("<h2>"+ii+"</h2>");
+						var singleObject = dataArray[ii];
+						animation(singleObject.x, singleObject.y, singleObject.t, singleObject.id);
+					}, 1000 * ii);
+			})(i)
+		}
+	})();
+}
+
+/**
+ * 点击播放历史轨迹
+ */
+$(".playIcon").bind("click", function(dom) {
+	var helmetId = "1";
+	var beginTime = $(".left_begin_date").text();
+	var endTime = $(".right_end_date").text();
+	//转换时间格式
+	beginTime = formatTime(beginTime);
+	endTime = formatTime(endTime);
+	getHistoryTrackData(helmetId, beginTime, endTime);
+})
+
+/**
+ * 转换时间格式
+ * @param {Object} timeStr
+ */
+function formatTime(timeStr) {
+	timeStr = timeStr.replace("年", "-").replace("月", "-").replace("日", "-").replace("时", ":").replace("分", ":");
+	return timeStr;
+}
+
+/**
+ * 查询对应安全帽ID指定时间段内的轨迹数据
+ * @param {Object} helmetId
+ * @param {Object} beginTime
+ * @param {Object} endTime
+ */
+function getHistoryTrackData(helmetId, beginTime, endTime) {
+	$.ajax({
+		url: PATH + "checkcenter/getHistoryTrack",
+		type: "post",
+		data: {
+			"helmetId": helmetId,
+			"beginTime": beginTime,
+			"endTime": endTime
+		},
+		success: function(res) {
+			console.log("res------", res)
+			if (res.state == 200) {
+				if (res.data.length == 0) {
+					layer.ready(function() {
+						layer.msg("该时间段内没有历史轨迹数据", {
+							icon: 2,
+							time: 1000
+						}, function() {});
+					})
+				} else {
+					//运动小球
+					move_track(res.data);
+				}
+			} else if (res.state == 500) {
+				console.log("查询对应安全帽ID指定时间段内的轨迹数据失败...");
+			}
+		},
+		error: function(badRes) {
+			console.log("查询对应安全帽ID指定时间段内的轨迹数据....----" + badRes);
+		}
+	});
 }
 
 
 /**
  * 显示进度条
+ * @param {Object} track_begin_time 开始时间
+ * @param {Object} track_end_time 结束时间
  */
-function showProgressBar() {}
-
-
+function showProgressBar(track_begin_time, track_end_time) {
+	$(".left_begin_date").text(track_begin_time);
+	$(".right_end_date").text(track_end_time);
+	//隐藏工具条
+	$(".bf-toolbar-bottom").hide();
+	$(".progress_bar_area").css("visibility", "visible");
+}
 /**
  * 初始化右边按钮组
  */

@@ -71,7 +71,6 @@ function onSDKLoadSucceeded(viewMetaData) {
 		//viewer.getCameraStatus() 
 		console.log("当前点击模型对象-------", objectData);
 		var current_object_id = objectData.objectId;
-		
 		//全部构件恢复到原来颜色
 		viewer.clearOverrideColorComponents();
 		if (foundation_obejct_id_array.includes(current_object_id)) {
@@ -162,7 +161,7 @@ function load() {
 	//目前仅支持3ds外部构件
 	//https://www.inteagle.com.cn/update/common/bimface/3ds/smallBall.3ds
 	//http://127.0.0.1:8848/Inteagle_outside/update/common/bimface/3ds/smallBall.3ds
-	loadExternalComponent("http://127.0.0.1:8848/Inteagle_outside/update/common/bimface/3ds/smallBall.3ds", function(
+	loadExternalComponent("https://www.inteagle.com.cn/update/common/bimface/3ds/smallBall.3ds", function(
 		object) {
 		// 添加外部构件，命名为"ball_1"和"ball_2"
 		addExternalObject(viewer, "ball_1", object);
@@ -190,12 +189,13 @@ function onSDKLoadFailed(error) {
 
 // 轨迹模拟
 function animation(x, y, z, id) {
+	console.log("move----");
 	var position = new THREE.Vector3(x, y, z);
 	var obejct_id;
 	if (viewAdded) {
-		if (id == "a") {
+		if (id == "1") {
 			obejct_id = "ball_1";
-		} else if (id == "b") {
+		} else if (id == "2") {
 			obejct_id = "ball_2";
 		}
 		setTransform(obejct_id, position);

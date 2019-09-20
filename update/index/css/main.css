@@ -609,7 +609,7 @@ a:hover {
 	width: 20px;
 	height: 20px;
 	position: absolute;
-	right: 11%;
+	right: 7%;
 	top: 30%;
 	background-image: url(../img/time_pick.png);
 	background-size: 100% 100%;
@@ -1100,12 +1100,13 @@ select {
 	background-repeat: no-repeat;
 }
 
-.single_btn .layui-btn{
+.single_btn .layui-btn {
 	height: 100%;
 	line-height: 100%;
 }
 
 .seatch_btn_area {
+	margin-left: 2.5%;
 	background-image: url(../img/light_btn_box.png);
 }
 
@@ -1137,7 +1138,7 @@ select {
 	height: 50%;
 	width: 85%;
 	margin-top: 5%;
-	margin-left: 10%;
+	margin-left: 8%;
 	border: none;
 	color: #FFFFFF;
 }

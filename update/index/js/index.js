@@ -115,7 +115,7 @@ $(".see_track_btn").bind("click",function(dom){
 		//表示获取了嵌入在iframe中的子页面的window对象。  []将JQuery对象转成DOM对象，用DOM对象的contentWindow获取子页面window对象。
 		var childWindow = $("#mainFrame")[0].contentWindow;
 		//调用子页面中的subFunction方法。
-		childWindow.showProgressBar();  
+		childWindow.showProgressBar(track_begin_time_val,track_end_time_val);  
 	})
 })
 
