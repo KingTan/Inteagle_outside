@@ -1,0 +1,565 @@
+.curPageBody {
+	width: 100%;
+	height: 100vh;
+	color: #FFFFFF;
+}
+
+.leftArea {
+	width: 23%;
+	height: 100%;
+	margin-left: 1.5%;
+	/* margin-top: 1%; */
+}
+
+.leftTop {
+	width: 100%;
+	height: 38%;
+	position: relative;
+	/* border: 1px solid white; */
+	background-image: url(../img/1.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	margin-top: 5%;
+}
+
+.leftBottom {
+	width: 100%;
+	position: relative;
+	height: 56%;
+	margin-top: 4%;
+	/* border: 1px solid white; */
+	background-image: url(../img/2.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+.middleArea {
+	width: 49.3%;
+	height: 100%;
+	margin-left: 1%;
+	/* margin-top: 1%; */
+}
+
+.middleTop {
+	width: 100%;
+	height: 68%;
+	/* border: 1px solid white; */
+	background-image: url(../img/3.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	margin-top: 2%;
+}
+
+.middleBottom {
+	width: 100%;
+	height: 26%;
+	margin-top: 2%;
+	/* border: 1px solid white; */
+	background-image: url(../img/4.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+.rightArea {
+	width: 23%;
+	height: 100%;
+	margin-left: 1%;
+	/* margin-top: 1%; */
+}
+
+
+
+.rightBottom {
+	width: 100%;
+	height: 27%;
+	margin-top: 3%;
+	/* border: 1px solid white; */
+	background-image: url(../img/7.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+.topRightText:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.symbolSize:hover {
+	text-decoration: none !important;
+}
+
+.middleTopTitleArea {
+	margin-left: 6.5%;
+	margin-top: 0.8%;
+}
+
+.rightTopTitleArea {
+	margin-left: 26%;
+	margin-top: 3%;
+}
+
+.leftTop ul li {
+	font-family: AdobeHeitiStd-Regular;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #ffffff;
+}
+
+.projectPic {
+	width: 100%;
+}
+
+.middleText {
+	position: relative;
+	width: 90%;
+	margin: 0px auto;
+	margin-top: 8%;
+}
+
+.departmentDetail {
+	width: 90%;
+	margin: 0px auto;
+	margin-top: 6%;
+}
+
+.grayText {
+	color: #a3a3a3;
+}
+
+.peopleChartArea {
+	height: 69%;
+}
+
+#leftBottomCharts {
+	width: 100%;
+	/* height: 300px; */
+	height: 100%;
+}
+
+.insidePeopleArea {
+	width: 90%;
+	margin: 0px auto;
+	margin-top: 2%;
+	justify-content: flex-end;
+}
+
+.peopleCount {
+	width: 90%;
+	margin: 0px auto;
+	margin-top: 5%;
+	justify-content: space-around;
+}
+
+.insidePeopleNum {
+	font-size: 1.55rem;
+}
+
+.swiper-container {
+	width: 95%;
+	height: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1.4375rem;
+}
+
+.swiper-slide {
+	background-size: cover;
+	background-position: center;
+}
+
+.gallery-thumbs {
+	height: 15%;
+	box-sizing: border-box;
+	padding: 0.3125rem 0;
+	margin-top: 0.625rem;
+}
+
+.gallery-thumbs .swiper-slide {
+	height: 100%;
+	opacity: 0.4;
+}
+
+.gallery-thumbs .swiper-slide-thumb-active {
+	opacity: 1;
+}
+
+.progressArea {
+	width: 90%;
+	margin: 0px auto;
+	margin-top: 5%;
+	justify-content: space-between;
+}
+
+.bigCountValue {
+	font-size: 1.875rem;
+}
+
+.alreadyDoneArea {
+	align-items: center;
+}
+
+.totalDayArea {
+	align-items: center;
+}
+
+.middleProgressArea {
+	width: 70%;
+	margin-top: 5px;
+	position: relative;
+}
+
+.layui-progress {
+	background-color: #87C5E7 !important;
+}
+
+.layui-progress-bar {
+	width: 40%;
+	height: 1.0875rem;
+	line-height: 0.6875rem;
+	background-color: #3178C6;
+}
+
+.endInfoArea {
+	width: 100%;
+	margin-top: 2%;
+	justify-content: space-between;
+}
+
+.infoArea {
+	align-items: center;
+}
+
+
+
+.locationArea {
+	width: 75%;
+	margin: 0px auto;
+	justify-content: flex-end;
+}
+
+.positionText {
+	margin-left: 0.625rem;
+}
+
+.todayDateArea {
+	width: 90%;
+	margin: 0px auto;
+	margin-top: 3%;
+}
+
+.weatherAreaPart {
+	width: 95%;
+	height: 50%;
+	margin: 0px auto;
+	margin-top: 3%;
+}
+
+.currentWeatherIcon {
+	width: 80%;
+}
+
+.nowWeatherArea {
+	height: 100%;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.nowWeath {
+	height: 100%;
+	justify-content: space-between;
+}
+
+.IconArea {
+	width: 45%;
+}
+
+.tempArea {
+	width: 55%;
+}
+
+.tempureAera {
+	margin-left: 6px;
+	justify-content: space-around;
+}
+
+
+
+.nextWeather {
+	align-items: center;
+	padding-left: 6%;
+	margin-right: 5%;
+	/* padding-right: 6%; */
+	justify-content: space-between;
+	border-left: 1px solid white;
+}
+
+.nowWeatherIcon {
+	margin-top: 28%;
+}
+
+.weatherIcon {
+	margin-top: 10%;
+}
+
+.tempPeriodText {
+	margin-left: 12%;
+}
+
+.deviceCountArea {
+	width: 90%;
+	margin: 0px auto;
+	margin-top: 10%;
+	justify-content: space-around;
+}
+
+.boxArea {
+	width: 80%;
+	margin: 0px auto;
+	margin-top: 10%;
+	justify-content: space-between;
+}
+
+.singleBox {
+	width: 45%;
+	height: 85%;
+	background: linear-gradient(90deg, rgba(87, 171, 228, 1) 0%, rgba(44, 115, 196, 1) 100%);
+	box-shadow: -3px 3px 8px 0px rgba(82, 164, 224, 1);
+	border-radius: 8px;
+	font-size: 14px;
+	font-family: MicrosoftYaHei;
+	color: rgba(255, 255, 255, 1);
+}
+
+.boxAreaPart {
+	height: 75%;
+}
+
+.dataWarning {
+	margin-left: 5%;
+	background: linear-gradient(90deg, rgba(172, 87, 228, 1) 0%, rgba(99, 44, 196, 1) 100%);
+	box-shadow: -3px 3px 8px 0px rgba(163, 82, 224, 1);
+}
+
+.titleTextStr {
+	margin-left: 10%;
+	margin-top: 5%;
+}
+
+
+.safetyImg {
+	margin-left: 25%;
+}
+
+.weaPic {
+	align-items: center;
+}
+
+.singleBigCount {
+	align-items: center;
+}
+
+.day_two_icon {
+	width: 50%;
+}
+
+.day_three_icon {
+	width: 50%;
+}
+
+.weatherImg {
+	text-align: center;
+}
+
+@media only screen and (max-width: 1400px) {
+	.leftTop ul li {
+		font-size: 13px;
+		line-height: 1rem;
+	}
+
+	.leftProjectText {
+		margin-left: 0.3125rem;
+		color: #a3a3a3;
+		font-size: 13px;
+	}
+
+	.stationText {
+		font-size: 13px;
+	}
+
+	.nowTemp {
+		font-size: 1.5875rem;
+	}
+
+	.leftTopTitleArea {
+		margin-left: 16%;
+		margin-top: 1%;
+	}
+
+	.middletitleArea {
+		margin-left: 7.6%;
+		margin-top: 0;
+	}
+
+	.rightTop {
+		width: 100%;
+		height: 42%;
+		/* border: 1px solid white; */
+		background-image: url(../img/5.png);
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+		margin-top: 5%;
+	}
+
+	.rightMiddle {
+		width: 100%;
+		height: 24%;
+		margin-top: 3%;
+		/* border: 1px solid white; */
+		background-image: url(../img/6.png);
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+	}
+
+	.rightTitleArea {
+		margin-left: 16%;
+		margin-top: 0%;
+	}
+
+	.weatherTitle {
+		margin-top: 3%;
+	}
+
+	.nextTwoDayWeather {
+		width: 55%;
+		font-size: 13px;
+	}
+
+	.threeWeahterArea {
+		height: 100%;
+		width: 50%;
+		justify-content: space-between;
+		font-size: 13px;
+	}
+
+	.safetyIcon {
+		width: 70%;
+	}
+
+	.dataIcon {
+		width: 70%;
+	}
+
+	.safetyCount {
+		font-size: 1.8rem;
+		font-family: FZDHTFW--GB1-0;
+		font-weight: normal;
+		color: rgba(255, 255, 255, 1);
+	}
+
+	.safeExamine {
+		margin-left: 10%;
+		justify-content: space-around;
+		align-items: center;
+	}
+
+	.rightProjectImage {
+		position: absolute;
+		right: 0;
+		top: -1.5625rem;
+		width: 45%;
+	}
+}
+
+@media only screen and (min-width: 1400px) {
+	.leftTop ul li {
+		font-size: 1rem;
+		line-height: 1.625rem;
+	}
+
+	.leftProjectText {
+		margin-left: 0.3125rem;
+		color: #a3a3a3;
+		font-size: 0.9375rem;
+	}
+
+	.nowTemp {
+		font-size: 2.1875rem;
+	}
+
+	.leftTopTitleArea {
+		margin-left: 18%;
+		margin-top: 1.5%;
+	}
+
+	.middletitleArea {
+		margin-left: 8%;
+		margin-top: 0.6%;
+	}
+
+	.rightTop {
+		width: 100%;
+		height: 32%;
+		/* border: 1px solid white; */
+		background-image: url(../img/5.png);
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+		margin-top: 5%;
+	}
+
+	.rightMiddle {
+		width: 100%;
+		height: 34%;
+		margin-top: 3%;
+		/* border: 1px solid white; */
+		background-image: url(../img/6.png);
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+	}
+
+	.rightTitleArea {
+		margin-left: 18%;
+		margin-top: 2%;
+	}
+
+	.nextTwoDayWeather {
+		width: 45%;
+		margin-left: 0.625rem;
+	}
+
+	.threeWeahterArea {
+		height: 100%;
+		width: 55%;
+		justify-content: space-between;
+	}
+
+	.safetyCount {
+		font-size: 2.5rem;
+		font-family: FZDHTFW--GB1-0;
+		font-weight: normal;
+		color: rgba(255, 255, 255, 1);
+	}
+
+	.safeExamine {
+		margin-left: 10%;
+		margin-top: 5%;
+		justify-content: space-around;
+		align-items: center;
+	}
+
+	.rightProjectImage {
+		position: absolute;
+		right: 0;
+		top: -1.5625rem;
+		width: 50%;
+	}
+
+	.humanTitle {
+		margin-top: 3%;
+		margin-left: 19%;
+	}
+
+	.saftyTitle {
+		margin-top: 1.5%;
+	}
+}

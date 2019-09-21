@@ -1,0 +1,522 @@
+html,body {
+	width: 100%;
+	height: 100%;
+	/* background-repeat: no-repeat;*/
+	background-image: url(../img/newBack.jpg); 
+	background-repeat: no-repeat;
+	background-size: 1920px 946px;
+	position: relative;
+	color: #FFFFFF;
+}
+
+html,body,.backImage .backImagePic {
+	min-width: 1920px;
+	min-height: 946px;
+	overflow: hidden;
+}
+.backImagePic {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+.middleNameText {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	font-family: AdobeHeitiStd-Regular;
+	font-size: 35px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #ffffff;
+}
+
+.leftLogoText {
+	font-family: AdobeHeitiStd-Regular;
+	font-size: 30px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #ffffff;
+}
+
+.mainBody {
+	position: relative;
+	width: 92%;
+	margin: 0 auto;
+	/* margin-left: 5rem;
+	margin-right: 5rem; */
+}
+
+.topHead {
+	position: relative;
+	width: 100%;
+	margin-top: 19px;
+	justify-content: flex-end;
+}
+
+.singleRightOptionArea {
+	align-items: center;
+	padding-left: 1.25rem;
+}
+
+.topRightText {
+	margin-left: 0.625rem;
+	font-family: AdobeHeitiStd-Regular;
+	font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+}
+
+.topRightText:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.topIcon {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+.headShotIcon {
+	width: 2.375rem;
+	height: 2.375rem;
+}
+
+.bottomBox {
+	width: 100%;
+	/* height: 31.25rem; */
+	/* margin-top: 15px; */
+}
+
+.navList {
+	height: 45px;
+	line-height: 53px;
+	background-repeat: no-repeat;
+}
+
+.leftOptionList{
+	background-image: url(../img/leftOptionBox.png);
+}
+
+.rightOptionList{
+	background-image: url(../img/rightOptionBox.png);
+}
+
+.navList ul li {
+	float: left;
+	width: 150px;
+	text-align: center;
+	font-family: MicrosoftYaHei-Bold;
+	font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+}
+
+.topNavArea {
+	margin-left: 20px;
+	margin-right: 20px;
+	position: relative;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 0;
+}
+
+.projectNameArea {
+	width: 100%;
+	position: absolute;
+	text-align: center;
+	font-family: AdobeHeitiStd-Regular;
+	font-size: 31px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #5dd4ff;
+}
+
+.symbolLi {
+	opacity: 0.6;
+	font-size: 22px !important;
+}
+
+.rightOptionArea {
+	margin-top: 0.625rem;
+}
+
+.optionSelectArea {
+	position: relative;
+	justify-content: space-between;
+}
+
+.middleProjectName {
+	width: 100%;
+	position: absolute;
+	text-align: center;
+	font-family: AdobeHeitiStd-Regular;
+	font-size: 31px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #5dd4ff;
+	z-index: -1;
+}
+
+#leftBottomCharts {
+	width: 100%;
+	height: 300px;
+}
+
+.leftPart {
+	/* width: 30%; */
+	margin-left: 20px;
+}
+
+.leftTopArea {
+	width: 405px;
+	height: 302px;
+	/* border: 1px solid white; */
+	margin-top: 25px;
+	/* background-image: url(../img/left_top_box.jpg); */
+}
+
+.leftTopArea ul li {
+	font-family: AdobeHeitiStd-Regular;
+	font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #ffffff;
+	line-height: 26px;
+}
+
+.leftProjectText {
+	color: #a3a3a3;
+}
+
+.leftBottomArea {
+	width: 406px;
+	height: 406px;
+	/* border: 1px solid white; */
+	margin-top: 17px;
+}
+
+.boxTitle {
+	font-family: AdobeHeitiStd-Regular;
+	font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #ffffff;
+	margin-left: 70px;
+	margin-top: 3px;
+}
+
+.middleText {
+	margin-left: 30px;
+	margin-top: 35px;
+	position: relative;
+}
+
+.rightProjectImage {
+	position: absolute;
+	right: 25px;
+	top: -35px;
+
+}
+
+.projectPic {
+	width: 165px;
+	height: 98px;
+}
+
+.departmentDetail {
+	margin-left: 30px;
+	margin-top: 35px;
+}
+
+.insidePeopleArea {
+	margin-left: 257px;
+}
+
+.peopleCount {
+	width: 80%;
+	margin: 0px auto;
+	margin-top: 37px;
+	justify-content: space-between;
+}
+
+.bottomText {
+	color: #a3a3a3;
+}
+
+.insidePeopleNum {
+	font-size: 20px;
+}
+
+.insidePeopleText {
+	margin-left: 5px;
+}
+
+.middlePart {
+	margin-left: 24px;
+	margin-top: 25px;
+}
+
+.middleTop {
+	width: 860px;
+	height: 500px;
+	/* border: 1px solid white; */
+}
+
+.middleBottom {
+	width: 860px;
+	height: 200px;
+	/* border: 1px solid white; */
+	margin-top: 20px;
+}
+
+.swiper-container {
+	width: 803px;
+	height: 330px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 23px;
+}
+
+.swiper-slide {
+	background-size: cover;
+	background-position: center;
+}
+
+.gallery-thumbs {
+	height: 20%;
+	box-sizing: border-box;
+	padding: 10px 0;
+	margin-top: 10px;
+}
+
+.gallery-thumbs .swiper-slide {
+	height: 100%;
+	opacity: 0.4;
+}
+
+.gallery-thumbs .swiper-slide-thumb-active {
+	opacity: 1;
+}
+
+.progressArea {
+	position: relative;
+	width: 699px;
+	height: 70px;
+	margin: 0px auto;
+	margin-top: 53px;
+	justify-content: space-between;
+}
+
+.bigCountValue {
+	font-size: 30px;
+}
+
+.bottomInfoArea {
+	position: absolute;
+	margin-top: 20px;
+	justify-content: space-between;
+	left: -25px;
+}
+
+.infoArea {
+	align-items: center;
+}
+
+.middleProgressArea {
+	width: 29.125rem;
+	height: 0.6875rem;
+	margin-left: 2.5rem;
+	margin-right: 25px;
+	margin-top: 5px;
+	position: relative;
+}
+
+.layui-progress {
+	background-color: #87C5E7 !important;
+}
+
+.layui-progress-big,
+.layui-progress-big .layui-progress-bar {
+	width: 29.125rem;
+	height: 0.6875rem;
+	line-height: 0.6875rem;
+	background-color: #3178C6;
+}
+
+.endInfoArea {
+	position: absolute;
+	margin-top: 25px;
+	justify-content: space-between;
+	right: 90px;
+}
+
+.rightTopArea {
+	width: 408px;
+	height: 207px;
+	/* border: 1px solid white; */
+	margin-top: 25px;
+	margin-left: 19px;
+	position: relative;
+}
+
+.positionText {
+	margin-left: 10px;
+}
+
+.locationArea {
+	justify-content: flex-end;
+	margin-right: 40px;
+}
+
+.todayDate {
+	margin-left: 48px;
+}
+
+.threeWeahterArea {
+	margin-left: 48px;
+}
+
+.nowTemp {
+	font-size: 35px;
+}
+
+.leftThirty {
+	margin-top: 30px;
+}
+
+.tempureAera {
+	margin-left: 6px;
+	justify-content: space-around;
+}
+
+.tempPeriod {
+	margin-top: 29px;
+}
+
+.tempPeriodText {
+	margin-top: 30px;
+}
+
+.tempArea {
+	margin-left: 10px;
+}
+
+.nowWeatherArea {
+	width: 55%;
+}
+
+.rightMiddle {
+	width: 407px;
+	height: 279px;
+	/* border: 1px solid white; */
+	margin-top: 15px;
+	margin-left: 19px;
+}
+
+.deviceCountArea {
+	width: 261px;
+	margin: 0px auto;
+	justify-content: space-around;
+	margin-top: 28px;
+}
+
+.rightBottom {
+	width: 408px;
+	height: 205px;
+	/* border: 1px solid white; */
+	margin-top: 15px;
+	margin-left: 19px;
+}
+
+
+.singleBox {
+	width: 147px;
+	height: 96px;
+	background: linear-gradient(90deg, rgba(87, 171, 228, 1) 0%, rgba(44, 115, 196, 1) 100%);
+	box-shadow: -3px 3px 8px 0px rgba(82, 164, 224, 1);
+	border-radius: 8px;
+	font-size: 14px;
+	font-family: MicrosoftYaHei;
+	color: rgba(255, 255, 255, 1);
+}
+
+.boxArea {
+	margin-top: 40px;
+	margin-left: 48px;
+}
+
+.dataWarning {
+	margin-left: 27px;
+	background: linear-gradient(90deg, rgba(172, 87, 228, 1) 0%, rgba(99, 44, 196, 1) 100%);
+	box-shadow: -3px 3px 8px 0px rgba(163, 82, 224, 1);
+}
+
+.safetyCount {
+	font-size: 40px;
+	font-family: FZDHTFW--GB1-0;
+	font-weight: normal;
+	color: rgba(255, 255, 255, 1);
+}
+
+.titleTextStr {
+	margin-top: 13px;
+	margin-left: 17px;
+}
+
+.safetyCount {
+	margin-left: 17px;
+}
+
+.safetyImg {
+	margin-left: 53px;
+	margin-top: 7px;
+}
+
+.maohao {
+	font-weight: bolder;
+}
+
+.singleInfo {
+	align-items: center;
+}
+
+.rightValue {
+	margin-top: 0.125rem;
+	margin-left: 0.3125rem;
+}
+
+.nextTwoDayWeather {
+	position: absolute;
+	right: 0;
+	top: 80px;
+	height: 100px;
+}
+
+.nextWeather {
+	align-items: center;
+	padding-left: 15px;
+	padding-right: 15px;
+	justify-content: space-between;
+	border-left: 1px solid white;
+}
+.singleBigCount{
+	align-items: center;
+}
+.weaPic{
+	align-items: center;
+}
+.weatherText{
+	margin-top: 0.3125rem;
+}

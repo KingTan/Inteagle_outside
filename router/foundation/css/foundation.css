@@ -1,0 +1,464 @@
+.foundation {
+	width: 100%;
+	height: 100vh;
+	color: #FFFFFF;
+}
+
+.topArea {
+	width: 100%;
+	height: 5%;
+	margin-top: 1%;
+}
+
+.titleArea {
+	width: 15%;
+	height: 100%;
+	margin-left: 2%;
+	/* border: 1px solid white; */
+}
+
+.topMiddleSearchArea {
+	width: 40%;
+	height: 100%;
+	margin-left: 4%;
+	/* border: 1px solid white; */
+	background-image: url(../img/middle_top.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+.topOptionList {
+	width: 28%;
+	height: 100%;
+	margin-left: 9%;
+	/* border: 1px solid white; */
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.bottomShowArea {
+	width: 100%;
+	height: 100%;
+	margin-top: 1%;
+}
+
+.bottomleftMiddle {
+	width: 17%;
+	height: 100%;
+	margin-left: 1.5%;
+	/* border: 1px solid white; */
+	background-image: url(../img/left_bottom.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+.bottomBim {
+	width: 77.7%;
+	height: 100%;
+	margin-left: 2%;
+	/* border: 1px solid white; */
+	background-image: url(../img/middle_bottom.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+
+.bottomMiddleArea {
+	width: 59%;
+	height: 100%;
+	position: relative;
+	margin-left: 2%;
+	/* border: 1px solid white; */
+	background-image: url(../img/middle_bottom.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+.bottomRightArea {
+	width: 17%;
+	height: 100%;
+	margin-left: 2%;
+	/* border: 1px solid white; */
+	background-image: url(../img/right_bottom.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+.middleTopTitleArea {
+	margin-left: 7%;
+	margin-top: 0.5%;
+}
+
+.rightTopTitleArea {
+	margin-left: 26%;
+	margin-top: 3%;
+}
+
+.singleOptionArea {
+	align-items: center;
+	width: 35%;
+	text-align: right;
+	justify-content: flex-end;
+}
+
+.lastOption {
+	width: 23%;
+}
+
+.optionText {
+	font-family: Adobe Heiti Std;
+	font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: rgb(255, 255, 255);
+	margin-left: 5%;
+	color: #77bfec;
+}
+
+.rightPartArea {
+	position: absolute;
+	width: 25%;
+	right: 0;
+	justify-content: space-around;
+	top: 5%;
+	height: 5%;
+	z-index: 9;
+}
+
+@media only screen and (max-width: 1400px) {
+	.optionText {
+		font-size: 13px;
+	}
+
+	.rightPartArea {
+		width: 40%;
+	}
+}
+
+.optionText:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.leftTopTitleArea {
+	margin-left: 22%;
+	margin-top: 4%;
+}
+
+.leftBottomList {
+	width: 100%;
+	text-indent: 3em;
+	margin-top: 17%;
+	line-height: 2.875rem;
+}
+
+.leftBottomList ul li {
+	width: 95%;
+	margin: 0px auto;
+	user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+
+.leftBottomList ul li:hover {
+	cursor: pointer;
+	background-color: #002e6f;
+}
+
+.deviceListArea {
+	width: 92%;
+	margin: 0rem auto;
+	margin-top: 10%;
+}
+
+.layui-btn-container .layui-btn {
+	margin-right: 3%;
+	margin-bottom: 3%;
+}
+
+.layui-btn {
+	width: 2.1875rem;
+	height: 1.375rem;
+	line-height: 1.375rem;
+	text-align: center;
+	padding: 0;
+	background: transparent;
+	/*完全透明*/
+	opacity: 1;
+	/* 仅调节背景的色彩，并加上不透明度，此例为70%不透明的白色 */
+	border: 1px solid #77bfec;
+	color: #77bfec;
+}
+
+/* 边框发光
+	inset 内阴影
+*/
+.layui-btn {
+	box-shadow: inset 0px 0px 3px 1px #77bfec;
+}
+
+.error_btn {
+	background-color: black;
+	color: white;
+	border: 1px solid black;
+}
+
+.warning_btn {
+	border: 1px solid #fece2c;
+	box-shadow: inset 0px 0px 3px 1px #fece2c !important;
+}
+
+.sos_btn {
+	border: 1px solid #ff0000;
+	box-shadow: inset 0px 0px 3px 1px #ff0000 !important;
+}
+
+
+.layui-btn-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+#view {
+	width: 95%;
+	height: 90%;
+	margin: 0px auto;
+	margin-top: 1.25rem;
+}
+
+.leftInputArea {
+	width: 75%;
+	height: 65%;
+	margin-top: 1.2%;
+	margin-left: 2%;
+	position: relative;
+}
+
+.leftInputArea .icon-search {
+	background: url(../img/search_btn.png) no-repeat;
+	width: 1.25rem;
+	height: 1.25rem;
+	position: absolute;
+	top: 4px;
+	left: 35%;
+}
+
+
+.layui-form {
+	width: 100%;
+	height: 100%;
+}
+
+.layui-form-select {
+	width: 100%;
+	height: 100%;
+}
+
+.layui-input-inline {
+	width: 100%;
+	height: 100%;
+}
+
+.layui-select-title {
+	width: 100%;
+	height: 100%;
+	color: #FFFFFF !important;
+}
+
+.layui-select-title input {
+	color: #FFFFFF !important;
+}
+
+.layui-form-select .layui-input {
+	text-indent: 40%;
+}
+
+.layui-input,
+.layui-select,
+.layui-textarea {
+	height: 100%;
+	background: transparent;
+	border: none;
+}
+
+.layui-form-select dl {
+	top: 27px;
+	/* background: transparent; */
+	border: 1px solid #2C73C4;
+	border-top: none;
+	color: #000000;
+}
+
+.layui-form-select dl dd:hover {
+	background-color: #2C73C4;
+	color: #FFFFFF;
+}
+
+.layui-form-select dl dd.layui-select-tips {
+	color: #000000;
+}
+
+.layui-form-select .layui-edge {
+	top: 55%;
+}
+
+.searchBtnArea {
+	width: 18%;
+	height: 65%;
+	margin-top: 1.3%;
+	margin-left: 3.5%;
+}
+
+.searchBtnArea .layui-btn {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	border: none;
+	box-shadow: none;
+}
+
+.titleText {
+	width: 50%;
+	height: 70%;
+	margin-left: 10%;
+	margin-top: 2%;
+	text-align: center;
+	background-image: url(../img/title_box.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	font-family: AdobeHeitiStd-Regular;
+	font-size: 20px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #93f3ff;
+}
+
+.middleTopOption {
+	width: 30%;
+	align-items: center;
+	font-size: 1.25rem;
+}
+
+.time_chosen_area {
+	height: 100%;
+	width: 40%;
+}
+
+.time_chosen_area .layui-form-select .layui-input {
+	border: 1px solid white;
+	text-indent: 5%;
+}
+
+#deepChartsTime {
+	/* border: 1px solid white; */
+	color: #FFFFFF !important;
+	text-align: center;
+}
+
+.topCharts {
+	width: 96%;
+	height: 90%;
+	/* border: 1px solid white; */
+	margin: 0px auto;
+	margin-top: 2%;
+	color: #FFFFFF !important;
+	position: relative;
+}
+
+.deep_charts {
+	width: 100%;
+	height: 100%;
+}
+
+.top_horizontal_charts {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+}
+
+.heatMapArea {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.top_heatMapArea {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+#bigCharts {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	color: #FFFFFF !important;
+}
+
+#horizontal_charts {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	color: #FFFFFF !important;
+}
+
+#heat_x {
+	width: 100%;
+	height: 50%;
+	color: #FFFFFF !important;
+}
+
+#heat_y {
+	width: 100%;
+	height: 50%;
+	color: #FFFFFF !important;
+}
+#top_speed_charts{
+	width: 100%;
+	height: 100%;
+	color: #FFFFFF !important;
+}
+
+.laydate-btns-time {
+	visibility: hidden;
+}
+
+input::-webkit-input-placeholder {
+	color: #FFFFFF;
+}
+
+input::-moz-placeholder {
+	/* Mozilla Firefox 19+ */
+	color: #FFFFFF;
+}
+
+input:-moz-placeholder {
+	/* Mozilla Firefox 4 to 18 */
+	color: #FFFFFF;
+}
+
+input:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: #FFFFFF;
+}
+
+#layui-laydate1 {
+	width: 30%;
+}
+
+.layui-laydate-main {
+	width: 100% !important;
+}
+
+.layui-laydate-content table {
+	width: 100% !important;
+}
+
+.checked_option {
+	background-color: #002e6f;
+}

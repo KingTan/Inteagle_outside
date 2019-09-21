@@ -1,0 +1,676 @@
+.backImagePic {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+.mainBody {
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+}
+
+.notice_text {
+	font-size: 10px;
+	color: purple;
+	margin-top: 5px;
+	margin-left: 11px;
+}
+
+.notice_text_update {
+	font-size: 10px;
+	color: purple;
+	margin-top: 5px;
+	margin-left: 11px;
+}
+
+.notice_icon {
+	color: orangered;
+}
+
+@media only screen and (max-width: 1400px) {
+	.login_box_area {
+		position: absolute;
+		top: 25%;
+		right: 10%;
+		width: 25%;
+		height: 50%;
+		border: 1px solid white;
+		border-radius: 0.875rem;
+		background-color: rgba(255, 255, 255, 0.6);
+		opacity: 0.8;
+	}
+
+	.loginParam_icon {
+		background: url(../img/yonghuming.png) no-repeat;
+		width: 25px;
+		height: 25px;
+		position: absolute;
+		top: 10px;
+		left: 10px;
+	}
+
+	.loginPwd_icon {
+		background: url(../img/yuechi.png) no-repeat;
+		width: 25px;
+		height: 25px;
+		position: absolute;
+		top: 15px;
+		left: 10px;
+	}
+
+	.phoneParam_icon {
+		background: url(../img/shouji.png) no-repeat;
+		width: 25px;
+		height: 25px;
+		position: absolute;
+		top: 10px;
+		left: 10px;
+	}
+
+	.register_box_area {
+		position: absolute;
+		top: 25%;
+		right: 10%;
+		width: 25%;
+		height: 70%;
+		border: none;
+		border-radius: 0.875rem;
+		background-color: rgba(255, 255, 255, 0.6);
+		/* opacity: 0.8; */
+	}
+
+	.single_box_register {
+		width: 80%;
+		height: 95%;
+		margin: 0px auto;
+		margin-top: 5%;
+	}
+
+	.identityCode_box {
+		position: absolute;
+		top: 25%;
+		right: 10%;
+		width: 25%;
+		height: 50%;
+		border: 1px solid white;
+		border-radius: 0.875rem;
+		background-color: rgba(255, 255, 255, 0.6);
+		opacity: 0.8;
+	}
+
+	.identityCode_area {
+		width: 100%;
+		height: 30%;
+		margin-top: 7%;
+		justify-content: space-between;
+	}
+
+	.agreement_area {
+		width: 80%;
+		margin: 0px auto;
+		margin-top: 7%;
+		color: #FFFFFF;
+		font-size: 13px;
+	}
+
+	.register_btn_area {
+		width: 100%;
+		height: 30%;
+		margin-top: 7%;
+	}
+
+	.singleInput {
+		width: 100%;
+		height: 30%;
+		position: relative;
+		margin-top: 7%;
+		align-items: center;
+		background-color: #7E7F7F;
+		color: #FFFFFF;
+		font-size: 13px;
+		border: 1px solid #7E7F7F;
+	}
+
+	.updatePwd_box {
+		position: absolute;
+		top: 25%;
+		right: 10%;
+		width: 25%;
+		height: 50%;
+		border: 1px solid white;
+		border-radius: 0.875rem;
+		background-color: rgba(255, 255, 255, 0.6);
+		opacity: 0.8;
+	}
+}
+
+@media only screen and (min-width: 1400px) {
+	.login_box_area {
+		position: absolute;
+		top: 25%;
+		right: 13%;
+		width: 20%;
+		height: 35%;
+		border: none;
+		border-radius: 0.875rem;
+		background-color: rgba(255, 255, 255, 0.6);
+		opacity: 0.8;
+	}
+
+	.updatePwd_box {
+		position: absolute;
+		top: 25%;
+		right: 13%;
+		width: 20%;
+		height: 35%;
+		border: none;
+		border-radius: 0.875rem;
+		background-color: rgba(255, 255, 255, 0.6);
+		opacity: 0.8;
+	}
+
+
+	.loginParam_icon {
+		background: url(../img/yonghuming.png) no-repeat;
+		width: 25px;
+		height: 25px;
+		position: absolute;
+		top: 14px;
+		left: 10px;
+	}
+
+	.phoneParam_icon {
+		background: url(../img/shouji.png) no-repeat;
+		width: 25px;
+		height: 25px;
+		position: absolute;
+		top: 10px;
+		left: 10px;
+	}
+
+	.loginPwd_icon {
+		background: url(../img/yuechi.png) no-repeat;
+		width: 25px;
+		height: 25px;
+		position: absolute;
+		top: 17px;
+		left: 10px;
+	}
+
+	.register_box_area {
+		position: absolute;
+		top: 25%;
+		right: 13%;
+		width: 20%;
+		height: 59%;
+		border: none;
+		border-radius: 0.875rem;
+		background-color: rgba(255, 255, 255, 0.6);
+		/* opacity: 0.8; */
+	}
+
+	.single_box_register {
+		width: 80%;
+		height: 90%;
+		margin: 0px auto;
+		margin-top: 10%;
+	}
+
+	.identityCode_box {
+		position: absolute;
+		top: 25%;
+		right: 13%;
+		width: 20%;
+		height: 35%;
+		border: none;
+		border-radius: 0.875rem;
+		background-color: rgba(255, 255, 255, 0.6);
+		opacity: 0.8;
+	}
+
+	.identityCode_area {
+		width: 100%;
+		height: 7%;
+		margin-top: 7%;
+		justify-content: space-between;
+	}
+
+	.agreement_area {
+		width: 65%;
+		margin: 0px auto;
+		margin-top: 7%;
+		color: #FFFFFF;
+		font-size: 13px;
+	}
+
+	.register_btn_area {
+		width: 100%;
+		height: 7%;
+		margin-top: 7%;
+	}
+
+	.singleInput {
+		width: 100%;
+		height: 7%;
+		position: relative;
+		margin-top: 7%;
+		align-items: center;
+		background-color: #7E7F7F;
+		color: #FFFFFF;
+		font-size: 13px;
+		border: 1px solid #7E7F7F;
+	}
+}
+
+.single_box {
+	width: 80%;
+	height: 80%;
+	margin: 0px auto;
+	margin-top: 15%;
+}
+
+.loginBtn {
+	width: 100%;
+	background-color: rgb(0, 0, 0);
+	opacity: 0.349;
+}
+
+.loginBtn_identity {
+	width: 100%;
+	background-color: rgb(0, 0, 0);
+	opacity: 0.349;
+}
+
+.single_input {
+	width: 100%;
+	height: 15%;
+	position: relative;
+	border: 1px solid #7E7F7F;
+}
+
+.single_input_change {
+	width: 100%;
+	height: 15%;
+	position: relative;
+	border: 1px solid #7E7F7F;
+	align-items: center;
+	background-color: #7E7F7F !important;
+	color: rgb(255, 255, 255) !important;
+	outline: none;
+}
+
+.single_input_change .right_value {
+	width: 60%;
+	margin-left: 5%;
+}
+
+.single_input_change .right_value input {
+	background-color: #7E7F7F !important;
+	color: rgb(255, 255, 255) !important;
+	border: none;
+	outline: none;
+}
+
+.single_input_change .left_text {
+	margin-left: 10%;
+}
+
+.pwdArea {
+	margin-top: 10%;
+}
+
+.icon_box {
+	width: 12%;
+	position: absolute;
+	height: 100%;
+	border-right: 1px solid #A5A5A5;
+}
+
+.input_area {
+	width: 100%;
+	height: 100%;
+	background-color: #7E7F7F;
+}
+
+.input_area input {
+	width: 100%;
+	height: 100%;
+	text-indent: 3rem;
+	background-color: #7E7F7F !important;
+	color: rgb(255, 255, 255) !important;
+	border: none;
+	outline: none;
+}
+
+.remember_pwd_area input {
+	background-color: #7E7F7F !important;
+	color: rgb(255, 255, 255) !important;
+	border: none;
+}
+
+/**
+ * 消除webkit内核浏览器 input框样式
+ */
+input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px #7E7F7F inset;
+	-webkit-text-fill-color: rgb(255, 255, 255);
+}
+
+
+.check_agree_box {
+	margin-right: 10px;
+	margin-bottom: 5px;
+}
+
+
+input[type="checkbox"] {
+	width: 12px;
+	height: 12px;
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 15px;
+	position: relative;
+}
+
+input[type="checkbox"]::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 12px;
+	height: 12px;
+	background-color: #7E7F7F !important;
+	border: 1px solid #7E7F7F;
+}
+
+input[type="checkbox"]:checked::before {
+	content: "\2713";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 12px;
+	height: 12px;
+	background-color: #7E7F7F !important;
+	border: 1px solid #7e7f7f !important;
+	color: #FFFFFF !important;
+	font-weight: bold;
+}
+
+input::-webkit-input-placeholder {
+	color: rgb(255, 255, 255) !important;
+	font-size: 13px;
+}
+
+input:-moz-placeholder {
+	color: rgb(255, 255, 255) !important;
+	font-size: 13px;
+}
+
+input:-ms-input-placeholder {
+	color: rgb(255, 255, 255) !important;
+	font-size: 13px;
+}
+
+.remember_pwd_area {
+	width: 100%;
+	margin-top: 5%;
+	justify-content: flex-end;
+	align-items: center;
+	color: rgb(255, 255, 255);
+	font-size: 0.8125rem;
+}
+
+.remember_pwd_area input {
+	margin-right: 6px;
+}
+
+.option_area {
+	width: 100%;
+	margin-top: 6%;
+	font-size: 0.875rem;
+	color: rgb(255, 255, 255);
+	justify-content: space-between;
+}
+
+.login_btn_area {
+	width: 100%;
+	height: 15%;
+	margin-top: 10%;
+}
+
+.layui-btn {
+	height: 100%;
+	line-height: 100%;
+}
+
+.next_step_btn {
+	height: 100%;
+	line-height: 100%;
+	width: 100%;
+	background-color: rgb(0, 0, 0);
+	opacity: 0.5;
+}
+
+.black_btn {
+	height: 100%;
+	line-height: 100%;
+	width: 100%;
+	background-color: rgb(0, 0, 0);
+	opacity: 0.5;
+}
+
+.next_step_btn_text {
+	height: 100%;
+	line-height: 100%;
+	width: 100%;
+	background-color: rgb(0, 0, 0);
+	opacity: 0.161;
+	color: #FFF9EC;
+}
+
+
+
+.optionText:hover {
+	cursor: pointer;
+	color: #000000;
+}
+
+.left_input_text {
+	width: 25%;
+	text-align: center;
+	border-right: 1px solid #A5A5A5;
+}
+
+.right_input_area {
+	width: 75%;
+	height: 100%;
+	background-color: #7E7F7F;
+}
+
+.right_input_area input {
+	width: 100%;
+	height: 100%;
+	text-indent: 1rem;
+	background-color: #7E7F7F !important;
+	color: rgb(255, 255, 255) !important;
+	border: none;
+	outline: none;
+}
+
+
+
+.identityCode_area_sec {
+	width: 100%;
+	height: 15%;
+	margin-top: 7%;
+	justify-content: space-between;
+}
+
+.identity_value_input {
+	width: 65%;
+	height: 100%;
+}
+
+.identity_value_input input {
+	width: 100%;
+	height: 100%;
+	background-color: #7E7F7F !important;
+	color: rgb(255, 255, 255) !important;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+.get_identity_btn {
+	width: 30%;
+	height: 100%;
+}
+
+.get_identity_btn .layui-btn {
+	width: 100%;
+	padding: 0;
+	color: #FFFFFF !important;
+}
+
+.getIdentityBtn {
+	width: 100%;
+	background-color: #2A2C2B;
+	color: #FFFFFF !important;
+}
+
+
+
+.agreement_area a {
+	color: #FFFFFF;
+	font-size: 13px;
+}
+
+.agreement_area a:hover {
+	color: #000000;
+}
+
+.register_option_area a:hover {
+	color: #000000;
+}
+
+.registerBtn {
+	width: 100%;
+	height: 100%;
+	background-color: rgb(0, 0, 0);
+	opacity: 0.349;
+}
+
+.register_option_area {
+	width: 100%;
+	margin-top: 4%;
+	color: #FFFFFF;
+	font-size: 13px;
+	text-align: center;
+}
+
+.register_option_area a {
+	color: #FFFFFF;
+	font-size: 13px;
+}
+
+.null_input {
+	border: 1px solid darkorange !important;
+}
+
+.user_agreement_area {
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+	background-color: #FFFFFF;
+}
+
+.W_tc {
+	text-align: center;
+}
+
+.WB_cardwrap {
+	margin: 0 0 10px 0;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+	border-radius: 2px;
+	*zoom: 1;
+}
+
+.WB_innerwrap {
+	padding: 16px;
+}
+
+.WB_licence .private_cont {
+	padding: 0px 22px;
+	padding-bottom: 20px;
+}
+
+.WB_licence .private_cont h2 {
+	width: 668px;
+	margin-left: -22px;
+	border-color: #d9d9d9;
+	font-size: 22px;
+	line-height: 1.5;
+	font-weight: normal;
+}
+
+.WB_licence .private_cont h3 {
+	font-size: 14px;
+	text-align: left;
+	line-height: 1.8;
+	letter-spacing: 1.5px;
+	font-weight: bold;
+	margin-top: 40px;
+}
+
+.WB_licence .private_cont p {
+	font-size: 14px;
+	text-align: left;
+	line-height: 1.8;
+	letter-spacing: 1.5px;
+}
+
+.W_fb {
+	font-weight: 700;
+}
+
+.WB_licence .private_cont h3 {
+	font-size: 14px;
+	text-align: left;
+	line-height: 1.8;
+	letter-spacing: 1.5px;
+	font-weight: bold;
+	margin-top: 40px;
+}
+
+.left_option {
+	width: 45%;
+	justify-content: space-between;
+}
+
+.secTop {
+	margin-top: 10%;
+}
+
+.top_text {
+	color: #FFFFFF;
+	margin-top: 3%;
+}
+
+.top_text_area {
+	width: 100%;
+	height: 15%;
+	background-color: #848C91;
+	text-align: center;
+}
+
+.curren_user {
+	width: 80%;
+	position: absolute;
+	margin-left: 20%;
+	margin-top: 7%;
+}

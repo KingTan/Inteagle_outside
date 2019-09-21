@@ -4,11 +4,13 @@ var tag = false,
 	left = 0,
 	bgleft = 0,
 	bar_width = $(".progress").width();
+//延迟移动 定时器
+var move_time_out;
+
 /**
  * 页面加载事件
  */
 $(function() {
-
 	//结束页面加载图标
 	$(".loading").fadeOut();
 	//显示内容
@@ -96,11 +98,21 @@ function move_track(dataArray) {
 	(function() {
 		for (var i = 0; i < dataArray.length; i++) {
 			(function(ii) {
-				setTimeout(
+				move_time_out = setTimeout(
 					function() {
-						$(".content").append("<h2>"+ii+"</h2>");
 						var singleObject = dataArray[ii];
 						animation(singleObject.x, singleObject.y, singleObject.t, singleObject.id);
+						//设置进度条百分比
+						var left_distance = bar_width * (ii + 1) / dataArray.length;
+						//百分比
+						var hundredPercent = parseInt((left_distance / bar_width) * 100);
+						//更改播放按钮样式
+						if (hundredPercent > 99) {
+							$(".playIcon").attr("data-index","pause");
+							$(".playIcon").attr("src", "img/play_icon.png");
+						}
+						$('.progress_btn').css('left', left_distance);
+						$('.progress_bar').width(left_distance);
 					}, 1000 * ii);
 			})(i)
 		}
@@ -111,13 +123,23 @@ function move_track(dataArray) {
  * 点击播放历史轨迹
  */
 $(".playIcon").bind("click", function(dom) {
-	var helmetId = "1";
-	var beginTime = $(".left_begin_date").text();
-	var endTime = $(".right_end_date").text();
-	//转换时间格式
-	beginTime = formatTime(beginTime);
-	endTime = formatTime(endTime);
-	getHistoryTrackData(helmetId, beginTime, endTime);
+	var data_index = dom.currentTarget.dataset.index;
+	if (data_index == "pause") {
+		dom.currentTarget.dataset.index = "play";
+		$(".playIcon").attr("src", "img/pause.png");
+		var helmetId = "1";
+		var beginTime = $(".left_begin_date").text();
+		var endTime = $(".right_end_date").text();
+		//转换时间格式
+		beginTime = formatTime(beginTime);
+		endTime = formatTime(endTime);
+		getHistoryTrackData(helmetId, beginTime, endTime);
+	} else if (data_index == "play") {
+		dom.currentTarget.dataset.index = "pause";
+		$(".playIcon").attr("src", "img/play_icon.png");
+		//清除轨迹移动定时器
+		window.clearTimeout("move_time_out");
+	}
 })
 
 /**
