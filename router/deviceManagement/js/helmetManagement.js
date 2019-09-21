@@ -21,19 +21,19 @@ function setmenuStyle(path) {
 	var middleTitle;
 	switch (path) {
 		case "router":
-			middleTitle = "路由器";
+			middleTitle = "摄像头";
 			$(".left_bottom_options ul li[data-index='router']").addClass("checked_option");
 			break;
 		case "camera":
-			middleTitle = "摄像头";
+			middleTitle = "单灯";
 			$(".left_bottom_options ul li[data-index='camera']").addClass("checked_option");
 			break;
 		case "helmet":
-			middleTitle = "安全帽";
+			middleTitle = "基坑电机";
 			$(".left_bottom_options ul li[data-index='helmet']").addClass("checked_option");
 			break;
 		case "electric":
-			middleTitle = "基坑电机";
+			middleTitle = "测斜仪";
 			$(".left_bottom_options ul li[data-index='electric']").addClass("checked_option");
 			break;
 	}

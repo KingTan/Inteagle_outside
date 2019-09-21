@@ -7,6 +7,8 @@ var tag = false,
 //延迟移动 定时器
 var move_time_out;
 
+var history_data;
+
 /**
  * 页面加载事件
  */
@@ -17,6 +19,8 @@ $(function() {
 	$(".foundation").css("visibility", "visible");
 	//电子围栏设备集合
 	intialBtnGroup();
+	
+	getHistoryTrackData("001","2019-09-21 00:00:00","2019-09-21 18:00:00");
 })
 // socket消息处理
 if (window.parent.webSocket != null) {
@@ -108,7 +112,7 @@ function move_track(dataArray) {
 						var hundredPercent = parseInt((left_distance / bar_width) * 100);
 						//更改播放按钮样式
 						if (hundredPercent > 99) {
-							$(".playIcon").attr("data-index","pause");
+							$(".playIcon").attr("data-index", "pause");
 							$(".playIcon").attr("src", "img/play_icon.png");
 						}
 						$('.progress_btn').css('left', left_distance);
@@ -124,21 +128,19 @@ function move_track(dataArray) {
  */
 $(".playIcon").bind("click", function(dom) {
 	var data_index = dom.currentTarget.dataset.index;
-	if (data_index == "pause") {
-		dom.currentTarget.dataset.index = "play";
-		$(".playIcon").attr("src", "img/pause.png");
-		var helmetId = "1";
-		var beginTime = $(".left_begin_date").text();
-		var endTime = $(".right_end_date").text();
-		//转换时间格式
-		beginTime = formatTime(beginTime);
-		endTime = formatTime(endTime);
-		getHistoryTrackData(helmetId, beginTime, endTime);
-	} else if (data_index == "play") {
-		dom.currentTarget.dataset.index = "pause";
-		$(".playIcon").attr("src", "img/play_icon.png");
-		//清除轨迹移动定时器
-		window.clearTimeout("move_time_out");
+	if (history_data != null && history_data != "" && history_data != undefined) {
+		if (data_index == "pause") {
+			dom.currentTarget.dataset.index = "play";
+			$(".playIcon").attr("src", "img/pause.png");
+			//运动小球
+			move_track(history_data);
+		} else if (data_index == "play") {
+			dom.currentTarget.dataset.index = "pause";
+			$(".playIcon").attr("src", "img/play_icon.png");
+			console.log("move_time_out-----", move_time_out);
+			//清除轨迹移动定时器
+			window.clearTimeout("move_time_out");
+		}
 	}
 })
 
@@ -177,8 +179,7 @@ function getHistoryTrackData(helmetId, beginTime, endTime) {
 						}, function() {});
 					})
 				} else {
-					//运动小球
-					move_track(res.data);
+					history_data = res.data;
 				}
 			} else if (res.state == 500) {
 				console.log("查询对应安全帽ID指定时间段内的轨迹数据失败...");
@@ -202,6 +203,12 @@ function showProgressBar(track_begin_time, track_end_time) {
 	//隐藏工具条
 	$(".bf-toolbar-bottom").hide();
 	$(".progress_bar_area").css("visibility", "visible");
+
+	track_begin_time = formatTime(track_begin_time);
+	track_end_time = formatTime(track_end_time);
+
+	//查询数据
+	getHistoryTrackData("1", track_begin_time, track_end_time);
 }
 /**
  * 初始化右边按钮组
