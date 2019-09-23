@@ -21,13 +21,14 @@ $(".navBtn").bind("click", function(dom) {
 	$(".left_nav").removeClass("checked_left_nav");
 	$(".right_nav").removeClass("checked_right_nav");
 	if (data_index == "foundation") {
+		console.log("1");
 		//基坑监测
 		$(".left_nav").addClass("checked_left_nav");
-		iframePath = "../foundation/foundation.html";
+		iframePath = "../foundation/foundation_charts.html";
 	} else if (data_index = "device") {
 		//设备管理
 		$(".right_nav").addClass("checked_right_nav");
-		iframePath = "../deviceManagement/helmetManagement.html";
+		iframePath = "../deviceManagement/helmetManagement.html?path=router";
 	}
 	$("#mainFrame").attr("src", iframePath);
 })
@@ -43,11 +44,11 @@ function getRouterPath() {
 	if (path == "foundation") {
 		//基坑监测
 		$(".left_nav").addClass("checked_left_nav");
-		iframePath = "../foundation/foundation.html";
+		iframePath = "../foundation/foundation_charts.html";
 	} else if (path = "device") {
 		//设备管理
 		$(".right_nav").addClass("checked_right_nav");
-		iframePath = "../deviceManagement/helmetManagement.html";
+		iframePath = "../deviceManagement/helmetManagement.html?path=router";
 	}
 	$("#mainFrame").attr("src", iframePath);
 }

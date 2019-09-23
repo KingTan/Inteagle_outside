@@ -614,7 +614,7 @@ function login(searchParam, pwd) {
 						icon: 1,
 						time: 1000
 					}, function() {
-						window.location.href = "../login_after/login_after.html";
+						window.location.href = "../index/index.html?path=foundation";
 					});
 				})
 			}

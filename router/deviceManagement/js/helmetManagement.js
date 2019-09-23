@@ -19,7 +19,11 @@ function setmenuStyle(path) {
 	$(".left_bottom_options ul li").removeClass("checked_option");
 	//中间显示标题
 	var middleTitle;
+	console.log("path--------",path);
 	switch (path) {
+		case "device":
+			$(".left_bottom_options ul li[data-index='router']").addClass("checked_option");
+			break;
 		case "router":
 			middleTitle = "摄像头";
 			$(".left_bottom_options ul li[data-index='router']").addClass("checked_option");

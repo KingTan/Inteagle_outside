@@ -33,6 +33,8 @@ if (typeof(WebSocket) == "undefined") {
 					var data_array_single = res.data;
 					//初始化 顶部水平位移
 					draw_top_charts(data_array_single);
+					//顶部竖向位移
+					draw_top_vertical_charts(data_array_single);
 				}
 			}
 		}

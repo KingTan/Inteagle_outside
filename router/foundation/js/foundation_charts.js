@@ -7,10 +7,8 @@ if (id != null) {
 } else {
 	id = "1";
 }
-
 //时间选择器选择的时间
 var checked_time = "";
-
 
 /**
  * 页面加载事件
@@ -20,23 +18,32 @@ $(function() {
 	intialBtnGroup("normal_order");
 	//初始化时间选择器
 	initialLayDate();
-	//绘制深度水平位移 默认折线图charts
-	inintialEcharts('bigCharts', id, null, true);
-
+	//绘制图表
+	drwaCharts();
 })
 
+/**
+ * 绘制图表
+ */
+function drwaCharts() {
+	//深度水平位移 
+	inintialEcharts('bigCharts', id, null, true);
+	//顶部水平位移
+	draw_top_charts(null);
+	//顶部竖向位移
+	draw_top_vertical_charts(null);
+	//地下水位
+	draw_water_charts(null);
+}
 
 //监听趋势图类型下拉框改变事件
 layui.use('form', function() {
 	var charts_form = layui.form;
 	charts_form.on('select(chartsType)', function(data) {
-		console.log("data---------",data);
 		var value = data.value;
-		
-		var charts_type=data.elem.dataset.type;
-		console.log("charts_type----------------",charts_type);
-		
-		if(charts_type=="deep"){
+		var charts_type = data.elem.dataset.type;
+
+		if (charts_type == "deep") {
 			//深层水平位移
 			if (value == 1) {
 				//隐藏热力图
@@ -54,7 +61,7 @@ layui.use('form', function() {
 				drawHeatMapX();
 				drawHeatMapY();
 			}
-		}else if(charts_type=="top_horizontal"){
+		} else if (charts_type == "top_horizontal") {
 			//顶部水平位移
 			if (value == 1) {
 				//隐藏速率图
@@ -67,14 +74,126 @@ layui.use('form', function() {
 				//显示速率图
 				$(".top_heatMapArea").css("visibility", "visible");
 				//绘制速率图
-				$(".top_heatMapArea").promise().done(function(){
+				$(".top_heatMapArea").promise().done(function() {
 					//绘制速率图
 					draw_top_speed_charts();
+				})
+			}
+		} else if (charts_type == "top_vertical") {
+			//顶部水平位移
+			if (value == 1) {
+				//隐藏速率图
+				$(".vertical_bar").css("visibility", "hidden");
+				//显示位移图
+				$("#vertical_charts").fadeIn();
+			} else if (value == 2) {
+				//隐藏位移图
+				$("#vertical_charts").fadeOut();
+				//显示速率图
+				$(".vertical_bar").css("visibility", "visible");
+				//绘制速率图
+				$(".vertical_bar").promise().done(function() {
+					//绘制速率图
+					draw_vertical_speed_charts();
 				})
 			}
 		}
 	})
 })
+/**
+ * 左边菜单栏点击事件
+ */
+$(".leftBottomList ul li").bind("click", function(dom) {
+	//清空其他的选中样式
+	$(".leftBottomList ul li").removeClass("checked_option");
+	$(".leftBottomList ul li").attr("data-checked", "false");
+	//自身添加选中样式
+	var target = dom.currentTarget;
+	if (target) {
+		$(target).addClass("checked_option");
+		dom.currentTarget.dataset.checked = true;
+	}
+	//当前选中节点下标
+	var checkde_index = dom.currentTarget.dataset.index;
+	//当前节点选中状态
+	var checked_status = dom.currentTarget.dataset.checked;
+
+	//下拉框的图标类型
+	var select_dataSet;
+
+	$("#select_charts_type").val("1");
+	form.render("select");
+
+	//切换 渲染不同的 charts图
+	switch (checkde_index) {
+		case "0":
+			//深层水平位移
+			select_dataSet = "deep";
+
+			$(".heatMapArea").css("visibility", "hidden");
+			$(".top_heatMapArea").css("visibility", "hidden");
+			$(".vertical_bar").css("visibility", "hidden");
+			$(".top_vertical_charts").css("visibility", "hidden");
+			$(".top_horizontal_charts").css("visibility", "hidden");
+			$(".ground_water_charts").css("visibility", "hidden");
+
+			//显示
+			$(".deep_charts").css("visibility", "visible");
+			$("#bigCharts").css("display", "block");
+			break;
+		case "1":
+			//顶部水平位移
+			select_dataSet = "top_horizontal";
+			
+			$(".deep_charts").css("visibility", "hidden");
+			$(".heatMapArea").css("visibility", "hidden");
+			$(".top_heatMapArea").css("visibility", "hidden");
+			$(".vertical_bar").css("visibility", "hidden");
+			$(".deep_charts").css("visibility", "hidden");
+			$(".ground_water_charts").css("visibility", "hidden");
+
+			$(".top_vertical_charts").css("visibility", "hidden");
+			$(".top_horizontal_charts").css("visibility", "visible");
+			$("#horizontal_charts").css("display", "block");
+			break;
+		case "2":
+			//顶部竖向位移
+			select_dataSet = "top_vertical";
+			
+			$(".deep_charts").css("visibility", "hidden");
+			$(".heatMapArea").css("visibility", "hidden");
+			$(".top_heatMapArea").css("visibility", "hidden");
+			$(".vertical_bar").css("visibility", "hidden");
+			$(".top_horizontal_charts").css("visibility", "hidden");
+			$(".ground_water_charts").css("visibility", "hidden");
+
+			$(".top_vertical_charts").css("visibility", "visible");
+			$("#vertical_charts").css("display", "block");
+			break;
+		case "3":
+			//立柱竖向位移
+			break;
+		case "4":
+			//地下水平位移
+			select_dataSet = "ground_water";
+			$(".deep_charts").css("visibility", "hidden");
+			$(".heatMapArea").css("visibility", "hidden");
+			$(".top_heatMapArea").css("visibility", "hidden");
+			$(".vertical_bar").css("visibility", "hidden");
+			$(".top_horizontal_charts").css("visibility", "hidden");
+			$(".top_vertical_charts").css("visibility", "hidden");
+			
+			$(".ground_water_charts").css("visibility","visible");
+			$("#water_charts").css("display", "block");
+			break;
+		case "5":
+			//周边管线沉降位移
+			break;
+	}
+	$("#select_charts_type").attr("data-type", select_dataSet);
+})
+
+
 
 /**
  * @param {Object} index
@@ -119,57 +238,6 @@ function export_foundation_data(id) {
 }
 
 /**
- * 左边菜单栏点击事件
- */
-$(".leftBottomList ul li").bind("click", function(dom) {
-	//清空其他的选中样式
-	$(".leftBottomList ul li").removeClass("checked_option");
-	$(".leftBottomList ul li").attr("data-checked", "false");
-	//自身添加选中样式
-	var target = dom.currentTarget;
-	if (target) {
-		$(target).addClass("checked_option");
-		dom.currentTarget.dataset.checked = true;
-	}
-	//当前选中节点下标
-	var checkde_index = dom.currentTarget.dataset.index;
-	//当前节点选中状态
-	var checked_status = dom.currentTarget.dataset.checked;
-	
-	//下拉框的图标类型
-	var select_dataSet;
-	
-	//切换 渲染不同的 charts图
-	switch (checkde_index) {
-		case "0":
-			//深层水平位移
-			select_dataSet="deep";
-			$(".top_horizontal_charts").css("visibility","hidden");
-			$(".deep_charts").show();
-			break;
-		case "1":
-			//顶部水平位移
-			select_dataSet="top_horizontal";
-			$(".deep_charts").hide();
-			$(".top_horizontal_charts").css("visibility","visible");
-			$(".top_horizontal_charts").promise().done(function(){
-				draw_top_charts();
-			})
-			break;
-		case "2":
-			//顶部竖向位移
-			break;
-		case "3":
-			//立柱竖向位移
-			break;
-		case "4":
-			//周边管线沉降位移
-			break;
-	}
-	$("#select_charts_type").attr("data-type",select_dataSet);
-})
-
-/**
  * 初始化 时间选择器
  */
 function initialLayDate() {
@@ -199,7 +267,6 @@ function initialLayDate() {
 			}
 		});
 	})
-
 }
 /**
  * 点击查询按钮
@@ -227,7 +294,6 @@ function clickFounBtn(e) {
 	//修改电机运行状态
 	window.parent.change_runtime_status(data_index);
 }
-
 
 /**
  * 初始化右边按钮组

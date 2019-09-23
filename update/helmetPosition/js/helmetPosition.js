@@ -19,8 +19,6 @@ $(function() {
 	$(".foundation").css("visibility", "visible");
 	//电子围栏设备集合
 	intialBtnGroup();
-	
-	getHistoryTrackData("001","2019-09-21 00:00:00","2019-09-21 18:00:00");
 })
 // socket消息处理
 if (window.parent.webSocket != null) {

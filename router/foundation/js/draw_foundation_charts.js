@@ -77,17 +77,18 @@ function setSingleOption(single_x_data, single_y_data) {
 		grid: [{
 			left: 50,
 			right: 50,
-			height: '30%'
+			height: '80%',
+			width: '40%'
 		}, {
-			left: 50,
+			left: '55%',
 			right: 50,
-			top: '55%',
-			height: '30%'
+			height: '80%',
+			width: '40%'
 		}],
-		xAxis: [{
+		yAxis: [{
 				type: 'category',
 				name: '深度(m)',
-				nameGap: 5,
+				nameGap: 10,
 				nameTextStyle: {
 					color: '#FFFFFF'
 				},
@@ -120,9 +121,9 @@ function setSingleOption(single_x_data, single_y_data) {
 				data: x_rate_data
 			}
 		],
-		yAxis: [{
-				name: 'x_位移量(mm)',
-				nameGap: 20,
+		xAxis: [{
+				name: '位移量(mm)',
+				nameGap: 0,
 				nameTextStyle: {
 					color: '#FFFFFF'
 				},
@@ -137,8 +138,7 @@ function setSingleOption(single_x_data, single_y_data) {
 			},
 			{
 				gridIndex: 1,
-				nameGap: 30,
-				name: 'y_位移量(mm)',
+				name: '位移量(mm)',
 				nameTextStyle: {
 					color: '#FFFFFF'
 				},
@@ -158,7 +158,7 @@ function setSingleOption(single_x_data, single_y_data) {
 				type: 'line',
 				symbolSize: 8,
 				hoverAnimation: true,
-				smooth:true,
+				smooth: true,
 				data: single_x_data,
 				itemStyle: {
 					normal: {
@@ -166,7 +166,18 @@ function setSingleOption(single_x_data, single_y_data) {
 							color: 'red'
 						}
 					}
-				}
+				},
+				markPoint: {
+					data: [{
+							type: 'max',
+							name: '最大值'
+						},
+						{
+							type: 'min',
+							name: '最小值'
+						}
+					]
+				},
 			},
 			{
 				name: 'y_位移量',
@@ -175,7 +186,7 @@ function setSingleOption(single_x_data, single_y_data) {
 				yAxisIndex: 1,
 				symbolSize: 8,
 				hoverAnimation: true,
-				smooth:true,
+				smooth: true,
 				data: single_y_data,
 				itemStyle: {
 					normal: {
@@ -183,7 +194,18 @@ function setSingleOption(single_x_data, single_y_data) {
 							color: 'yellow'
 						}
 					}
-				}
+				},
+				markPoint: {
+					data: [{
+							type: 'max',
+							name: '最大值'
+						},
+						{
+							type: 'min',
+							name: '最小值'
+						}
+					]
+				},
 			}
 		]
 	};
@@ -248,13 +270,13 @@ function drawLineCharts(id, data_single_array_all, showTimeLine) {
 				},
 				type: 'slider',
 				axisType: 'category',
-				// autoPlay: true,
-				// playInterval: 1000,
 				currentIndex: data_array.length - 1,
 				loop: false,
 				symbol: 'circle',
 				symbolSize: 10,
-				data: timeData,
+				data: timeData.map(function(str) {
+					return str.replace(' ', '\n')
+				}),
 				controlStyle: {
 					showPlayBtn: false,
 					itemSize: 12,
@@ -268,6 +290,13 @@ function drawLineCharts(id, data_single_array_all, showTimeLine) {
 	return option;
 }
 
+//初始化 echarts
+function inintialEcharts(dom, id, data_single_array_all, showTimeLine) {
+	// 基于准备好的dom，初始化echarts实例
+	var myChart = echarts.init(document.getElementById(dom));
+	//折线图
+	myChart.setOption(drawLineCharts(id, data_single_array_all, showTimeLine));
+}
 
 /**
  * 绘制热力图option_X
@@ -510,15 +539,6 @@ function drawHeatMapY() {
 	};
 	myChart.setOption(option);
 }
-
-//初始化 echarts
-function inintialEcharts(dom, id, data_single_array_all, showTimeLine) {
-	// 基于准备好的dom，初始化echarts实例
-	var myChart = echarts.init(document.getElementById(dom));
-	//折线图
-	myChart.setOption(drawLineCharts(id, data_single_array_all, showTimeLine));
-}
-
 /**
  * 绘制顶部水平位移图表
  */
@@ -548,7 +568,7 @@ function draw_top_charts(top_data_single) {
 		}
 	}
 	x_time_data = x_time_data.map(function(str) {
-		return str.replace("2019/", '');
+		return str.replace("2019/", '').replace(" ", "\n");
 	})
 	var option = {
 		color: ['#D53A35', '#FBE289'],
@@ -648,10 +668,183 @@ function draw_top_charts(top_data_single) {
 function draw_top_speed_charts() {
 	// 基于准备好的dom，初始化echarts实例
 	var myChart = echarts.init(document.getElementById("top_speed_charts"));
-	
-	var x_time_date=["09/12","09/13","09/14","09/15","09/16","09/17","09/18"];
-	var speed_data=[10,15,20,15,10,5,3];
-	
+	var x_time_data = ["09/12", "09/13", "09/14", "09/15", "09/16", "09/17", "09/18"];
+	var speed_data = [10, 15, 20, 15, 10, 5, 3];
+
+	var option = {
+		color: ['#3398DB'],
+		tooltip: {
+			trigger: 'axis',
+			axisPointer: { // 坐标轴指示器，坐标轴触发有效
+				type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+			}
+		},
+		grid: {
+			left: '3%',
+			right: '4%',
+			bottom: '3%',
+			containLabel: true
+		},
+		xAxis: [{
+			type: 'category',
+			data: x_time_data.map(function(str) {
+				return str.replace(' ', '\n');
+			}),
+			axisTick: {
+				alignWithLabel: true
+			},
+			axisLine: {
+				onZero: false,
+				lineStyle: {
+					type: 'solid',
+					color: '#FFFFFF'
+				}
+			}
+		}],
+		yAxis: [{
+			type: 'value',
+			axisLine: {
+				onZero: false,
+				lineStyle: {
+					type: 'solid',
+					color: '#FFFFFF'
+				}
+			}
+		}],
+		series: [{
+			name: '速率',
+			type: 'bar',
+			barWidth: '50%',
+			label: {
+				normal: {
+					show: true,
+					position: 'inside'
+				}
+			},
+			data: speed_data
+		}]
+	};
+	//折线图
+	myChart.setOption(option);
+}
+
+/**
+ * 绘制顶部竖向位移
+ */
+function draw_top_vertical_charts(top_data_single) {
+	// 基于准备好的dom，初始化echarts实例
+	var myChart = echarts.init(document.getElementById("vertical_charts"));
+	//横轴时间数据
+	var x_time_data = [];
+	//x轴数据
+	var x_rate_data = [];
+
+	if (top_data_single != null && top_data_single != undefined) {
+		top_data_array.push(top_data_single);
+	}
+	if (top_data_array.length > 7) {
+		//删除数组第一个元素
+		top_data_array.shift();
+	}
+	for (var i = 0; i < top_data_array.length; i++) {
+		var json_data = top_data_array[i];
+		for (var key in json_data) {
+			x_time_data.push(key);
+			var single_json_data = json_data[key];
+			x_rate_data.push(single_json_data[0].x);
+		}
+	}
+	x_time_data = x_time_data.map(function(str) {
+		return str.replace("2019/", '');
+	})
+
+	var option = {
+		color: ['#D53A35'],
+		title: {
+			text: '顶部竖向位移',
+			x: 'center',
+			textStyle: {
+				color: '#FFFFFF'
+			}
+		},
+		tooltip: {
+			trigger: 'axis'
+		},
+		legend: {
+			data: ['顶部竖向位移'],
+			top: '10%',
+			textStyle: {
+				color: "#FFFFFF"
+			}
+		},
+		grid: [{
+			left: 50,
+			right: 50,
+			top: '20%',
+			height: '60%'
+		}],
+		xAxis: {
+			type: 'category',
+			boundaryGap: false,
+			axisLine: {
+				onZero: false,
+				lineStyle: {
+					type: 'solid',
+					color: '#FFFFFF'
+				}
+			},
+			data: x_time_data.map(function(str) {
+				return str.replace(' ', '\n')
+			}),
+		},
+		yAxis: {
+			name: '位移量(mm)',
+			nameGap: 20,
+			nameTextStyle: {
+				color: '#FFFFFF'
+			},
+			type: 'value',
+			axisLine: {
+				lineStyle: {
+					color: '#FFFFFF'
+				}
+			},
+			max: 50,
+			min: -50
+		},
+		series: [{
+			name: '顶部竖向位移',
+			type: 'line',
+			data: x_rate_data,
+			smooth: true,
+			markPoint: {
+				data: [{
+						type: 'max',
+						name: '最大值'
+					},
+					{
+						type: 'min',
+						name: '最小值'
+					}
+				]
+			},
+		}]
+	};
+	//折线图
+	myChart.setOption(option);
+}
+
+
+/**
+ * 绘制顶部竖向位移速率图表
+ */
+function draw_vertical_speed_charts() {
+	// 基于准备好的dom，初始化echarts实例
+	var myChart = echarts.init(document.getElementById("vertical_speed_charts"));
+
+	var x_time_date = ["09/12", "09/13", "09/14", "09/15", "09/16", "09/17", "09/18"];
+	var speed_data = [10, 15, 20, 15, 10, 5, 3];
+
 	var option = {
 		color: ['#3398DB'],
 		tooltip: {
@@ -695,14 +888,92 @@ function draw_top_speed_charts() {
 			type: 'bar',
 			barWidth: '50%',
 			label: {
-			    normal: {
-			        show: true,
-			        position: 'inside'
-			    }
+				normal: {
+					show: true,
+					position: 'inside'
+				}
 			},
 			data: speed_data
 		}]
 	};
 	//折线图
+	myChart.setOption(option);
+}
+
+/**
+ * 绘制地下水位图表
+ */
+function draw_water_charts() {
+	// 基于准备好的dom，初始化echarts实例
+	var myChart = echarts.init(document.getElementById("water_charts"));
+
+	var x_time_data = ["2019/09/15 08:00:00", "2019/09/16 08:00:00", "2019/09/17 08:00:00",
+		"2019/09/18 08:00:00", "2019/09/19 08:00:00", "2019/09/20 08:00:00", "2019/09/21 08:00:00"
+	];
+
+	var y_value_data = [5, 8, 10, 6, 2, 4, 12];
+
+	var option = {
+		title: {
+			x: "center",
+			text: "地下水位监测图",
+			textStyle: {
+				color: "#FFFFFF"
+			}
+		},
+		tooltip: {
+			trigger: 'axis',
+			axisPointer: {
+				label: {
+					backgroundColor: '#6a7985'
+				}
+			}
+		},
+		grid: {
+			left: '3%',
+			right: '4%',
+			bottom: '3%',
+			containLabel: true
+		},
+		xAxis: {
+			type: 'category',
+			boundaryGap: false,
+			data: x_time_data.map(function(str) {
+				return str.replace(' ', '\n');
+			}),
+			axisLine: {
+				onZero: false,
+				lineStyle: {
+					type: 'solid',
+					color: '#FFFFFF'
+				}
+			}
+		},
+		yAxis: {
+			type: 'value',
+			axisLine: {
+				onZero: false,
+				lineStyle: {
+					type: 'solid',
+					color: '#FFFFFF'
+				}
+			},
+		},
+		series: [{
+			data: y_value_data,
+			type: 'line',
+			markPoint: {
+				data: [{
+						type: 'max',
+						name: '最大值'
+					},
+					{
+						type: 'min',
+						name: '最小值'
+					}
+				]
+			},
+		}]
+	};
 	myChart.setOption(option);
 }
