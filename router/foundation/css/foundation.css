@@ -515,3 +515,10 @@ input:-ms-input-placeholder {
 .checked_option {
 	background-color: #002e6f;
 }
+.bottom_line{
+	width: 80%;
+	margin: 0px auto;
+	height: 1px;
+	background-color: #1D426D;
+}
+

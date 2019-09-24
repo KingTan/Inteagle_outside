@@ -26,18 +26,6 @@ var BimfaceLoaderConfig = new BimfaceSDKLoaderConfig();
 BimfaceLoaderConfig.viewToken = viewToken;
 BimfaceSDKLoader.load(BimfaceLoaderConfig, onSDKLoadSucceeded, onSDKLoadFailed);
 
-//添加外部构件
-function addExternalObject(viewer3D, objectName, externalObject) {
-	// 添加外部three.js对象
-	viewer3D.addExternalObject(objectName, externalObject);
-}
-
-//删除外部构件
-function removeExternalObject(viewer3D, objectName) {
-	// 删除外部three.js对象
-	viewer3D.removeExternalObjectByName(objectName);
-}
-
 //标签位置数组
 // 测斜仪
 var tag_position_array=[{"id":"001","x":-257.44981245633204,"y":-196.44978038620582,"z":-38.52860306932509},
@@ -105,8 +93,34 @@ var wy_tag_array=[{"id":"001","x":-297.34731479680676,"y":-206.49832561822862,"z
 				  {"id":"030","x":-367.2181101587511,"y":97.23479732293424,"z":-3.19182103746696},
 				  {"id":"031","x":-390.2181101587511,"y":67.23479732293424,"z":-3.19182103746696}
 				  ];
+//水位数组
+var sw_tag_array=[{"id":"1","x":348.240321916464,"y":137.4308630337057,"z":0.49608684188415947},
+				  {"id":"2","x":285.3271525933103,"y":282.14830751771916,"z":0.49608684186418606},
+				  {"id":"3","x":145.36901941787815,"y":295.78930172842166,"z":0.49608684188415947},
+				  {"id":"4","x":29.453563628510274,"y":277.98989157014654,"z":0.49608684188415947},
+				  {"id":"5","x":-96.09855710873002,"y":241.57993517498932,"z":0.49608684188415947},
+				  {"id":"6","x":-269.02699390160575,"y":178.25707158395835,"z":0.49608684188415947},
+				  {"id":"7","x":-420.60903761569875,"y":35.83510689820936,"z":0.49608684188415947},
+				  {"id":"8","x":-384.2825893677944,"y":-42.23893989704464,"z":0.49608684188415947},
+				  {"id":"9","x":-335.8360744952741,"y":-152.89139318604936,"z":0.49608684188415947},
+				  {"id":"10","x":-221.993921523101,"y":-273.71013380046924,"z":0.49608684188415947},
+				  {"id":"11","x":-80.69732799836805,"y":-248.14462878466122,"z":0.49608684188415947},
+				  {"id":"12","x":60.7821321991056,"y":-158.8574523201225,"z":0.49608684188415947},
+				  {"id":"13","x":166.05453710959375,"y":-83.37053140883167,"z":0.49608684188415947},
+				  {"id":"13","x":248.20447602304114,"y":-27.260491460947094,"z":0.49608684188415947},
+				  {"id":"13","x":343.50550792687784,"y":36.01885026979255,"z":0.49608684188415947}];
 
+//添加外部构件
+function addExternalObject(viewer3D, objectName, externalObject) {
+	// 添加外部three.js对象
+	viewer3D.addExternalObject(objectName, externalObject);
+}
 
+//删除外部构件
+function removeExternalObject(viewer3D, objectName) {
+	// 删除外部three.js对象
+	viewer3D.removeExternalObjectByName(objectName);
+}
 
 // 加载成功回调函数
 function onSDKLoadSucceeded(viewMetaData) {
@@ -147,20 +161,33 @@ function onSDKLoadSucceeded(viewMetaData) {
 			"http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/weiyi_normal.png";
 		var wy_tag_type = "位移管点位";
 
+		//水位
+		//http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/shuiwei_noraml.png
+		//https://www.inteagle.com.cn/tag/shuiwei_noraml.png
+		var sw_pic_path =
+			"http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/shuiwei_noraml.png";
+		var sw_tag_type = "地下水点位";
+
+		//循环添加点位
 		for (var i = 0; i < tag_position_array.length; i++) {
 			//添加标签(测斜仪)
 			add3DMarker(tag_position_array[i], pic_path, tag_type);
-
 			//添加标签(位移管)
 			add3DMarker(wy_tag_array[i], wy_pic_path, wy_tag_type);
 		}
+		for (var i = 0; i < sw_tag_array.length; i++) {
+			//添加标签(水位)
+			add3DMarker(sw_tag_array[i], sw_pic_path, sw_tag_type);
+		}
+
+
 		// 更改初始视角
 		changeViewSite(viewer);
 
 		//结束页面加载图标
 		$(".loading").fadeOut();
 		//显示内容
-		$(".foundation").css("visibility","visible");
+		$(".foundation").css("visibility", "visible");
 
 	});
 
@@ -173,30 +200,24 @@ function onSDKLoadSucceeded(viewMetaData) {
 		// console.log("objectData----", objectData);
 		// console.log("相机视野对象", viewer.getCameraStatus());
 		// console.log("objectData.worldPosition-------------------",objectData.worldPosition);
-		
 		//清除选中状态
 		viewer.clearSelectedComponents();
-		
-		
-		add_id++;
-		var singleObj = {
-			"id": add_id,
-			"x": objectData.worldPosition.x,
-			"y": objectData.worldPosition.y,
-			"z": objectData.worldPosition.z
-		};
-		add_array.push(singleObj);
-		console.log("add_array--------------------", add_array);
-		
-		var pic_path =
-			"http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/cexie_normal.png";
-		var tag_type = "测斜仪点位";
-		//点击添加标签
-		add3DMarker(objectData.worldPosition, pic_path, tag_type);
+
+		// add_id++;
+		// var singleObj = {
+		// 	"id": add_id,
+		// 	"x": objectData.worldPosition.x,
+		// 	"y": objectData.worldPosition.y,
+		// 	"z": objectData.worldPosition.z
+		// };
+		// add_array.push(singleObj);
+		// console.log("add_array--------------------", add_array);
+		// var pic_path =
+		// 	"http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/cexie_normal.png";
+		// var tag_type = "测斜仪点位";
+		// //点击添加标签
+		// add3DMarker(objectData.worldPosition, pic_path, tag_type);
 	});
-
-
-
 }
 
 
@@ -204,17 +225,6 @@ function onSDKLoadSucceeded(viewMetaData) {
 function onSDKLoadFailed(error) {
 	console.log(error);
 }
-
-// 轨迹模拟
-function animation() {
-
-	if (viewAdded) {
-		var position1 = new THREE.Vector3(x, y, z);
-		setTransform("ball_1", position1);
-		viewer.render();
-	}
-}
-
 
 // 加载外部构件
 function loadExternalComponent(url, callback) {
@@ -262,7 +272,6 @@ function changeViewSite(viewer3D) {
 	//获取自己想要的视角信息
 	var camera =
 		'{"name":"persp","position":{"x":-231.07335244703435,"y":-584.7453692522213,"z":539.0331695950133},"target":{"x":513.6810291459312,"y":1767.89874492815,"z":-1680.0924886488187},"up":{"x":0,"y":-0.0000036732050794449643,"z":0.9999999999932538},"version":1}';
-
 	//设置视角
 	viewer3D.setCameraStatus(JSON.parse(camera));
 	console.log("更换初始视角");
@@ -306,12 +315,13 @@ function add3DMarker(position, pic_path, tag_type) {
 
 		//当前选中标签的ID
 		var check_tag_id = item.position.id;
-		
-		//https://www.inteagle.com.cn/update/foundation/foundation_charts.html
-		//http://127.0.0.1:8848/Inteagle_outside/update/foundation/foundation_charts.html
+
+		//https://www.inteagle.com.cn/router/foundation/foundation_charts.html
+		//http://127.0.0.1:8848/Inteagle_outside/router/foundation/foundation_charts.html
 		//修改父页面Iframe的路径
-		$('#mainFrame', window.parent.document).attr("src", "http://127.0.0.1:8848/Inteagle_outside/update/foundation/foundation_charts.html?id=" + check_tag_id +
-			"&router=foundation");
+		$('#mainFrame', window.parent.document).attr("src",
+			"http://127.0.0.1:8848/Inteagle_outside/router/foundation/foundation_charts.html?id=" + check_tag_id +
+			"&path=deep");
 
 		//跳转到对应圆点的 图表页面
 		//window.location.href = "../../../foundation/foundation_charts.html?id=" + check_tag_id + "&router=foundation";

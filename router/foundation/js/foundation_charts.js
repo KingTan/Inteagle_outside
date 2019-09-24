@@ -14,6 +14,8 @@ var checked_time = "";
  * 页面加载事件
  */
 $(function() {
+	//获取路由 设置左边选中菜单
+	check_left_menu(getParam("path"));
 	//初始化右边设备ID集合
 	intialBtnGroup("normal_order");
 	//初始化时间选择器
@@ -23,11 +25,39 @@ $(function() {
 })
 
 /**
+ * 获取路由 设置左边选中菜单
+ */
+function check_left_menu(router) {
+	var index;
+	switch (router) {
+		case "deep":
+			index = 1;
+			break;
+		case "top_horizontal":
+			index = 2;
+			break;
+		case "top_vertical":
+			index = 3;
+			break;
+		case "box_vertical":
+			index = 4;
+			break;
+		case "ground_water":
+			index = 5;
+			break;
+		case "around_pipe":
+			index = 6;
+			break;
+	}
+	$(".leftBottomList ul li:nth-child(" + index + ")").addClass("checked_option");
+	$(".leftBottomList ul li:nth-child(" + index + ")").click();
+}
+/**
  * 绘制图表
  */
 function drwaCharts() {
 	//深度水平位移 
-	inintialEcharts('bigCharts', id, null, true);
+	inintialEcharts('bigCharts', id, null, false);
 	//顶部水平位移
 	draw_top_charts(null);
 	//顶部竖向位移
@@ -122,7 +152,12 @@ $(".leftBottomList ul li").bind("click", function(dom) {
 	var select_dataSet;
 
 	$("#select_charts_type").val("1");
-	form.render("select");
+
+	if (form != null && form != undefined) {
+		$("#select_charts_type").promise().done(function() {
+			form.render("select");
+		})
+	}
 
 	//切换 渲染不同的 charts图
 	switch (checkde_index) {
@@ -144,7 +179,7 @@ $(".leftBottomList ul li").bind("click", function(dom) {
 		case "1":
 			//顶部水平位移
 			select_dataSet = "top_horizontal";
-			
+
 			$(".deep_charts").css("visibility", "hidden");
 			$(".heatMapArea").css("visibility", "hidden");
 			$(".top_heatMapArea").css("visibility", "hidden");
@@ -159,7 +194,7 @@ $(".leftBottomList ul li").bind("click", function(dom) {
 		case "2":
 			//顶部竖向位移
 			select_dataSet = "top_vertical";
-			
+
 			$(".deep_charts").css("visibility", "hidden");
 			$(".heatMapArea").css("visibility", "hidden");
 			$(".top_heatMapArea").css("visibility", "hidden");
@@ -182,8 +217,8 @@ $(".leftBottomList ul li").bind("click", function(dom) {
 			$(".vertical_bar").css("visibility", "hidden");
 			$(".top_horizontal_charts").css("visibility", "hidden");
 			$(".top_vertical_charts").css("visibility", "hidden");
-			
-			$(".ground_water_charts").css("visibility","visible");
+
+			$(".ground_water_charts").css("visibility", "visible");
 			$("#water_charts").css("display", "block");
 			break;
 		case "5":

@@ -2,13 +2,10 @@
  * 页面加载
  */
 $(function() {
-	
 	//结束页面加载图标
 	$(".loading").fadeOut();
 	//显示内容
-	$(".foundation").css("visibility","visible");
-	
-	
+	$(".foundation").css("visibility", "visible");
 })
 
 /**
@@ -56,26 +53,33 @@ function export_foundation_data(id) {
 /**
  * 左边菜单点击事件
  */
-$(".leftBottomList ul li").bind("click", function(dom) {
+$(".foundationList ul li").bind("click", function(dom) {
 	//当前选中节点下标
-	var checkde_index = dom.currentTarget.dataset.index;
-	// var iframePath = 
+	var checked_index = dom.currentTarget.dataset.index;
+	var iframePath;
+	switch (checked_index) {
+		case "0":
+			iframePath = "deep";
+			break;
+		case "1":
+			iframePath = "top_horizontal";
+			break;
+		case "2":
+			iframePath = "top_vertical";
+			break;
+		case "3":
+			iframePath = "box_vertical";
+			break;
+		case "4":
+			iframePath = "ground_water";
+			break;
+		case "5":
+			iframePath = "around_pipe";
+			break;
+	}
 	//修改父页面Iframe的路径
 	$('#mainFrame', window.parent.document).attr("src",
-		"http://127.0.0.1:8848/Inteagle_outside/update/foundation/foundation_charts.html");
-	//https://www.inteagle.com.cn/update/foundation/foundation_charts.html
-	//http://127.0.0.1:8848/Inteagle_outside/update/foundation/foundation_charts.html
-	// switch (checkde_index) {
-	// 	case "0":
-	// 		iframePath = "";
-	// 		break;
-	// 	case "1":
-	// 		break;
-	// 	case "2":
-	// 		break;
-	// 	case "3":
-	// 		break;
-	// 	case "4":
-	// 		break;
-	// }
+		"http://127.0.0.1:8848/Inteagle_outside/router/foundation/foundation_charts.html?path=" + iframePath);
+	//https://www.inteagle.com.cn/router/foundation/foundation_charts.html
+	//http://127.0.0.1:8848/Inteagle_outside/router/foundation/foundation_charts.html
 })

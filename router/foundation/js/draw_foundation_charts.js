@@ -17,11 +17,28 @@ var top_data_array=[
 		{"2019/09/17 08:00:30":[{"x":-25,"y":5}]},
 		{"2019/09/17 08:00:35":[{"x":10,"y":-8}]}
 ];
+
 //当前选中的时间
 var current_check_time = "";
 
 //X轴显示的数据(深层水平位移)
 var x_rate_data = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30];
+
+//深层水平位移
+var deep_line_charts; //折线图
+var deep_heat_map_X; // 热力图 X
+var deep_heat_map_Y; //热力图 Y
+
+//顶部水平位移
+var top_horizontal_Charts; //折线图
+var top_horizontal_speed_charts; //柱状图
+
+//顶部竖向位移
+var top_vertical_Charts; //折线图
+var top_vertical_speed_Charts; //柱状图
+
+//地下水位监测
+var ground_water_charts; //折线图
 
 /**
  * @param {Object} single_x_data
@@ -35,7 +52,7 @@ function setSingleOption(single_x_data, single_y_data) {
 			text: '深层水平位移',
 			x: 'center',
 			textStyle: {
-				color: '#FFFFFF'
+				color: '#137FFF'
 			}
 		},
 		tooltip: {
@@ -87,70 +104,87 @@ function setSingleOption(single_x_data, single_y_data) {
 		}],
 		yAxis: [{
 				type: 'category',
-				name: '深度(m)',
-				nameGap: 10,
 				nameTextStyle: {
-					color: '#FFFFFF'
+					color: '#137FFF'
 				},
 				boundaryGap: false,
 				axisLine: {
 					onZero: false,
 					lineStyle: {
 						type: 'solid',
-						color: '#FFFFFF'
+						color: '#137FFF'
 					}
 				},
-				data: x_rate_data
+				splitLine: { //网格线
+					lineStyle: {
+						type: 'dashed', //设置网格线类型 dotted：虚线   solid:实线
+						color: ['#137FFF']
+					},
+					show: false //隐藏或显示
+				},
+				data: x_rate_data,
+				inverse:true,
 			},
 			{
 				gridIndex: 1,
-				name: '深度(m)',
-				type: 'category',
-				nameGap: 5,
-				nameTextStyle: {
-					color: '#FFFFFF'
-				},
 				boundaryGap: false,
 				axisLine: {
 					onZero: false,
 					lineStyle: {
 						type: 'solid',
-						color: '#FFFFFF'
+						color: '#137FFF'
 					}
 				},
-				data: x_rate_data
+				splitLine: { //网格线
+					lineStyle: {
+						type: 'dashed', //设置网格线类型 dotted：虚线   solid:实线
+						color: ['#137FFF']
+					},
+					show: false //隐藏或显示
+				},
+				data: x_rate_data,
+				inverse:true,
 			}
 		],
 		xAxis: [{
-				name: '位移量(mm)',
-				nameGap: 0,
+				position: "top",
 				nameTextStyle: {
-					color: '#FFFFFF'
+					color: '#137FFF'
 				},
 				type: 'value',
 				axisLine: {
 					lineStyle: {
-						color: '#FFFFFF'
+						color: '#137FFF'
 					}
 				},
+				splitLine: { //网格线
+					lineStyle: {
+						type: 'dashed', //设置网格线类型 dotted：虚线   solid:实线
+						color: ['#137FFF']
+					},
+					show: true //隐藏或显示
+				},
 				max: 50,
-				min: -50
+				min: -20
 			},
 			{
 				gridIndex: 1,
-				name: '位移量(mm)',
-				nameTextStyle: {
-					color: '#FFFFFF'
-				},
+				position: "top",
 				type: 'value',
 				axisLine: {
 					lineStyle: {
-						color: '#FFFFFF'
+						color: '#137FFF'
 					}
 				},
+				splitLine: { //网格线
+					lineStyle: {
+						type: 'dashed', //设置网格线类型 dotted：虚线   solid:实线
+						color: ['#137FFF']
+					},
+					show: true //隐藏或显示
+				},
 				max: 50,
-				min: -50,
-				inverse: false
+				min: -20,
 			}
 		],
 		series: [{
@@ -260,13 +294,13 @@ function drawLineCharts(id, data_single_array_all, showTimeLine) {
 				left: 36,
 				right: 36,
 				lineStyle: {
-					color: '#FFFFFF'
+					color: '#137FFF'
 				},
 				itemStyle: {
-					color: '#FFFFFF'
+					color: '#137FFF'
 				},
 				label: {
-					color: '#FFFFFF'
+					color: '#137FFF'
 				},
 				type: 'slider',
 				axisType: 'category',
@@ -280,8 +314,8 @@ function drawLineCharts(id, data_single_array_all, showTimeLine) {
 				controlStyle: {
 					showPlayBtn: false,
 					itemSize: 12,
-					color: '#FFFFFF',
-					borderColor: '#FFFFFF'
+					color: '#137FFF',
+					borderColor: '#137FFF'
 				}
 			},
 		},
@@ -293,17 +327,16 @@ function drawLineCharts(id, data_single_array_all, showTimeLine) {
 //初始化 echarts
 function inintialEcharts(dom, id, data_single_array_all, showTimeLine) {
 	// 基于准备好的dom，初始化echarts实例
-	var myChart = echarts.init(document.getElementById(dom));
+	deep_line_charts = echarts.init(document.getElementById(dom));
 	//折线图
-	myChart.setOption(drawLineCharts(id, data_single_array_all, showTimeLine));
+	deep_line_charts.setOption(drawLineCharts(id, data_single_array_all, showTimeLine));
 }
-
 /**
  * 绘制热力图option_X
  */
 function drawHeatMapX() {
 	// 基于准备好的dom，初始化echarts实例
-	var myChart = echarts.init(document.getElementById("heat_x"));
+	deep_heat_map_X = echarts.init(document.getElementById("heat_x"));
 	// //横轴 时间_天  纵轴 深度  值 速率
 	// var x_data = ['0', '2', '4', '6', '8', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30'];
 	// var days = ['8-11', '8-12', '8-13', '8-14', '8-15', '8-16', '8-17'];
@@ -346,7 +379,7 @@ function drawHeatMapX() {
 			x: 'center',
 			top: '20%',
 			textStyle: {
-				color: '#FFFFFF'
+				color: '#137FFF'
 			}
 		},
 		visualMap: {
@@ -385,7 +418,7 @@ function drawHeatMapX() {
 			},
 			axisLine: {
 				lineStyle: {
-					color: '#FFFFFF'
+					color: '#137FFF'
 				}
 			}
 		},
@@ -398,7 +431,7 @@ function drawHeatMapX() {
 			},
 			axisLine: {
 				lineStyle: {
-					color: '#FFFFFF'
+					color: '#137FFF'
 				}
 			}
 		},
@@ -418,7 +451,7 @@ function drawHeatMapX() {
 			}
 		}]
 	};
-	myChart.setOption(option);
+	deep_heat_map_X.setOption(option);
 }
 
 /**
@@ -426,7 +459,7 @@ function drawHeatMapX() {
  */
 function drawHeatMapY() {
 	// 基于准备好的dom，初始化echarts实例
-	var myChart = echarts.init(document.getElementById("heat_y"));
+	deep_heat_map_Y = echarts.init(document.getElementById("heat_y"));
 	// var x_data = ['0', '2', '4', '6', '8', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30'];
 	// var days = ['8-11', '8-12', '8-13', '8-14', '8-15', '8-16', '8-17'];
 	// //数据数组
@@ -465,7 +498,7 @@ function drawHeatMapY() {
 			text: 'y轴',
 			x: 'center',
 			textStyle: {
-				color: '#FFFFFF'
+				color: '#137FFF'
 			}
 		},
 		visualMap: {
@@ -504,7 +537,7 @@ function drawHeatMapY() {
 			},
 			axisLine: {
 				lineStyle: {
-					color: '#FFFFFF'
+					color: '#137FFF'
 				}
 			}
 		},
@@ -517,7 +550,7 @@ function drawHeatMapY() {
 			},
 			axisLine: {
 				lineStyle: {
-					color: '#FFFFFF'
+					color: '#137FFF'
 				}
 			}
 		},
@@ -537,14 +570,14 @@ function drawHeatMapY() {
 			}
 		}]
 	};
-	myChart.setOption(option);
+	deep_heat_map_Y.setOption(option);
 }
 /**
  * 绘制顶部水平位移图表
  */
 function draw_top_charts(top_data_single) {
 	// 基于准备好的dom，初始化echarts实例
-	var myChart = echarts.init(document.getElementById("horizontal_charts"));
+	top_horizontal_Charts = echarts.init(document.getElementById("horizontal_charts"));
 	//横轴时间数据
 	var x_time_data = [];
 	//x轴数据
@@ -576,7 +609,7 @@ function draw_top_charts(top_data_single) {
 			text: '顶部水平位移',
 			x: 'center',
 			textStyle: {
-				color: '#FFFFFF'
+				color: '#137FFF'
 			}
 		},
 		tooltip: {
@@ -586,7 +619,7 @@ function draw_top_charts(top_data_single) {
 			data: ['x轴位移', 'y轴位移'],
 			top: '10%',
 			textStyle: {
-				color: "#FFFFFF"
+				color: "#137FFF"
 			}
 		},
 		grid: [{
@@ -602,7 +635,7 @@ function draw_top_charts(top_data_single) {
 				onZero: false,
 				lineStyle: {
 					type: 'solid',
-					color: '#FFFFFF'
+					color: '#137FFF'
 				}
 			},
 			data: x_time_data
@@ -611,13 +644,20 @@ function draw_top_charts(top_data_single) {
 			name: '位移量(mm)',
 			nameGap: 20,
 			nameTextStyle: {
-				color: '#FFFFFF'
+				color: '#137FFF'
 			},
 			type: 'value',
 			axisLine: {
 				lineStyle: {
-					color: '#FFFFFF'
+					color: '#137FFF'
 				}
+			},
+			splitLine: { //网格线
+				lineStyle: {
+					type: 'dashed', //设置网格线类型 dotted：虚线   solid:实线
+					color: ['#137FFF']
+				},
+				show: true //隐藏或显示
 			},
 			max: 50,
 			min: -50
@@ -659,7 +699,7 @@ function draw_top_charts(top_data_single) {
 		]
 	};
 	//折线图
-	myChart.setOption(option);
+	top_horizontal_Charts.setOption(option);
 }
 
 /**
@@ -667,7 +707,7 @@ function draw_top_charts(top_data_single) {
  */
 function draw_top_speed_charts() {
 	// 基于准备好的dom，初始化echarts实例
-	var myChart = echarts.init(document.getElementById("top_speed_charts"));
+	top_horizontal_speed_charts = echarts.init(document.getElementById("top_speed_charts"));
 	var x_time_data = ["09/12", "09/13", "09/14", "09/15", "09/16", "09/17", "09/18"];
 	var speed_data = [10, 15, 20, 15, 10, 5, 3];
 
@@ -697,7 +737,7 @@ function draw_top_speed_charts() {
 				onZero: false,
 				lineStyle: {
 					type: 'solid',
-					color: '#FFFFFF'
+					color: '#137FFF'
 				}
 			}
 		}],
@@ -707,8 +747,15 @@ function draw_top_speed_charts() {
 				onZero: false,
 				lineStyle: {
 					type: 'solid',
-					color: '#FFFFFF'
+					color: '#137FFF'
 				}
+			},
+			splitLine: { //网格线
+				lineStyle: {
+					type: 'dashed', //设置网格线类型 dotted：虚线   solid:实线
+					color: ['#137FFF']
+				},
+				show: true //隐藏或显示
 			}
 		}],
 		series: [{
@@ -725,7 +772,7 @@ function draw_top_speed_charts() {
 		}]
 	};
 	//折线图
-	myChart.setOption(option);
+	top_horizontal_speed_charts.setOption(option);
 }
 
 /**
@@ -733,7 +780,7 @@ function draw_top_speed_charts() {
  */
 function draw_top_vertical_charts(top_data_single) {
 	// 基于准备好的dom，初始化echarts实例
-	var myChart = echarts.init(document.getElementById("vertical_charts"));
+	top_vertical_Charts = echarts.init(document.getElementById("vertical_charts"));
 	//横轴时间数据
 	var x_time_data = [];
 	//x轴数据
@@ -764,7 +811,7 @@ function draw_top_vertical_charts(top_data_single) {
 			text: '顶部竖向位移',
 			x: 'center',
 			textStyle: {
-				color: '#FFFFFF'
+				color: '#137FFF'
 			}
 		},
 		tooltip: {
@@ -774,7 +821,7 @@ function draw_top_vertical_charts(top_data_single) {
 			data: ['顶部竖向位移'],
 			top: '10%',
 			textStyle: {
-				color: "#FFFFFF"
+				color: "#137FFF"
 			}
 		},
 		grid: [{
@@ -790,7 +837,7 @@ function draw_top_vertical_charts(top_data_single) {
 				onZero: false,
 				lineStyle: {
 					type: 'solid',
-					color: '#FFFFFF'
+					color: '#137FFF'
 				}
 			},
 			data: x_time_data.map(function(str) {
@@ -801,13 +848,20 @@ function draw_top_vertical_charts(top_data_single) {
 			name: '位移量(mm)',
 			nameGap: 20,
 			nameTextStyle: {
-				color: '#FFFFFF'
+				color: '#137FFF'
 			},
 			type: 'value',
 			axisLine: {
 				lineStyle: {
-					color: '#FFFFFF'
+					color: '#137FFF'
 				}
+			},
+			splitLine: { //网格线
+					lineStyle: {
+						type: 'dashed', //设置网格线类型 dotted：虚线   solid:实线
+						color: ['#137FFF']
+					},
+					show: true //隐藏或显示
 			},
 			max: 50,
 			min: -50
@@ -831,7 +885,7 @@ function draw_top_vertical_charts(top_data_single) {
 		}]
 	};
 	//折线图
-	myChart.setOption(option);
+	top_vertical_Charts.setOption(option);
 }
 
 
@@ -840,7 +894,7 @@ function draw_top_vertical_charts(top_data_single) {
  */
 function draw_vertical_speed_charts() {
 	// 基于准备好的dom，初始化echarts实例
-	var myChart = echarts.init(document.getElementById("vertical_speed_charts"));
+	top_vertical_speed_Charts = echarts.init(document.getElementById("vertical_speed_charts"));
 
 	var x_time_date = ["09/12", "09/13", "09/14", "09/15", "09/16", "09/17", "09/18"];
 	var speed_data = [10, 15, 20, 15, 10, 5, 3];
@@ -869,7 +923,7 @@ function draw_vertical_speed_charts() {
 				onZero: false,
 				lineStyle: {
 					type: 'solid',
-					color: '#FFFFFF'
+					color: '#137FFF'
 				}
 			}
 		}],
@@ -879,8 +933,15 @@ function draw_vertical_speed_charts() {
 				onZero: false,
 				lineStyle: {
 					type: 'solid',
-					color: '#FFFFFF'
+					color: '#137FFF'
 				}
+			},
+			splitLine: { //网格线
+				lineStyle: {
+					type: 'dashed', //设置网格线类型 dotted：虚线   solid:实线
+					color: ['#137FFF']
+				},
+				show: true //隐藏或显示
 			}
 		}],
 		series: [{
@@ -897,7 +958,7 @@ function draw_vertical_speed_charts() {
 		}]
 	};
 	//折线图
-	myChart.setOption(option);
+	top_vertical_speed_Charts.setOption(option);
 }
 
 /**
@@ -905,7 +966,7 @@ function draw_vertical_speed_charts() {
  */
 function draw_water_charts() {
 	// 基于准备好的dom，初始化echarts实例
-	var myChart = echarts.init(document.getElementById("water_charts"));
+	ground_water_charts = echarts.init(document.getElementById("water_charts"));
 
 	var x_time_data = ["2019/09/15 08:00:00", "2019/09/16 08:00:00", "2019/09/17 08:00:00",
 		"2019/09/18 08:00:00", "2019/09/19 08:00:00", "2019/09/20 08:00:00", "2019/09/21 08:00:00"
@@ -918,7 +979,7 @@ function draw_water_charts() {
 			x: "center",
 			text: "地下水位监测图",
 			textStyle: {
-				color: "#FFFFFF"
+				color: "#137FFF"
 			}
 		},
 		tooltip: {
@@ -945,19 +1006,28 @@ function draw_water_charts() {
 				onZero: false,
 				lineStyle: {
 					type: 'solid',
-					color: '#FFFFFF'
+					color: '#137FFF'
 				}
 			}
 		},
 		yAxis: {
 			type: 'value',
+			max: 600,
+			min: -600,
 			axisLine: {
 				onZero: false,
 				lineStyle: {
 					type: 'solid',
-					color: '#FFFFFF'
+					color: '#137FFF'
 				}
 			},
+			splitLine: { //网格线
+				lineStyle: {
+					type: 'dashed', //设置网格线类型 dotted：虚线   solid:实线
+					color: ['#137FFF']
+				},
+				show: true //隐藏或显示
+			}
 		},
 		series: [{
 			data: y_value_data,
@@ -975,5 +1045,35 @@ function draw_water_charts() {
 			},
 		}]
 	};
-	myChart.setOption(option);
+	ground_water_charts.setOption(option);
+}
+
+/**
+ * 窗口大小发生改变 图表相继改变
+ */
+window.onresize = function() {
+	if (deep_line_charts != null && deep_line_charts != undefined) {
+		deep_line_charts.resize();
+	}
+	if (deep_heat_map_X != null && deep_heat_map_X != undefined) {
+		deep_heat_map_X.resize();
+	}
+	if (deep_heat_map_Y != null && deep_heat_map_Y != undefined) {
+		deep_heat_map_Y.resize();
+	}
+	if (top_horizontal_Charts != null && top_horizontal_Charts != undefined) {
+		top_horizontal_Charts.resize();
+	}
+	if (top_horizontal_speed_charts != null && top_horizontal_speed_charts != undefined) {
+		top_horizontal_speed_charts.resize();
+	}
+	if (top_vertical_Charts != null && top_vertical_Charts != undefined) {
+		top_vertical_Charts.resize();
+	}
+	if (top_vertical_speed_Charts != null && top_vertical_speed_Charts != undefined) {
+		top_vertical_speed_Charts.resize();
+	}
+	if (ground_water_charts != null && ground_water_charts != undefined) {
+		ground_water_charts.resize();
+	}
 }

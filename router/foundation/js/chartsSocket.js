@@ -28,7 +28,7 @@ if (typeof(WebSocket) == "undefined") {
 				if (res.messageType == "foundation") {
 					var data_array_single = res.data;
 					//初始化 深层水平位移
-					inintialEcharts('bigCharts', "001", data_array_single, true);
+					inintialEcharts('bigCharts', "001", data_array_single, false);
 				}else if(res.messageType=="foundation_top_horizontal"){
 					var data_array_single = res.data;
 					//初始化 顶部水平位移
