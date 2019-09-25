@@ -2,12 +2,7 @@
  * 页面加载
  */
 $(function() {
-	//结束页面加载图标
-	$(".loading").fadeOut();
-	//显示内容
-	$(".foundation").css("visibility", "visible");
 })
-
 /**
  * @param {Object} index
  * 点击工具栏(报警值、运行时间、导出报表)
@@ -79,7 +74,7 @@ $(".foundationList ul li").bind("click", function(dom) {
 	}
 	//修改父页面Iframe的路径
 	$('#mainFrame', window.parent.document).attr("src",
-		"http://127.0.0.1:8848/Inteagle_outside/router/foundation/foundation_charts.html?path=" + iframePath);
+		"https://www.inteagle.com.cn/router/foundation/foundation_charts.html?path=" + iframePath);
 	//https://www.inteagle.com.cn/router/foundation/foundation_charts.html
 	//http://127.0.0.1:8848/Inteagle_outside/router/foundation/foundation_charts.html
 })

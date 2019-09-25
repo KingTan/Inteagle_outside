@@ -1,0 +1,44 @@
+.single_row {
+	position: relative;
+}
+
+.update_btn {
+	position: absolute;
+	width: 20%;
+	height: 45%;
+	right: 2%;
+	background-image: url(../img/button_box.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+.layui-btn {
+	height: 100%;
+	width: 100%;
+	line-height: 100%;
+	border: none;
+	background-color: transparent;
+}
+
+.right_row_value {
+	margin: 0;
+}
+
+.info_list ul li {
+	height: 20%;
+}
+
+@media only screen and (max-width: 1400px) {
+	.bottom_info_area {
+		width: 66%;
+		margin-left: 10%;
+		margin-top: 5%;
+	}
+}
+
+@media only screen and (min-width: 1400px) {
+	.bottom_info_area {
+		width: 66%;
+		margin-left: 10%;
+	}
+}

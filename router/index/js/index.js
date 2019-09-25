@@ -4,53 +4,39 @@
 $(function() {
 	//验证是否登录
 	check_is_login();
-	//获取路由
-	getRouterPath();
 	//初始化layui组件
 	initital_lay();
-
 })
 
 /**
- * 头部导航条事件
+ * 头部导航条菜单 点击事件
  */
-$(".navBtn").bind("click", function(dom) {
-	var data_index = dom.currentTarget.dataset.index;
-	//iframe跳转路径
+$(".single_nav a").bind("click", function(dom) {
+	var index = dom.currentTarget.dataset.index;
+	//iframe跳转路由
 	var iframePath;
-	$(".left_nav").removeClass("checked_left_nav");
-	$(".right_nav").removeClass("checked_right_nav");
-	if (data_index == "foundation") {
-		//基坑监测
-		$(".left_nav").addClass("checked_left_nav");
-		iframePath = "../foundation/foundation.html";
-	} else if (data_index = "device") {
-		//设备管理
-		$(".right_nav").addClass("checked_right_nav");
-		iframePath = "../deviceManagement/helmetManagement.html?path=router";
+	//改变选中样式
+	$(".single_nav a").removeClass("check_nav");
+	$(".single_nav a").promise().done(function(){
+		dom.currentTarget.className="check_nav";
+	})
+	switch (index) {
+		case "project":
+			iframePath = "";
+			break;
+		case "foundation":
+			iframePath = "../foundation/foundation.html";
+			break;
+		case "device":
+			iframePath = "../deviceManagement/helmetManagement.html?path=router";
+			break;
+		case "system":
+			iframePath = "../systemManagement/basicInfo.html";
+			break;
 	}
 	$("#mainFrame").attr("src", iframePath);
 })
 
-
-/**
- * 获取路由
- */
-function getRouterPath() {
-	var path = getParam("path");
-	//iframe跳转路径
-	var iframePath;
-	if (path == "foundation") {
-		//基坑监测
-		$(".left_nav").addClass("checked_left_nav");
-		iframePath = "../foundation/foundation.html";
-	} else if (path = "device") {
-		//设备管理
-		$(".right_nav").addClass("checked_right_nav");
-		iframePath = "../deviceManagement/helmetManagement.html?path=router";
-	}
-	$("#mainFrame").attr("src", iframePath);
-}
 //初始化layui组件
 function initital_lay() {
 	layui.use(['element', 'form', 'laydate'], function() {
@@ -228,8 +214,8 @@ function openDeepCheckCharts(checked_id, checked_time) {
 			//初始化 大Echarts
 			drawChecekedCharts("checkedBigCharts");
 			//热力图
-			drawHeatMapX_checked();
-			drawHeatMapY_checked();
+			// drawHeatMapX_checked();
+			// drawHeatMapY_checked();
 
 			//监听趋势图类型下拉框改变事件
 			layui.use('form', function() {
@@ -249,9 +235,13 @@ function openDeepCheckCharts(checked_id, checked_time) {
 						$("#checkedBigCharts").fadeOut();
 						//显示热力图
 						$(".heatMapArea").css("visibility", "visible");
-						//绘制热力图
-						drawHeatMapX_checked();
-						drawHeatMapY_checked();
+						$(".heatMapArea").promise().done(function(){
+							//绘制速率图
+							draw_checked_deep_charts();
+						})
+						// //绘制热力图
+						// drawHeatMapX_checked();
+						// drawHeatMapY_checked();
 					}
 				})
 			})
@@ -519,6 +509,46 @@ $(".navList ul li").bind("click", function(dom) {
 	// dom.currentTarget.className="check_nav";
 
 })
+/**
+ * 头部导航条事件(弃用)
+ */
+$(".navBtn").bind("click", function(dom) {
+	var data_index = dom.currentTarget.dataset.index;
+	//iframe跳转路径
+	var iframePath;
+	$(".left_nav").removeClass("checked_left_nav");
+	$(".right_nav").removeClass("checked_right_nav");
+	if (data_index == "foundation") {
+		//基坑监测
+		$(".left_nav").addClass("checked_left_nav");
+		iframePath = "../foundation/foundation.html";
+	} else if (data_index = "device") {
+		//设备管理
+		$(".right_nav").addClass("checked_right_nav");
+		iframePath = "../deviceManagement/helmetManagement.html?path=router";
+	}
+	$("#mainFrame").attr("src", iframePath);
+})
+/**
+ * 获取路由(弃用)
+ */
+function getRouterPath() {
+	var path = getParam("path");
+	//iframe跳转路径
+	var iframePath;
+	if (path == "foundation") {
+		//基坑监测
+		$(".left_nav").addClass("checked_left_nav");
+		iframePath = "../foundation/foundation.html";
+	} else if (path = "device") {
+		//设备管理
+		$(".right_nav").addClass("checked_right_nav");
+		iframePath = "../deviceManagement/helmetManagement.html?path=router";
+	}
+	$("#mainFrame").attr("src", iframePath);
+}
+
+
 /**
  * 验证是否登录
  */

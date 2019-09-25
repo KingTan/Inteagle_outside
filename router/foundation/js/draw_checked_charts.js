@@ -44,13 +44,13 @@ var option = {
 			left: 36,
 			right: 36,
 			lineStyle: {
-				color: '#FFFFFF'
+				color: '#137FFF'
 			},
 			itemStyle: {
-				color: '#FFFFFF'
+				color: '#137FFF'
 			},
 			label: {
-				color: '#FFFFFF'
+				color: '#137FFF'
 			},
 			type: 'slider',
 			axisType: 'category',
@@ -62,8 +62,8 @@ var option = {
 			controlStyle: {
 				showPlayBtn: false,
 				itemSize: 12,
-				color: '#FFFFFF',
-				borderColor: '#FFFFFF'
+				color: '#137FFF',
+				borderColor: '#137FFF'
 			}
 		},
 	},
@@ -79,7 +79,6 @@ function drawChecekedCharts(dom) {
 	var myChart = echarts.init(document.getElementById(dom));
 	myChart.setOption(option);
 }
-
 
 function setSingleOption(single_x1_data, single_y1_data, single_x2_data, single_y2_data) {
 	// 单个配置项
@@ -143,7 +142,7 @@ function setSingleOption(single_x1_data, single_y1_data, single_x2_data, single_
 			y: 'top',
 			padding: 35,
 			textStyle:{
-				color:'#FFFFFF'
+				color:'#137FFF'
 			}
 		},
 		axisPointer: {
@@ -166,14 +165,14 @@ function setSingleOption(single_x1_data, single_y1_data, single_x2_data, single_
 				name: '深度(m)',
 				nameGap: 5,
 				nameTextStyle: {
-					color: '#FFFFFF'
+					color: '#137FFF'
 				},
 				boundaryGap: false,
 				axisLine: {
 					onZero: false,
 					lineStyle: {
 						type: 'solid',
-						color: '#FFFFFF'
+						color: '#137FFF'
 					}
 				},
 				data: x_rate_data
@@ -184,14 +183,14 @@ function setSingleOption(single_x1_data, single_y1_data, single_x2_data, single_
 				type: 'category',
 				nameGap: 5,
 				nameTextStyle: {
-					color: '#FFFFFF'
+					color: '#137FFF'
 				},
 				boundaryGap: false,
 				axisLine: {
 					onZero: false,
 					lineStyle: {
 						type: 'solid',
-						color: '#FFFFFF'
+						color: '#137FFF'
 					}
 				},
 				data: x_rate_data
@@ -201,13 +200,20 @@ function setSingleOption(single_x1_data, single_y1_data, single_x2_data, single_
 				name: 'x_位移量(mm)',
 				nameGap: 20,
 				nameTextStyle: {
-					color: '#FFFFFF'
+					color: '#137FFF'
 				},
 				type: 'value',
 				axisLine: {
 					lineStyle: {
-						color: '#FFFFFF'
+						color: '#137FFF'
 					}
+				},
+				splitLine: { //网格线
+					lineStyle: {
+						type: 'dashed', //设置网格线类型 dotted：虚线   solid:实线
+						color: ['#137FFF']
+					},
+					show: true //隐藏或显示
 				},
 				max: 50,
 				min: -50
@@ -217,13 +223,20 @@ function setSingleOption(single_x1_data, single_y1_data, single_x2_data, single_
 				nameGap: 30,
 				name: 'y_位移量(mm)',
 				nameTextStyle: {
-					color: '#FFFFFF'
+					color: '#137FFF'
 				},
 				type: 'value',
 				axisLine: {
 					lineStyle: {
-						color: '#FFFFFF'
+						color: '#137FFF'
 					}
+				},
+				splitLine: { //网格线
+					lineStyle: {
+						type: 'dashed', //设置网格线类型 dotted：虚线   solid:实线
+						color: ['#137FFF']
+					},
+					show: true //隐藏或显示
 				},
 				max: 50,
 				min: -50,
@@ -294,10 +307,210 @@ function setSingleOption(single_x1_data, single_y1_data, single_x2_data, single_
 	};
 	return singleOption;
 }
-
+/**
+ * 绘制选中速率图
+ */
+function draw_checked_deep_charts(){
+	var myChart = echarts.init(document.getElementById("checked_deep_charts"));
+	
+	var single_x_data = [1, 3, 2, 5, 8, 9, 15, 8, 6, 1, 7, 3, 2, 4, 8, 9];
+	var single_y_data = [8, 3, 6, 10, 12, 19, 5, 8, 4, 3, 7, 5, 7, 6, 1, 5];
+	
+	// 配置项
+	var option = {
+		color:['#FF00F6','#35F0E9'],
+		title: {
+			text: '深层水平位移速率',
+			x: 'center',
+			textStyle: {
+				color: '#FFFFFF'
+			}
+		},
+		tooltip: {
+			trigger: 'axis',
+			formatter: function(params, ticket, callback) {
+				var htmlStr = '';
+				var zhtml = "";
+				var xhtml = "";
+				for (var i = 0; i < params.length; i++) {
+					var param = params[i];
+					var xName = param.name; //x轴的名称
+					var seriesName = param.seriesName; //图例名称
+					var value = param.value; //y轴值
+					var color = param.color; //图例颜色
+	
+					xName = "当前深度:" + xName + "米";
+					if (i === 0) {
+						htmlStr += xName + '<br/>'; // 当前深度
+						htmlStr += current_check_time_old + '<br/>'
+					}
+					var singleText = '<div>';
+					//为了保证和原来的效果一样，这里自己实现了一个点的效果
+					singleText +=
+						'<span style="margin-right:5px;display:inline-block;width:10px;height:10px;border-radius:5px;background-color:' +
+						color + ';"></span>';
+					//圆点后面显示的文本
+					singleText += seriesName + '：' + value;
+					singleText += '</div>';
+					if (i % 2 == 0) {
+						zhtml += singleText;
+						if (i == 2) {
+							zhtml += "09/25 08:00:00" + '<br/>'
+						}
+					} else {
+						xhtml += singleText;
+					}
+				}
+				htmlStr = htmlStr + zhtml + xhtml;
+	
+				return htmlStr;
+			}
+		},
+		legend: {
+			data: ['x_轴速率', 'y_轴速率'],
+			orient: 'horizontal',
+			x: 'center',
+			y: 'top',
+			padding: 35,
+			textStyle:{
+				color:'#137FFF'
+			}
+		},
+		axisPointer: {
+			link: {
+				xAxisIndex: 'all'
+			}
+		},
+		grid: [{
+			left: 50,
+			right: 50,
+			height: '35%'
+		}, {
+			left: 50,
+			right: 50,
+			top: '60%',
+			height: '35%'
+		}],
+		xAxis: [{
+				type: 'category',
+				name: '深度(m)',
+				nameGap: 5,
+				nameTextStyle: {
+					color: '#137FFF'
+				},
+				boundaryGap: false,
+				axisLine: {
+					onZero: false,
+					lineStyle: {
+						type: 'solid',
+						color: '#137FFF'
+					}
+				},
+				data: x_rate_data
+			},
+			{
+				gridIndex: 1,
+				name: '深度(m)',
+				type: 'category',
+				nameGap: 5,
+				nameTextStyle: {
+					color: '#137FFF'
+				},
+				boundaryGap: false,
+				axisLine: {
+					onZero: false,
+					lineStyle: {
+						type: 'solid',
+						color: '#137FFF'
+					}
+				},
+				data: x_rate_data
+			}
+		],
+		yAxis: [{
+				name: 'x_轴速率(mm)',
+				nameGap: 20,
+				nameTextStyle: {
+					color: '#137FFF'
+				},
+				type: 'value',
+				axisLine: {
+					lineStyle: {
+						color: '#137FFF'
+					}
+				},
+				splitLine: { //网格线
+					lineStyle: {
+						type: 'dashed', //设置网格线类型 dotted：虚线   solid:实线
+						color: ['#137FFF']
+					},
+					show: true //隐藏或显示
+				},
+				max: 50,
+				min: -50
+			},
+			{
+				gridIndex: 1,
+				nameGap: 30,
+				name: 'y_轴速率(mm)',
+				nameTextStyle: {
+					color: '#137FFF'
+				},
+				type: 'value',
+				axisLine: {
+					lineStyle: {
+						color: '#137FFF'
+					}
+				},
+				splitLine: { //网格线
+					lineStyle: {
+						type: 'dashed', //设置网格线类型 dotted：虚线   solid:实线
+						color: ['#137FFF']
+					},
+					show: true //隐藏或显示
+				},
+				max: 50,
+				min: -50,
+				inverse: false
+			}
+		],
+		series: [{
+				name: 'x_轴速率',
+				type: 'line',
+				symbolSize: 8,
+				hoverAnimation: true,
+				data: single_x_data,
+				itemStyle: {
+					normal: {
+						lineStyle: {
+							color: '#FF00F6',
+						}
+					}
+				}
+			},
+			{
+				name: 'y_轴速率',
+				type: 'line',
+				xAxisIndex: 1,
+				yAxisIndex: 1,
+				symbolSize: 8,
+				hoverAnimation: true,
+				data: single_y_data,
+				itemStyle: {
+					normal: {
+						lineStyle: {
+							color: '#54FF00'
+						}
+					}
+				}
+			}
+		]
+	};
+	myChart.setOption(option);
+}
 
 /**
- * 绘制热力图option_X
+ * 绘制热力图option_X(弃用)
  */
 function drawHeatMapX_checked() {
 	// 基于准备好的dom，初始化echarts实例
@@ -392,7 +605,7 @@ function drawHeatMapX_checked() {
 }
 
 /**
- * 绘制热力图option_Y
+ * 绘制热力图option_Y(弃用)
  */
 function drawHeatMapY_checked() {
 	// 基于准备好的dom，初始化echarts实例

@@ -16,7 +16,7 @@
 	</head>
 	<body>
 		<div class="backImage">
-			<img src="img/back_t.jpg" class="backImagePic" />
+			<img src="img/back.png" class="backImagePic" />
 		</div>
 		<!-- 标题Logo -->
 		<div class="middileLogotextArea"></div>
@@ -47,17 +47,27 @@
 
 		<!-- 顶部导航栏 -->
 		<div class="row topNavArea">
-			<div class="left_nav nav_btn">
+			<div class="row navList_area">
+				<div class="row left_nav_area single_nav_area">
+					<div class="single_nav"><a href="javascript:void(0)" class="navMenu" data-index="project">项目管理</a></div>
+					<div class="single_nav"><a href="javascript:void(0)" class="navMenu check_nav" data-index="foundation">基坑监测</a></div>
+				</div>
+				<div class="row right_nav_area single_nav_area">
+					<div class="single_nav"><a href="javascript:void(0)" class="navMenu" data-index="device">设备管理</a></div>
+					<div class="single_nav"><a href="javascript:void(0)" class="navMenu" data-index="system">系统管理</a></div>
+				</div>
+			</div>
+			<!-- <div class="left_nav nav_btn">
 				<button type="button" class="layui-btn layui-btn-normal navBtn" data-index="foundation">基坑监测</button>
 			</div>
 			<div class="right_nav nav_btn">
 				<button type="button" class="layui-btn layui-btn-normal navBtn" data-index="device">设备管理</button>
-			</div>
+			</div> -->
 		</div>
 
 		<!-- 底部Iframe -->
-		<div class="mainBody" >
-			<iframe src="" id="mainFrame" class="mainFrame" name='iframe' frameborder="0"></iframe>
+		<div class="mainBody">
+			<iframe src="../foundation/foundation.html" id="mainFrame" class="mainFrame" name='iframe' frameborder="0"></iframe>
 		</div>
 
 		<!--底部备案信息区域  -->
@@ -364,11 +374,12 @@
 				
 				<div class="topCharts">
 					<!-- 折线图 -->
-					<div id="checkedBigCharts" ></div>
+					<div id="checkedBigCharts"></div>
 					<!-- 热力图 -->
 					<div class="column heatMapArea" style="visibility: hidden;">
-						<div id="heat_x_checked"></div>
-						<div id="heat_y_checked"></div>
+						<div id="checked_deep_charts"></div>
+						<!-- <div id="heat_x_checked"></div>
+						<div id="heat_y_checked"></div> -->
 					</div>
 				</div>
 			</div>

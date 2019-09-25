@@ -6,7 +6,7 @@ $.ajax({
 	type: "post",
 	async: false,
 	data: {
-		fileId: "1668283549107520"
+		fileId: "1700977817617920"
 	},
 	success: function(res) {
 		console.log("res", res);
@@ -146,26 +146,28 @@ function onSDKLoadSucceeded(viewMetaData) {
 		window.onresize = function() {
 			viewer.resize(document.documentElement.clientWidth, document.documentElement.clientHeight - 40);
 		}
-
+		
+		solidBackgroundColor(viewer);
+		
 		//测斜仪点位
 		//http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/cexie_normal.png
 		//https://www.inteagle.com.cn/tag/cexie_normal.png
 		var pic_path =
-			"http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/cexie_normal.png";
+			"https://www.inteagle.com.cn/tag/cexie_normal.png";
 		var tag_type = "测斜仪点位";
 
 		//位移管
 		//http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/weiyi_normal.png
 		//https://www.inteagle.com.cn/tag/weiyi_normal.png
 		var wy_pic_path =
-			"http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/weiyi_normal.png";
+			"https://www.inteagle.com.cn/tag/weiyi_normal.png";
 		var wy_tag_type = "位移管点位";
 
 		//水位
 		//http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/shuiwei_noraml.png
 		//https://www.inteagle.com.cn/tag/shuiwei_noraml.png
 		var sw_pic_path =
-			"http://127.0.0.1:8848/Inteagle_outside/Inteagle/page/deviceManagement/js/bimface/img/tag/shuiwei_noraml.png";
+			"https://www.inteagle.com.cn/tag/shuiwei_noraml.png";
 		var sw_tag_type = "地下水点位";
 
 		//循环添加点位
@@ -179,7 +181,6 @@ function onSDKLoadSucceeded(viewMetaData) {
 			//添加标签(水位)
 			add3DMarker(sw_tag_array[i], sw_pic_path, sw_tag_type);
 		}
-
 
 		// 更改初始视角
 		changeViewSite(viewer);
@@ -244,6 +245,17 @@ function loadScript(url, callback) {
 	script.src = url;
 	document.head.appendChild(script);
 }
+
+/**
+ * @param {Object} viewer3D
+ * 更改背景色、纯色
+ */
+function solidBackgroundColor(viewer3D) {
+	var solidColor = new Glodon.Web.Graphics.Color("#01347A", 0.8);
+	viewer3D.setBackgroundColor(solidColor);
+	viewer3D.render();
+}
+
 
 // 调整构件位置、大小、角度
 function setTransform(name, position, scale, rotation) {
@@ -311,50 +323,24 @@ function add3DMarker(position, pic_path, tag_type) {
 	marker3dConfig.tooltip = tag_type + ":" + position.id;
 
 	var marker3d = new Glodon.Bimface.Plugins.Marker3D.Marker3D(marker3dConfig);
+	
+	//标签点击事件
 	marker3d.onClick(function(item) {
-
+		var tooltip=item.tooltip;
+		
+		//设置跳转路由
+		var path="deep";
+		if(tooltip.indexOf("地下水")!=-1){
+			path="ground_water";
+		}
 		//当前选中标签的ID
 		var check_tag_id = item.position.id;
-
 		//https://www.inteagle.com.cn/router/foundation/foundation_charts.html
 		//http://127.0.0.1:8848/Inteagle_outside/router/foundation/foundation_charts.html
 		//修改父页面Iframe的路径
 		$('#mainFrame', window.parent.document).attr("src",
-			"http://127.0.0.1:8848/Inteagle_outside/router/foundation/foundation_charts.html?id=" + check_tag_id +
-			"&path=deep");
-
-		//跳转到对应圆点的 图表页面
-		//window.location.href = "../../../foundation/foundation_charts.html?id=" + check_tag_id + "&router=foundation";
-		//缩放到该boundingbox
-		// viewer.zoomToBoundingBox(boundingbox);
-		// 点击设置标签
-		//获取点击图片的postion
-		// var m = item.position;
-		// //自己设置一个boundingbox的对象
-		// var num = 1.1;
-		// var max = m.x * num;
-		// var may = m.y * num;
-		// var maz = m.z * num;
-		// var mix = m.x / num;
-		// var miy = m.y / num;
-		// var miz = m.z / num;
-		// var maxp = new Object();
-		// maxp = {
-		// 	x: max,
-		// 	y: may,
-		// 	z: maz
-		// };
-		// var minp = new Object();
-		// minp = {
-		// 	x: mix,
-		// 	y: miy,
-		// 	z: miz
-		// };
-		// var boundingbox = new Object();
-		// boundingbox = {
-		// 	max: maxp,
-		// 	min: minp
-		// };
+			"https://www.inteagle.com.cn/router/foundation/foundation_charts.html?id=" + check_tag_id +
+			"&path="+path);
 	})
 	marker.addItem(marker3d);
 	viewer.render();

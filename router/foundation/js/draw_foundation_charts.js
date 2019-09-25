@@ -18,6 +18,7 @@ var top_data_array=[
 		{"2019/09/17 08:00:35":[{"x":10,"y":-8}]}
 ];
 
+
 //当前选中的时间
 var current_check_time = "";
 
@@ -26,6 +27,7 @@ var x_rate_data = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30];
 
 //深层水平位移
 var deep_line_charts; //折线图
+var deep_speed_charts; //速率折线图
 var deep_heat_map_X; // 热力图 X
 var deep_heat_map_Y; //热力图 Y
 
@@ -48,6 +50,7 @@ var ground_water_charts; //折线图
 function setSingleOption(single_x_data, single_y_data) {
 	// 单个配置项
 	var singleOption = {
+		color: ["#C5B5E4", "#3AC9CB"],
 		title: {
 			text: '深层水平位移',
 			x: 'center',
@@ -104,6 +107,8 @@ function setSingleOption(single_x_data, single_y_data) {
 		}],
 		yAxis: [{
 				type: 'category',
+				name: "深度",
+				namePosition: "start",
 				nameTextStyle: {
 					color: '#137FFF'
 				},
@@ -123,7 +128,7 @@ function setSingleOption(single_x_data, single_y_data) {
 					show: false //隐藏或显示
 				},
 				data: x_rate_data,
-				inverse:true,
+				inverse: true,
 			},
 			{
 				gridIndex: 1,
@@ -143,7 +148,7 @@ function setSingleOption(single_x_data, single_y_data) {
 					show: false //隐藏或显示
 				},
 				data: x_rate_data,
-				inverse:true,
+				inverse: true,
 			}
 		],
 		xAxis: [{
@@ -169,6 +174,11 @@ function setSingleOption(single_x_data, single_y_data) {
 			},
 			{
 				gridIndex: 1,
+				name: "位移量",
+				namePosition: "end",
+				nameTextStyle: {
+					color: "#137FFF"
+				},
 				position: "top",
 				type: 'value',
 				axisLine: {
@@ -197,11 +207,14 @@ function setSingleOption(single_x_data, single_y_data) {
 				itemStyle: {
 					normal: {
 						lineStyle: {
-							color: 'red'
+							color: '#C5B5E4'
 						}
 					}
 				},
 				markPoint: {
+					itemStyle: {
+						color: "#C5B5E4",
+					},
 					data: [{
 							type: 'max',
 							name: '最大值'
@@ -225,11 +238,14 @@ function setSingleOption(single_x_data, single_y_data) {
 				itemStyle: {
 					normal: {
 						lineStyle: {
-							color: 'yellow'
+							color: '#3AC9CB'
 						}
 					}
 				},
 				markPoint: {
+					itemStyle: {
+						color: "#3AC9CB",
+					},
 					data: [{
 							type: 'max',
 							name: '最大值'
@@ -324,254 +340,235 @@ function drawLineCharts(id, data_single_array_all, showTimeLine) {
 	return option;
 }
 
-//初始化 echarts
+//绘制深层水平位移charts
 function inintialEcharts(dom, id, data_single_array_all, showTimeLine) {
 	// 基于准备好的dom，初始化echarts实例
 	deep_line_charts = echarts.init(document.getElementById(dom));
 	//折线图
 	deep_line_charts.setOption(drawLineCharts(id, data_single_array_all, showTimeLine));
 }
-/**
- * 绘制热力图option_X
- */
-function drawHeatMapX() {
-	// 基于准备好的dom，初始化echarts实例
-	deep_heat_map_X = echarts.init(document.getElementById("heat_x"));
-	// //横轴 时间_天  纵轴 深度  值 速率
-	// var x_data = ['0', '2', '4', '6', '8', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30'];
-	// var days = ['8-11', '8-12', '8-13', '8-14', '8-15', '8-16', '8-17'];
-	// //数据数组
-	// var data = [];
-	// for (var i = 0; i < 7; i++) {
-	// 	for (var j = 0; j < 16; j++) {
-	// 		var single_data = [i, j, Math.floor(Math.random() * 10 + 1)]; //生成0-9的随机数
-	// 		data.push(single_data);
-	// 	}
-	// }
-	//横轴 时间_天  纵轴 深度  值 速率
-	var x_data = ['0', '2', '4', '6', '8', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30'];
-	var days = ['8-11'];
-	var data = [
-		[0, 0, 9],
-		[0, 1, 3],
-		[0, 2, 4],
-		[0, 3, 1],
-		[0, 4, 1],
-		[0, 5, 6],
-		[0, 6, 7],
-		[0, 7, 2],
-		[0, 8, 5],
-		[0, 9, 2],
-		[0, 10, 4],
-		[0, 11, 5],
-		[0, 12, 9],
-		[0, 13, 8],
-		[0, 14, 1],
-		[0, 15, 8]
-	];
-
-	data = data.map(function(item) {
-		return [item[1], item[0], item[2] || '-'];
-	});
-	var option = {
-		title: {
-			text: 'x轴',
-			x: 'center',
-			top: '20%',
-			textStyle: {
-				color: '#137FFF'
-			}
-		},
-		visualMap: {
-			show: false,
-			min: 0,
-			max: 10,
-			calculable: true,
-			orient: 'horizontal',
-			left: 'center',
-			bottom: '15%'
-		},
-		tooltip: {
-			trigger: 'item',
-			formatter: function(params, ticket, callback) {
-				var shtml = "时间:" + days[params.value[1]] + "<br/>";
-				shtml += "当前深度:" + params.name + "米<br/>";
-				shtml += "速率:" + params.value[2];
-
-				return shtml;
-			}
-		},
-		animation: false,
-		grid: {
-			height: '40%',
-			left: '0%',
-			right: '4%',
-			top: '35%',
-			containLabel: true
-		},
-		xAxis: {
-			type: 'category',
-			name: '深度',
-			data: x_data,
-			splitArea: {
-				show: true
-			},
-			axisLine: {
-				lineStyle: {
-					color: '#137FFF'
-				}
-			}
-		},
-		yAxis: {
-			type: 'category',
-			name: '日期',
-			data: days,
-			splitArea: {
-				show: true
-			},
-			axisLine: {
-				lineStyle: {
-					color: '#137FFF'
-				}
-			}
-		},
-		series: [{
-			type: 'heatmap',
-			data: data,
-			label: {
-				normal: {
-					show: true
-				}
-			},
-			itemStyle: {
-				emphasis: {
-					shadowBlur: 10,
-					shadowColor: 'rgba(0, 0, 0, 0.5)'
-				}
-			}
-		}]
-	};
-	deep_heat_map_X.setOption(option);
-}
 
 /**
- * 绘制热力图option_Y
+ * 绘制深层水平位移速率charts
  */
-function drawHeatMapY() {
-	// 基于准备好的dom，初始化echarts实例
-	deep_heat_map_Y = echarts.init(document.getElementById("heat_y"));
-	// var x_data = ['0', '2', '4', '6', '8', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30'];
-	// var days = ['8-11', '8-12', '8-13', '8-14', '8-15', '8-16', '8-17'];
-	// //数据数组
-	// var data = [];
-	// for (var i = 0; i < 7; i++) {
-	// 	for (var j = 0; j < 16; j++) {
-	// 		var single_data = [i, j, Math.floor(Math.random() * 10 + 1)]; //生成0-9的随机数
-	// 		data.push(single_data);
-	// 	}
-	// }
-	var x_data = ['0', '2', '4', '6', '8', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30'];
-	var days = ['8-11'];
-	var data = [
-		[0, 0, 9],
-		[0, 1, 3],
-		[0, 2, 4],
-		[0, 3, 1],
-		[0, 4, 1],
-		[0, 5, 6],
-		[0, 6, 7],
-		[0, 7, 2],
-		[0, 8, 5],
-		[0, 9, 2],
-		[0, 10, 4],
-		[0, 11, 5],
-		[0, 12, 9],
-		[0, 13, 8],
-		[0, 14, 1],
-		[0, 15, 8]
-	];
-	data = data.map(function(item) {
-		return [item[1], item[0], item[2] || '-'];
-	});
+function drwa_deep_speed_charts() {
+	deep_speed_charts = echarts.init(document.getElementById("deep_speed_charts"));
+	var single_x_data = [1, 3, 2, 5, 8, 9, 15, 8, 6, 1, 7, 3, 2, 4, 8, 9];
+	var single_y_data = [8, 3, 6, 10, 12, 19, 5, 8, 4, 3, 7, 5, 7, 6, 1, 5];
+	var current_check_time = getNowFormatDate();
 	var option = {
+		color: ["#C5B5E4", "#3AC9CB"],
 		title: {
-			text: 'y轴',
+			text: '深层水平位移速率',
 			x: 'center',
 			textStyle: {
 				color: '#137FFF'
 			}
 		},
-		visualMap: {
-			show: false,
-			min: 0,
-			max: 10,
-			calculable: true,
-			orient: 'horizontal',
-			left: 'center',
-			bottom: '15%'
-		},
 		tooltip: {
-			trigger: 'item',
+			trigger: 'axis',
 			formatter: function(params, ticket, callback) {
-				var shtml = "时间:" + days[params.value[1]] + "<br/>";
-				shtml += "当前深度:" + params.name + "米<br/>";
-				shtml += "速率:" + params.value[2];
-
-				return shtml;
-			}
-		},
-		animation: false,
-		grid: {
-			height: '40%',
-			left: '0%',
-			right: '4%',
-			top: '15%',
-			containLabel: true
-		},
-		xAxis: {
-			type: 'category',
-			data: x_data,
-			name: '深度',
-			splitArea: {
-				show: true
-			},
-			axisLine: {
-				lineStyle: {
-					color: '#137FFF'
+				var htmlStr = '';
+				for (var i = 0; i < params.length; i++) {
+					var param = params[i];
+					var xName = param.name; //x轴的名称
+					var seriesName = param.seriesName; //图例名称
+					var value = param.value; //y轴值
+					var color = param.color; //图例颜色
+					xName = "当前深度:" + xName + "米";
+					if (i === 0) {
+						htmlStr += current_check_time + '<br/>'; //当前选中时间
+						htmlStr += xName + '<br/>'; // 当前深度
+					}
+					htmlStr += '<div>';
+					//为了保证和原来的效果一样，这里自己实现了一个点的效果
+					htmlStr +=
+						'<span style="margin-right:5px;display:inline-block;width:10px;height:10px;border-radius:5px;background-color:' +
+						color + ';"></span>';
+					//圆点后面显示的文本
+					htmlStr += seriesName + '：' + value;
+					htmlStr += '</div>';
 				}
+				return htmlStr;
 			}
 		},
-		yAxis: {
-			type: 'category',
-			data: days,
-			name: '日期',
-			splitArea: {
-				show: true
-			},
-			axisLine: {
-				lineStyle: {
+		legend: {
+			data: ['速率', '速率'],
+			x: 'left'
+		},
+		axisPointer: {
+			link: {
+				xAxisIndex: 'all'
+			}
+		},
+		grid: [{
+			left: 50,
+			right: 50,
+			height: '80%',
+			width: '40%'
+		}, {
+			left: '55%',
+			right: 50,
+			height: '80%',
+			width: '40%'
+		}],
+		yAxis: [{
+				type: 'category',
+				name: "深度",
+				namePosition: "start",
+				nameTextStyle: {
 					color: '#137FFF'
-				}
+				},
+				boundaryGap: false,
+				axisLine: {
+					onZero: false,
+					lineStyle: {
+						type: 'solid',
+						color: '#137FFF'
+					}
+				},
+				splitLine: { //网格线
+					lineStyle: {
+						type: 'dashed', //设置网格线类型 dotted：虚线   solid:实线
+						color: ['#137FFF']
+					},
+					show: false //隐藏或显示
+				},
+				data: x_rate_data,
+				inverse: true,
+			},
+			{
+				gridIndex: 1,
+				boundaryGap: false,
+				axisLine: {
+					onZero: false,
+					lineStyle: {
+						type: 'solid',
+						color: '#137FFF'
+					}
+				},
+				splitLine: { //网格线
+					lineStyle: {
+						type: 'dashed', //设置网格线类型 dotted：虚线   solid:实线
+						color: ['#137FFF']
+					},
+					show: false //隐藏或显示
+				},
+				data: x_rate_data,
+				inverse: true,
 			}
-		},
+		],
+		xAxis: [{
+				position: "top",
+				nameTextStyle: {
+					color: '#137FFF'
+				},
+				type: 'value',
+				axisLine: {
+					lineStyle: {
+						color: '#137FFF'
+					}
+				},
+				splitLine: { //网格线
+					lineStyle: {
+						type: 'dashed', //设置网格线类型 dotted：虚线   solid:实线
+						color: ['#137FFF']
+					},
+					show: true //隐藏或显示
+				},
+				max: 20,
+				min: 0
+			},
+			{
+				gridIndex: 1,
+				name: "速率",
+				namePosition: "end",
+				nameTextStyle: {
+					color: "#137FFF"
+				},
+				position: "top",
+				type: 'value',
+				axisLine: {
+					lineStyle: {
+						color: '#137FFF'
+					}
+				},
+				splitLine: { //网格线
+					lineStyle: {
+						type: 'dashed', //设置网格线类型 dotted：虚线   solid:实线
+						color: ['#137FFF']
+					},
+					show: true //隐藏或显示
+				},
+				max: 50,
+				min: -20,
+			}
+		],
 		series: [{
-			type: 'heatmap',
-			data: data,
-			label: {
-				normal: {
-					show: true
-				}
+				name: 'x_速率',
+				type: 'line',
+				symbolSize: 8,
+				hoverAnimation: true,
+				smooth: true,
+				data: single_x_data,
+				itemStyle: {
+					normal: {
+						lineStyle: {
+							color: '#C5B5E4'
+						}
+					}
+				},
+				markPoint: {
+					itemStyle: {
+						color: "#C5B5E4",
+					},
+					data: [{
+							type: 'max',
+							name: '最大值'
+						},
+						{
+							type: 'min',
+							name: '最小值'
+						}
+					]
+				},
 			},
-			itemStyle: {
-				emphasis: {
-					shadowBlur: 10,
-					shadowColor: 'rgba(0, 0, 0, 0.5)'
-				}
+			{
+				name: 'y_速率',
+				type: 'line',
+				xAxisIndex: 1,
+				yAxisIndex: 1,
+				symbolSize: 8,
+				hoverAnimation: true,
+				smooth: true,
+				data: single_y_data,
+				itemStyle: {
+					normal: {
+						lineStyle: {
+							color: '#3AC9CB'
+						}
+					}
+				},
+				markPoint: {
+					itemStyle: {
+						color: "#3AC9CB",
+					},
+					data: [{
+							type: 'max',
+							name: '最大值'
+						},
+						{
+							type: 'min',
+							name: '最小值'
+						}
+					]
+				},
 			}
-		}]
+		]
 	};
-	deep_heat_map_Y.setOption(option);
+	deep_speed_charts.setOption(option);
 }
+
 /**
  * 绘制顶部水平位移图表
  */
@@ -604,7 +601,7 @@ function draw_top_charts(top_data_single) {
 		return str.replace("2019/", '').replace(" ", "\n");
 	})
 	var option = {
-		color: ['#D53A35', '#FBE289'],
+		color: ['#71669E', '#3AC9CB'],
 		title: {
 			text: '顶部水平位移',
 			x: 'center',
@@ -667,7 +664,17 @@ function draw_top_charts(top_data_single) {
 				type: 'line',
 				data: x_rate_data,
 				smooth: true,
+				itemStyle: {
+					normal: {
+						lineStyle: {
+							color: '#71669E'
+						}
+					}
+				},
 				markPoint: {
+					itemStyle: {
+						color: "#71669E",
+					},
 					data: [{
 							type: 'max',
 							name: '最大值'
@@ -684,7 +691,17 @@ function draw_top_charts(top_data_single) {
 				type: 'line',
 				data: y_rate_data,
 				smooth: true,
+				itemStyle: {
+					normal: {
+						lineStyle: {
+							color: '#3AC9CB'
+						}
+					}
+				},
 				markPoint: {
+					itemStyle: {
+						color: "#3AC9CB",
+					},
 					data: [{
 							type: 'max',
 							name: '最大值'
@@ -806,7 +823,7 @@ function draw_top_vertical_charts(top_data_single) {
 	})
 
 	var option = {
-		color: ['#D53A35'],
+		color: ['#3AC9CB'],
 		title: {
 			text: '顶部竖向位移',
 			x: 'center',
@@ -857,11 +874,11 @@ function draw_top_vertical_charts(top_data_single) {
 				}
 			},
 			splitLine: { //网格线
-					lineStyle: {
-						type: 'dashed', //设置网格线类型 dotted：虚线   solid:实线
-						color: ['#137FFF']
-					},
-					show: true //隐藏或显示
+				lineStyle: {
+					type: 'dashed', //设置网格线类型 dotted：虚线   solid:实线
+					color: ['#137FFF']
+				},
+				show: true //隐藏或显示
 			},
 			max: 50,
 			min: -50
@@ -871,7 +888,17 @@ function draw_top_vertical_charts(top_data_single) {
 			type: 'line',
 			data: x_rate_data,
 			smooth: true,
+			itemStyle: {
+				normal: {
+					lineStyle: {
+						color: '#3AC9CB'
+					}
+				}
+			},
 			markPoint: {
+				itemStyle: {
+					color: "#3AC9CB",
+				},
 				data: [{
 						type: 'max',
 						name: '最大值'
@@ -975,6 +1002,7 @@ function draw_water_charts() {
 	var y_value_data = [5, 8, 10, 6, 2, 4, 12];
 
 	var option = {
+		color: ["#715C87"],
 		title: {
 			x: "center",
 			text: "地下水位监测图",
@@ -986,7 +1014,7 @@ function draw_water_charts() {
 			trigger: 'axis',
 			axisPointer: {
 				label: {
-					backgroundColor: '#6a7985'
+					backgroundColor: '#715C87'
 				}
 			}
 		},
@@ -1032,7 +1060,17 @@ function draw_water_charts() {
 		series: [{
 			data: y_value_data,
 			type: 'line',
+			itemStyle: {
+				normal: {
+					lineStyle: {
+						color: '#715C87'
+					}
+				}
+			},
 			markPoint: {
+				itemStyle: {
+					color: "#715C87",
+				},
 				data: [{
 						type: 'max',
 						name: '最大值'
@@ -1076,4 +1114,226 @@ window.onresize = function() {
 	if (ground_water_charts != null && ground_water_charts != undefined) {
 		ground_water_charts.resize();
 	}
+}
+
+
+/**
+ * 绘制热力图option_X(弃用)
+ */
+function drawHeatMapX() {
+	// 基于准备好的dom，初始化echarts实例
+	deep_heat_map_X = echarts.init(document.getElementById("heat_x"));
+	//横轴 时间_天  纵轴 深度  值 速率
+	var x_data = ['0', '2', '4', '6', '8', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30'];
+	var days = ['8-11'];
+	var data = [
+		[0, 0, 9],
+		[0, 1, 3],
+		[0, 2, 4],
+		[0, 3, 1],
+		[0, 4, 1],
+		[0, 5, 6],
+		[0, 6, 7],
+		[0, 7, 2],
+		[0, 8, 5],
+		[0, 9, 2],
+		[0, 10, 4],
+		[0, 11, 5],
+		[0, 12, 9],
+		[0, 13, 8],
+		[0, 14, 1],
+		[0, 15, 8]
+	];
+
+	data = data.map(function(item) {
+		return [item[1], item[0], item[2] || '-'];
+	});
+	var option = {
+		title: {
+			text: 'x轴',
+			x: 'center',
+			top: '20%',
+			textStyle: {
+				color: '#137FFF'
+			}
+		},
+		visualMap: {
+			show: false,
+			min: 0,
+			max: 10,
+			calculable: true,
+			orient: 'horizontal',
+			left: 'center',
+			bottom: '15%'
+		},
+		tooltip: {
+			trigger: 'item',
+			formatter: function(params, ticket, callback) {
+				var shtml = "时间:" + days[params.value[1]] + "<br/>";
+				shtml += "当前深度:" + params.name + "米<br/>";
+				shtml += "速率:" + params.value[2];
+
+				return shtml;
+			}
+		},
+		animation: false,
+		grid: {
+			height: '40%',
+			left: '0%',
+			right: '4%',
+			top: '35%',
+			containLabel: true
+		},
+		xAxis: {
+			type: 'category',
+			name: '深度',
+			data: x_data,
+			splitArea: {
+				show: true
+			},
+			axisLine: {
+				lineStyle: {
+					color: '#137FFF'
+				}
+			}
+		},
+		yAxis: {
+			type: 'category',
+			name: '日期',
+			data: days,
+			splitArea: {
+				show: true
+			},
+			axisLine: {
+				lineStyle: {
+					color: '#137FFF'
+				}
+			}
+		},
+		series: [{
+			type: 'heatmap',
+			data: data,
+			label: {
+				normal: {
+					show: true
+				}
+			},
+			itemStyle: {
+				emphasis: {
+					shadowBlur: 10,
+					shadowColor: 'rgba(0, 0, 0, 0.5)'
+				}
+			}
+		}]
+	};
+	deep_heat_map_X.setOption(option);
+}
+
+/**
+ * 绘制热力图option_Y(弃用)
+ */
+function drawHeatMapY() {
+	// 基于准备好的dom，初始化echarts实例
+	deep_heat_map_Y = echarts.init(document.getElementById("heat_y"));
+	var x_data = ['0', '2', '4', '6', '8', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30'];
+	var days = ['8-11'];
+	var data = [
+		[0, 0, 9],
+		[0, 1, 3],
+		[0, 2, 4],
+		[0, 3, 1],
+		[0, 4, 1],
+		[0, 5, 6],
+		[0, 6, 7],
+		[0, 7, 2],
+		[0, 8, 5],
+		[0, 9, 2],
+		[0, 10, 4],
+		[0, 11, 5],
+		[0, 12, 9],
+		[0, 13, 8],
+		[0, 14, 1],
+		[0, 15, 8]
+	];
+	data = data.map(function(item) {
+		return [item[1], item[0], item[2] || '-'];
+	});
+	var option = {
+		title: {
+			text: 'y轴',
+			x: 'center',
+			textStyle: {
+				color: '#137FFF'
+			}
+		},
+		visualMap: {
+			show: false,
+			min: 0,
+			max: 10,
+			calculable: true,
+			orient: 'horizontal',
+			left: 'center',
+			bottom: '15%'
+		},
+		tooltip: {
+			trigger: 'item',
+			formatter: function(params, ticket, callback) {
+				var shtml = "时间:" + days[params.value[1]] + "<br/>";
+				shtml += "当前深度:" + params.name + "米<br/>";
+				shtml += "速率:" + params.value[2];
+
+				return shtml;
+			}
+		},
+		animation: false,
+		grid: {
+			height: '40%',
+			left: '0%',
+			right: '4%',
+			top: '15%',
+			containLabel: true
+		},
+		xAxis: {
+			type: 'category',
+			data: x_data,
+			name: '深度',
+			splitArea: {
+				show: true
+			},
+			axisLine: {
+				lineStyle: {
+					color: '#137FFF'
+				}
+			}
+		},
+		yAxis: {
+			type: 'category',
+			data: days,
+			name: '日期',
+			splitArea: {
+				show: true
+			},
+			axisLine: {
+				lineStyle: {
+					color: '#137FFF'
+				}
+			}
+		},
+		series: [{
+			type: 'heatmap',
+			data: data,
+			label: {
+				normal: {
+					show: true
+				}
+			},
+			itemStyle: {
+				emphasis: {
+					shadowBlur: 10,
+					shadowColor: 'rgba(0, 0, 0, 0.5)'
+				}
+			}
+		}]
+	};
+	deep_heat_map_Y.setOption(option);
 }
