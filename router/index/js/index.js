@@ -22,7 +22,7 @@ $(".single_nav a").bind("click", function(dom) {
 	})
 	switch (index) {
 		case "project":
-			iframePath = "";
+			iframePath = "../projectManagement/projectManagement.html";
 			break;
 		case "foundation":
 			iframePath = "../foundation/foundation.html";

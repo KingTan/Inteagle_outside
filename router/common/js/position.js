@@ -20,23 +20,9 @@ AMap.plugin('AMap.Geolocation', function() {
 	});
 });
 
-//本地经纬度
-var lat_local = localStorage.getItem("lat");
-var lng_local = localStorage.getItem("lng");
-
 //解析定位结果
 function onComplete(data) {
-	// console.log("data------------", data);
 	console.log('定位成功');
-	if (lat_local == null && lng_local == null) {
-		//经度 纬度
-		var lat = data.position.lat;
-		var lng = data.position.lng;
-		localStorage.setItem("lat", lat);
-		localStorage.setItem("lng", lng);
-		//查询天气
-		getWeatherInfo(lat, lng);
-	}
 	var str = [];
 	str.push('定位结果：' + data.position);
 	str.push('定位类别：' + data.location_type);
@@ -44,7 +30,7 @@ function onComplete(data) {
 		str.push('精度：' + data.accuracy + ' 米');
 	} //如为IP精确定位结果则没有精度信息
 	str.push('是否经过偏移：' + (data.isConverted ? '是' : '否'));
-	// console.log(str);
+	console.log(str);
 }
 //解析定位错误信息
 function onError(data) {

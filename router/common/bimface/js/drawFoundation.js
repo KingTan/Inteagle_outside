@@ -346,33 +346,3 @@ function add3DMarker(position, pic_path, tag_type) {
 	viewer.render();
 }
 
-
-//模型上显示 图片标签
-// 	viewer.addEventListener(Glodon.Bimface.Viewer.Viewer3DEvent.ComponentsSelectionChanged, function(componentData) {
-// 		if (componentData && componentData.objectId) {
-// 			// 首先创建DrawableContainer
-// 			var drawaleContainerConfig = new Glodon.Bimface.Plugins.Drawable.DrawableContainerConfig();
-// 			drawaleContainerConfig.viewer = viewer;
-// 			var drawableContainer = new Glodon.Bimface.Plugins.Drawable.DrawableContainer(drawaleContainerConfig);
-// 			var imageConfig = new Glodon.Bimface.Plugins.Drawable.ImageConfig();
-// 
-// 			imageConfig.width = 50;
-// 			imageConfig.height = 50;
-// 			// 设置自己的imageUrl
-// 			imageConfig.src = "img/low_bat.png";
-// 			// 通过selection change可以得到构件ID和坐标
-// 			imageConfig.worldPosition = componentData.worldPosition;
-// 			var image = new Glodon.Bimface.Plugins.Drawable.Image(imageConfig);
-// 
-// 			//图片的点击事件
-// 			image.onClick(function() {
-// 				var id = image.id;
-// 				alert(id);
-// 			});
-// 
-// 			//添加image
-// 			drawableContainer.addItem(image);
-// 
-// 			console.log("加载图片标签....");
-// 		}
-// 	});

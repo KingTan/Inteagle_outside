@@ -1330,6 +1330,9 @@ select {
 		margin-left: 10%;
 		font-size: 11px;
 	}
+	.bottomArea{
+		font-size: 12px;
+	}
 }
 
 @media only screen and (min-width: 1400px) {

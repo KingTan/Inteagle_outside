@@ -8,6 +8,18 @@
 	flex-direction: column;
 }
 
+a {
+	blr: e­xpression(this.onFocus=this.blur())
+}
+
+/*for IE*/
+a {
+	outline:
+}
+
+/*for FireFox*/
+
+
 html {
 	min-width: 1200px;
 }

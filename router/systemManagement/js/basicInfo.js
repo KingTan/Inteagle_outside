@@ -6,7 +6,23 @@ var click_edit = 0;
 $(function() {
 	//页面加载完成关闭过度动画
 	closeAnimattion();
+	
+	setUserInfo();
 })
+
+/**
+ * 设置当前登陆的用户信息
+ */
+function setUserInfo(){
+	//当前登录用户对象
+	var login_user=JSON.parse(sessionStorage.getItem("LoginUserInfo"));
+	console.log("login_user-----",login_user);
+	$(".userName").text(login_user.userName); //姓名
+	$(".gender").text(login_user.gender); //性别
+	$(".phone_num").text(login_user.phone); //手机
+	$(".id_num").text(login_user.idCardNum); //身份证号码
+	$(".head_icon_pic").attr("src",login_user.headPortrait); //头像
+}
 
 /**
  * 点击编辑事件

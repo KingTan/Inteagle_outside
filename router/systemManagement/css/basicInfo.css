@@ -220,7 +220,7 @@
 	background-repeat: no-repeat;
 }
 
-.right_input_value input{
+.right_input_value input {
 	width: 100%;
 	height: 100%;
 	color: #A0C1E6;
@@ -247,13 +247,14 @@
 
 .headshotpic {
 	height: 100%;
-	width: 60%;
+	width: 75%;
 }
 
 .head_icon_pic {
 	width: 100%;
+	height: 100%;
+	border-radius: 50%;
 }
-
 .change_head_icon {
 	color: #06F1F4;
 }
