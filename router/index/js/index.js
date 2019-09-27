@@ -466,7 +466,7 @@ $(".middileLogotextArea").bind("click", function() {
 	//移除导航栏所有选中状态
 	$(".navList ul li").removeClass("check_nav");
 	//控制右边iframe路径
-	$("#mainFrame").attr("src", "curPage.html");
+	$("#mainFrame").attr("src", "../projectManagement/projectManagement.html");
 	//移除所有一级、二级菜单的选中样式
 	$(".navList ul li a").removeClass("check_nav");
 	$(".navList ul li dl dd").removeClass("check_nav");

@@ -188,7 +188,7 @@ layui.use('form', function() {
 				//显示折线图
 				$("#bigCharts").fadeIn();
 				//绘制深度水平位移 默认折线图charts
-				inintialEcharts('bigCharts', id, null, true);
+				inintialEcharts('bigCharts', id, null, false);
 			} else if (value == 2) {
 				//隐藏折线图
 				$("#bigCharts").fadeOut();

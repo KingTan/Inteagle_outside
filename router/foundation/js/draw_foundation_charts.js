@@ -96,21 +96,19 @@ function setSingleOption(single_x_data, single_y_data) {
 		},
 		grid: [{
 			left: 50,
-			right: 50,
 			height: '80%',
 			width: '40%'
 		}, {
-			left: '55%',
-			right: 50,
+			left: '52%',
 			height: '80%',
 			width: '40%'
 		}],
 		yAxis: [{
 				type: 'category',
-				name: "深度",
+				name: "深度(m)",
 				namePosition: "start",
 				nameTextStyle: {
-					color: '#137FFF'
+					color: '#FFFFFF'
 				},
 				boundaryGap: false,
 				axisLine: {
@@ -118,6 +116,11 @@ function setSingleOption(single_x_data, single_y_data) {
 					lineStyle: {
 						type: 'solid',
 						color: '#137FFF'
+					}
+				},
+				axisLabel:{
+					textStyle:{
+						color:"#FFFFFF"
 					}
 				},
 				splitLine: { //网格线
@@ -131,6 +134,11 @@ function setSingleOption(single_x_data, single_y_data) {
 				inverse: true,
 			},
 			{
+				name: "深度(m)",
+				namePosition: "start",
+				nameTextStyle: {
+					color: '#FFFFFF'
+				},
 				gridIndex: 1,
 				boundaryGap: false,
 				axisLine: {
@@ -138,6 +146,11 @@ function setSingleOption(single_x_data, single_y_data) {
 					lineStyle: {
 						type: 'solid',
 						color: '#137FFF'
+					}
+				},
+				axisLabel:{
+					textStyle:{
+						color:"#FFFFFF"
 					}
 				},
 				splitLine: { //网格线
@@ -154,12 +167,17 @@ function setSingleOption(single_x_data, single_y_data) {
 		xAxis: [{
 				position: "top",
 				nameTextStyle: {
-					color: '#137FFF'
+					color: '#FFFFFF'
 				},
 				type: 'value',
 				axisLine: {
 					lineStyle: {
 						color: '#137FFF'
+					}
+				},
+				axisLabel:{
+					textStyle:{
+						color:"#FFFFFF"
 					}
 				},
 				splitLine: { //网格线
@@ -174,16 +192,21 @@ function setSingleOption(single_x_data, single_y_data) {
 			},
 			{
 				gridIndex: 1,
-				name: "位移量",
+				name: "位移量(mm)",
 				namePosition: "end",
 				nameTextStyle: {
-					color: "#137FFF"
+					color: "#FFFFFF"
 				},
 				position: "top",
 				type: 'value',
 				axisLine: {
 					lineStyle: {
 						color: '#137FFF'
+					}
+				},
+				axisLabel:{
+					textStyle:{
+						color:"#FFFFFF"
 					}
 				},
 				splitLine: { //网格线
@@ -207,7 +230,7 @@ function setSingleOption(single_x_data, single_y_data) {
 				itemStyle: {
 					normal: {
 						lineStyle: {
-							color: '#C5B5E4'
+							color: '#FFFFFF'
 						}
 					}
 				},
@@ -238,7 +261,7 @@ function setSingleOption(single_x_data, single_y_data) {
 				itemStyle: {
 					normal: {
 						lineStyle: {
-							color: '#3AC9CB'
+							color: '#FFFFFF'
 						}
 					}
 				},
@@ -313,10 +336,10 @@ function drawLineCharts(id, data_single_array_all, showTimeLine) {
 					color: '#137FFF'
 				},
 				itemStyle: {
-					color: '#137FFF'
+					color: '#FFFFFF'
 				},
 				label: {
-					color: '#137FFF'
+					color: '#FFFFFF'
 				},
 				type: 'slider',
 				axisType: 'category',
@@ -330,8 +353,8 @@ function drawLineCharts(id, data_single_array_all, showTimeLine) {
 				controlStyle: {
 					showPlayBtn: false,
 					itemSize: 12,
-					color: '#137FFF',
-					borderColor: '#137FFF'
+					color: '#FFFFFF',
+					borderColor: '#FFFFFF'
 				}
 			},
 		},
@@ -414,10 +437,10 @@ function drwa_deep_speed_charts() {
 		}],
 		yAxis: [{
 				type: 'category',
-				name: "深度",
+				name: "深度(m)",
 				namePosition: "start",
 				nameTextStyle: {
-					color: '#137FFF'
+					color: '#FFFFFF'
 				},
 				boundaryGap: false,
 				axisLine: {
@@ -425,6 +448,11 @@ function drwa_deep_speed_charts() {
 					lineStyle: {
 						type: 'solid',
 						color: '#137FFF'
+					}
+				},
+				axisLabel:{
+					textStyle:{
+						color:"#FFFFFF"
 					}
 				},
 				splitLine: { //网格线
@@ -438,6 +466,11 @@ function drwa_deep_speed_charts() {
 				inverse: true,
 			},
 			{
+				name: "深度(m)",
+				namePosition: "start",
+				nameTextStyle: {
+					color: '#FFFFFF'
+				},
 				gridIndex: 1,
 				boundaryGap: false,
 				axisLine: {
@@ -445,6 +478,11 @@ function drwa_deep_speed_charts() {
 					lineStyle: {
 						type: 'solid',
 						color: '#137FFF'
+					}
+				},
+				axisLabel:{
+					textStyle:{
+						color:"#FFFFFF"
 					}
 				},
 				splitLine: { //网格线
@@ -461,12 +499,17 @@ function drwa_deep_speed_charts() {
 		xAxis: [{
 				position: "top",
 				nameTextStyle: {
-					color: '#137FFF'
+					color: '#ffffff'
 				},
 				type: 'value',
 				axisLine: {
 					lineStyle: {
 						color: '#137FFF'
+					}
+				},
+				axisLabel:{
+					textStyle:{
+						color:"#FFFFFF"
 					}
 				},
 				splitLine: { //网格线
@@ -484,13 +527,18 @@ function drwa_deep_speed_charts() {
 				name: "速率",
 				namePosition: "end",
 				nameTextStyle: {
-					color: "#137FFF"
+					color: "#FFFFFF"
 				},
 				position: "top",
 				type: 'value',
 				axisLine: {
 					lineStyle: {
 						color: '#137FFF'
+					}
+				},
+				axisLabel:{
+					textStyle:{
+						color:"#FFFFFF"
 					}
 				},
 				splitLine: { //网格线
@@ -635,6 +683,11 @@ function draw_top_charts(top_data_single) {
 					color: '#137FFF'
 				}
 			},
+			axisLabel:{
+				textStyle:{
+					color:"#FFFFFF"
+				}
+			},
 			data: x_time_data
 		},
 		yAxis: {
@@ -647,6 +700,11 @@ function draw_top_charts(top_data_single) {
 			axisLine: {
 				lineStyle: {
 					color: '#137FFF'
+				}
+			},
+			axisLabel:{
+				textStyle:{
+					color:"#FFFFFF"
 				}
 			},
 			splitLine: { //网格线
@@ -750,6 +808,11 @@ function draw_top_speed_charts() {
 			axisTick: {
 				alignWithLabel: true
 			},
+			axisLabel:{
+				textStyle:{
+					color:"#FFFFFF"
+				}
+			},
 			axisLine: {
 				onZero: false,
 				lineStyle: {
@@ -765,6 +828,11 @@ function draw_top_speed_charts() {
 				lineStyle: {
 					type: 'solid',
 					color: '#137FFF'
+				}
+			},
+			axisLabel:{
+				textStyle:{
+					color:"#FFFFFF"
 				}
 			},
 			splitLine: { //网格线
@@ -857,6 +925,11 @@ function draw_top_vertical_charts(top_data_single) {
 					color: '#137FFF'
 				}
 			},
+			axisLabel:{
+				textStyle:{
+					color:"#FFFFFF"
+				}
+			},
 			data: x_time_data.map(function(str) {
 				return str.replace(' ', '\n')
 			}),
@@ -871,6 +944,11 @@ function draw_top_vertical_charts(top_data_single) {
 			axisLine: {
 				lineStyle: {
 					color: '#137FFF'
+				}
+			},
+			axisLabel:{
+				textStyle:{
+					color:"#FFFFFF"
 				}
 			},
 			splitLine: { //网格线
@@ -952,7 +1030,12 @@ function draw_vertical_speed_charts() {
 					type: 'solid',
 					color: '#137FFF'
 				}
-			}
+			},
+			axisLabel:{
+				textStyle:{
+					color:"#FFFFFF"
+				}
+			},
 		}],
 		yAxis: [{
 			type: 'value',
@@ -961,6 +1044,11 @@ function draw_vertical_speed_charts() {
 				lineStyle: {
 					type: 'solid',
 					color: '#137FFF'
+				}
+			},
+			axisLabel:{
+				textStyle:{
+					color:"#FFFFFF"
 				}
 			},
 			splitLine: { //网格线
@@ -1036,7 +1124,12 @@ function draw_water_charts() {
 					type: 'solid',
 					color: '#137FFF'
 				}
-			}
+			},
+			axisLabel:{
+				textStyle:{
+					color:"#FFFFFF"
+				}
+			},
 		},
 		yAxis: {
 			type: 'value',
@@ -1047,6 +1140,11 @@ function draw_water_charts() {
 				lineStyle: {
 					type: 'solid',
 					color: '#137FFF'
+				}
+			},
+			axisLabel:{
+				textStyle:{
+					color:"#FFFFFF"
 				}
 			},
 			splitLine: { //网格线
