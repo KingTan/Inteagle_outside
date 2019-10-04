@@ -7,13 +7,55 @@ $(".exportBtn").bind("click", function(dom) {
 })
 
 // 本地路径
-// http://192.168.1.79:8080/getHelmetData
+// http://127.0.0.1:8080/getHelmetData
 // 服务器路径
 // https://www.inteagle.com.cn/Inteagle_java/getHelmetData
 
+var table ;
+
+/**
+ * 删除所有数据
+ */
+$(".delDataBtn").bind("click", function() {
+	$.ajax({
+		url: "https://www.inteagle.com.cn/Inteagle_java/delAllIdInfoData",
+		type: "post",
+		data: {},
+		success: function(res) {
+			console.log("res", res);
+			if (res.state == 500) {
+				layer.ready(function() {
+					layer.msg("数据删除失败", {
+						icon: 2,
+						time: 1000
+					}, function() {});
+				})
+			} else {
+				//跳转到index界面
+				layer.ready(function() {
+					layer.msg("删除成功", {
+						icon: 1,
+						time: 1000
+					}, function() {
+						//刷新列表
+						table.reload("ztable", { //此处是上文提到的 初始化标识id
+							where: {
+								type: "all",
+								id: "ztable"
+							}
+						});
+					});
+				})
+			}
+		},
+		error: function(badRes) {}
+	});
+})
+
 layui.use('table', function() {
-	var table = layui.table;
+	table = layui.table;
 	table.render({
+		id: "ztable",
 		elem: '#demo',
 		url: 'https://www.inteagle.com.cn/Inteagle_java/getHelmetData',
 		parseData: function(res) { //res 即为原始返回的数据
