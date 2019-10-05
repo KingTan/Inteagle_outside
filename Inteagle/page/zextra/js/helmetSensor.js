@@ -1,16 +1,26 @@
-/**
- * 页面加载事件
- */
-$(function() {
-
-})
+var table;
 
 // 本地路径
 // http://127.0.0.1:8080/layuiTableData
 // 服务器路径
 // https://www.inteagle.com.cn/Inteagle_java/layuiTableData
 
-var table ;
+/**
+ * 页面加载事件
+ */
+$(function() {
+
+	layui.use('table', function() {
+		table = layui.table;
+		initialTable(table);
+	});
+
+
+})
+
+
+
+
 
 /**
  * 删除所有数据
@@ -38,10 +48,12 @@ $(".delDataBtn").bind("click", function() {
 					}, function() {
 						//刷新列表
 						table.reload("ztable", { //此处是上文提到的 初始化标识id
+							page: {
+								curr: 1 //重新从第 1 页开始
+							},
 							where: {
-								type: "all",
-								id: "ztable"
-							}
+								time: new Date()
+							},
 						});
 					});
 				})
@@ -60,11 +72,17 @@ $(".exportBtn").bind("click", function(dom) {
 	window.location.href = "https://www.inteagle.com.cn/Inteagle_java/exportHelmetSensorData";
 })
 
-layui.use('table', function() {
-	table= layui.table;
+
+
+/**
+ * @param {Object} table
+ * 初始化表格数据
+ */
+function initialTable(table) {
 	table.render({
 		id: "ztable",
 		elem: '#test',
+		method: "POST",
 		url: 'https://www.inteagle.com.cn/Inteagle_java/layuiTableData',
 		parseData: function(res) { //res 即为原始返回的数据
 			console.log(res);
@@ -75,8 +93,8 @@ layui.use('table', function() {
 				"data": res.data.list //解析数据列表
 			};
 		},
-		limit:10,
-		limits:10,
+		limit: 10,
+		limits: 10,
 		response: {
 			statusCode: 200, //重新规定成功的状态码为 200，table 组件默认为 0
 		},
@@ -84,7 +102,7 @@ layui.use('table', function() {
 			,
 		cols: [
 			[{
-				field: 'id',
+				field: 'unSignedId',
 				width: '20%',
 				title: '设备ID',
 				sort: true
@@ -115,4 +133,4 @@ layui.use('table', function() {
 			last: '末页', //不显示尾页
 		}
 	});
-});
+}

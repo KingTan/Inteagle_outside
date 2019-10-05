@@ -1,3 +1,20 @@
+// 本地路径
+// http://127.0.0.1:8080/getHelmetData
+// 服务器路径
+// https://www.inteagle.com.cn/Inteagle_java/getHelmetData
+
+var table;
+
+/**
+ * 页面加载事件
+ */
+$(function() {
+	layui.use('table', function() {
+		table = layui.table;
+		initialTable(table);
+	});
+})
+
 /**
  * 导出所有数据excel
  */
@@ -5,13 +22,6 @@ $(".exportBtn").bind("click", function(dom) {
 	//导出excel
 	window.location.href = "https://www.inteagle.com.cn/Inteagle_java/exportHelmetPositionData";
 })
-
-// 本地路径
-// http://127.0.0.1:8080/getHelmetData
-// 服务器路径
-// https://www.inteagle.com.cn/Inteagle_java/getHelmetData
-
-var table ;
 
 /**
  * 删除所有数据
@@ -39,10 +49,12 @@ $(".delDataBtn").bind("click", function() {
 					}, function() {
 						//刷新列表
 						table.reload("ztable", { //此处是上文提到的 初始化标识id
+							page: {
+								curr: 1 //重新从第 1 页开始
+							},
 							where: {
-								type: "all",
-								id: "ztable"
-							}
+								time: new Date()
+							},
 						});
 					});
 				})
@@ -52,11 +64,15 @@ $(".delDataBtn").bind("click", function() {
 	});
 })
 
-layui.use('table', function() {
-	table = layui.table;
+/**
+ * @param {Object} table
+ * 初始化表格数据
+ */
+function initialTable(table) {
 	table.render({
 		id: "ztable",
 		elem: '#demo',
+		method: "POST",
 		url: 'https://www.inteagle.com.cn/Inteagle_java/getHelmetData',
 		parseData: function(res) { //res 即为原始返回的数据
 			console.log(res);
@@ -74,7 +90,7 @@ layui.use('table', function() {
 			,
 		cols: [
 			[{
-				field: 'id',
+				field: 'unSignedId',
 				width: '16%',
 				title: '设备ID',
 				sort: true
@@ -109,4 +125,4 @@ layui.use('table', function() {
 			last: '末页', //不显示尾页
 		}
 	});
-});
+}

@@ -1,16 +1,14 @@
-/**
- * 页面加载事件
- */
-$(function() {
-
-})
-
 var table;
 
 // 本地路径
 // http://127.0.0.1:8080/getDeviceActionList
 // 服务器路径
 // https://www.inteagle.com.cn/Inteagle_java/getDeviceActionList
+
+/**
+ * 页面加载事件
+ */
+$(function() {})
 
 /**
  * 删除所有数据
@@ -38,10 +36,13 @@ $(".delDataBtn").bind("click", function() {
 					}, function() {
 						//刷新列表
 						table.reload("ztable", { //此处是上文提到的 初始化标识id
+							page: {
+								curr: 1 //重新从第 1 页开始
+							},
 							where: {
-								type: "all",
-								id: "ztable"
-							}
+								time: new Date()
+							},
+							cache: false
 						});
 					});
 				})
@@ -56,6 +57,13 @@ layui.use('table', function() {
 	table.render({
 		id: "ztable",
 		elem: '#test',
+		cache: false,
+		even: false,
+		loading: true,
+		method: "POST",  //设置POST请求 防止页面数据缓存
+		where: {
+			type: "all"
+		},
 		url: 'https://www.inteagle.com.cn/Inteagle_java/getDeviceActionList',
 		parseData: function(res) { //res 即为原始返回的数据
 			console.log(res);
@@ -120,7 +128,7 @@ layui.use('table', function() {
 		},
 		cols: [
 			[{
-				field: 'device_id',
+				field: 'unSignedId',
 				width: '20%',
 				title: '设备ID'
 			}, {
