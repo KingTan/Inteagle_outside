@@ -15,6 +15,7 @@ $(function() {
 	canvasTool();
 	//页面加载时 切换到首页
 	onLoadShow();
+	
 })
 
 /**

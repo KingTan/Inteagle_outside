@@ -48,6 +48,8 @@ var ground_water_charts; //折线图
  * 返回单个折线图option配置项
  */
 function setSingleOption(single_x_data, single_y_data) {
+	console.log("single_x_data---",single_x_data);
+	console.log("single_y_data----",single_y_data);
 	// 单个配置项
 	var singleOption = {
 		color: ["#C5B5E4", "#3AC9CB"],

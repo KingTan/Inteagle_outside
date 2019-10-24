@@ -43,8 +43,58 @@ function showHelmetWarningModal(helmet_id) {
 				layform = layui.form;
 				layform.render();
 			});
+		}
+	});
+}
 
+/**
+ * 位移值报警弹窗
+ */
+function showdisplacementWarningModal() {
+	var html = document.getElementById("displacementWarningModal").innerHTML;
+	//页面层-自定义
+	layer.open({
+		type: 1,
+		time: 5000,
+		title: false,
+		closeBtn: 0,
+		area: ['555px', '376px'],
+		shadeClose: true,
+		scrollbar: true,
+		resize: false,
+		content: html,
+		success: function() {
+			//初始化 from 对象
+			layui.use('form', function() {
+				layform = layui.form;
+				layform.render();
+			});
+		}
+	});
+}
 
+/**
+ * 位移速率值报警弹窗
+ */
+function showspeedWarningModal() {
+	var html = document.getElementById("speedWarningModal").innerHTML;
+	//页面层-自定义
+	layer.open({
+		type: 1,
+		time: 5000,
+		title: false,
+		closeBtn: 0,
+		area: ['555px', '376px'],
+		shadeClose: true,
+		scrollbar: true,
+		resize: false,
+		content: html,
+		success: function() {
+			//初始化 from 对象
+			layui.use('form', function() {
+				layform = layui.form;
+				layform.render();
+			});
 		}
 	});
 }

@@ -107,7 +107,7 @@ layui.use('table', function() {
 				}
 
 				var dataObj = {
-					"device_id": dataList[i].device_id,
+					"device_id": dataList[i].unSignedId,
 					"action_str": action_str,
 					"device_type_str": device_type_str,
 					"priority": dataList[i].priority,
@@ -128,7 +128,7 @@ layui.use('table', function() {
 		},
 		cols: [
 			[{
-				field: 'unSignedId',
+				field: 'device_id',
 				width: '20%',
 				title: '设备ID'
 			}, {
