@@ -8,7 +8,9 @@ var table;
 /**
  * 页面加载事件
  */
-$(function() {})
+$(function() {
+
+})
 
 /**
  * 删除所有数据
@@ -60,7 +62,7 @@ layui.use('table', function() {
 		cache: false,
 		even: false,
 		loading: true,
-		method: "POST",  //设置POST请求 防止页面数据缓存
+		method: "POST", //设置POST请求 防止页面数据缓存
 		where: {
 			type: "all"
 		},

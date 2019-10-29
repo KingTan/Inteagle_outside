@@ -20,8 +20,19 @@
 	height: 2.375rem;
 	border: 0.0625rem solid rgba(231, 240, 247, 1);
 }
-.export_btn{
+
+.export_btn {
 	width: 100%;
 	margin-top: 2%;
 	text-align: center;
+}
+
+.table_type_pick {
+	position: absolute;
+	margin-left: 10%;
+}
+
+.table_are {
+	width: 100%;
+	height: 100%;
 }
